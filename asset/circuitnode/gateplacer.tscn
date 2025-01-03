@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://0paeyr6slw1a"]
+
+[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://asset/grid_texture/dark/texture_08.png" id="1_663hh"]
+[ext_resource type="PackedScene" uid="uid://ck7hbbg7mgmo6" path="res://asset/circuitnode/switch.tscn" id="2_40kqc"]
+[ext_resource type="Script" path="res://asset/circuitnode/script/placer.gd" id="2_ngd8o"]
+[ext_resource type="PackedScene" uid="uid://cc2lkw0c4hxox" path="res://asset/circuitnode/gate/nor_gate.tscn" id="3_0657g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7rdm"]
+albedo_texture = ExtResource("1_663hh")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_wbw3w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5313"]
+
+[node name="gateplacer" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.645, 0, 0, 0, 0.3, 0, 0, 0, 1.4, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_q7rdm")
+mesh = SubResource("BoxMesh_wbw3w")
+
+[node name="Node3D" type="Node3D" parent="MeshInstance3D"]
+
+[node name="Placer" type="MeshInstance3D" parent="MeshInstance3D/Node3D"]
+transform = Transform3D(0.227793, 0, 0, 0, 0.651978, 0, 0, 0, 0.53105, 0, 0.424347, 0)
+mesh = SubResource("BoxMesh_l5313")
+skeleton = NodePath("../..")
+script = ExtResource("2_ngd8o")
+
+[node name="Node3D2" type="Node3D" parent="MeshInstance3D"]
+
+[node name="OutputBox" type="MeshInstance3D" parent="MeshInstance3D/Node3D2"]
+transform = Transform3D(0.129753, 0, 0, 0, 0.651978, 0, 0, 0, 0.335296, 0.335205, 0.424347, 0)
+mesh = SubResource("BoxMesh_l5313")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D/Node3D2"]
+transform = Transform3D(0.323828, 0, 0, 0, -0.279862, 0.892061, 0, -0.604376, -0.413078, 0.338752, 0.882011, 0)
+text = "0"
+font_size = 40
+
+[node name="Switch" parent="." instance=ExtResource("2_40kqc")]
+transform = Transform3D(0.336, 0, 0, 0, -1.39876e-08, 0.5, 0, -0.32, -2.18557e-08, -1.13087, 1.19209e-07, -0.401265)
+label_3d = NodePath("../MeshInstance3D/Node3D2/Label3D")
+
+[node name="Switch2" parent="." instance=ExtResource("2_40kqc")]
+transform = Transform3D(0.336, 0, 0, 0, -1.39876e-08, 0.5, 0, -0.32, -2.18557e-08, -1.13087, 1.19209e-07, 0.278342)
+label_3d = NodePath("../MeshInstance3D/Node3D2/Label3D")
+
+[node name="NorGate" parent="." instance=ExtResource("3_0657g")]

@@ -1,0 +1,202 @@
+[gd_scene load_steps=20 format=3 uid="uid://c42y0t5f7neu0"]
+
+[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://asset/grid_texture/dark/texture_08.png" id="1_qfo4j"]
+[ext_resource type="Texture2D" uid="uid://bf3ywp0eda70m" path="res://asset/grid_texture/orange/texture_02.png" id="2_m3lhf"]
+[ext_resource type="PackedScene" uid="uid://c1wm8bmgu3u5d" path="res://bsplayer/bs_player.tscn" id="2_sxlhy"]
+[ext_resource type="Texture2D" uid="uid://djugnb5hh60e1" path="res://asset/grid_texture/green/texture_01.png" id="3_rcj00"]
+[ext_resource type="Texture2D" uid="uid://vjyuenafv7nn" path="res://asset/grid_texture/purple/texture_01.png" id="4_o1eyf"]
+[ext_resource type="Texture2D" uid="uid://lx420uemhmm0" path="res://asset/grid_texture/purple/texture_09.png" id="6_t1keu"]
+[ext_resource type="Texture2D" uid="uid://cpfdkqahm36qh" path="res://asset/grid_texture/red/texture_10.png" id="7_tvosu"]
+[ext_resource type="PackedScene" uid="uid://brmd78i55k8b8" path="res://asset/circuitnode/binarycounter.tscn" id="10_foi5i"]
+[ext_resource type="PackedScene" uid="uid://dwl1edbnmvwm3" path="res://test_switch.tscn" id="11_lkkv5"]
+[ext_resource type="PackedScene" uid="uid://dhd4tlegtxppg" path="res://test_gate.tscn" id="12_61d8d"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_g41kp"]
+
+[sub_resource type="Sky" id="Sky_iqj6o"]
+sky_material = SubResource("PhysicalSkyMaterial_g41kp")
+
+[sub_resource type="Environment" id="Environment_hy2gv"]
+background_mode = 2
+sky = SubResource("Sky_iqj6o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4jue"]
+albedo_texture = ExtResource("7_tvosu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcduc"]
+albedo_texture = ExtResource("6_t1keu")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsjcs"]
+albedo_texture = ExtResource("1_qfo4j")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4ait"]
+albedo_texture = ExtResource("2_m3lhf")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sf8xn"]
+albedo_texture = ExtResource("3_rcj00")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_stngm"]
+albedo_texture = ExtResource("4_o1eyf")
+uv1_triplanar = true
+
+[node name="worldtester" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 6, -20)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hy2gv")
+
+[node name="BsPlayer" parent="." instance=ExtResource("2_sxlhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21122, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.648, 5.94432, -2.25185)
+material_override = SubResource("StandardMaterial3D_f4jue")
+use_collision = true
+size = Vector3(27.5891, 11, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35201, 5.94432, -1.26799)
+material_override = SubResource("StandardMaterial3D_pcduc")
+use_collision = true
+flip_faces = true
+size = Vector3(27.5891, 11, 23)
+
+[node name="lightgroup" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 6, 11, -10)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D/lightgroup"]
+light_color = Color(0.545694, 0.581645, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 2.94
+light_volumetric_fog_energy = 3.101
+light_bake_mode = 1
+omni_range = 20.0
+omni_shadow_mode = 0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D/lightgroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.707107, 0, 12.0208)
+light_color = Color(0.694575, 0.81, 0.6885, 1)
+light_energy = 16.0
+light_indirect_energy = 2.94
+light_volumetric_fog_energy = 3.101
+light_bake_mode = 1
+omni_range = 20.0
+omni_shadow_mode = 0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Node3D/lightgroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41421, 0, 22.6274)
+light_color = Color(0.9895, 0.167544, 0.160667, 1)
+light_energy = 16.0
+light_indirect_energy = 2.94
+light_volumetric_fog_energy = 3.101
+light_bake_mode = 1
+omni_range = 20.0
+omni_shadow_mode = 0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0.5)
+material_override = SubResource("StandardMaterial3D_fsjcs")
+use_collision = true
+size = Vector3(44, 1, 54)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0, 1, -7)
+material_override = SubResource("StandardMaterial3D_a4ait")
+use_collision = true
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1, 1, -6)
+material_override = SubResource("StandardMaterial3D_sf8xn")
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2, 1, -8)
+material_override = SubResource("StandardMaterial3D_stngm")
+use_collision = true
+
+[node name="Node3D4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Label3D2" type="Label3D" parent="Node3D4"]
+transform = Transform3D(-1.49012e-07, 0, 1, 0, 1, 0, -1, 0, -1.49012e-07, -16, 7, -9.53674e-07)
+text = "XOR GATE"
+font_size = 100
+
+[node name="Label3D5" type="Label3D" parent="Node3D4"]
+transform = Transform3D(-1.49012e-07, 0, 1, 0, 1, 0, -1, 0, -1.49012e-07, -16, 7, -13)
+text = "OR GATE"
+font_size = 100
+
+[node name="Label3DLeft" type="Label3D" parent="Node3D4"]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -16, 6, 0)
+text = "0"
+font_size = 100
+
+[node name="Label3DRight" type="Label3D" parent="Node3D4"]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -16, 6, -13)
+text = "0"
+font_size = 100
+
+[node name="TestSwitch" parent="Node3D4" instance=ExtResource("11_lkkv5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 4, 2)
+label_3d = NodePath("../Label3DLeft")
+
+[node name="TestSwitch2" parent="Node3D4" instance=ExtResource("11_lkkv5")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -16, 4, -2)
+label_3d = NodePath("../Label3DLeft")
+
+[node name="TestSwitch3" parent="Node3D4" instance=ExtResource("11_lkkv5")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -16, 4, -11)
+label_3d = NodePath("../Label3DRight")
+
+[node name="TestSwitch4" parent="Node3D4" instance=ExtResource("11_lkkv5")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -16, 4, -15)
+label_3d = NodePath("../Label3DRight")
+
+[node name="TestGate" parent="Node3D4" node_paths=PackedStringArray("label_3d") instance=ExtResource("12_61d8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 4, 0)
+input_a = NodePath("../TestSwitch")
+input_b = NodePath("../TestSwitch2")
+gate_type = "XOR"
+label_3d = NodePath("../Label3DLeft")
+output_from_gate = NodePath("../TestGate2")
+
+[node name="TestGate2" parent="Node3D4" node_paths=PackedStringArray("label_3d") instance=ExtResource("12_61d8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6, -6)
+input_b = NodePath("../TestSwitch3")
+label_3d = NodePath("../Label3DMid")
+
+[node name="TestGate3" parent="Node3D4" node_paths=PackedStringArray("label_3d") instance=ExtResource("12_61d8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 4, -13)
+input_a = NodePath("../TestSwitch3")
+input_b = NodePath("../TestSwitch4")
+gate_type = "OR"
+label_3d = NodePath("../Label3DRight")
+
+[node name="Label3D3" type="Label3D" parent="Node3D4"]
+transform = Transform3D(-2.54312e-07, 0, 1, 0, 1, 0, -1, 0, -2.54312e-07, -16, 7.61856, -5.78776)
+text = "TestGATEMidde"
+font_size = 100
+
+[node name="Label3DMid" type="Label3D" parent="Node3D4"]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -16, 7, -6)
+text = "0"
+font_size = 100
+
+[node name="BinaryCounter" parent="." instance=ExtResource("10_foi5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -3)
+
+[connection signal="state_changed" from="Node3D4/TestSwitch" to="Node3D4/TestGate" method="_on_test_switch_state_changed"]
+[connection signal="state_changed" from="Node3D4/TestSwitch2" to="Node3D4/TestGate" method="_on_test_switch_2_state_changed"]
+[connection signal="state_changed" from="Node3D4/TestSwitch3" to="Node3D4/TestGate" method="_on_test_switch_2_state_changed"]
+[connection signal="state_changed" from="Node3D4/TestSwitch4" to="Node3D4/TestGate" method="_on_test_switch_2_state_changed"]

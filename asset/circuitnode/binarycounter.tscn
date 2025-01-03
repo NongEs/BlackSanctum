@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://brmd78i55k8b8"]
+
+[ext_resource type="Script" path="res://asset/circuitnode/script/binarycounter.gd" id="1_f0hgd"]
+[ext_resource type="Texture2D" uid="uid://dmxhqxmnlla2i" path="res://asset/grid_texture/red/texture_13.png" id="2_3wd5u"]
+[ext_resource type="PackedScene" uid="uid://ck7hbbg7mgmo6" path="res://asset/circuitnode/switch.tscn" id="3_f2f1m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_870nu"]
+albedo_texture = ExtResource("2_3wd5u")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5f266"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_biy4x"]
+
+[node name="BinaryCounter" type="StaticBody3D"]
+script = ExtResource("1_f0hgd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.76, 0, 0, 0, 0.4, 0, 0, 0, 5.25, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_870nu")
+mesh = SubResource("BoxMesh_5f266")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_biy4x")
+
+[node name="labeltogether" type="Node3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0, 0.292896, 0.17063)
+text = "0"
+font_size = 80
+
+[node name="Label3D2" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0, 0.292896, 0.450392)
+text = "0"
+font_size = 80
+
+[node name="Label3D3" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0, 0.292896, 0.742638)
+text = "0"
+font_size = 80
+
+[node name="Label3D4" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0, 0.292896, 0.995848)
+text = "0"
+font_size = 80
+
+[node name="Label3D5" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0, 0.292896, 1.23992)
+text = "0"
+font_size = 80
+
+[node name="Label3D6" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0, 0.292896, 1.48175)
+text = "0"
+font_size = 80
+
+[node name="Label3D7" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0, 0.292896, 1.74093)
+text = "0"
+font_size = 80
+
+[node name="Label3D8" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0, 0.292896, 1.99247)
+text = "0"
+font_size = 80
+
+[node name="switchtogether" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.597678)
+
+[node name="Switch" parent="switchtogether" instance=ExtResource("3_f2f1m")]
+transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, 0.280578, 0.210086, -1.50787)
+label_3d = NodePath("../../labeltogether/Label3D")
+
+[node name="Switch2" parent="switchtogether" instance=ExtResource("3_f2f1m")]
+transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, 0.280578, 0.210086, -1.08624)
+label_3d = NodePath("../../labeltogether/Label3D2")
+
+[node name="Switch3" parent="switchtogether" instance=ExtResource("3_f2f1m")]
+transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, 0.280578, 0.210086, -0.665314)
+label_3d = NodePath("../../labeltogether/Label3D3")
+
+[node name="Switch4" parent="switchtogether" instance=ExtResource("3_f2f1m")]
+transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, 0.280578, 0.210086, -0.227047)
+label_3d = NodePath("../../labeltogether/Label3D4")
+
+[node name="Switch5" parent="switchtogether" instance=ExtResource("3_f2f1m")]
+transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, -0.308494, 0.210086, -1.5252)
+label_3d = NodePath("../../labeltogether/Label3D5")
+
+[node name="Switch6" parent="switchtogether" instance=ExtResource("3_f2f1m")]
+transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, -0.318143, 0.210086, -1.08624)
+label_3d = NodePath("../../labeltogether/Label3D6")
+
+[node name="Switch7" parent="switchtogether" instance=ExtResource("3_f2f1m")]
+transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, -0.336342, 0.210086, -0.659009)
+label_3d = NodePath("../../labeltogether/Label3D7")
+
+[node name="Switch8" parent="switchtogether" instance=ExtResource("3_f2f1m")]
+transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, -0.336342, 0.210086, -0.227874)
+label_3d = NodePath("../../labeltogether/Label3D8")

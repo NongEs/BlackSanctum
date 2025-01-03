@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwl1edbnmvwm3"]
+
+[ext_resource type="Script" path="res://asset/circuitnode/script/switch.gd" id="1_jk8bi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_asect"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cnbdk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5424"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_icw7h"]
+
+[node name="TestSwitch" type="StaticBody3D"]
+script = ExtResource("1_jk8bi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_asect")
+surface_material_override/0 = SubResource("StandardMaterial3D_cnbdk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_e5424")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.5)
+mesh = SubResource("SphereMesh_icw7h")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

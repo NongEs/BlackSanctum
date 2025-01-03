@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1wm8bmgu3u5d"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_1wvty"]
+[ext_resource type="PackedScene" uid="uid://dkdcvndo46anb" path="res://player/InteractRay.tscn" id="1_b6agj"]
+[ext_resource type="Texture2D" uid="uid://buu3eogm3spo6" path="res://player/crosshair.png" id="3_rkstb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_80d0r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gnebo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d46nf"]
+radius = 0.9
+
+[node name="BsPlayer" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_1wvty")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_80d0r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_gnebo")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1098, 0)
+
+[node name="InteractRay" parent="Head" instance=ExtResource("1_b6agj")]
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0131426, -0.942406)
+
+[node name="TopCast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1.221, 0, 0, 0, 1, 0, 0, 0, 1.101, 0, 0.898282, 0)
+shape = SubResource("SphereShape3D_d46nf")
+target_position = Vector3(0, 1, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rkstb")
+expand_mode = 1

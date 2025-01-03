@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhd4tlegtxppg"]
+
+[ext_resource type="Script" path="res://test_gate.gd" id="1_ul14d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3u3o"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bwt3c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w0rw8"]
+
+[node name="TestGate" type="StaticBody3D"]
+script = ExtResource("1_ul14d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_d3u3o")
+mesh = SubResource("SphereMesh_bwt3c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_w0rw8")

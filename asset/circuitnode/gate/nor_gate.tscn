@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc2lkw0c4hxox"]
+
+[ext_resource type="Script" path="res://asset/circuitnode/script/logic_gate.gd" id="1_g05su"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hn7gk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bpeoo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kx6my"]
+
+[node name="NorGate" type="StaticBody3D"]
+script = ExtResource("1_g05su")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_hn7gk")
+mesh = SubResource("SphereMesh_bpeoo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_kx6my")
