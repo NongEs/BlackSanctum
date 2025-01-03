@@ -129,7 +129,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 
 [node name="Label3D2" type="Label3D" parent="Node3D4"]
 transform = Transform3D(-1.49012e-07, 0, 1, 0, 1, 0, -1, 0, -1.49012e-07, -16, 7, -9.53674e-07)
-text = "XOR GATE"
+text = "AND GATE"
 font_size = 100
 
 [node name="Label3D5" type="Label3D" parent="Node3D4"]
@@ -167,13 +167,13 @@ label_3d = NodePath("../Label3DRight")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 4, 0)
 input_a = NodePath("../TestSwitch")
 input_b = NodePath("../TestSwitch2")
-gate_type = "XOR"
 label_3d = NodePath("../Label3DLeft")
 output_from_gate = NodePath("../TestGate2")
 
 [node name="TestGate2" parent="Node3D4" node_paths=PackedStringArray("label_3d") instance=ExtResource("12_61d8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 6, -6)
-input_b = NodePath("../TestSwitch3")
+input_a = NodePath("../TestGate")
+input_b = NodePath("../TestGate3")
 label_3d = NodePath("../Label3DMid")
 
 [node name="TestGate3" parent="Node3D4" node_paths=PackedStringArray("label_3d") instance=ExtResource("12_61d8d")]
@@ -182,6 +182,7 @@ input_a = NodePath("../TestSwitch3")
 input_b = NodePath("../TestSwitch4")
 gate_type = "OR"
 label_3d = NodePath("../Label3DRight")
+output_from_gate = NodePath("../TestGate2")
 
 [node name="Label3D3" type="Label3D" parent="Node3D4"]
 transform = Transform3D(-2.54312e-07, 0, 1, 0, 1, 0, -1, 0, -2.54312e-07, -16, 7.61856, -5.78776)

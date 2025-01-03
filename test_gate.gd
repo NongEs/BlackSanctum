@@ -73,7 +73,9 @@ func update_output() -> void:
 	if output_from_gate != null and has_node(output_from_gate):
 		var output_gate = get_node(output_from_gate)
 		if output_gate and output_gate is LogicGate:
-			output_gate.set_inputs(output, output_gate.input_b_state)
+			output_gate.set_inputs(output, output_gate.input_b_state) || output_gate.set_inputs(output, output_gate.input_a_state)
+		
+			
 
 	update_label()
 # Update the visual label to reflect the current output

@@ -110,3 +110,7 @@ func hurt(damage : float):
 func die():
 	moving = false
 	ui.show_gameover()
+
+
+func _on_player_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://mainmenu_ui/mainmenu_canvas.tscn")
