@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhd4tlegtxppg"]
 
-[ext_resource type="Script" path="res://test_gate.gd" id="1_ul14d"]
+[ext_resource type="Script" path="res://testnode/test_gate.gd" id="1_ul14d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3u3o"]
 

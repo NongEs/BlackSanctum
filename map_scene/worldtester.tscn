@@ -8,17 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://lx420uemhmm0" path="res://asset/grid_texture/purple/texture_09.png" id="6_t1keu"]
 [ext_resource type="Texture2D" uid="uid://cpfdkqahm36qh" path="res://asset/grid_texture/red/texture_10.png" id="7_tvosu"]
 [ext_resource type="PackedScene" uid="uid://brmd78i55k8b8" path="res://asset/circuitnode/binarycounter.tscn" id="10_foi5i"]
-[ext_resource type="PackedScene" uid="uid://dwl1edbnmvwm3" path="res://test_switch.tscn" id="11_lkkv5"]
-[ext_resource type="PackedScene" uid="uid://dhd4tlegtxppg" path="res://test_gate.tscn" id="12_61d8d"]
+[ext_resource type="PackedScene" uid="uid://dwl1edbnmvwm3" path="res://testnode/test_switch.tscn" id="11_lkkv5"]
+[ext_resource type="PackedScene" uid="uid://dhd4tlegtxppg" path="res://testnode/test_gate.tscn" id="12_61d8d"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_g41kp"]
 
-[sub_resource type="Sky" id="Sky_iqj6o"]
+[sub_resource type="Sky" id="Sky_73t1c"]
 sky_material = SubResource("PhysicalSkyMaterial_g41kp")
 
 [sub_resource type="Environment" id="Environment_hy2gv"]
 background_mode = 2
-sky = SubResource("Sky_iqj6o")
+sky = SubResource("Sky_73t1c")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4jue"]
 albedo_texture = ExtResource("7_tvosu")

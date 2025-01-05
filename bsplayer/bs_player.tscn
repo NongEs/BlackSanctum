@@ -34,6 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1098, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0131426, -0.942406)
+far = 150.59
 
 [node name="TopCast" type="ShapeCast3D" parent="."]
 transform = Transform3D(1.221, 0, 0, 0, 1, 0, 0, 0, 1.101, 0, 0.898282, 0)

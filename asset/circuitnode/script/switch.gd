@@ -9,7 +9,9 @@ var material_instance: Material  # Holds the duplicated material instance
 signal state_changed(new_state: int)  # Signal to notify state changes
 
 func _ready() -> void:
-	set_color(Color.RED)
+	# Set color based on the initial state
+	update_color_from_state()
+	
 	var original_material = mesh_instance.get_surface_override_material(0)
 	if original_material:
 		material_instance = original_material.duplicate()
@@ -21,10 +23,14 @@ func _on_interacted(body: Variant) -> void:
 func toggle_switch():
 	is_on = not is_on
 	state = 1 - state
-	#print("Switch", "On" if is_on else "Off", ", State:", state)
-	set_color(Color.GREEN if is_on else Color.RED)
+	# Set the color when toggling
+	update_color_from_state()
 	update_label()
 	emit_signal("state_changed", state)  # Notify listeners of the state change
+
+func update_color_from_state():
+	# Set color based on state: Red for 0, Green for 1
+	set_color(Color.RED if state == 0 else Color.GREEN)
 
 func set_color(color: Color) -> void:
 	if material_instance:
@@ -35,8 +41,6 @@ func update_label() -> void:
 		var label = get_node(label_3d) as Label3D
 		if label:
 			label.text = str(state)
-			
-
 
 func get_state() -> int:
 	return state
