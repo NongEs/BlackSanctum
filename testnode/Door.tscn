@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://iibs2y5yvcdh"]
+[gd_scene load_steps=19 format=4 uid="uid://bshte6v76d7nq"]
 
-[ext_resource type="Script" path="res://testnode/door.gd" id="1_gjnto"]
-[ext_resource type="Texture2D" uid="uid://d4ereujpxghj1" path="res://testnode/door-diff.png" id="2_008ox"]
+[ext_resource type="Script" path="res://testnode/door.gd" id="1_rnbip"]
+[ext_resource type="Texture2D" uid="uid://d4ereujpxghj1" path="res://testnode/door-diff.png" id="1_wm1eq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8ror"]
-albedo_texture = ExtResource("2_008ox")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni5x5"]
+albedo_texture = ExtResource("1_wm1eq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmcol"]
 resource_name = "door"
@@ -137,7 +137,7 @@ states/DoorOpen/position = Vector2(665, 100)
 transitions = ["Start", "DoorClose", SubResource("AnimationNodeStateMachineTransition_jxfgx"), "DoorClose", "DoorOpen", SubResource("AnimationNodeStateMachineTransition_lmqyx"), "DoorOpen", "DoorClose", SubResource("AnimationNodeStateMachineTransition_4qsej")]
 
 [node name="Door" type="Node3D"]
-script = ExtResource("1_gjnto")
+script = ExtResource("1_rnbip")
 
 [node name="DoorArmature" type="Node3D" parent="."]
 
@@ -172,7 +172,7 @@ bones/3/rotation = Quaternion(0, 0, 0, 1)
 bones/3/scale = Vector3(1, 1, 1)
 
 [node name="Door" type="MeshInstance3D" parent="DoorArmature/Skeleton3D"]
-material_override = SubResource("StandardMaterial3D_y8ror")
+material_override = SubResource("StandardMaterial3D_ni5x5")
 mesh = SubResource("ArrayMesh_ga0ra")
 skin = SubResource("Skin_0c88n")
 surface_material_override/0 = SubResource("StandardMaterial3D_nmd4m")
