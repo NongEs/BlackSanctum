@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8bj2b5fgt7my"
+path="res://.godot/imported/candyC.obj-442a2da8bb3bbd7f9f90973f12a40ccd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/candyC.obj-442a2da8bb3bbd7f9f90973f12a40ccd.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/candyC.obj"
+dest_files=["res://.godot/imported/candyC.obj-442a2da8bb3bbd7f9f90973f12a40ccd.mesh", "res://.godot/imported/candyC.obj-442a2da8bb3bbd7f9f90973f12a40ccd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

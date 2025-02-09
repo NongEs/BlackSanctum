@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c0ylbdoqr6hef"
+path="res://.godot/imported/scaffold_high_railing.obj-8ee06f2335fbb7654c24a0955baae7aa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/scaffold_high_railing.obj-8ee06f2335fbb7654c24a0955baae7aa.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/scaffold_high_railing.obj"
+dest_files=["res://.godot/imported/scaffold_high_railing.obj-8ee06f2335fbb7654c24a0955baae7aa.mesh", "res://.godot/imported/scaffold_high_railing.obj-8ee06f2335fbb7654c24a0955baae7aa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

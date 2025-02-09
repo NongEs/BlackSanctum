@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://didssf2db8wyc"
+path="res://.godot/imported/tileBrickA_large.obj-5d70f799b5234d40ac4871a8f1100ca0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tileBrickA_large.obj-5d70f799b5234d40ac4871a8f1100ca0.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/tileBrickA_large.obj"
+dest_files=["res://.godot/imported/tileBrickA_large.obj-5d70f799b5234d40ac4871a8f1100ca0.mesh", "res://.godot/imported/tileBrickA_large.obj-5d70f799b5234d40ac4871a8f1100ca0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://phsrt75l8dfa"
+path="res://.godot/imported/CommonTree_5.obj-f3ede6411c0b6ff00ed4b4d3529d962d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CommonTree_5.obj-f3ede6411c0b6ff00ed4b4d3529d962d.mesh"]
+
+source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/OBJ/CommonTree_5.obj"
+dest_files=["res://.godot/imported/CommonTree_5.obj-f3ede6411c0b6ff00ed4b4d3529d962d.mesh", "res://.godot/imported/CommonTree_5.obj-f3ede6411c0b6ff00ed4b4d3529d962d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

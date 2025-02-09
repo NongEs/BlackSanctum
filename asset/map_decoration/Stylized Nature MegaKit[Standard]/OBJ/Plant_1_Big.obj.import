@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ddxm7njo3vfg8"
+path="res://.godot/imported/Plant_1_Big.obj-5b8b264487455b1cfe998188a050c013.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Plant_1_Big.obj-5b8b264487455b1cfe998188a050c013.mesh"]
+
+source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/OBJ/Plant_1_Big.obj"
+dest_files=["res://.godot/imported/Plant_1_Big.obj-5b8b264487455b1cfe998188a050c013.mesh", "res://.godot/imported/Plant_1_Big.obj-5b8b264487455b1cfe998188a050c013.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

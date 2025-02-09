@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxic8rrak3a7o"
+path="res://.godot/imported/coffinA_bottom.obj-7555896515c1efb2f66f32712c888bdc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/coffinA_bottom.obj-7555896515c1efb2f66f32712c888bdc.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/coffinA_bottom.obj"
+dest_files=["res://.godot/imported/coffinA_bottom.obj-7555896515c1efb2f66f32712c888bdc.mesh", "res://.godot/imported/coffinA_bottom.obj-7555896515c1efb2f66f32712c888bdc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

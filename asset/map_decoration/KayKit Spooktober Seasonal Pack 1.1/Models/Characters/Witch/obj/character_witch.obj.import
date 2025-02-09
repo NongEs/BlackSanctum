@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gjmpqt3ikpxx"
+path="res://.godot/imported/character_witch.obj-8ce8d648e42e1fa2a5c63862a3c438ed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_witch.obj-8ce8d648e42e1fa2a5c63862a3c438ed.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/Characters/Witch/obj/character_witch.obj"
+dest_files=["res://.godot/imported/character_witch.obj-8ce8d648e42e1fa2a5c63862a3c438ed.mesh", "res://.godot/imported/character_witch.obj-8ce8d648e42e1fa2a5c63862a3c438ed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

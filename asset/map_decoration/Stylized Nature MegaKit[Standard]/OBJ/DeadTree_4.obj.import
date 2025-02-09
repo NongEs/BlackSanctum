@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bnc0onh86ih72"
+path="res://.godot/imported/DeadTree_4.obj-48a3b20e913e167133aa39a23760873a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/DeadTree_4.obj-48a3b20e913e167133aa39a23760873a.mesh"]
+
+source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/OBJ/DeadTree_4.obj"
+dest_files=["res://.godot/imported/DeadTree_4.obj-48a3b20e913e167133aa39a23760873a.mesh", "res://.godot/imported/DeadTree_4.obj-48a3b20e913e167133aa39a23760873a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

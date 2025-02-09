@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://co122wx01o8fb"
+path="res://.godot/imported/dagger_uncommon.obj-2b3fe3f6c4645e80166e296870ae1248.mesh"
+
+[deps]
+
+files=["res://.godot/imported/dagger_uncommon.obj-2b3fe3f6c4645e80166e296870ae1248.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/dagger_uncommon.obj"
+dest_files=["res://.godot/imported/dagger_uncommon.obj-2b3fe3f6c4645e80166e296870ae1248.mesh", "res://.godot/imported/dagger_uncommon.obj-2b3fe3f6c4645e80166e296870ae1248.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

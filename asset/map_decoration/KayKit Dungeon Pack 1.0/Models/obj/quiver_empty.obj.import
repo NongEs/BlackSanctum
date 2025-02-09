@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c5kjxt5xqtsf7"
+path="res://.godot/imported/quiver_empty.obj-08bdf745a748e7f3037fb272f9a68787.mesh"
+
+[deps]
+
+files=["res://.godot/imported/quiver_empty.obj-08bdf745a748e7f3037fb272f9a68787.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/quiver_empty.obj"
+dest_files=["res://.godot/imported/quiver_empty.obj-08bdf745a748e7f3037fb272f9a68787.mesh", "res://.godot/imported/quiver_empty.obj-08bdf745a748e7f3037fb272f9a68787.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

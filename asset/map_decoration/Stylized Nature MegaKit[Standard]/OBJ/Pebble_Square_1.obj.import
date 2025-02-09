@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d0yp08ab2ldae"
+path="res://.godot/imported/Pebble_Square_1.obj-31ef2a737e30df6261a26c3a9f66267e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pebble_Square_1.obj-31ef2a737e30df6261a26c3a9f66267e.mesh"]
+
+source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/OBJ/Pebble_Square_1.obj"
+dest_files=["res://.godot/imported/Pebble_Square_1.obj-31ef2a737e30df6261a26c3a9f66267e.mesh", "res://.godot/imported/Pebble_Square_1.obj-31ef2a737e30df6261a26c3a9f66267e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

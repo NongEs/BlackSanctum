@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bu3enlmmcpfb6"
+path="res://.godot/imported/character_mageBody.obj-81e701c9cb9a47086b3bfa3052086ede.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_mageBody.obj-81e701c9cb9a47086b3bfa3052086ede.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/Characters/obj/character_mageBody.obj"
+dest_files=["res://.godot/imported/character_mageBody.obj-81e701c9cb9a47086b3bfa3052086ede.mesh", "res://.godot/imported/character_mageBody.obj-81e701c9cb9a47086b3bfa3052086ede.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

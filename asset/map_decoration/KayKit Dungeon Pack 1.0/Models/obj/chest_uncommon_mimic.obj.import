@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bf4rpah1oysow"
+path="res://.godot/imported/chest_uncommon_mimic.obj-59be767e347b329d441761d0e1d8b486.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chest_uncommon_mimic.obj-59be767e347b329d441761d0e1d8b486.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/chest_uncommon_mimic.obj"
+dest_files=["res://.godot/imported/chest_uncommon_mimic.obj-59be767e347b329d441761d0e1d8b486.mesh", "res://.godot/imported/chest_uncommon_mimic.obj-59be767e347b329d441761d0e1d8b486.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

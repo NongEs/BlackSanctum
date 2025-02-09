@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://drjlyt03ecoy"
+path="res://.godot/imported/treeB_graveyard.obj-ec3909b8a2cb4313bfa8aec9dd8e2218.mesh"
+
+[deps]
+
+files=["res://.godot/imported/treeB_graveyard.obj-ec3909b8a2cb4313bfa8aec9dd8e2218.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/treeB_graveyard.obj"
+dest_files=["res://.godot/imported/treeB_graveyard.obj-ec3909b8a2cb4313bfa8aec9dd8e2218.mesh", "res://.godot/imported/treeB_graveyard.obj-ec3909b8a2cb4313bfa8aec9dd8e2218.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

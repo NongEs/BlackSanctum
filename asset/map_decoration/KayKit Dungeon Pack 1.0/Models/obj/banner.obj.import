@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ciy1boiqbviok"
+path="res://.godot/imported/banner.obj-3614b4131a4219c6825c31b4fc7ad8bb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/banner.obj-3614b4131a4219c6825c31b4fc7ad8bb.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/banner.obj"
+dest_files=["res://.godot/imported/banner.obj-3614b4131a4219c6825c31b4fc7ad8bb.mesh", "res://.godot/imported/banner.obj-3614b4131a4219c6825c31b4fc7ad8bb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

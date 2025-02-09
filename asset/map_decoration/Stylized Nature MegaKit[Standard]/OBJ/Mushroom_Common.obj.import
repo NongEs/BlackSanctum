@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwyhgi8d5do07"
+path="res://.godot/imported/Mushroom_Common.obj-ed74da0a25bc3316af57774429422829.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Mushroom_Common.obj-ed74da0a25bc3316af57774429422829.mesh"]
+
+source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/OBJ/Mushroom_Common.obj"
+dest_files=["res://.godot/imported/Mushroom_Common.obj-ed74da0a25bc3316af57774429422829.mesh", "res://.godot/imported/Mushroom_Common.obj-ed74da0a25bc3316af57774429422829.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

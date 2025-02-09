@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwu33io2euvt2"
+path="res://.godot/imported/shrine.obj-a368075dca45d942d4ec34e6a036d752.mesh"
+
+[deps]
+
+files=["res://.godot/imported/shrine.obj-a368075dca45d942d4ec34e6a036d752.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/shrine.obj"
+dest_files=["res://.godot/imported/shrine.obj-a368075dca45d942d4ec34e6a036d752.mesh", "res://.godot/imported/shrine.obj-a368075dca45d942d4ec34e6a036d752.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
