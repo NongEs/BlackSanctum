@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dh3m7vo1i1l2"
+path="res://.godot/imported/crateDark.obj-3b2460d8569e04515fe7046245523b82.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crateDark.obj-3b2460d8569e04515fe7046245523b82.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/crateDark.obj"
+dest_files=["res://.godot/imported/crateDark.obj-3b2460d8569e04515fe7046245523b82.mesh", "res://.godot/imported/crateDark.obj-3b2460d8569e04515fe7046245523b82.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

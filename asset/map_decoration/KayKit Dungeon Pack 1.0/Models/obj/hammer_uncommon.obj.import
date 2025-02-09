@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dtgkmmwotoual"
+path="res://.godot/imported/hammer_uncommon.obj-9a814cda1a88f9a9f6e031f3f7bf09fe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hammer_uncommon.obj-9a814cda1a88f9a9f6e031f3f7bf09fe.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/hammer_uncommon.obj"
+dest_files=["res://.godot/imported/hammer_uncommon.obj-9a814cda1a88f9a9f6e031f3f7bf09fe.mesh", "res://.godot/imported/hammer_uncommon.obj-9a814cda1a88f9a9f6e031f3f7bf09fe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

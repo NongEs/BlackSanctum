@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bh5blpsl7cdeg"
+path="res://.godot/imported/crossbow_rare.obj-6ce3a576eb04e983fdd53e5643dd23c2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crossbow_rare.obj-6ce3a576eb04e983fdd53e5643dd23c2.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/crossbow_rare.obj"
+dest_files=["res://.godot/imported/crossbow_rare.obj-6ce3a576eb04e983fdd53e5643dd23c2.mesh", "res://.godot/imported/crossbow_rare.obj-6ce3a576eb04e983fdd53e5643dd23c2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

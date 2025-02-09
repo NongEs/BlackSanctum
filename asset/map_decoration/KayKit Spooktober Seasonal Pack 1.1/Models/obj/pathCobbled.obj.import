@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://la6ue30qd885"
+path="res://.godot/imported/pathCobbled.obj-9096753e55e75a5abdf7191e1986b3a0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pathCobbled.obj-9096753e55e75a5abdf7191e1986b3a0.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/pathCobbled.obj"
+dest_files=["res://.godot/imported/pathCobbled.obj-9096753e55e75a5abdf7191e1986b3a0.mesh", "res://.godot/imported/pathCobbled.obj-9096753e55e75a5abdf7191e1986b3a0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

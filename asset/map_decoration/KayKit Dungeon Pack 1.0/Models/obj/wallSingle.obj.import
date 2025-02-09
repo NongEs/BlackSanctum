@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://kkv2ypv6plfc"
+path="res://.godot/imported/wallSingle.obj-70a20dbbd8a8c93d7a8b2d8095ab2dbd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallSingle.obj-70a20dbbd8a8c93d7a8b2d8095ab2dbd.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/wallSingle.obj"
+dest_files=["res://.godot/imported/wallSingle.obj-70a20dbbd8a8c93d7a8b2d8095ab2dbd.mesh", "res://.godot/imported/wallSingle.obj-70a20dbbd8a8c93d7a8b2d8095ab2dbd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

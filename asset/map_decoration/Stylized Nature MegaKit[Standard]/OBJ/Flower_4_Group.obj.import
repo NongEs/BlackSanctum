@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ydvin2x3e3fo"
+path="res://.godot/imported/Flower_4_Group.obj-5894cc97f393f75cdfc3d7b76bec3097.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Flower_4_Group.obj-5894cc97f393f75cdfc3d7b76bec3097.mesh"]
+
+source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/OBJ/Flower_4_Group.obj"
+dest_files=["res://.godot/imported/Flower_4_Group.obj-5894cc97f393f75cdfc3d7b76bec3097.mesh", "res://.godot/imported/Flower_4_Group.obj-5894cc97f393f75cdfc3d7b76bec3097.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

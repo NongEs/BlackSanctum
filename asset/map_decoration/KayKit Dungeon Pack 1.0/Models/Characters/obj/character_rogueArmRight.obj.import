@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dj4isx02n4n1m"
+path="res://.godot/imported/character_rogueArmRight.obj-84b08d74533d386ccf6679ce6661f785.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_rogueArmRight.obj-84b08d74533d386ccf6679ce6661f785.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/Characters/obj/character_rogueArmRight.obj"
+dest_files=["res://.godot/imported/character_rogueArmRight.obj-84b08d74533d386ccf6679ce6661f785.mesh", "res://.godot/imported/character_rogueArmRight.obj-84b08d74533d386ccf6679ce6661f785.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

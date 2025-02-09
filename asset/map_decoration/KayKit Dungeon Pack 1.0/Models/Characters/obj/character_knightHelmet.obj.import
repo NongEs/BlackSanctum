@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://df11tljtxentn"
+path="res://.godot/imported/character_knightHelmet.obj-71999efc56c9b1f609e986cbb32d9c2c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_knightHelmet.obj-71999efc56c9b1f609e986cbb32d9c2c.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/Characters/obj/character_knightHelmet.obj"
+dest_files=["res://.godot/imported/character_knightHelmet.obj-71999efc56c9b1f609e986cbb32d9c2c.mesh", "res://.godot/imported/character_knightHelmet.obj-71999efc56c9b1f609e986cbb32d9c2c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

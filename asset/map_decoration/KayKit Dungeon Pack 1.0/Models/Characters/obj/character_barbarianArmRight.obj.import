@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://vl68ot1bv3yl"
+path="res://.godot/imported/character_barbarianArmRight.obj-d21bb84a23864beefe77364a17f3e37d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_barbarianArmRight.obj-d21bb84a23864beefe77364a17f3e37d.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/Characters/obj/character_barbarianArmRight.obj"
+dest_files=["res://.godot/imported/character_barbarianArmRight.obj-d21bb84a23864beefe77364a17f3e37d.mesh", "res://.godot/imported/character_barbarianArmRight.obj-d21bb84a23864beefe77364a17f3e37d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

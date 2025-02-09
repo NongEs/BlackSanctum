@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d0jd23c8hdt0f"
+path="res://.godot/imported/tileBrickB_largeCrackedA.obj-8ddca5343b8f7eb7c58b472bd8ff18d2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tileBrickB_largeCrackedA.obj-8ddca5343b8f7eb7c58b472bd8ff18d2.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/tileBrickB_largeCrackedA.obj"
+dest_files=["res://.godot/imported/tileBrickB_largeCrackedA.obj-8ddca5343b8f7eb7c58b472bd8ff18d2.mesh", "res://.godot/imported/tileBrickB_largeCrackedA.obj-8ddca5343b8f7eb7c58b472bd8ff18d2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

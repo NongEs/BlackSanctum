@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d007s6mpipsdn"
+path="res://.godot/imported/Bush_Common.obj-dabd07983495498a7bcb79af58ff0af9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bush_Common.obj-dabd07983495498a7bcb79af58ff0af9.mesh"]
+
+source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/OBJ/Bush_Common.obj"
+dest_files=["res://.godot/imported/Bush_Common.obj-dabd07983495498a7bcb79af58ff0af9.mesh", "res://.godot/imported/Bush_Common.obj-dabd07983495498a7bcb79af58ff0af9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

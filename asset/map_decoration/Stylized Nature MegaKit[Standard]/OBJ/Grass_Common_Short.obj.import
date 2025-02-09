@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jenmpd5anjkd"
+path="res://.godot/imported/Grass_Common_Short.obj-4b25383e2a7e5d9f0a01e5223f85f068.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Grass_Common_Short.obj-4b25383e2a7e5d9f0a01e5223f85f068.mesh"]
+
+source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/OBJ/Grass_Common_Short.obj"
+dest_files=["res://.godot/imported/Grass_Common_Short.obj-4b25383e2a7e5d9f0a01e5223f85f068.mesh", "res://.godot/imported/Grass_Common_Short.obj-4b25383e2a7e5d9f0a01e5223f85f068.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

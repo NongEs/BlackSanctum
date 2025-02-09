@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://qwdo03k21t06"
+path="res://.godot/imported/axe_uncommon.obj-0aaacfedf69fad00fe6747bc0eb3b61f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/axe_uncommon.obj-0aaacfedf69fad00fe6747bc0eb3b61f.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/axe_uncommon.obj"
+dest_files=["res://.godot/imported/axe_uncommon.obj-0aaacfedf69fad00fe6747bc0eb3b61f.mesh", "res://.godot/imported/axe_uncommon.obj-0aaacfedf69fad00fe6747bc0eb3b61f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

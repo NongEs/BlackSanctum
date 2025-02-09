@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://0vk42xdpd67a"
+path="res://.godot/imported/scaffold_stairs.obj-ba0ba4e74fe1d708b9a0a0589e3fd4ac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/scaffold_stairs.obj-ba0ba4e74fe1d708b9a0a0589e3fd4ac.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/scaffold_stairs.obj"
+dest_files=["res://.godot/imported/scaffold_stairs.obj-ba0ba4e74fe1d708b9a0a0589e3fd4ac.mesh", "res://.godot/imported/scaffold_stairs.obj-ba0ba4e74fe1d708b9a0a0589e3fd4ac.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

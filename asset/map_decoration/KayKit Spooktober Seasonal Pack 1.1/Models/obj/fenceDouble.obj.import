@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bbpldpnaoc5qp"
+path="res://.godot/imported/fenceDouble.obj-f4c140df9e3f656cb42f690a40bbc786.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fenceDouble.obj-f4c140df9e3f656cb42f690a40bbc786.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/fenceDouble.obj"
+dest_files=["res://.godot/imported/fenceDouble.obj-f4c140df9e3f656cb42f690a40bbc786.mesh", "res://.godot/imported/fenceDouble.obj-f4c140df9e3f656cb42f690a40bbc786.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -24,7 +24,7 @@ class_name Player
 @onready var head = $Head
 @onready var collision_shape = $CollisionShape3D
 @onready var top_cast = $TopCast
-@onready var ui = $UI
+#@onready var ui = $UI
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_rot : Vector2
@@ -73,12 +73,12 @@ func _physics_process(delta):
 	rotation_degrees.y = look_rot.y
 	
 	# fall damage
-	if old_vel < 0:
-		var diff = velocity.y - old_vel
-		if diff > fall_damage_threshold:
-			hurt((diff - fall_damage_threshold) * fall_damage_multiplier)
+	#if old_vel < 0:
+		#var diff = velocity.y - old_vel
+		#if diff > fall_damage_threshold:
+		#	hurt((diff - fall_damage_threshold) * fall_damage_multiplier)
 #			crouch(delta)
-	old_vel = velocity.y
+	#old_vel = velocity.y
 
 
 func _input(event):
@@ -100,16 +100,16 @@ func _input(event):
 	#head.position.y = lerp(head.position.y, target_height - 1, crouch_transition * delta)
 
 
-func hurt(damage : float):
-	ui.hurt(damage)
+#func hurt(damage : float):
+#	ui.hurt(damage)
 	
-	if ui.health_bar.value <= 0:
-		die()
+#	if ui.health_bar.value <= 0:
+#		die()
 
 
-func die():
-	moving = false
-	ui.show_gameover()
+#func die():
+#	moving = false
+#	ui.show_gameover()
 
 
 func _on_player_back_button_pressed() -> void:

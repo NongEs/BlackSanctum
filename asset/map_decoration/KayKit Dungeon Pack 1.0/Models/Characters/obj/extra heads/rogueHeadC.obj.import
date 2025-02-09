@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bd7462vqvmw2l"
+path="res://.godot/imported/rogueHeadC.obj-5a582a1d8af3cca07a630019a63d9815.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rogueHeadC.obj-5a582a1d8af3cca07a630019a63d9815.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/Characters/obj/extra heads/rogueHeadC.obj"
+dest_files=["res://.godot/imported/rogueHeadC.obj-5a582a1d8af3cca07a630019a63d9815.mesh", "res://.godot/imported/rogueHeadC.obj-5a582a1d8af3cca07a630019a63d9815.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bm3wx5adhplsd"
+path="res://.godot/imported/wall_window.obj-c062e5bb180a6fe5e0745fb64a0fc9be.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_window.obj-c062e5bb180a6fe5e0745fb64a0fc9be.mesh"]
+
+source_file="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/wall_window.obj"
+dest_files=["res://.godot/imported/wall_window.obj-c062e5bb180a6fe5e0745fb64a0fc9be.mesh", "res://.godot/imported/wall_window.obj-c062e5bb180a6fe5e0745fb64a0fc9be.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
