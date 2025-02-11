@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://0wj5ckmbpme2"]
+[gd_scene load_steps=53 format=3 uid="uid://0wj5ckmbpme2"]
 
 [ext_resource type="ArrayMesh" uid="uid://djpnqytdguhxl" path="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/tileLarge_graveyard.obj" id="2_7g8oe"]
 [ext_resource type="ArrayMesh" uid="uid://dy7se1kjkybfp" path="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/wall.obj" id="5_135we"]
@@ -21,8 +21,12 @@
 [ext_resource type="ArrayMesh" uid="uid://la6ue30qd885" path="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/pathCobbled.obj" id="23_1cw8o"]
 [ext_resource type="PackedScene" uid="uid://bi33qsw4dmgcq" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/FBX/Grass_Wispy_Short.fbx" id="23_q8qfa"]
 [ext_resource type="ArrayMesh" uid="uid://cqjwffg0rqm4d" path="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/detailSingle_graveyard.obj" id="23_vbho3"]
+[ext_resource type="PackedScene" uid="uid://c1wm8bmgu3u5d" path="res://bsplayer/bs_player.tscn" id="24_ovq0j"]
 [ext_resource type="ArrayMesh" uid="uid://ckgtmuxb778sp" path="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/pathDirt.obj" id="24_sg3yd"]
+[ext_resource type="PackedScene" uid="uid://brmd78i55k8b8" path="res://asset/binaryct/binarycounter.tscn" id="24_x4puh"]
 [ext_resource type="PackedScene" uid="uid://d162e8ei6gv7c" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/glTF/DeadTree_1.gltf" id="25_4imdg"]
+[ext_resource type="PackedScene" uid="uid://yxwlw25ugb7w" path="res://testnode/random_switch.tscn" id="25_4iorx"]
+[ext_resource type="PackedScene" uid="uid://bshte6v76d7nq" path="res://testnode/Door.tscn" id="25_s6pvj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6y0nq"]
 sky_top_color = Color(0.503375, 0.503375, 0.503374, 1)
@@ -417,7 +421,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46246, 0.903993, -2.35606)
 transform = Transform3D(0.00574212, 0, -0.999983, 0, 1, 0, 0.999983, 0, 0.00574212, 5.97548, 0, -3.60843)
 
 [node name="WallEndBroken" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(0.999807, 0, 0.0197908, 0, 1, 0, -0.0197908, 0, 0.999807, 1.8608, 1, -6.01991)
+transform = Transform3D(0.999807, 0, 0.0197908, 0, 1, 0, -0.0197908, 0, 0.999807, 1.83283, 1, -7.43309)
 mesh = ExtResource("6_ri3xd")
 skeleton = NodePath("../..")
 
@@ -437,7 +441,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_qw0a3")
 
 [node name="WallEndBroken15" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(-0.999807, 0, -0.0197907, 0, 1, 0, 0.0197907, 0, -0.999807, -3.79089, 1, -5.9245)
+transform = Transform3D(-0.999807, 0, -0.0197907, 0, 1, 0, 0.0197907, 0, -0.999807, -3.8166, 1, -7.2232)
 mesh = ExtResource("6_ri3xd")
 skeleton = NodePath("../..")
 
@@ -497,7 +501,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_qw0a3")
 
 [node name="WallEndBroken7" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(-4.74975e-08, 0, 1, 0, 1, 0, -1, 0, -4.74975e-08, 6.9415, 1, 0.486324)
+transform = Transform3D(-5.86733e-08, 0, 1.23485, 0, 1.23485, 0, -1.23485, 0, -5.86733e-08, 6.9415, 1, 0.486324)
 mesh = ExtResource("6_ri3xd")
 skeleton = NodePath("../..")
 
@@ -507,7 +511,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_qw0a3")
 
 [node name="WallEndBroken17" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(-1.17645e-05, 0.000366652, 1, -0.0638521, 0.997959, -0.000366655, -0.997962, -0.063852, 1.16709e-05, -7.69532, 0.675201, -3.83798)
+transform = Transform3D(0.918485, 0.000473638, 0.908365, -0.0583371, 1.28916, 0.0583146, -0.906493, -0.0824838, 0.91663, -10.2386, 0.62836, -4.58467)
 mesh = ExtResource("6_ri3xd")
 skeleton = NodePath("../..")
 
@@ -517,7 +521,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_qw0a3")
 
 [node name="WallEndBroken9" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(0.0197908, 0, -0.999807, 0, 1, 0, 0.999807, 0, 0.0197908, 6.96383, 1, -6.92086)
+transform = Transform3D(0.0253925, 0, -1.2828, 0, 1.28305, 0, 1.2828, 0, 0.0253925, 6.96383, 1, -6.92086)
 mesh = ExtResource("6_ri3xd")
 skeleton = NodePath("../..")
 
@@ -537,7 +541,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_qw0a3")
 
 [node name="WallEndBroken6" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(-0.999808, 0, -0.0197907, 0, 1, 0, 0.0197907, 0, -0.999808, 7.56575, 1, -6.12949)
+transform = Transform3D(-1.36679, 0, -0.027055, 0, 1.36706, 0, 0.027055, 0, -1.36679, 7.54138, 1, -7.36063)
 mesh = ExtResource("6_ri3xd")
 skeleton = NodePath("../..")
 
@@ -617,7 +621,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_y5nym")
 
 [node name="PillarBroken2" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(0.00531068, 0.00218352, -0.999986, 0.380264, -0.924878, -3.00352e-08, -0.924864, -0.380258, -0.00574205, -7.2539, 2.6382, -7.69403)
+transform = Transform3D(0.00759245, 0.00312168, -1.42964, 0.543647, -1.32226, -4.294e-08, -1.32224, -0.543639, -0.00820916, -6.67927, 3.59121, -7.29889)
 mesh = ExtResource("9_wcpf7")
 skeleton = NodePath("../..")
 
@@ -627,7 +631,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_y5nym")
 
 [node name="WallWindow" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(0.00573779, 0.000222931, 0.999984, -0.0388238, 0.999246, -7.27596e-11, -0.99923, -0.0388232, 0.00574212, -7.76006, 0.599984, -2.29263)
+transform = Transform3D(0.00669825, 0.000260248, 1.16737, -0.0453226, 1.16651, -8.4939e-11, -1.16649, -0.0453219, 0.0067033, -10.3027, 0.627463, -1.59996)
 mesh = ExtResource("12_o0uir")
 skeleton = NodePath("../..")
 
@@ -697,7 +701,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_omm1l")
 
 [node name="Wall6" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(0.00574072, 0.000126767, 0.999985, -0.0220766, 0.999756, -2.91038e-11, -0.999741, -0.0220763, 0.00574212, 6.99932, 0.962039, 1.10738)
+transform = Transform3D(0.00698771, 0.000154303, 1.2172, -0.026872, 1.21692, -3.54257e-11, -1.2169, -0.0268717, 0.00698941, 6.99504, 0.978485, 1.85216)
 mesh = ExtResource("5_135we")
 skeleton = NodePath("../..")
 
@@ -717,7 +721,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_omm1l")
 
 [node name="Wall9" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(-0.999903, -0.000802867, -0.0140265, 2.72805e-09, 0.998366, -0.0571459, 0.0140495, -0.0571402, -0.998268, -2.45873, 0.92865, -5.81532)
+transform = Transform3D(-0.999903, -0.000802867, -0.0140265, 2.72805e-09, 0.998366, -0.0571459, 0.0140495, -0.0571402, -0.998268, -2.47556, 0.860084, -7.01308)
 mesh = ExtResource("5_135we")
 skeleton = NodePath("../..")
 
@@ -747,7 +751,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_omm1l")
 
 [node name="WallCorner2" type="MeshInstance3D" parent="Wall"]
-transform = Transform3D(0.0571623, -0.00317685, 0.998361, 0.0554904, 0.998459, 3.33825e-10, -0.996823, 0.0553994, 0.0572504, 0.116454, 1, -6.30744)
+transform = Transform3D(0.0571623, -0.00317685, 0.998361, 0.0554904, 0.998459, 3.33825e-10, -0.996823, 0.0553994, 0.0572504, 0.187763, 1.06922, -7.55096)
 mesh = ExtResource("7_m7v3c")
 skeleton = NodePath("../..")
 
@@ -1107,3 +1111,29 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Candles&Lights/TorchWall2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_0sgsm")
+
+[node name="BinaryCounter" parent="." node_paths=PackedStringArray("door") instance=ExtResource("24_x4puh")]
+transform = Transform3D(0.0404638, 0.0369496, -0.494075, 0.495454, -0.00405864, 0.0402732, -0.00104047, -0.495713, -0.0371573, 10.0584, 3.64343, 2.44764)
+randomed_number_button = NodePath("../RandomSwitch")
+door = NodePath("../Door")
+
+[node name="BsPlayer" parent="." instance=ExtResource("24_ovq0j")]
+transform = Transform3D(0.579772, 0, 0.392255, 0, 0.7, 0, -0.392255, 0, 0.579772, 8.04194, 1.77903, 0.580073)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.0513942, 0.047302, -0.608769, -0.00755278, 0.610924, 0.0468318, 0.610557, 0.00357565, 0.051823, 12.3455, 4.5432, -6.87208)
+text = "0"
+font_size = 80
+
+[node name="RandomSwitch" parent="." node_paths=PackedStringArray("label_3d") instance=ExtResource("25_4iorx")]
+transform = Transform3D(0.184636, 0.117363, -0.572376, -0.0390664, 0.60141, 0.110714, 0.582976, 0.00313143, 0.188698, 13.1678, 3.5742, -10.0502)
+label_3d = NodePath("../Label3D")
+
+[node name="Door" parent="." instance=ExtResource("25_s6pvj")]
+transform = Transform3D(0.0353878, 0, 0.999374, 0, 1, 0, -0.999374, 0, 0.0353878, 4.66067, 0.787399, 0.723664)
+
+[node name="Door2" parent="." instance=ExtResource("25_s6pvj")]
+transform = Transform3D(-0.0492159, 0, 0.998788, 0, 1, 0, -0.998788, 0, -0.0492159, -4.73097, 0.787399, 0.41627)
+
+[node name="Door3" parent="." instance=ExtResource("25_s6pvj")]
+transform = Transform3D(0.999007, 0, 0.044561, 0, 1, 0, -0.044561, 0, 0.999007, 0.0594809, 0.321023, -20.9868)

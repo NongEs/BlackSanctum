@@ -78,6 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.597678)
 
 [node name="Switch" parent="switchtogether" instance=ExtResource("3_f2f1m")]
 transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, 0.280578, 0.210086, -1.50787)
+is_on = true
 label_3d = NodePath("../../labeltogether/Label3D")
 
 [node name="Switch2" parent="switchtogether" instance=ExtResource("3_f2f1m")]
