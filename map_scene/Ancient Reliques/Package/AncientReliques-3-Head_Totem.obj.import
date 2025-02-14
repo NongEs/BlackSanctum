@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cf8j4otx7uxfg"
+path="res://.godot/imported/AncientReliques-3-Head_Totem.obj-af4c0da58ca14548a1683961274b492a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/AncientReliques-3-Head_Totem.obj-af4c0da58ca14548a1683961274b492a.mesh"]
+
+source_file="res://map_scene/Ancient Reliques/Package/AncientReliques-3-Head_Totem.obj"
+dest_files=["res://.godot/imported/AncientReliques-3-Head_Totem.obj-af4c0da58ca14548a1683961274b492a.mesh", "res://.godot/imported/AncientReliques-3-Head_Totem.obj-af4c0da58ca14548a1683961274b492a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
