@@ -6,7 +6,7 @@ class_name DialogueManagerExampleBalloon extends CanvasLayer
 
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
-
+@onready var portrait: TextureRect = %Portrait
 ## The dialogue resource
 var resource: DialogueResource
 
@@ -26,54 +26,23 @@ var _locale: String = TranslationServer.get_locale()
 
 ## The current line
 var dialogue_line: DialogueLine:
-	set(next_dialogue_line):
-		is_waiting_for_input = false
-		balloon.focus_mode = Control.FOCUS_ALL
-		balloon.grab_focus()
-
-		# The dialogue has finished so close the balloon
-		if not next_dialogue_line:
-			queue_free()
-			return
-
-		# If the node isn't ready yet then none of the labels will be ready yet either
-		if not is_node_ready():
-			await ready
-
-		dialogue_line = next_dialogue_line
-
-		character_label.visible = not dialogue_line.character.is_empty()
-		character_label.text = tr(dialogue_line.character, "dialogue")
-
-		dialogue_label.hide()
-		dialogue_label.dialogue_line = dialogue_line
-
-		responses_menu.hide()
-		responses_menu.set_responses(dialogue_line.responses)
-
-		# Show our balloon
-		balloon.show()
-		will_hide_balloon = false
-
-		dialogue_label.show()
-		if not dialogue_line.text.is_empty():
-			dialogue_label.type_out()
-			await dialogue_label.finished_typing
-
-		# Wait for input
-		if dialogue_line.responses.size() > 0:
-			balloon.focus_mode = Control.FOCUS_NONE
-			responses_menu.show()
-		elif dialogue_line.time != "":
-			var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
-			await get_tree().create_timer(time).timeout
-			next(dialogue_line.next_id)
+	set(value):
+		if value:
+			dialogue_line = value
+			apply_dialogue_line()
 		else:
-			is_waiting_for_input = true
-			balloon.focus_mode = Control.FOCUS_ALL
-			balloon.grab_focus()
+			# The dialogue has finished so close the balloon
+			queue_free()
 	get:
 		return dialogue_line
+		
+		var portrait_path: String = "res://characters/%s.png" % dialogue_line.character.to_lower()
+		if FileAccess.file_exists(portrait_path):
+			portrait.texture = load(portrait_path)
+		else:
+			portrait.texture = null
+## A cooldown timer for delaying the balloon hide when encountering a mutation.
+var mutation_cooldown: Timer = Timer.new()
 
 ## The base balloon anchor
 @onready var balloon: Control = %Balloon
@@ -83,6 +52,7 @@ var dialogue_line: DialogueLine:
 
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
+
 
 ## The menu of responses
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
@@ -95,6 +65,9 @@ func _ready() -> void:
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
 		responses_menu.next_action = next_action
+
+	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
+	add_child(mutation_cooldown)
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -114,10 +87,50 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
-	temporary_game_states =  [self] + extra_game_states
+	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
+
+
+## Apply any changes to the balloon given a new [DialogueLine].
+func apply_dialogue_line() -> void:
+	mutation_cooldown.stop()
+
+	is_waiting_for_input = false
+	balloon.focus_mode = Control.FOCUS_ALL
+	balloon.grab_focus()
+
+	character_label.visible = not dialogue_line.character.is_empty()
+	character_label.text = tr(dialogue_line.character, "dialogue")
+
+	dialogue_label.hide()
+	dialogue_label.dialogue_line = dialogue_line
+
+	responses_menu.hide()
+	responses_menu.responses = dialogue_line.responses
+
+	# Show our balloon
+	balloon.show()
+	will_hide_balloon = false
+
+	dialogue_label.show()
+	if not dialogue_line.text.is_empty():
+		dialogue_label.type_out()
+		await dialogue_label.finished_typing
+
+	# Wait for input
+	if dialogue_line.responses.size() > 0:
+		balloon.focus_mode = Control.FOCUS_NONE
+		responses_menu.show()
+	elif dialogue_line.time != "":
+		var time = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
+		await get_tree().create_timer(time).timeout
+		next(dialogue_line.next_id)
+	else:
+		is_waiting_for_input = true
+		balloon.focus_mode = Control.FOCUS_ALL
+		balloon.grab_focus()
 
 
 ## Go to the next line
@@ -128,14 +141,16 @@ func next(next_id: String) -> void:
 #region Signals
 
 
+func _on_mutation_cooldown_timeout() -> void:
+	if will_hide_balloon:
+		will_hide_balloon = false
+		balloon.hide()
+
+
 func _on_mutated(_mutation: Dictionary) -> void:
 	is_waiting_for_input = false
 	will_hide_balloon = true
-	get_tree().create_timer(0.1).timeout.connect(func():
-		if will_hide_balloon:
-			will_hide_balloon = false
-			balloon.hide()
-	)
+	mutation_cooldown.start(0.1)
 
 
 func _on_balloon_gui_input(event: InputEvent) -> void:

@@ -24,7 +24,7 @@ class_name Player
 @onready var head = $Head
 @onready var collision_shape = $CollisionShape3D
 @onready var top_cast = $TopCast
-#@onready var ui = $UI
+@onready var ui = $UI
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_rot : Vector2
@@ -45,17 +45,17 @@ func _physics_process(delta):
 	var move_speed = speed
 	
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= gravity * delta * 1.9
 	elif moving:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = jump
-		#elif Input.is_action_pressed("crouch") or top_cast.is_colliding():
+		elif Input.is_action_pressed("crouch") or top_cast.is_colliding():
 			move_speed = crouch_speed
-#			crouch(delta)
-		#else:
-			#crouch(delta, true)
+			crouch(delta)
+		else:
+			crouch(delta, true)
 
-	var input_dir = Input.get_vector("left", "right", "up", "down")
+	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction and moving:
 		velocity.x = lerp(velocity.x, direction.x * move_speed, accel * delta)
@@ -73,12 +73,12 @@ func _physics_process(delta):
 	rotation_degrees.y = look_rot.y
 	
 	# fall damage
-	#if old_vel < 0:
-		#var diff = velocity.y - old_vel
-		#if diff > fall_damage_threshold:
-		#	hurt((diff - fall_damage_threshold) * fall_damage_multiplier)
-#			crouch(delta)
-	#old_vel = velocity.y
+	if old_vel < 0:
+		var diff = velocity.y - old_vel
+		if diff > fall_damage_threshold:
+			#hurt((diff - fall_damage_threshold) * fall_damage_multiplier)
+			crouch(delta)
+	old_vel = velocity.y
 
 
 func _input(event):
@@ -86,31 +86,23 @@ func _input(event):
 		look_rot.y -= (event.relative.x * sensitivity)
 		look_rot.x -= (event.relative.y * sensitivity)
 		look_rot.x = clamp(look_rot.x, min_angle, max_angle)
-		
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 
 
-#func crouch(delta : float, reverse = false):
-#	var target_height : float = crouch_height if not reverse else stand_height
+func crouch(delta : float, reverse = false):
+	var target_height : float = crouch_height if not reverse else stand_height
 	
-	#collision_shape.shape.height = lerp(collision_shape.shape.height, target_height, crouch_transition * delta)
-	#collision_shape.position.y = lerp(collision_shape.position.y, target_height * 0.5, crouch_transition * delta)
-	#head.position.y = lerp(head.position.y, target_height - 1, crouch_transition * delta)
+	collision_shape.shape.height = lerp(collision_shape.shape.height, target_height, crouch_transition * delta)
+	collision_shape.position.y = lerp(collision_shape.position.y, target_height * 0.5, crouch_transition * delta)
+	head.position.y = lerp(head.position.y, target_height - 1, crouch_transition * delta)
 
 
 #func hurt(damage : float):
-#	ui.hurt(damage)
+	#ui.hurt(damage)
 	
-#	if ui.health_bar.value <= 0:
-#		die()
+	#if ui.health_bar.value <= 0:
+	#	die()
 
 
 #func die():
-#	moving = false
-#	ui.show_gameover()
-
-
-func _on_player_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://mainmenu_ui/mainmenu_canvas.tscn")
+	##moving = false
+	#ui.show_gameover()

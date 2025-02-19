@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhh7nsfovnpa7"]
 
-[ext_resource type="Script" path="res://asset/circuitnode/script/logic_gate.gd" id="1_pukgn"]
+[ext_resource type="Script" path="res://asset/circuitnode/gate/logic_gate.gd" id="1_pukgn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsqoi"]
 

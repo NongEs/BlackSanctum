@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://7nb648aycxyf"
+path="res://.godot/imported/AncientRockStatues.obj-def78ed3b1498d31c0c5ff1c4997e1d3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/AncientRockStatues.obj-def78ed3b1498d31c0c5ff1c4997e1d3.mesh"]
+
+source_file="res://map_scene/Ancient Rock Statues/Package/AncientRockStatues.obj"
+dest_files=["res://.godot/imported/AncientRockStatues.obj-def78ed3b1498d31c0c5ff1c4997e1d3.mesh", "res://.godot/imported/AncientRockStatues.obj-def78ed3b1498d31c0c5ff1c4997e1d3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
