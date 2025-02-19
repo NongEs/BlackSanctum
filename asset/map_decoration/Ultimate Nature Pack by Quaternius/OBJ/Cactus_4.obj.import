@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cugwch80j0eln"
+path="res://.godot/imported/Cactus_4.obj-3ba5668a5d22f7105b99cbbf8374448f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Cactus_4.obj-3ba5668a5d22f7105b99cbbf8374448f.mesh"]
+
+source_file="res://asset/map_decoration/Ultimate Nature Pack by Quaternius/OBJ/Cactus_4.obj"
+dest_files=["res://.godot/imported/Cactus_4.obj-3ba5668a5d22f7105b99cbbf8374448f.mesh", "res://.godot/imported/Cactus_4.obj-3ba5668a5d22f7105b99cbbf8374448f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

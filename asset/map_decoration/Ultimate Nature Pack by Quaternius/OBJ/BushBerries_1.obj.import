@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqimcw0v04dbi"
+path="res://.godot/imported/BushBerries_1.obj-72929e9c92f0f661b2a8a42413565e5e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BushBerries_1.obj-72929e9c92f0f661b2a8a42413565e5e.mesh"]
+
+source_file="res://asset/map_decoration/Ultimate Nature Pack by Quaternius/OBJ/BushBerries_1.obj"
+dest_files=["res://.godot/imported/BushBerries_1.obj-72929e9c92f0f661b2a8a42413565e5e.mesh", "res://.godot/imported/BushBerries_1.obj-72929e9c92f0f661b2a8a42413565e5e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

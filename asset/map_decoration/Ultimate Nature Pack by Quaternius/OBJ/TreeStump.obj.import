@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bbmqpq3bywav8"
+path="res://.godot/imported/TreeStump.obj-bbfb09164594a9b7c4d9fd6e18cf4ba6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/TreeStump.obj-bbfb09164594a9b7c4d9fd6e18cf4ba6.mesh"]
+
+source_file="res://asset/map_decoration/Ultimate Nature Pack by Quaternius/OBJ/TreeStump.obj"
+dest_files=["res://.godot/imported/TreeStump.obj-bbfb09164594a9b7c4d9fd6e18cf4ba6.mesh", "res://.godot/imported/TreeStump.obj-bbfb09164594a9b7c4d9fd6e18cf4ba6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
