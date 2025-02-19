@@ -1,26 +1,26 @@
 [gd_scene load_steps=39 format=3 uid="uid://br0btydatid8v"]
 
-[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://asset/grid_texture/dark/texture_08.png" id="1_v5lkp"]
-[ext_resource type="Texture2D" uid="uid://dcctv40rba8hj" path="res://asset/grid_texture/dark/texture_05.png" id="2_dqlap"]
-[ext_resource type="Texture2D" uid="uid://bow5dfngi767m" path="res://asset/grid_texture/dark/texture_06.png" id="3_kovr6"]
-[ext_resource type="Texture2D" uid="uid://b4rqtmm1pri4y" path="res://asset/grid_texture/dark/texture_07.png" id="4_bms4o"]
+[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://grid_texture/dark/texture_08.png" id="1_v5lkp"]
+[ext_resource type="Texture2D" uid="uid://dcctv40rba8hj" path="res://grid_texture/dark/texture_05.png" id="2_dqlap"]
+[ext_resource type="Texture2D" uid="uid://bow5dfngi767m" path="res://grid_texture/dark/texture_06.png" id="3_kovr6"]
+[ext_resource type="Texture2D" uid="uid://b4rqtmm1pri4y" path="res://grid_texture/dark/texture_07.png" id="4_bms4o"]
 [ext_resource type="PackedScene" uid="uid://c1wm8bmgu3u5d" path="res://bsplayer/bs_player.tscn" id="5_elrtn"]
 [ext_resource type="PackedScene" uid="uid://yxwlw25ugb7w" path="res://testnode/random_switch.tscn" id="6_lp3pc"]
 [ext_resource type="PackedScene" uid="uid://brmd78i55k8b8" path="res://asset/binaryct/binarycounter.tscn" id="7_1c7h7"]
 [ext_resource type="PackedScene" uid="uid://bshte6v76d7nq" path="res://testnode/Door.tscn" id="8_ylvn4"]
 [ext_resource type="PackedScene" uid="uid://d0cx0oj7aa7m0" path="res://asset/binaryct/yellow_binary_counter_test.tscn" id="9_fprie"]
-[ext_resource type="Texture2D" uid="uid://mhs8e80jcld5" path="res://asset/grid_texture/orange/texture_09.png" id="10_cmn1f"]
-[ext_resource type="Texture2D" uid="uid://dy1swp18vvohx" path="res://asset/grid_texture/dark/texture_02.png" id="11_nqce8"]
+[ext_resource type="Texture2D" uid="uid://mhs8e80jcld5" path="res://grid_texture/orange/texture_09.png" id="10_cmn1f"]
+[ext_resource type="Texture2D" uid="uid://dy1swp18vvohx" path="res://grid_texture/dark/texture_02.png" id="11_nqce8"]
 [ext_resource type="VideoStream" path="res://video_example/binarycountervid.ogv" id="12_cvu5i"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_pm2nu"]
 
-[sub_resource type="Sky" id="Sky_iqj6o"]
+[sub_resource type="Sky" id="Sky_8ouoe"]
 sky_material = SubResource("PhysicalSkyMaterial_pm2nu")
 
 [sub_resource type="Environment" id="Environment_1e4fj"]
 background_mode = 2
-sky = SubResource("Sky_iqj6o")
+sky = SubResource("Sky_8ouoe")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0wxov"]
 
@@ -273,6 +273,7 @@ light_energy = 3.0
 
 [node name="BsPlayer" parent="." instance=ExtResource("5_elrtn")]
 transform = Transform3D(-0.88207, 0, -0.47112, 0, 1, 0, 0.47112, 0, -0.88207, -11, 0, 3)
+script = null
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1069, 5.48487, -2.9936)

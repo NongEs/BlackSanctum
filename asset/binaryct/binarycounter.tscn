@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://brmd78i55k8b8"]
 
-[ext_resource type="Script" path="res://asset/circuitnode/script/binarycounter.gd" id="1_f0hgd"]
-[ext_resource type="Texture2D" uid="uid://dmxhqxmnlla2i" path="res://asset/grid_texture/red/texture_13.png" id="2_3wd5u"]
-[ext_resource type="PackedScene" uid="uid://ck7hbbg7mgmo6" path="res://asset/circuitnode/switch.tscn" id="3_f2f1m"]
+[ext_resource type="Script" path="res://asset/binaryct/binarycounter.gd" id="1_f0hgd"]
+[ext_resource type="Texture2D" uid="uid://dmxhqxmnlla2i" path="res://grid_texture/red/texture_13.png" id="2_3wd5u"]
+[ext_resource type="PackedScene" uid="uid://ck7hbbg7mgmo6" path="res://asset/circuitnode/gate/switch.tscn" id="3_f2f1m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_870nu"]
 albedo_texture = ExtResource("2_3wd5u")
