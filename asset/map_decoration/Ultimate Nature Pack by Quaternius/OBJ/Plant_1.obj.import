@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b42v3m3tbvr2q"
+path="res://.godot/imported/Plant_1.obj-01247cee7111d99036f2e8e90cf9e8dd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Plant_1.obj-01247cee7111d99036f2e8e90cf9e8dd.mesh"]
+
+source_file="res://asset/map_decoration/Ultimate Nature Pack by Quaternius/OBJ/Plant_1.obj"
+dest_files=["res://.godot/imported/Plant_1.obj-01247cee7111d99036f2e8e90cf9e8dd.mesh", "res://.godot/imported/Plant_1.obj-01247cee7111d99036f2e8e90cf9e8dd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

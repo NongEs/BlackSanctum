@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1647ss6emhbx"
+path="res://.godot/imported/PineTree_Snow_4.obj-7d717890c2956361fec54c272e027548.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PineTree_Snow_4.obj-7d717890c2956361fec54c272e027548.mesh"]
+
+source_file="res://asset/map_decoration/Ultimate Nature Pack by Quaternius/OBJ/PineTree_Snow_4.obj"
+dest_files=["res://.godot/imported/PineTree_Snow_4.obj-7d717890c2956361fec54c272e027548.mesh", "res://.godot/imported/PineTree_Snow_4.obj-7d717890c2956361fec54c272e027548.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
