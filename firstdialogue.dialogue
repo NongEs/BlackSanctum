@@ -1,0 +1,19 @@
+~ start
+Nathan: Hi Coco!!
+Coco: Im cool
+Coco: how you
+Nathan: What are you [wave amp=25 freq=5]doing???[/wave]
+Nathan: I'm just [shake rate=20 level=10]JERKING OFF[/shake]
+=> floatplatform
+
+~ floatplatform
+Nathan: [speed=0.2]Look at here!!
+Nathan: [speed=0.2]Try to jump on that, You will get [shake rate=20 level=10]HIGHER[/shake]
+Nathan: [speed=0.2]How is it feeling?
+- great
+	Nathan: Great to hear that
+- kinda weird
+- confuse => floatplatform
+Nathan: That's all
+=> END
+

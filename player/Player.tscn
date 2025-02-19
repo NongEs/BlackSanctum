@@ -1,15 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://br32nfo304qyg"]
+[gd_scene load_steps=10 format=3 uid="uid://sbqhbha156g5"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_6fykb"]
-[ext_resource type="PackedScene" uid="uid://dkdcvndo46anb" path="res://player/InteractRay.tscn" id="2_t50u0"]
-[ext_resource type="Script" path="res://player/ui.gd" id="3_r160i"]
-[ext_resource type="Texture2D" uid="uid://buu3eogm3spo6" path="res://player/crosshair.png" id="4_800rr"]
-[ext_resource type="Texture2D" uid="uid://ntiu66svity3" path="res://asset/grid_texture/red/texture_01.png" id="5_gesqo"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_188me"]
+[ext_resource type="PackedScene" uid="uid://b7itofqyvmq6l" path="res://Player/InteractRay.tscn" id="2_fxc3u"]
+[ext_resource type="Texture2D" uid="uid://bidw8qikasua4" path="res://Player/crosshair.png" id="3_cen4q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0b6p"]
 resource_local_to_scene = true
-radius = 1.12264
-height = 3.93387
+radius = 1.0
+height = 4.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x3w4a"]
 radius = 0.9
@@ -31,14 +29,11 @@ bg_color = Color(0.921569, 0.337255, 0.294118, 1)
 corner_radius_bottom_left = 10
 corner_detail = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hghj"]
-albedo_texture = ExtResource("5_gesqo")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_8gmjb"]
-
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1.03081, 0, 0, 0, 1.00557, 0, 0, 0, 1.03326, 0, 0, 0)
-script = ExtResource("1_6fykb")
+script = ExtResource("1_188me")
+speed = 13.0
+accel = 20.0
+jump = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -48,9 +43,8 @@ shape = SubResource("CapsuleShape3D_b0b6p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(0.970112, 0, 0, 0, 0.994462, 0, 0, 0, 0.967814, 0, 0, -0.835153)
 
-[node name="InteractRay" parent="Head" instance=ExtResource("2_t50u0")]
+[node name="InteractRay" parent="Head" instance=ExtResource("2_fxc3u")]
 
 [node name="TopCast" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -64,7 +58,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_r160i")
 
 [node name="CrossHair" type="TextureRect" parent="UI"]
 layout_mode = 1
@@ -79,7 +72,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_800rr")
+texture = ExtResource("3_cen4q")
 expand_mode = 1
 
 [node name="HurtOverlay" type="TextureRect" parent="UI"]
@@ -173,11 +166,6 @@ theme_override_colors/font_pressed_color = Color(0.921569, 0.337255, 0.294118, 1
 theme_override_font_sizes/font_size = 32
 text = "QUIT"
 flat = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.9, 0)
-material_override = SubResource("StandardMaterial3D_3hghj")
-mesh = SubResource("CapsuleMesh_8gmjb")
 
 [connection signal="pressed" from="UI/GameOver/BoxContainer/BoxContainer/RestartButton" to="UI" method="_on_restart_button_pressed"]
 [connection signal="pressed" from="UI/GameOver/BoxContainer/BoxContainer/QuitButton" to="UI" method="_on_quit_button_pressed"]
