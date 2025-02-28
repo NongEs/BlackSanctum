@@ -60,6 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CrossHair" type="TextureRect" parent="UI"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -85,6 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HealthBarBG" type="ProgressBar" parent="UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -100,6 +102,7 @@ value = 80.0
 show_percentage = false
 
 [node name="HealthBar" type="ProgressBar" parent="UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

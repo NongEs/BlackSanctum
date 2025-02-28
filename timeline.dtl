@@ -1,0 +1,21 @@
+[wait time="1.0"]
+DrMantis (DefaultMantis): Hi there! [lspeed=0.05] L I T T L E K I D !
+Player: Who are you??
+DrMantis (MantisSmile): I am your guidance.
+DrMantis (MantisSmile): Don’t worry, my only job is to help you complete the stage.
+Player: [lspeed=0.4] . . . .
+
+DrMantis (MantisWonder): Aww, you’re no fun to tease!
+DrMantis (MantisWonder): I'm just a guide here to help you complete the stage.
+Player: (Well, do I even have another option for help?)
+Player: (Might as well play along with this strange "guide"…)
+[wait time="1.0"]
+
+DrMantis (MantisSmile): Alright, let's get you moving first.
+DrMantis (MantisSmile): Use WASD to move and your mouse to rotate the camera.
+[wait time="1.0"]
+DrMantis (MantisSmile): Great! Now, try jumping by pressing the spacebar.
+[wait time="1.5"]
+DrMantis (MantisSmile): See that switch over there?
+DrMantis (MantisSmile): Go up to it and interact.
+[wait time="3.0"]

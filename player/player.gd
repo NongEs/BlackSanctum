@@ -32,13 +32,13 @@ var stand_height : float
 var old_vel : float = 0.0
 var hurt_tween : Tween
 var moving : bool = true
-
+var game_paused := false
 
 func _ready():
 	look_rot.y = rotation_degrees.y
 	stand_height = collision_shape.shape.height
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _physics_process(delta):
 	# movement
@@ -87,7 +87,15 @@ func _input(event):
 		look_rot.x -= (event.relative.y * sensitivity)
 		look_rot.x = clamp(look_rot.x, min_angle, max_angle)
 
-
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		game_paused = !game_paused
+		get_tree().paused = game_paused
+		
+		if game_paused:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # แสดงเมาส์
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # จับเมาส์
 func crouch(delta : float, reverse = false):
 	var target_height : float = crouch_height if not reverse else stand_height
 	
