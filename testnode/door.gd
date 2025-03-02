@@ -17,8 +17,8 @@ func toggle():
 	
 	if playback:
 		if is_open:
-			playback.travel("DoorClose")
-		else:
 			playback.travel("DoorOpen")
+		else:
+			playback.travel("DoorClose")
 	else:
 		print("Error: playback is null, cannot toggle door state!")

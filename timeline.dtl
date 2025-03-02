@@ -11,11 +11,20 @@ Player: (Well, do I even have another option for help?)
 Player: (Might as well play along with this strange "guide"…)
 [wait time="1.0"]
 
-DrMantis (MantisSmile): Alright, let's get you moving first.
-DrMantis (MantisSmile): Use WASD to move and your mouse to rotate the camera.
+DrMantis (MantisSmile): Alright, let's get moving first.
+DrMantis (MantisSmile): Use W A S D to move and use your mouse to rotate the camera.
 [wait time="1.0"]
-DrMantis (MantisSmile): Great! Now, try jumping by pressing the spacebar.
-[wait time="1.5"]
+DrMantis (MantisSmile): Great! Now, try jumping by pressing the SPACEBAR.
+DrMantis (MantisSmile): Skibidii! Next, use CTRL to crounch.
+DrMantis (MantisSmile): Super Ooper! What a good listener! I hope u can enjoy this game. \
+[lspeed=0.4] . . . . [lspeed=0.8] M A Y B E.
+[wait time="3.0"]
+[signal arg="move left noi"]
+[wait time="6.0"]
+DrMantis (MantisSmile): There's the way, Let 's go to next tutorial!!
+[wait time="1.0"]
+[signal arg="move bridge left"]
+[end_timeline]
+label my yahee (my yahee)
 DrMantis (MantisSmile): See that switch over there?
 DrMantis (MantisSmile): Go up to it and interact.
-[wait time="3.0"]

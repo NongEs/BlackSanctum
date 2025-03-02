@@ -1,0 +1,1995 @@
+[gd_scene load_steps=73 format=3 uid="uid://phdixirbdflf"]
+
+[ext_resource type="Script" path="res://map_decto_bi.gd" id="1_lshey"]
+[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://grid_texture/dark/texture_08.png" id="2_ftk0u"]
+[ext_resource type="Texture2D" uid="uid://cfm1bun428jxq" path="res://grid_texture/dark/texture_09.png" id="3_btrvv"]
+[ext_resource type="Texture2D" uid="uid://djugnb5hh60e1" path="res://grid_texture/green/texture_01.png" id="4_fak17"]
+[ext_resource type="PackedScene" uid="uid://bshte6v76d7nq" path="res://testnode/Door.tscn" id="5_cm25p"]
+[ext_resource type="Texture2D" uid="uid://b5nm5mmjxfht4" path="res://grid_texture/green/texture_05.png" id="6_d4uy5"]
+[ext_resource type="Texture2D" uid="uid://ntiu66svity3" path="res://grid_texture/red/texture_01.png" id="7_w7xsk"]
+[ext_resource type="Texture2D" uid="uid://dhyr4kky7mqfd" path="res://grid_texture/orange/texture_01.png" id="8_5ulvu"]
+[ext_resource type="PackedScene" uid="uid://bp7cuk0oavepu" path="res://Environment/bushes/bush.tscn" id="9_hwt6k"]
+[ext_resource type="PackedScene" uid="uid://cbxln4ljola71" path="res://Environment/flowers/flower_patch.tscn" id="10_16k31"]
+[ext_resource type="PackedScene" uid="uid://btudipdtsdyey" path="res://Environment/grass/GrassChunk.tscn" id="11_smh7a"]
+[ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://Environment/trees/tree.tscn" id="12_l3ktq"]
+[ext_resource type="PackedScene" uid="uid://sbqhbha156g5" path="res://Player/Player.tscn" id="13_v1fsd"]
+[ext_resource type="PackedScene" uid="uid://brmd78i55k8b8" path="res://asset/binaryct/binarycounter.tscn" id="14_prgjp"]
+[ext_resource type="PackedScene" uid="uid://bbq5t15mllaxx" path="res://sample_switch.tscn" id="15_mima4"]
+[ext_resource type="PackedScene" uid="uid://bimuhvegk187q" path="res://pausemenu.tscn" id="16_kvp84"]
+[ext_resource type="Texture2D" uid="uid://bhvan7kwsyvxw" path="res://grid_texture/dark/texture_12.png" id="16_skpov"]
+[ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://fireflyparticle.tscn" id="17_pqxdx"]
+[ext_resource type="Shader" path="res://stylized_sky.gdshader" id="18_2j1u5"]
+[ext_resource type="Texture2D" uid="uid://b47qp5wttifcb" path="res://characters/nathan.png" id="19_vry83"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw5kr"]
+albedo_texture = ExtResource("2_ftk0u")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buon1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ggm1"]
+albedo_texture = ExtResource("2_ftk0u")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ravyy"]
+albedo_texture = ExtResource("3_btrvv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgtpb"]
+albedo_texture = ExtResource("4_fak17")
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts1fh"]
+albedo_texture = ExtResource("6_d4uy5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq6s1"]
+albedo_texture = ExtResource("7_w7xsk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrqhj"]
+albedo_texture = ExtResource("8_5ulvu")
+
+[sub_resource type="Shader" id="Shader_q1asq"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_refraction : filter_linear_mipmap, repeat_enable;
+uniform float refraction : hint_range(-1.0, 1.0, 0.001);
+uniform vec4 refraction_texture_channel;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+varying vec3 uv1_triplanar_pos;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+
+	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+	TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+	// UV1 Triplanar: Enabled (with World Triplanar)
+	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset + TIME * 0.02;
+	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec4 samp = vec4(0.0);
+	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return samp;
+}
+
+void fragment() {
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	// Refraction: Enabled (with normal map texture)
+	vec3 unpacked_normal = NORMAL_MAP;
+	unpacked_normal.xy = unpacked_normal.xy * 2.0 - 1.0;
+	unpacked_normal.z = sqrt(max(0.0, 1.0 - dot(unpacked_normal.xy, unpacked_normal.xy)));
+	vec3 ref_normal = normalize(mix(
+			NORMAL,
+			TANGENT * unpacked_normal.x + BINORMAL * unpacked_normal.y + NORMAL * unpacked_normal.z,
+			NORMAL_MAP_DEPTH));
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction, uv1_power_normal, uv1_triplanar_pos), refraction_texture_channel) * refraction;
+
+	float ref_amount = 1.0 - albedo.a * albedo_tex.a;
+	EMISSION += textureLod(screen_texture, ref_ofs, ROUGHNESS * 8.0).rgb * ref_amount * EXPOSURE;
+	ALBEDO *= 1.0 - ref_amount;
+	// Force transparency on the material (required for refraction).
+	ALPHA = 1.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6yfw7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_04fne"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_6yfw7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q2v55"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_6yfw7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmwr2"]
+render_priority = 0
+shader = SubResource("Shader_q1asq")
+shader_parameter/albedo = Color(0.0196078, 0.658824, 0.780392, 0.713726)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.05, 0.05, 0.05)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_q2v55")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_04fne")
+
+[sub_resource type="BoxMesh" id="BoxMesh_att12"]
+material = SubResource("ShaderMaterial_gmwr2")
+
+[sub_resource type="Animation" id="Animation_sgyvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(11.0768, 6.80614, 7.41693)]
+}
+
+[sub_resource type="Animation" id="Animation_oni68"]
+resource_name = "floatmove"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.5, 2.3, 2.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(11.0768, 6.80614, 7.41693), Vector3(11.0768, 2.95033, 7.41693), Vector3(11.0768, 9.67809, 7.41693), Vector3(11.0768, 7.48259, 7.41693), Vector3(11.0768, 6.23383, 7.41693)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o3bft"]
+_data = {
+"RESET": SubResource("Animation_sgyvc"),
+"floatmove": SubResource("Animation_oni68")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eln6r"]
+albedo_texture = ExtResource("4_fak17")
+
+[sub_resource type="BoxMesh" id="BoxMesh_j81rf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04o67"]
+albedo_texture = ExtResource("4_fak17")
+
+[sub_resource type="Animation" id="Animation_jno6h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.133326, 4.89766, 8.37178)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.417954, 0.102974, -1.08105)]
+}
+
+[sub_resource type="Animation" id="Animation_km6b5"]
+resource_name = "cube_float"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.133326, 4.89766, 8.37178), Vector3(-0.133326, 5.29832, 8.37178), Vector3(-0.133326, 4.89766, 8.37178), Vector3(-0.133326, 5.29832, 8.37178), Vector3(-0.133326, 4.89766, 8.37178)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.417954, 0.102974, -1.08105), Vector3(-0.856901, -0.00189336, -0.954783), Vector3(-0.944301, -1.45534, 0.503523), Vector3(-0.434057, -0.565539, -0.495741), Vector3(-0.401254, 0.158172, -1.21946)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2a0gf"]
+_data = {
+"RESET": SubResource("Animation_jno6h"),
+"cube_float": SubResource("Animation_km6b5")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fj4rs"]
+size = Vector3(7.5318, 2.61426, 5.31873)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p5lhn"]
+size = Vector3(5.37525, 2.61426, 6.32715)
+
+[sub_resource type="Animation" id="Animation_853n6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12.4781, 0.597382, -12.6362)]
+}
+
+[sub_resource type="Animation" id="Animation_gu2jy"]
+resource_name = "move_left"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(12.4781, 0.597382, -12.6362), Vector3(2.22649, 0.597382, -3.20793)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wlbq"]
+_data = {
+"RESET": SubResource("Animation_853n6"),
+"move_left": SubResource("Animation_gu2jy")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5o4k"]
+albedo_texture = ExtResource("16_skpov")
+uv1_triplanar = true
+
+[sub_resource type="Animation" id="Animation_s5jgr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGPolygon3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.88836, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGPolygon3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -22.9924)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGPolygon3D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(19.6987, -1.11578, -33.9385)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGPolygon3D3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.24513, 1.06776, 1.07228)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGPolygon3D4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGPolygon3D4:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.4128, -2.34513, 1.51517)]
+}
+
+[sub_resource type="Animation" id="Animation_r4kdl"]
+resource_name = "bridge_move"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGPolygon3D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.00439, 0), Vector3(0, 2.2809, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGPolygon3D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(10.3746, -7.54387, -18.0842), Vector3(10.3746, -7.54387, -18.0842)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGPolygon3D3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(19.6987, -1.11578, -33.9385), Vector3(12.7684, -1.69601, -20.5288)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGPolygon3D3:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.1, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.290947, 1.0897, 1.99126), Vector3(-1.37081, 0.953185, 1.18701)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGPolygon3D4:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.8, 5.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(4.31451, -6.3189, -13.3963)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGPolygon3D4:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.5, 5.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.329349, -2.94755, 1.84266), Vector3(1.4128, -2.34513, 1.51517)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8b3c4"]
+_data = {
+"RESET": SubResource("Animation_s5jgr"),
+"bridge_move": SubResource("Animation_r4kdl")
+}
+
+[sub_resource type="Animation" id="Animation_qma81"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(21.9613, 0.597382, 14.6684)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.797301, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cuj7f"]
+resource_name = "move_left_sec_ox"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3.03333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(21.9613, 0.597382, 14.6684), Vector3(21.6779, 0.597382, 16.7208), Vector3(18.1021, 0.597382, 20.8273), Vector3(12.8405, 0.597382, 20.2433)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3.03333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.797301, 0), Vector3(0, -1.00088, 0), Vector3(0, -1.30434, 0), Vector3(0, -1.47308, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pox2w"]
+_data = {
+"RESET": SubResource("Animation_qma81"),
+"move_left_sec_ox": SubResource("Animation_cuj7f")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqgxo"]
+size = Vector3(5.37525, 2.61426, 6.32715)
+
+[sub_resource type="Animation" id="Animation_s2q6j"]
+resource_name = "bridge_fall"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(27.0192, 1.06931, 0.96582), Vector3(27.0192, 1.06931, 0.96582), Vector3(27.0192, 8.48952, 0.96582), Vector3(43.1349, -3.4584, 0.96582), Vector3(48.2442, -2.05, 0.96582)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.72529e-09, 0), Vector3(0, -3.72529e-09, 0), Vector3(-3.59135e-09, -9.89963e-10, -1.30182), Vector3(-3.59135e-09, -9.89964e-10, -1.30182)]
+}
+
+[sub_resource type="Animation" id="Animation_ffa75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(27.0192, 1.06931, 0.96582)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.72529e-09, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t4xec"]
+_data = {
+"RESET": SubResource("Animation_ffa75"),
+"bridge_fall": SubResource("Animation_s2q6j")
+}
+
+[sub_resource type="Curve" id="Curve_4gyyl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_iwbew"]
+curve = SubResource("Curve_4gyyl")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_68u7b"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bxeyo"]
+seamless = true
+noise = SubResource("FastNoiseLite_68u7b")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jnl31"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f6bkh"]
+seamless = true
+noise = SubResource("FastNoiseLite_jnl31")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ppq1b"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jwbey"]
+seamless = true
+noise = SubResource("FastNoiseLite_ppq1b")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_acwjx"]
+load_path = "res://.godot/imported/shooting_star_sampler.png-ff1e808fa5f8310e548f777b9285bd3e.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o44ei"]
+shader = ExtResource("18_2j1u5")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.05
+shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
+shader_parameter/clouds_shadow_intensity = 8.0
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_f6bkh")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_bxeyo")
+shader_parameter/cloud_curves = SubResource("CurveTexture_iwbew")
+shader_parameter/high_clouds_density = 0.1
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_jwbey")
+shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
+shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_scale = 10.0
+shader_parameter/astro_intensity = 3.0
+shader_parameter/astro_sampler = ExtResource("19_vry83")
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 10.0
+shader_parameter/shooting_star_tint = Color(1, 1, 0.666667, 1)
+shader_parameter/shooting_star_sampler = SubResource("CompressedTexture2D_acwjx")
+
+[sub_resource type="Sky" id="Sky_0udk2"]
+sky_material = SubResource("ShaderMaterial_o44ei")
+
+[sub_resource type="Environment" id="Environment_1sc8n"]
+background_mode = 2
+sky = SubResource("Sky_0udk2")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.2
+ssao_enabled = true
+glow_enabled = true
+glow_blend_mode = 4
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.005
+
+[sub_resource type="FogMaterial" id="FogMaterial_wkvp4"]
+albedo = Color(0.396078, 0.376471, 0.27451, 1)
+height_falloff = 0.318
+edge_fade = 0.492457
+
+[node name="NightMapDecBi" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_lshey")
+player = NodePath("Player")
+
+[node name="block" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 17, -36)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94344, -1.94556, -16.0526)
+material_override = SubResource("StandardMaterial3D_mw5kr")
+use_collision = true
+size = Vector3(33.609, 1, 35.7193)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7513, 6.96151, -16.0592)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 18.8141, 17.9273)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="block"]
+transform = Transform3D(-0.25396, 0.967215, 0, -0.967215, -0.25396, 0, 0, 0, 1, -7.28621, 0.743496, -2.44689)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 9.25457, 7.59865)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0885, -0.0422516, -15.2236)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 4.80658, 17.99)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="block"]
+transform = Transform3D(0.00055851, 0, 1, 0, 1, 0, -1, 0, 0.00055851, 7.18634, 2.59612, -33.817)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 10.0834, 16.0716)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="block"]
+transform = Transform3D(0.00055851, 0, 1, 0, 1, 0, -1, 0, 0.00055851, 4.32553, 4.05012, 2.21668)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 12.9914, 16.9616)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="block"]
+transform = Transform3D(0.69864, 0, -0.715473, 0, 1, 0, 0.715473, 0, 0.69864, -6.02351, 3.39578, -28.9243)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 11.6827, 14.3893)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="block"]
+transform = Transform3D(0.69864, 0, -0.715473, 0, 1, 0, 0.715473, 0, 0.69864, 17.5134, 4.76638, -2.44162)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 14.4238, 14.3244)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="block"]
+transform = Transform3D(0.747485, 0, 0.664279, 0, 1, 0, -0.664279, 0, 0.747485, 18.8396, 5.14573, -29.2633)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 15.1826, 12.0822)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="block"]
+transform = Transform3D(0.781662, 0, 0.623702, 0, 1, 0, -0.623702, 0, 0.781662, -7.32351, -1.00962, -2.53582)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 2.87187, 12.3047)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="block"]
+transform = Transform3D(-0.0279217, 0, 0.99961, 0, 1, 0, -0.99961, 0, -0.0279217, -3.41288, -0.136417, -30.5089)
+material_override = SubResource("StandardMaterial3D_ravyy")
+use_collision = true
+size = Vector3(1.92795, 4.61829, 1.50513)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="block"]
+transform = Transform3D(0.999611, 0, 0.0279041, 0, 1, 0, -0.0279041, 0, 0.999611, 8.43615, -1.49715, -30.6113)
+material_override = SubResource("StandardMaterial3D_ravyy")
+use_collision = true
+size = Vector3(5.92491, 1.23427, 5.78589)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="block"]
+transform = Transform3D(-1.29393, 0, -1.20307, 0, 1.76681, 0, 1.20307, 0, -1.29393, 14.0616, 1.91298, -2.89471)
+material_override = SubResource("StandardMaterial3D_fgtpb")
+use_collision = true
+size = Vector3(4.06445, 5.19684, 3.23401)
+
+[node name="Door" parent="block/CSGBox3D14" instance=ExtResource("5_cm25p")]
+transform = Transform3D(0.716423, 0, 0.0216011, 0, 0.716749, 0, -0.0216011, 0, 0.716423, 0.0340328, -1.99082, 1.26056)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block/CSGBox3D14"]
+transform = Transform3D(0.885233, 0, -7.45058e-09, 0, 0.885233, 0, 7.45058e-09, 0, 0.885233, 0.0400121, -0.257921, 0.14348)
+material_override = SubResource("StandardMaterial3D_ts1fh")
+operation = 2
+size = Vector3(3.70233, 3.92616, 3.4874)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="block"]
+transform = Transform3D(0.796659, 0, -1.40952, 0, 1.61908, 0, 1.40952, 0, 0.796659, 17.1527, 1.20777, -26.1969)
+material_override = SubResource("StandardMaterial3D_dq6s1")
+use_collision = true
+size = Vector3(4.06445, 5.19684, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block/CSGBox3D15"]
+transform = Transform3D(0.885236, 0, 6.25849e-07, 0, 0.885235, 0, -6.25849e-07, 0, 0.885236, 0.0400124, 0.0787679, 0.14348)
+material_override = SubResource("StandardMaterial3D_ts1fh")
+operation = 2
+size = Vector3(3.70233, 4.68683, 3.4874)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="block"]
+transform = Transform3D(1.38572, 0, 0.529322, 0, 1.48338, 0, -0.529322, 0, 1.38572, -4.17326, 0.542091, -20.8282)
+material_override = SubResource("StandardMaterial3D_qrqhj")
+use_collision = true
+size = Vector3(4.06445, 5.19684, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block/CSGBox3D13"]
+transform = Transform3D(0.885233, 0, 0, 0, 0.885233, 0, 0, 0, 0.885233, 0.0400119, -0.116729, 0.14348)
+operation = 2
+size = Vector3(3.70233, 4.24515, 3.4874)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="block"]
+transform = Transform3D(1.48251, 0, 0.0507089, 0, 1.48338, 0, -0.0507089, 0, 1.48251, 15.2538, -2.2262, -13.1853)
+material_override = SubResource("StandardMaterial3D_qrqhj")
+use_collision = true
+size = Vector3(4.06445, 1.46442, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block/CSGBox3D16"]
+transform = Transform3D(0.885227, 0, -1.67638e-08, 0, 0.885233, 0, 1.67638e-08, 0, 0.885227, 0.10035, -0.116729, -0.0304649)
+operation = 2
+size = Vector3(3.56601, 4.24515, 3.09441)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="block/CSGBox3D16"]
+transform = Transform3D(3.14383, 0, -1.41561e-07, 0, 0.651824, 0, 1.63913e-07, 0, 2.89293, 0.14039, 0.302915, -0.0709734)
+mesh = SubResource("BoxMesh_att12")
+
+[node name="decoration" type="Node3D" parent="block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 17.72, -36)
+
+[node name="Bush1" parent="block/decoration" instance=ExtResource("9_hwt6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5221, -19.2488, 19.4893)
+skeleton = NodePath("../../..")
+
+[node name="Bush4" parent="block/decoration" instance=ExtResource("9_hwt6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3042, -19.2488, 23.3317)
+skeleton = NodePath("../../..")
+
+[node name="Bush3" parent="block/decoration" instance=ExtResource("9_hwt6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4949, -19.2488, 21.3441)
+skeleton = NodePath("../../..")
+
+[node name="Bush2" parent="block/decoration" instance=ExtResource("9_hwt6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2044, -19.2488, 18.5114)
+skeleton = NodePath("../../..")
+
+[node name="FlowerPatch" parent="block/decoration" instance=ExtResource("10_16k31")]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, -23.0173, -19.2488, 23.4625)
+
+[node name="FlowerPatch2" parent="block/decoration" instance=ExtResource("10_16k31")]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, -22.6364, -19.2488, 20.3624)
+
+[node name="grass_chunk_scene" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.1073, -19.2488, 21.3677)
+
+[node name="grass_chunk_scene2" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4779, -19.2488, 21.3677)
+
+[node name="grass_chunk_scene3" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.4779, -19.2488, 21.9874)
+
+[node name="grass_chunk_scene4" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5614, -19.2488, 21.9874)
+
+[node name="grass_chunk_scene5" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2571, -19.2488, 21.4591)
+
+[node name="grass_chunk_scene6" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.744, -19.2488, 20.6585)
+
+[node name="grass_chunk_scene7" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.961074, 0, -0.276292, 0, 1, 0, 0.276292, 0, 0.961074, -25.29, -19.2488, 18.6682)
+
+[node name="grass_chunk_scene8" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.961074, 0, -0.276292, 0, 1, 0, 0.276292, 0, 0.961074, -23.9272, -19.2488, 16.4393)
+
+[node name="grass_chunk_scene9" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.338557, 0, -0.940946, 0, 1, 0, 0.940946, 0, 0.338557, -29.3331, -19.2488, 18.4118)
+
+[node name="grass_chunk_scene10" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.339329, 0, -0.940668, 0, 1, 0, 0.940668, 0, -0.339329, -26.5168, -19.2488, 16.8939)
+
+[node name="grass_chunk_scene11" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.338557, 0, -0.940946, 0, 1, 0, 0.940946, 0, 0.338557, -27.7409, -19.2488, 19.2139)
+
+[node name="grass_chunk_scene12" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.338557, 0, -0.940946, 0, 1, 0, 0.940946, 0, 0.338557, -28.1077, -19.2488, 18.1943)
+
+[node name="grass_chunk_scene13" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.338557, 0, -0.940946, 0, 1, 0, 0.940946, 0, 0.338557, -27.8462, -19.2488, 16.2356)
+
+[node name="grass_chunk_scene14" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.338557, 0, -0.940946, 0, 1, 0, 0.940946, 0, 0.338557, -27.2577, -19.2488, 15.307)
+
+[node name="grass_chunk_scene15" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.0654031, 0, -0.997859, 0, 1, 0, 0.997859, 0, 0.0654031, -25.5697, -19.2488, 15.4441)
+
+[node name="grass_chunk_scene17" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -20.525, -19.2488, 16.4931)
+
+[node name="grass_chunk_scene18" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -21.1543, -19.2488, 16.5043)
+
+[node name="grass_chunk_scene19" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -21.1653, -19.2488, 15.8847)
+
+[node name="grass_chunk_scene20" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -20.082, -19.2488, 15.8654)
+
+[node name="grass_chunk_scene21" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -19.377, -19.2488, 16.3812)
+
+[node name="grass_chunk_scene22" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -18.8759, -19.2488, 17.173)
+
+[node name="grass_chunk_scene23" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.96584, 0, 0.25914, 0, 1, 0, -0.25914, 0, -0.96584, -18.2946, -19.2488, 19.1533)
+
+[node name="grass_chunk_scene24" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.96584, 0, 0.25914, 0, 1, 0, -0.25914, 0, -0.96584, -19.6174, -19.2488, 21.4061)
+
+[node name="grass_chunk_scene25" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -14.2475, -19.2488, 19.3376)
+
+[node name="grass_chunk_scene26" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.32253, 0, 0.946559, 0, 1, 0, -0.946559, 0, 0.32253, -17.0364, -19.2488, 20.9054)
+
+[node name="grass_chunk_scene27" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -15.8538, -19.2488, 18.5641)
+
+[node name="grass_chunk_scene28" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -15.4689, -19.2488, 19.5769)
+
+[node name="grass_chunk_scene29" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -15.6955, -19.2488, 21.5399)
+
+[node name="grass_chunk_scene30" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -16.2673, -19.2488, 22.4789)
+
+[node name="grass_chunk_scene31" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.0831559, 0, 0.996537, 0, 1, 0, -0.996537, 0, -0.0831559, -17.9575, -19.2488, 22.3719)
+
+[node name="grass_chunk_scene32" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -21.5045, -19.2488, 12.5188)
+
+[node name="grass_chunk_scene33" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -22.1338, -19.2488, 12.53)
+
+[node name="grass_chunk_scene34" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -22.1448, -19.2488, 11.9105)
+
+[node name="grass_chunk_scene35" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -21.0615, -19.2488, 11.8912)
+
+[node name="grass_chunk_scene36" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -20.3565, -19.2488, 12.407)
+
+[node name="grass_chunk_scene37" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.999842, 0, -0.0178013, 0, 1, 0, 0.0178013, 0, -0.999842, -19.8554, -19.2488, 13.1988)
+
+[node name="grass_chunk_scene38" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.96584, 0, 0.25914, 0, 1, 0, -0.25914, 0, -0.96584, -19.2741, -19.2488, 15.1791)
+
+[node name="grass_chunk_scene39" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.96584, 0, 0.25914, 0, 1, 0, -0.25914, 0, -0.96584, -20.5969, -19.2488, 17.4319)
+
+[node name="grass_chunk_scene40" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -15.227, -19.2488, 15.3634)
+
+[node name="grass_chunk_scene41" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.32253, 0, 0.946559, 0, 1, 0, -0.946559, 0, 0.32253, -18.0159, -19.2488, 16.9312)
+
+[node name="grass_chunk_scene42" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -16.8333, -19.2488, 14.5899)
+
+[node name="grass_chunk_scene43" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -16.4484, -19.2488, 15.6027)
+
+[node name="grass_chunk_scene44" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -16.675, -19.2488, 17.5658)
+
+[node name="grass_chunk_scene45" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.355254, 0, 0.93477, 0, 1, 0, -0.93477, 0, -0.355254, -17.2468, -19.2488, 18.5047)
+
+[node name="grass_chunk_scene46" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.0831559, 0, 0.996537, 0, 1, 0, -0.996537, 0, -0.0831559, -18.937, -19.2488, 18.3977)
+
+[node name="grass_chunk_scene47" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -32.1588, -19.2488, 14.1403)
+
+[node name="grass_chunk_scene48" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -32.6893, -19.2488, 14.4791)
+
+[node name="grass_chunk_scene49" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -33.0228, -19.2488, 13.9568)
+
+[node name="grass_chunk_scene50" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -32.1096, -19.2488, 13.3736)
+
+[node name="grass_chunk_scene51" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -31.239, -19.2488, 13.4444)
+
+[node name="grass_chunk_scene52" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -30.3977, -19.2488, 13.8571)
+
+[node name="grass_chunk_scene53" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, -28.8663, -19.2488, 15.2407)
+
+[node name="grass_chunk_scene54" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, -28.8152, -19.2488, 17.8527)
+
+[node name="grass_chunk_scene55" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -25.3208, -19.2488, 13.2806)
+
+[node name="grass_chunk_scene56" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.220306, 0, 0.975431, 0, 1, 0, -0.975431, 0, -0.220306, -26.8774, -19.2488, 16.0757)
+
+[node name="grass_chunk_scene57" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -27.0944, -19.2488, 13.4616)
+
+[node name="grass_chunk_scene58" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -26.2365, -19.2488, 14.1235)
+
+[node name="grass_chunk_scene59" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -25.4027, -19.2488, 15.915)
+
+[node name="grass_chunk_scene60" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -25.3988, -19.2488, 17.0144)
+
+[node name="grass_chunk_scene61" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.592196, 0, 0.805794, 0, 1, 0, -0.805794, 0, -0.592196, -26.8953, -19.2488, 17.8074)
+
+[node name="grass_chunk_scene62" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -32.1588, -19.2488, 9.67994)
+
+[node name="grass_chunk_scene63" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -32.6893, -19.2488, 10.0187)
+
+[node name="grass_chunk_scene64" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -33.0228, -19.2488, 9.49644)
+
+[node name="grass_chunk_scene65" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -32.1096, -19.2488, 8.91324)
+
+[node name="grass_chunk_scene66" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -31.239, -19.2488, 8.98404)
+
+[node name="grass_chunk_scene67" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -30.3977, -19.2488, 9.39674)
+
+[node name="grass_chunk_scene68" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, -28.8663, -19.2488, 10.7803)
+
+[node name="grass_chunk_scene69" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, -28.8152, -19.2488, 13.3923)
+
+[node name="grass_chunk_scene70" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -25.3208, -19.2488, 8.82024)
+
+[node name="grass_chunk_scene71" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.220306, 0, 0.975431, 0, 1, 0, -0.975431, 0, -0.220306, -26.8774, -19.2488, 11.6153)
+
+[node name="grass_chunk_scene72" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -27.0944, -19.2488, 9.00124)
+
+[node name="grass_chunk_scene73" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -26.2365, -19.2488, 9.66314)
+
+[node name="grass_chunk_scene74" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -25.4027, -19.2488, 11.4546)
+
+[node name="grass_chunk_scene75" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -25.3988, -19.2488, 12.554)
+
+[node name="grass_chunk_scene76" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.592196, 0, 0.805794, 0, 1, 0, -0.805794, 0, -0.592196, -26.8953, -19.2488, 13.347)
+
+[node name="grass_chunk_scene77" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -22.6843, -19.2488, 9.67994)
+
+[node name="grass_chunk_scene78" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -23.2148, -19.2488, 10.0187)
+
+[node name="grass_chunk_scene79" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -23.5483, -19.2488, 9.49644)
+
+[node name="grass_chunk_scene80" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -22.6351, -19.2488, 8.91324)
+
+[node name="grass_chunk_scene81" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -21.7645, -19.2488, 8.98404)
+
+[node name="grass_chunk_scene82" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -20.9232, -19.2488, 9.39674)
+
+[node name="grass_chunk_scene83" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, -19.3918, -19.2488, 10.7803)
+
+[node name="grass_chunk_scene84" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, -19.3407, -19.2488, 13.3923)
+
+[node name="grass_chunk_scene85" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -15.8463, -19.2488, 8.82024)
+
+[node name="grass_chunk_scene86" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.220306, 0, 0.975431, 0, 1, 0, -0.975431, 0, -0.220306, -17.4029, -19.2488, 11.6153)
+
+[node name="grass_chunk_scene87" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -17.6199, -19.2488, 9.00124)
+
+[node name="grass_chunk_scene88" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -16.762, -19.2488, 9.66314)
+
+[node name="grass_chunk_scene89" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -15.9282, -19.2488, 11.4546)
+
+[node name="grass_chunk_scene90" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -15.9243, -19.2488, 12.554)
+
+[node name="grass_chunk_scene91" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.592196, 0, 0.805794, 0, 1, 0, -0.805794, 0, -0.592196, -17.4207, -19.2488, 13.347)
+
+[node name="grass_chunk_scene92" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -14.7159, -19.2488, 19.974)
+
+[node name="grass_chunk_scene93" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -15.2463, -19.2488, 20.3128)
+
+[node name="grass_chunk_scene94" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -15.5798, -19.2488, 19.7905)
+
+[node name="grass_chunk_scene95" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -14.6666, -19.2488, 19.2073)
+
+[node name="grass_chunk_scene96" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -13.796, -19.2488, 19.2781)
+
+[node name="grass_chunk_scene97" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, -12.9547, -19.2488, 19.6908)
+
+[node name="grass_chunk_scene98" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, -11.4233, -19.2488, 21.5867)
+
+[node name="grass_chunk_scene99" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, -6.57602, -19.2488, 23.6863)
+
+[node name="grass_chunk_scene100" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -7.87783, -19.2488, 19.1143)
+
+[node name="grass_chunk_scene101" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.220306, 0, 0.975431, 0, 1, 0, -0.975431, 0, -0.220306, -9.43442, -19.2488, 21.9094)
+
+[node name="grass_chunk_scene102" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -9.65142, -19.2488, 19.2953)
+
+[node name="grass_chunk_scene103" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -8.79352, -19.2488, 19.9572)
+
+[node name="grass_chunk_scene104" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -6.46275, -19.2488, 21.7487)
+
+[node name="grass_chunk_scene105" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, -5.96493, -19.2488, 20.3312)
+
+[node name="grass_chunk_scene106" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.592196, 0, 0.805794, 0, 1, 0, -0.805794, 0, -0.592196, -9.45222, -19.2488, 23.641)
+
+[node name="grass_chunk_scene107" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -12.1255, -19.2488, 12.1215)
+
+[node name="grass_chunk_scene108" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -12.6616, -19.2488, 11.7917)
+
+[node name="grass_chunk_scene109" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -12.3369, -19.2488, 11.2639)
+
+[node name="grass_chunk_scene110" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -11.414, -19.2488, 11.8316)
+
+[node name="grass_chunk_scene111" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -11.0983, -19.2488, 12.6461)
+
+[node name="grass_chunk_scene112" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -11.1031, -19.2488, 13.5831)
+
+[node name="grass_chunk_scene113" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.673813, 0, 0.738903, 0, 1, 0, -0.738903, 0, -0.673813, -11.6809, -19.2488, 15.5645)
+
+[node name="grass_chunk_scene114" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.673813, 0, 0.738903, 0, 1, 0, -0.738903, 0, -0.673813, -14.0095, -19.2488, 16.7489)
+
+[node name="grass_chunk_scene115" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -8.37152, -19.2488, 17.9013)
+
+[node name="grass_chunk_scene116" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.781902, 0, 0.623402, 0, 1, 0, -0.623402, 0, 0.781902, -11.5657, -19.2488, 17.7185)
+
+[node name="grass_chunk_scene117" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -9.30742, -19.2488, 16.3839)
+
+[node name="grass_chunk_scene118" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -9.52922, -19.2488, 17.4445)
+
+[node name="grass_chunk_scene119" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -10.7783, -19.2488, 18.9757)
+
+[node name="grass_chunk_scene120" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -11.7661, -19.2488, 19.4583)
+
+[node name="grass_chunk_scene121" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.467143, 0, 0.884182, 0, 1, 0, -0.884182, 0, 0.467143, -13.1319, -19.2488, 18.4571)
+
+[node name="grass_chunk_scene122" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -12.699, -19.2488, 3.57514)
+
+[node name="grass_chunk_scene123" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -13.2351, -19.2488, 3.24534)
+
+[node name="grass_chunk_scene124" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -12.9104, -19.2488, 2.71754)
+
+[node name="grass_chunk_scene125" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -11.9875, -19.2488, 3.28535)
+
+[node name="grass_chunk_scene126" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -11.6717, -19.2488, 4.09974)
+
+[node name="grass_chunk_scene127" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.851736, 0, 0.523971, 0, 1, 0, -0.523971, 0, -0.851736, -11.6765, -19.2488, 5.03684)
+
+[node name="grass_chunk_scene128" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.673813, 0, 0.738903, 0, 1, 0, -0.738903, 0, -0.673813, -12.2544, -19.2488, 7.01814)
+
+[node name="grass_chunk_scene129" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.673813, 0, 0.738903, 0, 1, 0, -0.738903, 0, -0.673813, -14.5829, -19.2488, 8.20254)
+
+[node name="grass_chunk_scene130" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -8.94503, -19.2488, 9.35493)
+
+[node name="grass_chunk_scene131" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.781902, 0, 0.623402, 0, 1, 0, -0.623402, 0, 0.781902, -12.1391, -19.2488, 9.17213)
+
+[node name="grass_chunk_scene132" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -9.88092, -19.2488, 7.83754)
+
+[node name="grass_chunk_scene133" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -10.1027, -19.2488, 8.89814)
+
+[node name="grass_chunk_scene134" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -11.3517, -19.2488, 10.4293)
+
+[node name="grass_chunk_scene135" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.204667, 0, 0.978832, 0, 1, 0, -0.978832, 0, 0.204667, -12.3396, -19.2488, 10.9119)
+
+[node name="grass_chunk_scene136" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.467143, 0, 0.884182, 0, 1, 0, -0.884182, 0, 0.467143, -13.7054, -19.2488, 9.91074)
+
+[node name="grass_chunk_scene137" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -24.4771, -19.2488, 6.38474)
+
+[node name="grass_chunk_scene138" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -24.802, -19.2488, 6.92384)
+
+[node name="grass_chunk_scene139" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -25.3327, -19.2488, 6.60384)
+
+[node name="grass_chunk_scene140" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -24.7733, -19.2488, 5.67594)
+
+[node name="grass_chunk_scene141" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -23.9618, -19.2488, 5.35284)
+
+[node name="grass_chunk_scene142" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -23.0247, -19.2488, 5.34914)
+
+[node name="grass_chunk_scene143" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -21.0383, -19.2488, 5.90904)
+
+[node name="grass_chunk_scene144" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -19.8329, -19.2488, 8.22684)
+
+[node name="grass_chunk_scene145" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -18.7314, -19.2488, 2.57874)
+
+[node name="grass_chunk_scene146" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.630432, 0, 0.776245, 0, 1, 0, -0.776245, 0, -0.630432, -18.8854, -19.2488, 5.77444)
+
+[node name="grass_chunk_scene147" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -20.2403, -19.2488, 3.52834)
+
+[node name="grass_chunk_scene148" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -19.1778, -19.2488, 3.74055)
+
+[node name="grass_chunk_scene149" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -17.6353, -19.2488, 4.97575)
+
+[node name="grass_chunk_scene150" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -17.1438, -19.2488, 5.95914)
+
+[node name="grass_chunk_scene151" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.888361, 0, 0.459146, 0, 1, 0, -0.459146, 0, -0.888361, -18.1326, -19.2488, 7.33394)
+
+[node name="grass_chunk_scene152" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -24.4771, -19.2488, 26.5212)
+
+[node name="grass_chunk_scene153" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -24.802, -19.2488, 27.0602)
+
+[node name="grass_chunk_scene154" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -25.3327, -19.2488, 26.7403)
+
+[node name="grass_chunk_scene155" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -24.7733, -19.2488, 25.8123)
+
+[node name="grass_chunk_scene156" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -23.9618, -19.2488, 25.4892)
+
+[node name="grass_chunk_scene157" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -23.0247, -19.2488, 25.4856)
+
+[node name="grass_chunk_scene158" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -21.0383, -19.2488, 26.0455)
+
+[node name="grass_chunk_scene159" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -19.8329, -19.2488, 28.3633)
+
+[node name="grass_chunk_scene160" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -18.7314, -19.2488, 22.7152)
+
+[node name="grass_chunk_scene161" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.630432, 0, 0.776245, 0, 1, 0, -0.776245, 0, -0.630432, -18.8854, -19.2488, 25.9108)
+
+[node name="grass_chunk_scene162" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -20.2403, -19.2488, 23.6648)
+
+[node name="grass_chunk_scene163" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -19.1778, -19.2488, 23.877)
+
+[node name="grass_chunk_scene164" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -17.6353, -19.2488, 25.1121)
+
+[node name="grass_chunk_scene165" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -21.9089, -19.2488, 26.0956)
+
+[node name="grass_chunk_scene166" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.888361, 0, 0.459146, 0, 1, 0, -0.459146, 0, -0.888361, -18.1326, -19.2488, 27.4704)
+
+[node name="grass_chunk_scene167" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -37.0902, -19.2488, 26.5212)
+
+[node name="grass_chunk_scene182" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -16.9034, -19.2488, 32.1547)
+
+[node name="grass_chunk_scene183" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -14.9331, -19.2488, 26.2183)
+
+[node name="grass_chunk_scene184" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -13.9799, -19.2488, 30.2409)
+
+[node name="grass_chunk_scene185" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -12.7745, -19.2488, 29.9473)
+
+[node name="grass_chunk_scene186" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -11.673, -19.2488, 23.8367)
+
+[node name="grass_chunk_scene187" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.630432, 0, 0.776245, 0, 1, 0, -0.776245, 0, -0.630432, -7.35143, -19.2488, 27.4948)
+
+[node name="grass_chunk_scene188" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -14.8569, -19.2488, 25.0256)
+
+[node name="grass_chunk_scene189" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -10.7872, -19.2488, 25.4609)
+
+[node name="grass_chunk_scene190" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -10.5769, -19.2488, 26.6961)
+
+[node name="grass_chunk_scene191" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -10.0854, -19.2488, 27.6795)
+
+[node name="grass_chunk_scene192" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.888361, 0, 0.459146, 0, 1, 0, -0.459146, 0, -0.888361, -11.0743, -19.2488, 29.0543)
+
+[node name="grass_chunk_scene193" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -30.0319, -19.2488, 28.1051)
+
+[node name="grass_chunk_scene194" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -28.3199, -19.2488, 28.8362)
+
+[node name="grass_chunk_scene195" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -27.3828, -19.2488, 28.8325)
+
+[node name="grass_chunk_scene196" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -25.3964, -19.2488, 29.3924)
+
+[node name="grass_chunk_scene197" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -24.191, -19.2488, 32.1276)
+
+[node name="grass_chunk_scene198" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -23.0895, -19.2488, 26.0621)
+
+[node name="grass_chunk_scene199" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.630432, 0, 0.776245, 0, 1, 0, -0.776245, 0, -0.630432, -23.2435, -19.2488, 29.2578)
+
+[node name="grass_chunk_scene200" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -24.5984, -19.2488, 27.0117)
+
+[node name="grass_chunk_scene201" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -23.5359, -19.2488, 27.2239)
+
+[node name="grass_chunk_scene202" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -21.9934, -19.2488, 28.4591)
+
+[node name="grass_chunk_scene203" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -21.5019, -19.2488, 29.4425)
+
+[node name="grass_chunk_scene204" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.888361, 0, 0.459146, 0, 1, 0, -0.459146, 0, -0.888361, -22.4907, -19.2488, 30.8173)
+
+[node name="grass_chunk_scene205" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -28.3761, -19.355, 24.203)
+
+[node name="grass_chunk_scene206" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, -29.6559, -19.2488, 17.8331)
+
+[node name="grass_chunk_scene207" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, -30.1582, -19.2488, 18.6242)
+
+[node name="grass_chunk_scene208" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.177789, 0, 0.984069, 0, 1, 0, -0.984069, 0, -0.177789, -31.701, -19.2488, 19.995)
+
+[node name="grass_chunk_scene209" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.177789, 0, 0.984069, 0, 1, 0, -0.984069, 0, -0.177789, -34.3029, -19.2488, 19.76)
+
+[node name="grass_chunk_scene210" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -30.1408, -19.2488, 23.7337)
+
+[node name="grass_chunk_scene211" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.993682, 0, 0.112232, 0, 1, 0, -0.112232, 0, 0.993682, -32.7487, -19.2488, 21.8806)
+
+[node name="grass_chunk_scene212" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -30.1266, -19.2488, 21.9509)
+
+[node name="grass_chunk_scene213" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -30.8784, -19.2488, 22.7313)
+
+[node name="grass_chunk_scene214" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -32.7504, -19.2488, 23.364)
+
+[node name="grass_chunk_scene215" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -33.8436, -19.2488, 23.2475)
+
+[node name="grass_chunk_scene216" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.865764, 0, 0.500453, 0, 1, 0, -0.500453, 0, 0.865764, -34.468, -19.2488, 21.6733)
+
+[node name="grass_chunk_scene217" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, -23.4443, -19.2488, 6.22114)
+
+[node name="grass_chunk_scene218" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, -14.3334, -19.2488, 31.235)
+
+[node name="grass_chunk_scene219" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, -14.8357, -19.2488, 29.1393)
+
+[node name="grass_chunk_scene220" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.177789, 0, 0.984069, 0, 1, 0, -0.984069, 0, -0.177789, -16.3786, -19.2488, 30.5101)
+
+[node name="grass_chunk_scene221" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.177789, 0, 0.984069, 0, 1, 0, -0.984069, 0, -0.177789, -18.9805, -19.2488, 30.275)
+
+[node name="grass_chunk_scene222" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -14.8183, -19.2488, 34.2488)
+
+[node name="grass_chunk_scene230" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.881724, 0, -0.471766, 0, 1, 0, 0.471766, 0, -0.881724, -12.1205, -19.2488, 33.4382)
+
+[node name="grass_chunk_scene231" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.898618, 0, 0.438732, 0, 1, 0, -0.438732, 0, -0.898618, -9.61912, -19.2488, 28.2558)
+
+[node name="grass_chunk_scene232" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.412341, 0, 0.91103, 0, 1, 0, -0.91103, 0, -0.412341, -10.5805, -19.2488, 31.3073)
+
+[node name="grass_chunk_scene233" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.898618, 0, 0.438732, 0, 1, 0, -0.438732, 0, -0.898618, -11.3198, -19.2488, 28.7905)
+
+[node name="grass_chunk_scene234" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.898618, 0, 0.438732, 0, 1, 0, -0.438732, 0, -0.898618, -10.3462, -19.2488, 29.2659)
+
+[node name="grass_chunk_scene235" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.898618, 0, 0.438732, 0, 1, 0, -0.438732, 0, -0.898618, -9.16842, -19.2488, 30.8526)
+
+[node name="grass_chunk_scene236" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.898618, 0, 0.438732, 0, 1, 0, -0.438732, 0, -0.898618, -8.94312, -19.2488, 31.9287)
+
+[node name="grass_chunk_scene237" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.74242, 0, 0.669935, 0, 1, 0, -0.669935, 0, -0.74242, -10.2491, -19.2488, 33.0069)
+
+[node name="grass_chunk_scene238" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.717057, 0, -0.697015, 0, 1, 0, 0.697015, 0, -0.717057, -28.3423, -19.2488, 27.2687)
+
+[node name="grass_chunk_scene239" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.717057, 0, -0.697015, 0, 1, 0, 0.697015, 0, -0.717057, -10.0887, -19.2488, 11.7953)
+
+[node name="grass_chunk_scene240" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.717057, 0, -0.697015, 0, 1, 0, 0.697015, 0, -0.717057, -9.18152, -19.2488, 12.03)
+
+[node name="grass_chunk_scene241" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.881724, 0, -0.471766, 0, 1, 0, 0.471766, 0, -0.881724, -7.40273, -19.2488, 13.0767)
+
+[node name="grass_chunk_scene242" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.881724, 0, -0.471766, 0, 1, 0, 0.471766, 0, -0.881724, -6.82633, -19.2488, 15.6248)
+
+[node name="grass_chunk_scene243" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.898618, 0, 0.438732, 0, 1, 0, -0.438732, 0, -0.898618, -4.32492, -19.2488, 10.4423)
+
+[node name="grass_chunk_scene223" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.993682, 0, 0.112232, 0, 1, 0, -0.112232, 0, 0.993682, -17.4263, -19.2488, 32.3956)
+
+[node name="grass_chunk_scene224" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -14.8042, -19.2488, 32.466)
+
+[node name="grass_chunk_scene225" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -15.5559, -19.2488, 33.2463)
+
+[node name="grass_chunk_scene226" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -17.4279, -19.2488, 33.8791)
+
+[node name="grass_chunk_scene227" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.693792, 0, 0.720176, 0, 1, 0, -0.720176, 0, 0.693792, -18.5211, -19.2488, 33.7626)
+
+[node name="grass_chunk_scene228" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.865764, 0, 0.500453, 0, 1, 0, -0.500453, 0, 0.865764, -19.1456, -19.2488, 32.1884)
+
+[node name="grass_chunk_scene229" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, -8.12183, -19.2488, 16.7363)
+
+[node name="grass_chunk_scene168" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -34.93, -19.2488, 27.0602)
+
+[node name="grass_chunk_scene169" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -32.7642, -19.2488, 26.7403)
+
+[node name="grass_chunk_scene170" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -35.4615, -19.2488, 25.8123)
+
+[node name="grass_chunk_scene171" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -36.5749, -19.2488, 25.4892)
+
+[node name="grass_chunk_scene172" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -35.6379, -19.2488, 25.4856)
+
+[node name="grass_chunk_scene173" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -33.6514, -19.2488, 26.0455)
+
+[node name="grass_chunk_scene174" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, -32.4461, -19.2488, 28.3633)
+
+[node name="grass_chunk_scene175" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -31.3446, -19.2488, 22.7152)
+
+[node name="grass_chunk_scene176" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.630432, 0, 0.776245, 0, 1, 0, -0.776245, 0, -0.630432, -31.4985, -19.2488, 25.9108)
+
+[node name="grass_chunk_scene177" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -32.8535, -19.2488, 23.6648)
+
+[node name="grass_chunk_scene178" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -31.7909, -19.2488, 23.877)
+
+[node name="grass_chunk_scene179" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -30.2484, -19.2488, 25.1121)
+
+[node name="grass_chunk_scene180" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -29.757, -19.2488, 26.0956)
+
+[node name="grass_chunk_scene181" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(-0.888361, 0, 0.459146, 0, 1, 0, -0.459146, 0, -0.888361, -30.7458, -19.2488, 27.4704)
+
+[node name="grass_chunk_scene16" parent="block/decoration" instance=ExtResource("11_smh7a")]
+transform = Transform3D(0.0654031, 0, -0.997859, 0, 1, 0, 0.997859, 0, 0.0654031, -23.0111, -19.2488, 15.9717)
+
+[node name="Tree1Geo" parent="block/decoration" instance=ExtResource("12_l3ktq")]
+transform = Transform3D(2.73273, 0, 0, 0, 2.73273, 0, 0, 0, 2.73273, -34.2533, -19.2488, 21.6792)
+skeleton = NodePath("../../..")
+
+[node name="Tree1Geo2" parent="block/decoration" instance=ExtResource("12_l3ktq")]
+transform = Transform3D(2.68706, 0, 0.497531, 0, 2.73273, 0, -0.497531, 0, 2.68706, -23.6503, -19.2488, 10.5615)
+skeleton = NodePath("../../..")
+
+[node name="floatplatform" type="Node3D" parent="block"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 17, -36)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="block/floatplatform"]
+transform = Transform3D(0.670841, 0, -0.741602, 0, 1, 0, 0.741602, 0, 0.670841, 11.0768, 6.80614, 7.41693)
+material_override = SubResource("StandardMaterial3D_ravyy")
+use_collision = true
+size = Vector3(5.92491, 0.459795, 5.78589)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="block/floatplatform/CSGBox3D12"]
+libraries = {
+"": SubResource("AnimationLibrary_o3bft")
+}
+autoplay = "floatmove"
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="block"]
+transform = Transform3D(0.78485, 1.33442, 0.146083, -1.25409, 0.668508, 0.631161, 0.478828, -0.436378, 1.41362, -0.133326, 4.89766, 8.37178)
+material_override = SubResource("StandardMaterial3D_eln6r")
+use_collision = true
+mesh = SubResource("BoxMesh_j81rf")
+material = SubResource("StandardMaterial3D_04o67")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="block/CSGMesh3D"]
+libraries = {
+"": SubResource("AnimationLibrary_2a0gf")
+}
+autoplay = "cube_float"
+
+[node name="BinaryCounter" parent="block" node_paths=PackedStringArray("door") instance=ExtResource("14_prgjp")]
+transform = Transform3D(0.0144099, -0.0233232, 0.999624, 0.923387, 0.383847, -0.00435493, -0.383601, 0.923102, 0.0270676, 8.30383, 1.95632, -32.8161)
+door = NodePath("../CSGBox3D14/Door")
+
+[node name="SampleSwitch" parent="block" node_paths=PackedStringArray("door") instance=ExtResource("15_mima4")]
+transform = Transform3D(-0.0748047, 0, 0.997198, 0, 1, 0, -0.997198, 0, -0.0748047, -2.92246, 0.492676, -30.7545)
+label_3d = NodePath("../Label3D")
+door = NodePath("../Door2")
+
+[node name="Label3D" type="Label3D" parent="block"]
+transform = Transform3D(0.480574, 0, 0, 0, 0.480574, 0, 0, 0, 0.480574, 1.94218, 1.4716, -15.7793)
+text = "0"
+font_size = 150
+
+[node name="BinaryArea" type="Area3D" parent="block"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 17, -36)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block/BinaryArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.625, -17.1359, 7.32719)
+shape = SubResource("BoxShape3D_fj4rs")
+
+[node name="RedArea" type="Area3D" parent="block"]
+unique_name_in_owner = true
+transform = Transform3D(0.526229, 0, -0.850343, 0, 1, 0, 0.850343, 0, 0.526229, 26, 17, -36)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block/RedArea"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 3.70737, -17.5911, 10.3066)
+shape = SubResource("BoxShape3D_p5lhn")
+
+[node name="Door2" parent="block" instance=ExtResource("5_cm25p")]
+transform = Transform3D(0.933305, 0, 0.359085, 0, 1, 0, -0.359085, 0, 0.933305, -3.29531, -1.66301, -18.551)
+
+[node name="fireflyparticle" parent="block" instance=ExtResource("17_pqxdx")]
+transform = Transform3D(2.27606, 0, 0, 0, 2.27606, 0, 0, 0, 2.27606, 5.78242, 9.41784, -16.3742)
+
+[node name="block2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0789, 9.24415, 18.7151)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.445, -8.30188, 0.0672894)
+material_override = SubResource("StandardMaterial3D_mw5kr")
+use_collision = true
+size = Vector3(33.609, 1, 36.0558)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="block2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2529, -0.535405, 0.228928)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 16.5329, 17.9273)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="block2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41309, -0.937389, 1.0645)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 15.7289, 17.99)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.00055851, 0, 1, 0, 1, 0, -1, 0, 0.00055851, 25.6879, -0.909659, -17.5289)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 15.7845, 16.0716)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.00055851, 0, 1, 0, 1, 0, -1, 0, 0.00055851, 22.8271, -0.829027, 18.5048)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 15.9457, 16.9616)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.69864, 0, -0.715473, 0, 1, 0, 0.715473, 0, 0.69864, 12.4781, 0.597382, -12.6362)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 18.7985, 14.3893)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="block2/CSGBox3D7"]
+libraries = {
+"": SubResource("AnimationLibrary_4wlbq")
+}
+speed_scale = 0.5
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.69864, 0, -0.715473, 0, 1, 0, 0.715473, 0, 0.69864, 36.015, 0.439241, 13.8465)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 18.4822, 14.3244)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.747485, 0, 0.664279, 0, 1, 0, -0.664279, 0, 0.747485, 37.3412, 0.618513, -12.9752)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 18.8408, 12.0822)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.781662, 0, 0.623702, 0, 1, 0, -0.623702, 0, 0.781662, 11.1781, 0.624731, 13.7523)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 18.8532, 12.3047)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="block2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5751, -6.49274, 12.1817)
+material_override = SubResource("StandardMaterial3D_ravyy")
+use_collision = true
+size = Vector3(1.92795, 4.61829, 1.50513)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.603779, 0, 0.797152, 0, 1, 0, -0.797152, 0, 0.603779, 19.4473, -7.18096, 13.2417)
+material_override = SubResource("StandardMaterial3D_ravyy")
+use_collision = true
+size = Vector3(1.92795, 4.61829, 1.50513)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.885929, 0, 0.463822, 0, 1, 0, -0.463822, 0, 0.885929, 24.4651, -9.37303, 15.9889)
+material_override = SubResource("StandardMaterial3D_ravyy")
+use_collision = true
+size = Vector3(1.92795, 4.61829, 1.50513)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.796659, 0, -1.40952, 0, 1.61908, 0, 1.40952, 0, 0.796659, 35.6543, -5.14855, -9.90884)
+material_override = SubResource("StandardMaterial3D_dq6s1")
+use_collision = true
+size = Vector3(4.06445, 5.19684, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block2/CSGBox3D15"]
+transform = Transform3D(0.885236, 0, 6.25849e-07, 0, 0.885235, 0, -6.25849e-07, 0, 0.885236, 0.0400124, 0.0787679, 0.14348)
+material_override = SubResource("StandardMaterial3D_ts1fh")
+operation = 2
+size = Vector3(3.70233, 4.68683, 3.4874)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="block2"]
+transform = Transform3D(0.154205, 0, 1.47534, 0, 1.48338, 0, -1.47534, 0, 0.154205, 10.1729, -5.81423, 4.12571)
+material_override = SubResource("StandardMaterial3D_qrqhj")
+use_collision = true
+size = Vector3(4.06445, 5.19684, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block2/CSGBox3D13"]
+transform = Transform3D(0.885233, 0, 0, 0, 0.885233, 0, 0, 0, 0.885233, 0.0400119, -0.116729, 0.14348)
+operation = 2
+size = Vector3(3.70233, 4.24515, 3.4874)
+
+[node name="fireflyparticle" parent="block2" instance=ExtResource("17_pqxdx")]
+transform = Transform3D(2.71741, 0, 0, 0, 2.71741, 0, 0, 0, 2.71741, 24.9355, 9.41784, -0.230881)
+
+[node name="brigde" type="Node3D" parent="block2"]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="block2/brigde"]
+transform = Transform3D(-5.00377, 0, -1.29492, 0, 5.16861, 0, 1.29492, 0, -5.00377, 0, 0, -22.9924)
+material_override = SubResource("StandardMaterial3D_r5o4k")
+use_collision = true
+polygon = PackedVector2Array(-0.738163, -0.0454105, 2.19199, 0.0469007, 6.75575, 1.20213, 1.8983, -0.741714)
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="block2/brigde"]
+transform = Transform3D(0.226152, -2.71389, 4.39296, 4.40385, 2.39735, 1.25433, -2.6962, 3.68808, 2.41723, 19.6987, -1.11578, -33.9385)
+material_override = SubResource("StandardMaterial3D_r5o4k")
+use_collision = true
+polygon = PackedVector2Array(-0.738163, -0.0454105, 2.19199, 0.0469007, 6.75575, 1.20213, 1.8983, -0.741714)
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="block2/brigde"]
+transform = Transform3D(-3.84424, 3.40564, -0.581366, 0.81197, 0.0452136, -5.10423, -3.35813, -3.88769, -0.568641, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_r5o4k")
+use_collision = true
+polygon = PackedVector2Array(-0.738163, -0.0454105, 2.19199, 0.0469007, 6.75575, 1.20213, 1.8983, -0.741714)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="block2/brigde"]
+transform = Transform3D(-3.52986, 0, 3.77552, 0, 5.16861, 0, -3.77552, 0, -3.52986, 11.2408, -7.53657, -19.1197)
+material_override = SubResource("StandardMaterial3D_r5o4k")
+use_collision = true
+polygon = PackedVector2Array(1.03897, -0.937438, 6.7415, 1.28345, 7.26326, 1.06471, 3.17954, -1.69926)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="block2/brigde"]
+libraries = {
+"": SubResource("AnimationLibrary_8b3c4")
+}
+
+[node name="block3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.9661, 14.8955, -42.9066)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2113, -7.83776, 0.865955)
+material_override = SubResource("StandardMaterial3D_mw5kr")
+use_collision = true
+size = Vector3(33.609, 1, 35.9322)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="block3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82063, -1.40491, 1.80139)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 13.8657, 17.99)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="block3"]
+transform = Transform3D(0.00055851, 0, 1, 0, 1, 0, -1, 0, 0.00055851, 11.4542, -1.88113, -16.792)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 12.9133, 16.0716)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="block3"]
+transform = Transform3D(0.00055851, 0, 1, 0, 1, 0, -1, 0, 0.00055851, 8.59341, -1.07433, 19.2417)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 14.5269, 16.9616)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="block3"]
+transform = Transform3D(0.69864, 0, -0.715473, 0, 1, 0, 0.715473, 0, 0.69864, -1.75563, 0.251584, -11.8993)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 17.1787, 14.3893)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="leftsecbox" type="CSGBox3D" parent="block3"]
+transform = Transform3D(0.69864, 0, -0.715473, 0, 1, 0, 0.715473, 0, 0.69864, 21.9613, 0.597382, 14.6684)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 18.4822, 16.8092)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="block3/leftsecbox"]
+libraries = {
+"": SubResource("AnimationLibrary_pox2w")
+}
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="block3"]
+transform = Transform3D(0.747485, 0, 0.664279, 0, 1, 0, -0.664279, 0, 0.747485, 23.7257, -0.190314, -11.5427)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 16.2949, 13.9433)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="block3"]
+transform = Transform3D(0.781662, 0, 0.623702, 0, 1, 0, -0.623702, 0, 0.781662, -3.05563, 1.08885, 14.4892)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 18.8532, 12.3047)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="block3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.30545, -5.77835, 0.368233)
+material_override = SubResource("StandardMaterial3D_ravyy")
+use_collision = true
+size = Vector3(1.92795, 5.11884, 1.50513)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="block3"]
+transform = Transform3D(0.999611, 0, 0.0279041, 0, 1, 0, -0.0279041, 0, 0.999611, 12.704, -7.38936, -13.5863)
+material_override = SubResource("StandardMaterial3D_ravyy")
+use_collision = true
+size = Vector3(5.92491, 1.23427, 5.78589)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="block3"]
+transform = Transform3D(-0.00963629, 0, -3.70555, 0, 3.70555, 0, 3.70555, 0, -0.00963629, 23.7759, -0.214628, 0.896969)
+material_override = SubResource("StandardMaterial3D_fgtpb")
+use_collision = true
+size = Vector3(4.06445, 5.19684, 3.23401)
+
+[node name="Door" parent="block3/CSGBox3D14" instance=ExtResource("5_cm25p")]
+transform = Transform3D(0.716423, 0, 0.0216011, 0, 0.716749, 0, -0.0216011, 0, 0.716423, 0.0340328, -1.99082, 1.26056)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block3/CSGBox3D14"]
+transform = Transform3D(0.885233, 0, -3.0268e-09, 0, 0.885233, 0, 3.0268e-09, 0, 0.885233, 0.0400143, -0.257921, -0.0698118)
+material_override = SubResource("StandardMaterial3D_ts1fh")
+operation = 2
+size = Vector3(3.70233, 3.92616, 3.96929)
+
+[node name="Area3D" type="Area3D" parent="block3"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.56854, -7.12719, -1.13866)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.947058, -0.757057, 1.54189)
+shape = SubResource("BoxShape3D_rqgxo")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="block3"]
+transform = Transform3D(0.796659, 0, -1.40952, 0, 1.61908, 0, 1.40952, 0, 0.796659, 17.8963, -4.68443, -10.1322)
+material_override = SubResource("StandardMaterial3D_dq6s1")
+use_collision = true
+size = Vector3(4.06445, 5.19684, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block3/CSGBox3D15"]
+transform = Transform3D(0.885236, 0, 6.25849e-07, 0, 0.885235, 0, -6.25849e-07, 0, 0.885236, 0.0400124, 0.0787679, 0.14348)
+material_override = SubResource("StandardMaterial3D_ts1fh")
+operation = 2
+size = Vector3(3.70233, 4.68683, 3.4874)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="block3"]
+transform = Transform3D(1.38572, 0, 0.529322, 0, 1.48338, 0, -0.529322, 0, 1.38572, 0.0946198, -5.35011, -3.80318)
+material_override = SubResource("StandardMaterial3D_qrqhj")
+use_collision = true
+size = Vector3(4.06445, 5.19684, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block3/CSGBox3D13"]
+transform = Transform3D(0.885233, 0, 0, 0, 0.885233, 0, 0, 0, 0.885233, 0.0400119, -0.116729, 0.14348)
+operation = 2
+size = Vector3(3.70233, 4.24515, 3.4874)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="block3"]
+transform = Transform3D(1.48251, 0, 0.0507089, 0, 1.48338, 0, -0.0507089, 0, 1.48251, -0.553913, -8.11841, 9.72966)
+material_override = SubResource("StandardMaterial3D_qrqhj")
+use_collision = true
+size = Vector3(4.06445, 1.46442, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block3/CSGBox3D16"]
+transform = Transform3D(0.885227, 0, -1.67638e-08, 0, 0.885233, 0, 1.67638e-08, 0, 0.885227, 0.10035, -0.116729, -0.0304649)
+operation = 2
+size = Vector3(3.56601, 4.24515, 3.09441)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="block3/CSGBox3D16"]
+transform = Transform3D(3.14383, 0, -1.41561e-07, 0, 0.651824, 0, 1.63913e-07, 0, 2.89293, 0.14039, 0.302915, -0.0709734)
+mesh = SubResource("BoxMesh_att12")
+
+[node name="fireflyparticle" parent="block3" instance=ExtResource("17_pqxdx")]
+transform = Transform3D(2.70721, 0, 0, 0, 2.70721, 0, 0, 0, 2.70721, 10.0577, 9.41784, 3.34172)
+
+[node name="Label3D" type="Label3D" parent="block3"]
+transform = Transform3D(0.024153, 0, 0.999708, 0, 1, 0, -0.999708, 0, 0.024153, 7.28445, -3.74584, 0.322826)
+text = "0"
+font_size = 100
+
+[node name="SampleSwitch" parent="block3" node_paths=PackedStringArray("door") instance=ExtResource("15_mima4")]
+transform = Transform3D(0.024153, 0, 0.999708, 0, 1, 0, -0.999708, 0, 0.024153, 6.98671, -4.99725, 0.322826)
+label_3d = NodePath("../Label3D")
+door = NodePath("../CSGBox3D14/Door")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="block3"]
+transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 3.72529e-09, 0, 1, 27.0192, 1.06931, 0.96582)
+material_override = SubResource("StandardMaterial3D_2ggm1")
+use_collision = true
+size = Vector3(0.840698, 46.6075, 12.922)
+material = SubResource("StandardMaterial3D_buon1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="block3/CSGBox3D3"]
+libraries = {
+"": SubResource("AnimationLibrary_t4xec")
+}
+
+[node name="Player" parent="." instance=ExtResource("13_v1fsd")]
+transform = Transform3D(0.645461, 0, 0.472631, 0, 0.8, 0, -0.472631, 0, 0.645461, 22.7052, 22.815, -39.9266)
+speed = 10.0
+jump = 20.0
+
+[node name="pausemenu" parent="." instance=ExtResource("16_kvp84")]
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 26.4625, 53.0839, -34.4976)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1sc8n")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14242, 12.8016, 12.6752)
+visible = false
+size = Vector3(70, 30, 30)
+material = SubResource("FogMaterial_wkvp4")
+
+[connection signal="body_entered" from="block/BinaryArea" to="." method="_on_binary_area_body_entered"]
+[connection signal="body_entered" from="block/RedArea" to="." method="_on_red_area_body_entered"]
+[connection signal="body_entered" from="block3/Area3D" to="." method="_on_area_3d_body_entered"]

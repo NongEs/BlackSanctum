@@ -1,27 +1,28 @@
 DrMantis: This switch has two states.
-DrMantis (MantisSmile): When you press it the first time, the result is 1—this means the door has power, and you can open it.
-DrMantis (MantisSmile): Now, try pressing it again.
+DrMantis (MantisSmile): When you press it, the result will be 1 which can use to open the door or get something from this game.
+DrMantis (MantisSmile): But if you press it again, It will turn to 0. Which mean there is no power active.
+DrMantis (MantisSmile): Or in some case it can be randomed. demand on the difficulty.
 label again (again)
-DrMantis (MantisSmile): Now, the result is 0—the door no longer has power.
-DrMantis (MantisSmile): It’s simple\: 1 means open, and 0 means closed.
+DrMantis (MantisSmile): It’s simple\: 1 means active, and 0 means inactive.
 DrMantis: Do you understand, or would you like me to explain again?
 - Yes sir!
 	jump storyskibidii/again
 - No!
+[wait time="1.0"]
+[signal arg="bridgei fall now"]
 DrMantis (MantisSmile): Next will be adatation from our knowledge, you will use that knowledge that I teach adapt to the puzzle proble that you gonna face.
-DrMantis (MantisSmile): Go find the binary counter to see the example
+DrMantis (MantisSmile): Go find the binary counter on the next area to see the example.
 [end_timeline]
 label binarycounter (binarycounter)
-DrMantis (MantisSmile): This is the binarycounter machine, generally found in this game.
-DrMantis (MantisSmile): you can try to interact with it. For this one is set to when the value on the machine is equal to 0, It  will makke the door open.
+DrMantis: This is the binarycounter machine, generally found in this game.
+DrMantis (MantisSmile): you can try to interact with it. For this one is set to when the value on the machine is equal to the assigned value, It  will make the door open.
 DrMantis (MantisWonder): You will wonder why the number that show kinda show you some pattern.
 DrMantis (MantisWonder): That's called Binary Number.
-DrMantis (MantisWonder): Each switch will represent different value example 1, 2, 4, 8, 16 ,32 ,64, 128 and 256.
+DrMantis (MantisWonder): Each switch will represent different value example 1, 2, 4, 8, 16 ,32 ,64 and 128 .
 DrMantis (MantisWonder): you need to press all of this to get the want result that are assigned.
 DrMantis (MantisWonder): Good luck!!!
 DrMantis (MantisWonder): Don't forget to go in the red box, I have gift for you
 [end_timeline]
 label gonext (gonext)
-DrMantis: Alright, let's open the door and move on to the next stage.
+DrMantis (MantisWonder): Alright, The code is 197 let's open the door and move on to the next stage.
 DrMantis (MantisSmile): Don't worry! I'll be your guide until you fully understand the system!
-DrMantis (MantisSmile): Player opens the door and moves to the next stage.

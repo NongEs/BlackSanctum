@@ -5,7 +5,7 @@ extends Interactable
 @export var label_3d: Label3D  # Label3D to display the decimal value, exposed for assignment in the editor
 @export var door: Node3D
 var current_decimal_value: int = 0  # The current decimal value of the switches
-var randomed_number: int = 0  # Holds the value of the random number from the button
+var randomed_number: int = 197  # Holds the value of the random number from the button
 
 func _ready() -> void:
 	# Check if Label3D is initialized correctly

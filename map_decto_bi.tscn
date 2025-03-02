@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://md1p2lxkatn1"]
+[gd_scene load_steps=46 format=3 uid="uid://md1p2lxkatn1"]
 
 [ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://grid_texture/dark/texture_08.png" id="1_r7kfq"]
 [ext_resource type="Script" path="res://map_decto_bi.gd" id="1_xuoho"]
@@ -15,16 +15,18 @@
 [ext_resource type="PackedScene" uid="uid://bbq5t15mllaxx" path="res://sample_switch.tscn" id="10_aglge"]
 [ext_resource type="PackedScene" uid="uid://bshte6v76d7nq" path="res://testnode/Door.tscn" id="10_dad4m"]
 [ext_resource type="PackedScene" uid="uid://bimuhvegk187q" path="res://pausemenu.tscn" id="12_b7pta"]
+[ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://Environment/trees/tree.tscn" id="13_ixmmp"]
+[ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://fireflyparticle.tscn" id="18_i674y"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_l07fr"]
 
-[sub_resource type="Sky" id="Sky_iqj6o"]
+[sub_resource type="Sky" id="Sky_xj22o"]
 sky_material = SubResource("PhysicalSkyMaterial_l07fr")
 
 [sub_resource type="Environment" id="Environment_7kchw"]
 background_mode = 1
 background_color = Color(0.8, 0.913725, 1, 1)
-sky = SubResource("Sky_iqj6o")
+sky = SubResource("Sky_xj22o")
 ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 2
@@ -32,17 +34,22 @@ tonemap_exposure = 0.9
 tonemap_white = 1.2
 ssao_enabled = true
 glow_enabled = true
+glow_blend_mode = 4
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.005
 volumetric_fog_emission = Color(0.596078, 0.878431, 1, 1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_441hs"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ggm1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw5kr"]
 albedo_texture = ExtResource("1_r7kfq")
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buon1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ggm1"]
+albedo_texture = ExtResource("1_r7kfq")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ravyy"]
 albedo_texture = ExtResource("2_72o47")
@@ -59,6 +66,138 @@ albedo_texture = ExtResource("7_k4svd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrqhj"]
 albedo_texture = ExtResource("4_pff50")
+
+[sub_resource type="Shader" id="Shader_q1asq"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_refraction : filter_linear_mipmap, repeat_enable;
+uniform float refraction : hint_range(-1.0, 1.0, 0.001);
+uniform vec4 refraction_texture_channel;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+varying vec3 uv1_triplanar_pos;
+
+uniform float uv1_blend_sharpness : hint_range(0.0, 150.0, 0.001);
+varying vec3 uv1_power_normal;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+
+	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+	TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+
+	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+
+	// UV1 Triplanar: Enabled (with World Triplanar)
+	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset + TIME * 0.02;
+	uv1_power_normal /= dot(uv1_power_normal, vec3(1.0));
+	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+vec4 triplanar_texture(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec4 samp = vec4(0.0);
+	samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
+	samp += texture(p_sampler, p_triplanar_pos.xz) * p_weights.y;
+	samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return samp;
+}
+
+void fragment() {
+	vec4 albedo_tex = triplanar_texture(texture_albedo, uv1_power_normal, uv1_triplanar_pos);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(triplanar_texture(texture_metallic, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	// Refraction: Enabled (with normal map texture)
+	vec3 unpacked_normal = NORMAL_MAP;
+	unpacked_normal.xy = unpacked_normal.xy * 2.0 - 1.0;
+	unpacked_normal.z = sqrt(max(0.0, 1.0 - dot(unpacked_normal.xy, unpacked_normal.xy)));
+	vec3 ref_normal = normalize(mix(
+			NORMAL,
+			TANGENT * unpacked_normal.x + BINORMAL * unpacked_normal.y + NORMAL * unpacked_normal.z,
+			NORMAL_MAP_DEPTH));
+	vec2 ref_ofs = SCREEN_UV - ref_normal.xy * dot(triplanar_texture(texture_refraction, uv1_power_normal, uv1_triplanar_pos), refraction_texture_channel) * refraction;
+
+	float ref_amount = 1.0 - albedo.a * albedo_tex.a;
+	EMISSION += textureLod(screen_texture, ref_ofs, ROUGHNESS * 8.0).rgb * ref_amount * EXPOSURE;
+	ALBEDO *= 1.0 - ref_amount;
+	// Force transparency on the material (required for refraction).
+	ALPHA = 1.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6yfw7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_04fne"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_6yfw7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q2v55"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_6yfw7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmwr2"]
+render_priority = 0
+shader = SubResource("Shader_q1asq")
+shader_parameter/albedo = Color(0.0196078, 0.658824, 0.780392, 0.713726)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.05, 0.05, 0.05)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_q2v55")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_04fne")
+
+[sub_resource type="BoxMesh" id="BoxMesh_att12"]
+material = SubResource("ShaderMaterial_gmwr2")
 
 [sub_resource type="Animation" id="Animation_sgyvc"]
 length = 0.001
@@ -169,10 +308,11 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ljhaa"]
-size = Vector3(8.75147, 3.24438, 10.0918)
+size = Vector3(5.37525, 2.61426, 6.32715)
 
-[node name="MapDectoBI" type="Node3D"]
+[node name="MapDectoBI" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_xuoho")
+player = NodePath("Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.163791, 0.986495, -2.98023e-08, 0.493248, -0.0818954, 0.866025, 0.85433, -0.141847, -0.5, 0, 6, 3)
@@ -188,7 +328,7 @@ camera_attributes = SubResource("CameraAttributesPractical_441hs")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="block"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.451042, 0, -4.78235)
-material_override = SubResource("StandardMaterial3D_2ggm1")
+material_override = SubResource("StandardMaterial3D_mw5kr")
 use_collision = true
 size = Vector3(33.609, 1, 38.3117)
 material = SubResource("StandardMaterial3D_buon1")
@@ -222,7 +362,7 @@ size = Vector3(0.840698, 18.5455, 16.9616)
 material = SubResource("StandardMaterial3D_buon1")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="block"]
-transform = Transform3D(-7.14501e-06, 0.000558465, 1, -0.999918, -0.0127929, 7.27596e-12, 0.0127929, -0.999918, 0.00055851, 6.43837, 24.8925, -5.74563)
+transform = Transform3D(-7.14501e-06, 0.000558465, 1, -0.999918, -0.0127929, 7.27596e-12, 0.0127929, -0.999918, 0.00055851, 6.43837, 26.7829, -5.74563)
 visible = false
 material_override = SubResource("StandardMaterial3D_2ggm1")
 use_collision = true
@@ -306,6 +446,21 @@ size = Vector3(4.06445, 5.19684, 3.23401)
 transform = Transform3D(0.885233, 0, 0, 0, 0.885233, 0, 0, 0, 0.885233, 0.0400119, -0.116729, 0.14348)
 operation = 2
 size = Vector3(3.70233, 4.24515, 3.4874)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="block"]
+transform = Transform3D(1.48251, 0, 0.0507089, 0, 1.48338, 0, -0.0507089, 0, 1.48251, 5.51713, -0.280645, 3.27163)
+material_override = SubResource("StandardMaterial3D_qrqhj")
+use_collision = true
+size = Vector3(4.06445, 1.46442, 3.23401)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="block/CSGBox3D16"]
+transform = Transform3D(0.885227, 0, -1.67638e-08, 0, 0.885233, 0, 1.67638e-08, 0, 0.885227, 0.10035, -0.116729, -0.0304649)
+operation = 2
+size = Vector3(3.56601, 4.24515, 3.09441)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="block/CSGBox3D16"]
+transform = Transform3D(3.14383, 0, -1.41561e-07, 0, 0.651824, 0, 1.63913e-07, 0, 2.89293, 0.14039, 0.302915, -0.0709734)
+mesh = SubResource("BoxMesh_att12")
 
 [node name="decoration" type="Node3D" parent="."]
 
@@ -623,7 +778,7 @@ transform = Transform3D(-0.8428, 0, -0.538226, 0, 1, 0, 0.538226, 0, -0.8428, 7.
 transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, 8.73309, 0.5, -1.84348)
 
 [node name="grass_chunk_scene99" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, 8.78423, 0.5, 0.768505)
+transform = Transform3D(-0.958701, 0, -0.284417, 0, 1, 0, 0.284417, 0, -0.958701, 13.5804, 0.5, 0.768505)
 
 [node name="grass_chunk_scene100" parent="decoration" instance=ExtResource("6_c483m")]
 transform = Transform3D(-0.791778, 0, 0.610809, 0, 1, 0, -0.610809, 0, -0.791778, 12.2786, 0.5, -3.80356)
@@ -821,7 +976,7 @@ transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639
 transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, 2.52112, 0.5, 2.19429)
 
 [node name="grass_chunk_scene165" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, 3.01263, 0.5, 3.17773)
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, -1.75243, 0.5, 3.17773)
 
 [node name="grass_chunk_scene166" parent="decoration" instance=ExtResource("6_c483m")]
 transform = Transform3D(-0.888361, 0, 0.459146, 0, 1, 0, -0.459146, 0, -0.888361, 2.02378, 0.5, 4.55255)
@@ -830,13 +985,13 @@ transform = Transform3D(-0.888361, 0, 0.459146, 0, 1, 0, -0.459146, 0, -0.888361
 transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, -16.9338, 0.5, 3.60334)
 
 [node name="grass_chunk_scene182" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, 3.25302, 0.5, 4.15536)
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, 3.25302, 0.5, 9.23683)
 
 [node name="grass_chunk_scene183" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, 4.19006, 0.5, 4.1517)
+transform = Transform3D(-0.516264, 0, -0.856429, 0, 1, 0, 0.856429, 0, -0.516264, 5.2233, 0.5, 3.30049)
 
 [node name="grass_chunk_scene184" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, 6.17652, 0.5, 4.71164)
+transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, 6.17652, 0.5, 7.32305)
 
 [node name="grass_chunk_scene185" parent="decoration" instance=ExtResource("6_c483m")]
 transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793, 7.38188, 0.5, 7.02943)
@@ -845,13 +1000,13 @@ transform = Transform3D(-0.732793, 0, -0.680452, 0, 1, 0, 0.680452, 0, -0.732793
 transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, 8.48338, 0.5, 1.38131)
 
 [node name="grass_chunk_scene187" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.630432, 0, 0.776245, 0, 1, 0, -0.776245, 0, -0.630432, 8.32939, 0.5, 4.57696)
+transform = Transform3D(-0.630432, 0, 0.776245, 0, 1, 0, -0.776245, 0, -0.630432, 12.805, 0.5, 4.57696)
 
 [node name="grass_chunk_scene188" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, 6.97448, 0.5, 2.33091)
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, 6.97448, 0.5, -0.514504)
 
 [node name="grass_chunk_scene189" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, 8.03703, 0.5, 2.54309)
+transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, 9.36922, 0.5, 2.54309)
 
 [node name="grass_chunk_scene190" parent="decoration" instance=ExtResource("6_c483m")]
 transform = Transform3D(-0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, -0.980639, 9.57949, 0.5, 3.77825)
@@ -938,7 +1093,7 @@ transform = Transform3D(0.865764, 0, 0.500453, 0, 1, 0, -0.500453, 0, 0.865764, 
 transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, -3.28791, 0.5, -16.6967)
 
 [node name="grass_chunk_scene218" parent="decoration" instance=ExtResource("6_c483m")]
-transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, 5.823, 0.5, 5.43038)
+transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, 5.823, 0.5, 8.31717)
 
 [node name="grass_chunk_scene219" parent="decoration" instance=ExtResource("6_c483m")]
 transform = Transform3D(-0.442758, 0, 0.896641, 0, 1, 0, -0.896641, 0, -0.442758, 5.32071, 0.5, 6.22144)
@@ -1060,6 +1215,14 @@ transform = Transform3D(-0.888361, 0, 0.459146, 0, 1, 0, -0.459146, 0, -0.888361
 [node name="grass_chunk_scene16" parent="decoration" instance=ExtResource("6_c483m")]
 transform = Transform3D(0.0654031, 0, -0.997859, 0, 1, 0, 0.997859, 0, 0.0654031, -2.85467, 0.5, -6.94609)
 
+[node name="Tree1Geo" parent="decoration" instance=ExtResource("13_ixmmp")]
+transform = Transform3D(2.73273, 0, 0, 0, 2.73273, 0, 0, 0, 2.73273, -14.0969, 0.499998, -1.2386)
+skeleton = NodePath("../..")
+
+[node name="Tree1Geo2" parent="decoration" instance=ExtResource("13_ixmmp")]
+transform = Transform3D(2.68706, 0, 0.497531, 0, 2.73273, 0, -0.497531, 0, 2.68706, -3.49383, 0.499998, -12.3563)
+skeleton = NodePath("../..")
+
 [node name="floatplatform" type="Node3D" parent="."]
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="floatplatform"]
@@ -1134,6 +1297,9 @@ visible = false
 
 [node name="Door2" parent="." instance=ExtResource("10_dad4m")]
 transform = Transform3D(0.933305, 0, 0.359085, 0, 1, 0, -0.359085, 0, 0.933305, -8.78771, 0.282543, -5.9846)
+
+[node name="fireflyparticle" parent="." instance=ExtResource("18_i674y")]
+transform = Transform3D(1.52352, 0, 0, 0, 1.52352, 0, 0, 0, 1.52352, 0.290023, 11.3634, -3.8078)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="BinaryArea" to="." method="_on_binary_area_body_entered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://cslatpc7ya57d"]
+[gd_scene load_steps=33 format=3 uid="uid://cslatpc7ya57d"]
 
 [ext_resource type="PackedScene" uid="uid://bgwc08lskm76x" path="res://Lobby_all/map_uichar.tscn" id="1_w62pr"]
 [ext_resource type="Script" path="res://Lobby_all/mainchar_ui.gd" id="2_ncuig"]
 [ext_resource type="Texture2D" uid="uid://dlec7xl3akgt8" path="res://picture import/Screenshot 2024-10-06 133027.png" id="3_jh8iq"]
+[ext_resource type="PackedScene" uid="uid://phdixirbdflf" path="res://night_map_dec_bi.tscn" id="3_vgjai"]
 [ext_resource type="FontFile" uid="uid://c10f3xgog5jpk" path="res://font/ReemKufiFun-VariableFont_wght.ttf" id="4_w70rh"]
 [ext_resource type="Texture2D" uid="uid://cf7xxsnlpknto" path="res://Select mode page (Not finish)/Story Mode_default.png" id="5_wja6c"]
 [ext_resource type="Texture2D" uid="uid://cibdt4hxjtbfm" path="res://Select mode page (Not finish)/Story Mode_press.png" id="6_8bwm8"]
@@ -104,6 +105,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_ncuig")
+dec_to_bi_scene = ExtResource("3_vgjai")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -763,5 +765,6 @@ speed_scale = 0.4
 
 [connection signal="pressed" from="Control/MarginContainer/SelectModePanel/VBoxContainer/HBoxContainer/practicemodebutton" to="Control" method="_on_practicemodebutton_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/SelectModePanel/Back1Button" to="Control" method="_on_back_1_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/StartPanel3/VBoxContainer/Panel/HBoxContainer/DecToBiStage" to="Control" method="_on_dec_to_bi_stage_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/StartPanel3/Back2Button" to="Control" method="_on_back_2_button_pressed"]
 [connection signal="pressed" from="Control/NextButton" to="Control" method="_on_next_button_pressed"]

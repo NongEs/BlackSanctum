@@ -13,16 +13,19 @@ config_version=5
 config/name="BlackSanctum"
 run/main_scene="res://map_scene/worldtester.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://characters/cdwn.PNG"
 config/icon="res://player/icon.svg"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+TransitionScreen="*res://transition_screen.tscn"
 
 [dialogic]
 
 directories/dch_directory={
-"DrMantis": "res://characters/DrMantis.dch",
+"DrMantis": "res://DrMantis.dch",
 "Player": "res://Player.dch",
 "narrator": "res://narrator.dch"
 }

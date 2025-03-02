@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://0wj5ckmbpme2"]
+[gd_scene load_steps=51 format=3 uid="uid://0wj5ckmbpme2"]
 
 [ext_resource type="ArrayMesh" uid="uid://djpnqytdguhxl" path="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/tileLarge_graveyard.obj" id="2_7g8oe"]
 [ext_resource type="ArrayMesh" uid="uid://dy7se1kjkybfp" path="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/wall.obj" id="5_135we"]
@@ -26,20 +26,10 @@
 [ext_resource type="PackedScene" uid="uid://d162e8ei6gv7c" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/glTF/DeadTree_1.gltf" id="25_4imdg"]
 [ext_resource type="ArrayMesh" uid="uid://ch3553f7rptmc" path="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/tileBrickB_medium.obj" id="25_6q0ji"]
 [ext_resource type="ArrayMesh" uid="uid://dc7yi2vck3e1l" path="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/wall_broken.obj" id="25_ixg10"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6y0nq"]
-sky_top_color = Color(0.503375, 0.503375, 0.503374, 1)
-
-[sub_resource type="Sky" id="Sky_n2s3v"]
-sky_material = SubResource("ProceduralSkyMaterial_6y0nq")
-
-[sub_resource type="Environment" id="Environment_cj3od"]
-background_mode = 2
-sky = SubResource("Sky_n2s3v")
-fog_light_color = Color(0.218172, 0.170055, 0.267349, 1)
-fog_light_energy = 0.8
-volumetric_fog_albedo = Color(0.387389, 0.387389, 0.387389, 1)
-volumetric_fog_emission = Color(0.15554, 0.138914, 0.164711, 1)
+[ext_resource type="PackedScene" uid="uid://sbqhbha156g5" path="res://Player/Player.tscn" id="27_j20lr"]
+[ext_resource type="Shader" path="res://stylized_sky.gdshader" id="28_xx8s3"]
+[ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://fireflyparticle.tscn" id="29_7245a"]
+[ext_resource type="PackedScene" uid="uid://bimuhvegk187q" path="res://pausemenu.tscn" id="30_e31gh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5hr1"]
 emission_enabled = true
@@ -69,11 +59,78 @@ data = PackedVector3Array(-2.8694, 1, -2.8694, 2.8693, 1, -2.8694, -2.8694, 1, 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8mukp"]
 albedo_color = Color(0.542339, 0.446941, 1, 1)
 
-[node name="Sanctum" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.1714)
+[sub_resource type="Curve" id="Curve_goqqn"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]
+point_count = 3
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cj3od")
+[sub_resource type="CurveTexture" id="CurveTexture_2sn2t"]
+curve = SubResource("Curve_goqqn")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_il3s7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_em22s"]
+seamless = true
+noise = SubResource("FastNoiseLite_il3s7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sfm44"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q8w5u"]
+seamless = true
+noise = SubResource("FastNoiseLite_sfm44")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_783rb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2xgx"]
+seamless = true
+noise = SubResource("FastNoiseLite_783rb")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ieb5u"]
+load_path = "res://.godot/imported/shooting_star_sampler.png-ff1e808fa5f8310e548f777b9285bd3e.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1u2y"]
+shader = ExtResource("28_xx8s3")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.05
+shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
+shader_parameter/clouds_shadow_intensity = 8.0
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_q8w5u")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_em22s")
+shader_parameter/cloud_curves = SubResource("CurveTexture_2sn2t")
+shader_parameter/high_clouds_density = 0.1
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_d2xgx")
+shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
+shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_scale = 10.0
+shader_parameter/astro_intensity = 1.2
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 10.0
+shader_parameter/shooting_star_tint = Color(1, 1, 0.666667, 1)
+shader_parameter/shooting_star_sampler = SubResource("CompressedTexture2D_ieb5u")
+
+[sub_resource type="Sky" id="Sky_68gv1"]
+sky_material = SubResource("ShaderMaterial_k1u2y")
+
+[sub_resource type="Environment" id="Environment_cfabu"]
+background_mode = 2
+sky = SubResource("Sky_68gv1")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.2
+ssao_enabled = true
+glow_enabled = true
+glow_blend_mode = 4
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.008
+
+[node name="Sanctum" type="Node3D"]
+transform = Transform3D(1.68427, 0, 0, 0, 1.68427, 0, 0, 0, 1.68427, 0, 0, 25.1714)
 
 [node name="FL_01" type="Node3D" parent="."]
 
@@ -1808,3 +1865,25 @@ transform = Transform3D(0.00574227, 0, -1, 0, 1, 0, 1, 0, 0.00574227, -2.78547, 
 use_collision = true
 size = Vector3(14.5452, 13.8782, 2.03018)
 material = SubResource("StandardMaterial3D_8mukp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cfabu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.163791, 0.986495, -2.98023e-08, 0.493248, -0.0818954, 0.866025, 0.85433, -0.141847, -0.5, 0, 6, 3)
+light_color = Color(0.41598, 0.41598, 0.41598, 1)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="waterzone" type="Node3D" parent="."]
+transform = Transform3D(0.593729, 0, 0, 0, 0.593729, 0, 0, 0, 0.593729, 0, 0, -14.945)
+
+[node name="fireflyparticle" parent="." instance=ExtResource("29_7245a")]
+transform = Transform3D(2.87063, 0, 0, 0, 2.87063, 0, 0, 0, 2.87063, 0.832793, 7.79081, -21.4238)
+
+[node name="Player" parent="." instance=ExtResource("27_j20lr")]
+transform = Transform3D(0.593729, 0, 0, 0, 0.593729, 0, 0, 0, 0.593729, 1.75308, 0.999998, -6.2814)
+jump = 16.0
+
+[node name="pausemenu" parent="." instance=ExtResource("30_e31gh")]
+visible = false

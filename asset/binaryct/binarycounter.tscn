@@ -70,7 +70,7 @@ font_size = 80
 
 [node name="decimallabel" type="Label3D" parent="labeltogether"]
 transform = Transform3D(-5.73206e-15, 1, 4.37114e-08, -1.31134e-07, -4.37114e-08, 1, 1, 0, 1.31134e-07, 0.556434, 0.292896, 1.03058)
-text = "0"
+text = "128"
 font_size = 80
 
 [node name="switchtogether" type="Node3D" parent="."]
@@ -78,6 +78,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.597678)
 
 [node name="Switch" parent="switchtogether" instance=ExtResource("3_f2f1m")]
 transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, 0.280578, 0.210086, -1.50787)
+is_on = true
+state = 1
 label_3d = NodePath("../../labeltogether/Label3D")
 
 [node name="Switch2" parent="switchtogether" instance=ExtResource("3_f2f1m")]

@@ -26,6 +26,14 @@ class_name Player
 @onready var top_cast = $TopCast
 @onready var ui = $UI
 
+@export_subgroup("headbob")
+@export var headbob_frequency := 2.0
+@export var headbob_amplitude := 0.04
+var headbob_time := 0.0
+
+@export_subgroup("camerashaker")
+@export var camera: Camera3D
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var look_rot : Vector2
 var stand_height : float
@@ -33,19 +41,28 @@ var old_vel : float = 0.0
 var hurt_tween : Tween
 var moving : bool = true
 var game_paused := false
-
+@export var movement_enabled: bool = true
 func _ready():
+	#Dialogic.timeline_started.connect(disable_movement)
+	#Dialogic.timeline_ended.connect(enable_movement)
 	look_rot.y = rotation_degrees.y
 	stand_height = collision_shape.shape.height
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	process_mode = Node.PROCESS_MODE_ALWAYS
+#func disable_movement():
+#	movement_enabled = false
 
+#func enable_movement():
+#	movement_enabled = true
 func _physics_process(delta):
 	# movement
 	var move_speed = speed
-	
+	if not movement_enabled:
+		velocity = Vector3.ZERO  # Stop movement
+		move_and_slide() 
+		return  # Skip movement logic when disabled
 	if not is_on_floor():
-		velocity.y -= gravity * delta * 1.9
+		velocity.y -= gravity * delta * 5.0
 	elif moving:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = jump
@@ -79,8 +96,38 @@ func _physics_process(delta):
 			#hurt((diff - fall_damage_threshold) * fall_damage_multiplier)
 			crouch(delta)
 	old_vel = velocity.y
+	
+	headbob_time += delta * velocity.length()* float(is_on_floor())
+	%Camera3D.transform.origin = headbob(headbob_time)
+	
+func headbob(headbob_time):
+	var headbob_position = Vector3.ZERO
+	headbob_position.y = sin(headbob_time * headbob_frequency) * headbob_amplitude
+	headbob_position.x = cos(headbob_time * headbob_frequency / 2) * headbob_amplitude
+	return headbob_position
 
+func shake_camera(duration: float = 5.0, intensity: float = 0.2, fade_duration: float = 1.0):
+	if not camera:
+		print("Error: Camera not assigned!")
+		return
+	
+	var timer = get_tree().create_timer(duration)
+	timer.timeout.connect(func(): camera.transform.origin = Vector3.ZERO)  # Reset after full shake
 
+	# Main shake (full intensity for `duration` seconds)
+	while timer.time_left > 0:
+		camera.transform.origin = Vector3(randf_range(-intensity, intensity), randf_range(-intensity, intensity), randf_range(-intensity, intensity))
+		await get_tree().process_frame
+	
+	# Smooth fade-out shake (lowering intensity for `fade_duration` seconds)
+	timer = get_tree().create_timer(fade_duration)
+	while timer.time_left > 0:
+		var reduced_intensity = intensity * (timer.time_left / fade_duration)  # Gradually decrease intensity
+		camera.transform.origin = Vector3(randf_range(-reduced_intensity, reduced_intensity), randf_range(-reduced_intensity, reduced_intensity), randf_range(-reduced_intensity, reduced_intensity))
+		await get_tree().process_frame
+	
+	# Ensure final reset
+	camera.transform.origin = Vector3.ZERO
 func _input(event):
 	if event is InputEventMouseMotion and moving:
 		look_rot.y -= (event.relative.x * sensitivity)

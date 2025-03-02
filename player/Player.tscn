@@ -29,20 +29,23 @@ bg_color = Color(0.921569, 0.337255, 0.294118, 1)
 corner_radius_bottom_left = 10
 corner_detail = 1
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera")]
 script = ExtResource("1_188me")
-speed = 13.0
-accel = 20.0
-jump = 10.0
+speed = 7.0
+jump = 2.0
+headbob_amplitude = 0.07
+camera = NodePath("Head/Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CapsuleShape3D_b0b6p")
 
 [node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+unique_name_in_owner = true
 
 [node name="InteractRay" parent="Head" instance=ExtResource("2_fxc3u")]
 
