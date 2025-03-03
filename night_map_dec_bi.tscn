@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://phdixirbdflf"]
+[gd_scene load_steps=60 format=3 uid="uid://phdixirbdflf"]
 
 [ext_resource type="Script" path="res://map_decto_bi.gd" id="1_lshey"]
 [ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://grid_texture/dark/texture_08.png" id="2_ftk0u"]
@@ -18,8 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bimuhvegk187q" path="res://pausemenu.tscn" id="16_kvp84"]
 [ext_resource type="Texture2D" uid="uid://bhvan7kwsyvxw" path="res://grid_texture/dark/texture_12.png" id="16_skpov"]
 [ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://fireflyparticle.tscn" id="17_pqxdx"]
-[ext_resource type="Shader" path="res://stylized_sky.gdshader" id="18_2j1u5"]
-[ext_resource type="Texture2D" uid="uid://b47qp5wttifcb" path="res://characters/nathan.png" id="19_vry83"]
+[ext_resource type="Environment" uid="uid://ddvjlkh2h00qm" path="res://es_nightmap_environment.tres" id="19_fl08g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw5kr"]
 albedo_texture = ExtResource("2_ftk0u")
@@ -346,7 +345,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -2.88836, 0)]
+"values": [Vector3(0, 3.00439, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -358,7 +357,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, -22.9924)]
+"values": [Vector3(10.3746, -7.54387, -18.0842)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -382,7 +381,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.24513, 1.06776, 1.07228)]
+"values": [Vector3(0.29147, 1.08909, 1.99142)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -406,7 +405,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.4128, -2.34513, 1.51517)]
+"values": [Vector3(0.329349, -2.94755, 1.84266)]
 }
 
 [sub_resource type="Animation" id="Animation_r4kdl"]
@@ -555,6 +554,33 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_rqgxo"]
 size = Vector3(5.37525, 2.61426, 6.32715)
 
+[sub_resource type="Animation" id="Animation_ffa75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(27.0192, 1.06931, 0.96582)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.72529e-09, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_s2q6j"]
 resource_name = "bridge_fall"
 length = 3.0
@@ -583,109 +609,11 @@ tracks/1/keys = {
 "values": [Vector3(0, -3.72529e-09, 0), Vector3(0, -3.72529e-09, 0), Vector3(-3.59135e-09, -9.89963e-10, -1.30182), Vector3(-3.59135e-09, -9.89964e-10, -1.30182)]
 }
 
-[sub_resource type="Animation" id="Animation_ffa75"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(27.0192, 1.06931, 0.96582)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -3.72529e-09, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t4xec"]
 _data = {
 "RESET": SubResource("Animation_ffa75"),
 "bridge_fall": SubResource("Animation_s2q6j")
 }
-
-[sub_resource type="Curve" id="Curve_4gyyl"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_iwbew"]
-curve = SubResource("Curve_4gyyl")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_68u7b"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bxeyo"]
-seamless = true
-noise = SubResource("FastNoiseLite_68u7b")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_jnl31"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f6bkh"]
-seamless = true
-noise = SubResource("FastNoiseLite_jnl31")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ppq1b"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jwbey"]
-seamless = true
-noise = SubResource("FastNoiseLite_ppq1b")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_acwjx"]
-load_path = "res://.godot/imported/shooting_star_sampler.png-ff1e808fa5f8310e548f777b9285bd3e.s3tc.ctex"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o44ei"]
-shader = ExtResource("18_2j1u5")
-shader_parameter/clouds_samples = 32
-shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.4
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_smoothness = 0.05
-shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
-shader_parameter/clouds_shadow_intensity = 8.0
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_f6bkh")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_bxeyo")
-shader_parameter/cloud_curves = SubResource("CurveTexture_iwbew")
-shader_parameter/high_clouds_density = 0.1
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_jwbey")
-shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
-shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
-shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
-shader_parameter/astro_tint = Color(1, 1, 1, 1)
-shader_parameter/astro_scale = 10.0
-shader_parameter/astro_intensity = 3.0
-shader_parameter/astro_sampler = ExtResource("19_vry83")
-shader_parameter/stars_intensity = 5.0
-shader_parameter/shooting_stars_intensity = 10.0
-shader_parameter/shooting_star_tint = Color(1, 1, 0.666667, 1)
-shader_parameter/shooting_star_sampler = SubResource("CompressedTexture2D_acwjx")
-
-[sub_resource type="Sky" id="Sky_0udk2"]
-sky_material = SubResource("ShaderMaterial_o44ei")
-
-[sub_resource type="Environment" id="Environment_1sc8n"]
-background_mode = 2
-sky = SubResource("Sky_0udk2")
-ambient_light_source = 3
-reflected_light_source = 2
-tonemap_mode = 2
-tonemap_exposure = 0.9
-tonemap_white = 1.2
-ssao_enabled = true
-glow_enabled = true
-glow_blend_mode = 4
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.005
 
 [sub_resource type="FogMaterial" id="FogMaterial_wkvp4"]
 albedo = Color(0.396078, 0.376471, 0.27451, 1)
@@ -1634,7 +1562,7 @@ label_3d = NodePath("../Label3D")
 door = NodePath("../Door2")
 
 [node name="Label3D" type="Label3D" parent="block"]
-transform = Transform3D(0.480574, 0, 0, 0, 0.480574, 0, 0, 0, 0.480574, 1.94218, 1.4716, -15.7793)
+transform = Transform3D(0.460927, 0, 0.136008, 0, 0.480574, 0, -0.136008, 0, 0.460927, -0.714182, 1.4716, -19.5578)
 text = "0"
 font_size = 150
 
@@ -1779,19 +1707,19 @@ transform = Transform3D(2.71741, 0, 0, 0, 2.71741, 0, 0, 0, 2.71741, 24.9355, 9.
 [node name="brigde" type="Node3D" parent="block2"]
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="block2/brigde"]
-transform = Transform3D(-5.00377, 0, -1.29492, 0, 5.16861, 0, 1.29492, 0, -5.00377, 0, 0, -22.9924)
+transform = Transform3D(-5.12004, 0, 0.706924, 0, 5.16861, 0, -0.706924, 0, -5.12004, 10.3746, -7.54387, -18.0842)
 material_override = SubResource("StandardMaterial3D_r5o4k")
 use_collision = true
 polygon = PackedVector2Array(-0.738163, -0.0454105, 2.19199, 0.0469007, 6.75575, 1.20213, 1.8983, -0.741714)
 
 [node name="CSGPolygon3D3" type="CSGPolygon3D" parent="block2/brigde"]
-transform = Transform3D(0.226152, -2.71389, 4.39296, 4.40385, 2.39735, 1.25433, -2.6962, 3.68808, 2.41723, 19.6987, -1.11578, -33.9385)
+transform = Transform3D(0.223733, -2.72331, 4.38725, 4.51909, -2.02148, -1.48525, 2.49846, 3.90021, 2.29357, 19.6987, -1.11578, -33.9385)
 material_override = SubResource("StandardMaterial3D_r5o4k")
 use_collision = true
 polygon = PackedVector2Array(-0.738163, -0.0454105, 2.19199, 0.0469007, 6.75575, 1.20213, 1.8983, -0.741714)
 
 [node name="CSGPolygon3D4" type="CSGPolygon3D" parent="block2/brigde"]
-transform = Transform3D(-3.84424, 3.40564, -0.581366, 0.81197, 0.0452136, -5.10423, -3.35813, -3.88769, -0.568641, 0, 0, 0)
+transform = Transform3D(1.05136, 4.9719, -0.943081, 4.71118, -1.31332, -1.67167, -1.84768, -0.51958, -4.79902, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_r5o4k")
 use_collision = true
 polygon = PackedVector2Array(-0.738163, -0.0454105, 2.19199, 0.0469007, 6.75575, 1.20213, 1.8983, -0.741714)
@@ -1889,7 +1817,7 @@ material_override = SubResource("StandardMaterial3D_fgtpb")
 use_collision = true
 size = Vector3(4.06445, 5.19684, 3.23401)
 
-[node name="Door" parent="block3/CSGBox3D14" instance=ExtResource("5_cm25p")]
+[node name="seconddoor" parent="block3/CSGBox3D14" instance=ExtResource("5_cm25p")]
 transform = Transform3D(0.716423, 0, 0.0216011, 0, 0.716749, 0, -0.0216011, 0, 0.716423, 0.0340328, -1.99082, 1.26056)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="block3/CSGBox3D14"]
@@ -1947,15 +1875,15 @@ mesh = SubResource("BoxMesh_att12")
 [node name="fireflyparticle" parent="block3" instance=ExtResource("17_pqxdx")]
 transform = Transform3D(2.70721, 0, 0, 0, 2.70721, 0, 0, 0, 2.70721, 10.0577, 9.41784, 3.34172)
 
-[node name="Label3D" type="Label3D" parent="block3"]
+[node name="woohoolabel" type="Label3D" parent="block3"]
 transform = Transform3D(0.024153, 0, 0.999708, 0, 1, 0, -0.999708, 0, 0.024153, 7.28445, -3.74584, 0.322826)
 text = "0"
 font_size = 100
 
 [node name="SampleSwitch" parent="block3" node_paths=PackedStringArray("door") instance=ExtResource("15_mima4")]
 transform = Transform3D(0.024153, 0, 0.999708, 0, 1, 0, -0.999708, 0, 0.024153, 6.98671, -4.99725, 0.322826)
-label_3d = NodePath("../Label3D")
-door = NodePath("../CSGBox3D14/Door")
+label_3d = NodePath("../woohoolabel")
+door = NodePath("../CSGBox3D14/seconddoor")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="block3"]
 transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 3.72529e-09, 0, 1, 27.0192, 1.06931, 0.96582)
@@ -1970,7 +1898,7 @@ libraries = {
 }
 
 [node name="Player" parent="." instance=ExtResource("13_v1fsd")]
-transform = Transform3D(0.645461, 0, 0.472631, 0, 0.8, 0, -0.472631, 0, 0.645461, 22.7052, 22.815, -39.9266)
+transform = Transform3D(0.555978, 0, 0.575229, 0, 0.8, 0, -0.575229, 0, 0.555978, 17.0388, 2.21012, 25.7779)
 speed = 10.0
 jump = 20.0
 
@@ -1982,7 +1910,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1sc8n")
+environment = ExtResource("19_fl08g")
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14242, 12.8016, 12.6752)

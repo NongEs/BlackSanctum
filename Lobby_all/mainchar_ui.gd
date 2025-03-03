@@ -14,14 +14,14 @@ func _process(delta: float) -> void:
 func _on_next_button_pressed() -> void:
 	$MarginContainer/StartPanel3.show()
 	$CharacterButton.hide()
-	$SubChaButton.hide()
+	$ArtifactButton.hide()
 	$NextButton.hide()
 	$SettingButton.hide()
 
 func _on_back_2_button_pressed() -> void:
 	$MarginContainer/StartPanel3.hide()
 	$CharacterButton.show()
-	$SubChaButton.show()
+	$ArtifactButton.show()
 	$NextButton.show()
 	$SettingButton.show()
 

@@ -13,7 +13,7 @@ var redpanel: bool = false
 func _ready() -> void:
 	$pausemenu.hide()
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	#Dialogic.start("timeline")
+	Dialogic.start("timeline")
 	#Dialogic.timeline_started.connect(disable_movement)
 	#Dialogic.timeline_ended.connect(enable_movement)
 	

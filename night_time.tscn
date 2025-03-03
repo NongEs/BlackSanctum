@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dweqmn3uvnenv"]
 
-[ext_resource type="Shader" path="res://stylized_sky.gdshader" id="1_e328f"]
+[ext_resource type="Shader" path="res://shadergs/stylized_sky.gdshader" id="1_e328f"]
 [ext_resource type="Texture2D" uid="uid://dwix53shrh100" path="res://shooting_star_sampler.png" id="2_pdqof"]
 
 [sub_resource type="Curve" id="Curve_qjnju"]

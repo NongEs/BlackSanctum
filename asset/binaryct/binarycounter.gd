@@ -29,7 +29,7 @@ func _ready() -> void:
 
 func _on_switch_state_changed(new_state: int) -> void:
 	update_decimal_value()
-
+	check_match()
 func _on_random_number_generated(random_number: int) -> void:
 	randomed_number = random_number  # Update the random number
 	print("Randomed number received:", randomed_number)

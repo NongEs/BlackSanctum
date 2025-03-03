@@ -27,7 +27,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ch3553f7rptmc" path="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/tileBrickB_medium.obj" id="25_6q0ji"]
 [ext_resource type="ArrayMesh" uid="uid://dc7yi2vck3e1l" path="res://asset/map_decoration/KayKit Dungeon Pack 1.0/Models/obj/wall_broken.obj" id="25_ixg10"]
 [ext_resource type="PackedScene" uid="uid://sbqhbha156g5" path="res://Player/Player.tscn" id="27_j20lr"]
-[ext_resource type="Shader" path="res://stylized_sky.gdshader" id="28_xx8s3"]
+[ext_resource type="Shader" path="res://shadergs/stylized_sky.gdshader" id="28_xx8s3"]
 [ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://fireflyparticle.tscn" id="29_7245a"]
 [ext_resource type="PackedScene" uid="uid://bimuhvegk187q" path="res://pausemenu.tscn" id="30_e31gh"]
 
@@ -63,28 +63,28 @@ albedo_color = Color(0.542339, 0.446941, 1, 1)
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_2sn2t"]
+[sub_resource type="CurveTexture" id="CurveTexture_85554"]
 curve = SubResource("Curve_goqqn")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_il3s7"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_em22s"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t3bpi"]
 seamless = true
 noise = SubResource("FastNoiseLite_il3s7")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_sfm44"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q8w5u"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ff1d1"]
 seamless = true
 noise = SubResource("FastNoiseLite_sfm44")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_783rb"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2xgx"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ka3fn"]
 seamless = true
 noise = SubResource("FastNoiseLite_783rb")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ieb5u"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5gc4n"]
 load_path = "res://.godot/imported/shooting_star_sampler.png-ff1e808fa5f8310e548f777b9285bd3e.s3tc.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k1u2y"]
@@ -96,11 +96,11 @@ shader_parameter/clouds_scale = 1.0
 shader_parameter/clouds_smoothness = 0.05
 shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
 shader_parameter/clouds_shadow_intensity = 8.0
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_q8w5u")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_em22s")
-shader_parameter/cloud_curves = SubResource("CurveTexture_2sn2t")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_ff1d1")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_t3bpi")
+shader_parameter/cloud_curves = SubResource("CurveTexture_85554")
 shader_parameter/high_clouds_density = 0.1
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_d2xgx")
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_ka3fn")
 shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
 shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
 shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
@@ -110,14 +110,14 @@ shader_parameter/astro_intensity = 1.2
 shader_parameter/stars_intensity = 5.0
 shader_parameter/shooting_stars_intensity = 10.0
 shader_parameter/shooting_star_tint = Color(1, 1, 0.666667, 1)
-shader_parameter/shooting_star_sampler = SubResource("CompressedTexture2D_ieb5u")
+shader_parameter/shooting_star_sampler = SubResource("CompressedTexture2D_5gc4n")
 
-[sub_resource type="Sky" id="Sky_68gv1"]
+[sub_resource type="Sky" id="Sky_7dvp1"]
 sky_material = SubResource("ShaderMaterial_k1u2y")
 
 [sub_resource type="Environment" id="Environment_cfabu"]
 background_mode = 2
-sky = SubResource("Sky_68gv1")
+sky = SubResource("Sky_7dvp1")
 ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 2

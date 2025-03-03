@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3wly2dg3rc5f"]
 
-[ext_resource type="Shader" path="res://stylized_sky.gdshader" id="1_ek4yw"]
+[ext_resource type="Shader" path="res://shadergs/stylized_sky.gdshader" id="1_ek4yw"]
 
 [sub_resource type="Curve" id="Curve_in2ep"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]

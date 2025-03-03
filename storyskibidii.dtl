@@ -10,11 +10,11 @@ DrMantis: Do you understand, or would you like me to explain again?
 - No!
 [wait time="1.0"]
 [signal arg="bridgei fall now"]
-DrMantis (MantisSmile): Next will be adatation from our knowledge, you will use that knowledge that I teach adapt to the puzzle proble that you gonna face.
+DrMantis (MantisSmile): Next will be adaptation from our knowledge, you will use that knowledge that I teach adapt to the puzzle proble that you gonna face.
 DrMantis (MantisSmile): Go find the binary counter on the next area to see the example.
 [end_timeline]
 label binarycounter (binarycounter)
-DrMantis: This is the binarycounter machine, generally found in this game.
+DrMantis (DefaultMantis): This is the binarycounter machine, generally found in this game.
 DrMantis (MantisSmile): you can try to interact with it. For this one is set to when the value on the machine is equal to the assigned value, It  will make the door open.
 DrMantis (MantisWonder): You will wonder why the number that show kinda show you some pattern.
 DrMantis (MantisWonder): That's called Binary Number.
@@ -24,5 +24,5 @@ DrMantis (MantisWonder): Good luck!!!
 DrMantis (MantisWonder): Don't forget to go in the red box, I have gift for you
 [end_timeline]
 label gonext (gonext)
-DrMantis (MantisWonder): Alright, The code is 197 let's open the door and move on to the next stage.
+DrMantis (DefaultMantis): Alright, The code is 197 let's open the door and move on to the next stage.
 DrMantis (MantisSmile): Don't worry! I'll be your guide until you fully understand the system!
