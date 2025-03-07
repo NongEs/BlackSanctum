@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjswyshnntybp"]
+
+[ext_resource type="Texture2D" uid="uid://byj1pmrpr4vci" path="res://asset/particleEffect/explosion04.png" id="1_rdyko"]
+
+[sub_resource type="Gradient" id="Gradient_arq63"]
+offsets = PackedFloat32Array(0, 0.780161, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.831373, 0.831373, 0.831373, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_srspy"]
+gradient = SubResource("Gradient_arq63")
+
+[sub_resource type="Curve" id="Curve_tgh22"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 100), 0.0, 0.0, 0, 0, Vector2(1, 0), -427.185, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w5sv2"]
+curve = SubResource("Curve_tgh22")
+
+[sub_resource type="Curve" id="Curve_86ufj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.24929, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1r6v3"]
+curve = SubResource("Curve_86ufj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0v1tb"]
+lifetime_randomness = 0.35
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 10)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angular_velocity_min = 30.0
+angular_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_1r6v3")
+color = Color(1, 0.701961, 0, 1)
+color_ramp = SubResource("GradientTexture1D_srspy")
+emission_curve = SubResource("CurveTexture_w5sv2")
+turbulence_enabled = true
+turbulence_noise_scale = 5.0
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bq56"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_rdyko")
+roughness = 0.2
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_l17c5"]
+material = SubResource("StandardMaterial3D_3bq56")
+size = Vector2(0.2, 0.2)
+
+[node name="fireflyparticle" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 300
+lifetime = 10.0
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_0v1tb")
+draw_pass_1 = SubResource("QuadMesh_l17c5")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+size = Vector3(20, 20, 20)
+update_mode = 1
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.24896, 0)
+strength = -128.0
+radius = 4.0

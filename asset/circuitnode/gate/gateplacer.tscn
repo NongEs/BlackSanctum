@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://0paeyr6slw1a"]
 
-[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://grid_texture/dark/texture_08.png" id="1_663hh"]
+[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="1_663hh"]
 [ext_resource type="PackedScene" uid="uid://ck7hbbg7mgmo6" path="res://asset/circuitnode/gate/switch.tscn" id="2_40kqc"]
-[ext_resource type="Script" path="res://asset/circuitnode/gate/placer.gd" id="2_ngd8o"]
+[ext_resource type="Script" uid="uid://ddahhj6p1w4sc" path="res://asset/circuitnode/gate/placer.gd" id="2_ngd8o"]
 [ext_resource type="PackedScene" uid="uid://cc2lkw0c4hxox" path="res://asset/circuitnode/gate/nor_gate.tscn" id="3_0657g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7rdm"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbq5t15mllaxx"]
+
+[ext_resource type="Script" uid="uid://dmlsd7ht0k1ui" path="res://newgen_assets/prepared asset/active node/sample_switch.gd" id="1_s6656"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_asect"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cnbdk"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5424"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_icw7h"]
+
+[node name="SampleSwitch" type="StaticBody3D"]
+script = ExtResource("1_s6656")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_asect")
+surface_material_override/0 = SubResource("StandardMaterial3D_cnbdk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_e5424")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.5)
+mesh = SubResource("SphereMesh_icw7h")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

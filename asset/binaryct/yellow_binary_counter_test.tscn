@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0cx0oj7aa7m0"]
 
-[ext_resource type="Script" path="res://asset/binaryct/yellow_binary_counter_test.gd" id="1_ycrsk"]
-[ext_resource type="Texture2D" uid="uid://daf6cl8r3bcrn" path="res://grid_texture/orange/texture_13.png" id="2_gx4km"]
+[ext_resource type="Script" uid="uid://cc47gxtdpvesd" path="res://asset/binaryct/yellow_binary_counter_test.gd" id="1_ycrsk"]
+[ext_resource type="Texture2D" uid="uid://daf6cl8r3bcrn" path="res://addons/grid_texture/orange/texture_13.png" id="2_gx4km"]
 [ext_resource type="PackedScene" uid="uid://ck7hbbg7mgmo6" path="res://asset/circuitnode/gate/switch.tscn" id="3_osb7q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjifn"]

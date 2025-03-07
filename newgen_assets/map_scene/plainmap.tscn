@@ -1,0 +1,124 @@
+[gd_scene load_steps=22 format=3 uid="uid://dbdabuhh1uvu8"]
+
+[ext_resource type="PackedScene" uid="uid://sbqhbha156g5" path="res://asset/Player/Player.tscn" id="1_724uy"]
+[ext_resource type="PackedScene" uid="uid://bp7cuk0oavepu" path="res://asset/Environment/bushes/bush.tscn" id="2_8u8a0"]
+[ext_resource type="Shader" uid="uid://do3pgsk0tw5x1" path="res://newgen_assets/shadergs/stylized_sky.gdshader" id="2_unf6m"]
+[ext_resource type="Texture2D" uid="uid://dwix53shrh100" path="res://asset/particleEffect/shooting_star_sampler.png" id="3_d5dpn"]
+[ext_resource type="PackedScene" uid="uid://cbxln4ljola71" path="res://asset/Environment/flowers/flower_patch.tscn" id="3_vlwps"]
+[ext_resource type="PackedScene" uid="uid://btudipdtsdyey" path="res://asset/Environment/grass/GrassChunk.tscn" id="4_ce0eh"]
+[ext_resource type="Texture2D" uid="uid://cwf2n313rmv35" path="res://asset/Environment/large_tree_trunk/trunk_top/trunk_top_normal.png" id="5_1dcu7"]
+[ext_resource type="ArrayMesh" uid="uid://bc18k45jn4wcx" path="res://asset/Environment/large_tree_trunk/large_trunk.obj" id="6_adgvl"]
+[ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://asset/Environment/trees/tree.tscn" id="7_5s7yg"]
+
+[sub_resource type="Curve" id="Curve_qjnju"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qsvoe"]
+curve = SubResource("Curve_qjnju")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mt2s1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u5u8n"]
+seamless = true
+noise = SubResource("FastNoiseLite_mt2s1")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g1ra7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c7alj"]
+seamless = true
+noise = SubResource("FastNoiseLite_g1ra7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_04vdl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mn5kc"]
+seamless = true
+noise = SubResource("FastNoiseLite_04vdl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ucua4"]
+shader = ExtResource("2_unf6m")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_c7alj")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_u5u8n")
+shader_parameter/cloud_curves = SubResource("CurveTexture_qsvoe")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.05
+shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
+shader_parameter/clouds_shadow_intensity = 8.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_mn5kc")
+shader_parameter/high_clouds_density = 0.1
+shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
+shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_scale = 10.0
+shader_parameter/astro_intensity = 1.2
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 10.0
+shader_parameter/shooting_star_sampler = ExtResource("3_d5dpn")
+shader_parameter/shooting_star_tint = Color(1, 1, 0.666667, 1)
+
+[sub_resource type="Sky" id="Sky_pcx0u"]
+sky_material = SubResource("ShaderMaterial_ucua4")
+
+[sub_resource type="Environment" id="Environment_o5e8m"]
+background_mode = 2
+sky = SubResource("Sky_pcx0u")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgll0"]
+albedo_texture = ExtResource("5_1dcu7")
+
+[node name="plainmap" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.08377, 0, -4.01447)
+use_collision = true
+size = Vector3(30, 1, 37)
+
+[node name="Player" parent="." instance=ExtResource("1_724uy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06806, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o5e8m")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_color = Color(1, 0.952941, 0.929412, 1)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Bush1" parent="Node3D" instance=ExtResource("2_8u8a0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.480175, 0.5, 4.57298)
+skeleton = NodePath("../..")
+
+[node name="FlowerPatch" parent="Node3D" instance=ExtResource("3_vlwps")]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 3.42614, 0.499999, 0.710599)
+
+[node name="grass_chunk_scene" parent="." instance=ExtResource("4_ce0eh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57507, 0.5, -1.65507)
+
+[node name="grass_chunk_scene2" parent="." instance=ExtResource("4_ce0eh")]
+transform = Transform3D(0.972264, 0, -0.233887, 0, 1, 0, 0.233887, 0, 0.972264, 4.36782, 0.5, -1.65507)
+
+[node name="grass_chunk_scene3" parent="." instance=ExtResource("4_ce0eh")]
+transform = Transform3D(0.925765, 0, 0.378099, 0, 1, 0, -0.378099, 0, 0.925765, 2.61509, 0.5, -1.65507)
+
+[node name="grass_chunk_scene4" parent="." instance=ExtResource("4_ce0eh")]
+transform = Transform3D(0.925765, 0, 0.378099, 0, 1, 0, -0.378099, 0, 0.925765, 3.09951, 0.5, -2.38174)
+
+[node name="grass_chunk_scene5" parent="." instance=ExtResource("4_ce0eh")]
+transform = Transform3D(0.993664, 0, -0.112388, 0, 1, 0, 0.112388, 0, 0.993664, 4.02365, 0.5, -2.51523)
+
+[node name="LargeTrunk" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.601298, 0, 0, 0, 0.601298, 0, 0, 0, 0.601298, 6.19449, 0.5, -1.08522)
+material_override = SubResource("StandardMaterial3D_vgll0")
+mesh = ExtResource("6_adgvl")
+
+[node name="Tree1Geo" parent="." instance=ExtResource("7_5s7yg")]
+transform = Transform3D(1.93185, 0, 0.517638, 0, 2, 0, -0.517638, 0, 1.93185, 8, 0, 4)

@@ -11,28 +11,28 @@ config_version=5
 [application]
 
 config/name="BlackSanctum"
-run/main_scene="res://Game_Intro.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_scene="res://newgen_assets/transition/Game_Intro.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
-boot_splash/image="res://characters/cdwn.PNG"
+boot_splash/image="res://asset/characters/cdwn.PNG"
 config/icon="res://player/icon.svg"
 boot_splash/minimum_display_time=1000
 
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-TransitionScreen="*res://transition_screen.tscn"
+TransitionScreen="*res://newgen_assets/transition/transition_screen.tscn"
 
 [dialogic]
 
 directories/dch_directory={
-"DrMantis": "res://DrMantis.dch",
-"Player": "res://Player.dch",
-"narrator": "res://narrator.dch"
+"DrMantis": "res://TextboxWithPortrait/DrMantis.dch",
+"Player": "res://TextboxWithPortrait/Player.dch",
+"narrator": "res://TextboxWithPortrait/narrator.dch"
 }
 directories/dtl_directory={
-"storyskibidii": "res://storyskibidii.dtl",
-"timeline": "res://timeline.dtl"
+"storyskibidii": "res://TextboxWithPortrait/storyskibidii.dtl",
+"timeline": "res://TextboxWithPortrait/timeline.dtl"
 }
 variables={}
 layout/style_list=["res://bstumstyle.tres"]
