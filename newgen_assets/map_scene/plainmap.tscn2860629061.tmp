@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dbdabuhh1uvu8"]
+[gd_scene load_steps=25 format=3 uid="uid://dbdabuhh1uvu8"]
 
 [ext_resource type="PackedScene" uid="uid://sbqhbha156g5" path="res://asset/Player/Player.tscn" id="1_724uy"]
 [ext_resource type="Texture2D" uid="uid://cboor26ln3y5c" path="res://addons/grid_texture/dark/texture_13.png" id="1_o5e8m"]
@@ -11,9 +11,6 @@
 [ext_resource type="ArrayMesh" uid="uid://bc18k45jn4wcx" path="res://asset/Environment/large_tree_trunk/large_trunk.obj" id="6_adgvl"]
 [ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://asset/Environment/trees/tree.tscn" id="7_5s7yg"]
 [ext_resource type="PackedScene" uid="uid://pgm5j6hwaqcu" path="res://Keycard.tscn" id="11_o5e8m"]
-[ext_resource type="PackedScene" uid="uid://b36i55qdyig80" path="res://newgen_assets/prepared asset/jesus_key.tscn" id="11_yykyf"]
-[ext_resource type="Script" uid="uid://wkv8heqeah7g" path="res://newgen_assets/map_scene/testcontrol.gd" id="13_ur78m"]
-[ext_resource type="Texture2D" uid="uid://b3jr5m6d3pv1y" path="res://keycard-diff.png" id="14_f4wpi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur78m"]
 albedo_texture = ExtResource("1_o5e8m")
@@ -80,92 +77,6 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgll0"]
 albedo_texture = ExtResource("5_1dcu7")
 
-[sub_resource type="Animation" id="Animation_f4wpi"]
-resource_name = "float_disk"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1781, 22), Vector2(1783, 60)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%KeyFull:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1625, 35.5), Vector2(1625, 70)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("%KeyCurrent:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1541, 35.5), Vector2(1541, 70)]
-}
-
-[sub_resource type="Animation" id="Animation_iaisx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1781, 22)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%KeyFull:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1625, 35.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("%KeyCurrent:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1541, 35.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_d2aj5"]
-_data = {
-&"RESET": SubResource("Animation_iaisx"),
-&"float_disk": SubResource("Animation_f4wpi")
-}
-
 [node name="plainmap" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -219,85 +130,13 @@ mesh = ExtResource("6_adgvl")
 transform = Transform3D(1.93185, 0, 0.517638, 0, 2, 0, -0.517638, 0, 1.93185, 8, 0, 4)
 
 [node name="Keycard" parent="." instance=ExtResource("11_o5e8m")]
-transform = Transform3D(1, 0, 0, 0, 0.974894, -0.222672, 0, 0.222672, 0.974894, -10.4077, 1.66443, 7.5469)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4077, 1, 7.39514)
 
 [node name="Keycard2" parent="." instance=ExtResource("11_o5e8m")]
-transform = Transform3D(-0.218893, -0.341156, 0.914165, 7.45058e-09, 0.936886, 0.349635, -0.975749, 0.0765326, -0.205077, -6.05539, 1.51545, 5.6426)
+transform = Transform3D(-0.218893, 0, 0.975749, 0, 1, 0, -0.975749, 0, -0.218893, -5.86769, 1, 5.60049)
 
 [node name="Keycard3" parent="." instance=ExtResource("11_o5e8m")]
-transform = Transform3D(1, 0, 0, 0, 0.969825, -0.243801, 0, 0.243801, 0.969825, -9.36211, 2.32512, 3.12926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.36211, 2.32512, 3.12926)
 
 [node name="Keycard4" parent="." instance=ExtResource("11_o5e8m")]
-transform = Transform3D(1, 0, 0, 0, 0.940336, 0.340248, 0, -0.340248, 0.940336, -6.95252, 1.44697, 8.84667)
-
-[node name="JesusKey" parent="." instance=ExtResource("11_yykyf")]
-transform = Transform3D(0.561318, 0, 0.8276, 0, 1, 0, -0.8276, 0, 0.561318, -5.24369, 2.05236, 3.61295)
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("13_ur78m")
-
-[node name="KeyCurrent" type="Label" parent="UI/Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 1541.0
-offset_top = -504.5
-offset_right = -264.0
-offset_bottom = -416.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 64
-text = "0"
-horizontal_alignment = 1
-
-[node name="KeyFull" type="Label" parent="UI/Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 1625.0
-offset_top = -504.5
-offset_right = -180.0
-offset_bottom = -416.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 64
-text = "/ 12"
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -139.0
-offset_top = 22.0
-offset_right = -31.0
-offset_bottom = 130.0
-grow_horizontal = 0
-rotation = 0.261799
-texture = ExtResource("14_f4wpi")
-expand_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Control"]
-libraries = {
-&"": SubResource("AnimationLibrary_d2aj5")
-}
-autoplay = "float_disk"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.95252, 1, 7.61139)

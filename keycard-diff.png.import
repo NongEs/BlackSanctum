@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm1mbtqhhxl01"
-path.s3tc="res://.godot/imported/Flowers.png-853ec155a79081ea08dd772510eb2a02.s3tc.ctex"
+uid="uid://b3jr5m6d3pv1y"
+path.s3tc="res://.godot/imported/keycard-diff.png-e409b159f49000ebe844d2d441bc1591.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/Textures/Flowers.png"
-dest_files=["res://.godot/imported/Flowers.png-853ec155a79081ea08dd772510eb2a02.s3tc.ctex"]
+source_file="res://keycard-diff.png"
+dest_files=["res://.godot/imported/keycard-diff.png-e409b159f49000ebe844d2d441bc1591.s3tc.ctex"]
 
 [params]
 

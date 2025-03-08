@@ -1,6 +1,7 @@
-[gd_resource type="Environment" load_steps=13 format=3 uid="uid://b7j6cdke78883"]
+[gd_resource type="Environment" load_steps=14 format=3 uid="uid://b7j6cdke78883"]
 
 [ext_resource type="Shader" uid="uid://do3pgsk0tw5x1" path="res://newgen_assets/shadergs/stylized_sky.gdshader" id="1_y81no"]
+[ext_resource type="Texture2D" uid="uid://b47qp5wttifcb" path="res://asset/characters/nathan.png" id="2_6535e"]
 [ext_resource type="Texture2D" uid="uid://dwix53shrh100" path="res://asset/particleEffect/shooting_star_sampler.png" id="2_hjuv3"]
 
 [sub_resource type="Curve" id="Curve_qjnju"]
@@ -46,6 +47,7 @@ shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
 shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
 shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
 shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_sampler = ExtResource("2_6535e")
 shader_parameter/astro_scale = 10.0
 shader_parameter/astro_intensity = 1.2
 shader_parameter/stars_intensity = 5.0

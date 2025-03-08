@@ -22,6 +22,7 @@ boot_splash/minimum_display_time=1000
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 TransitionScreen="*res://newgen_assets/transition/transition_screen.tscn"
+GameState="*res://GameState.gd"
 
 [dialogic]
 

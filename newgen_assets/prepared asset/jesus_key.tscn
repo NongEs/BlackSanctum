@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b36i55qdyig80"]
+
+[ext_resource type="ArrayMesh" uid="uid://degnvlbhng48q" path="res://asset/map_decoration/KayKit Spooktober Seasonal Pack 1.1/Models/obj/coffinA_top.obj" id="1_hwmia"]
+[ext_resource type="Script" uid="uid://clhousg5vuopt" path="res://newgen_assets/prepared asset/jesus_key.gd" id="1_lxyhm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lxyhm"]
+size = Vector3(1.46887, 0.391846, 2.04291)
+
+[node name="JesusKey" type="RigidBody3D"]
+mass = 0.1
+script = ExtResource("1_lxyhm")
+prompt_message = "Take Key"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_hwmia")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003479, 0.185913, 0.10733)
+shape = SubResource("BoxShape3D_lxyhm")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

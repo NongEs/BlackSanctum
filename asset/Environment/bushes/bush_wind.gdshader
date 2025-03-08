@@ -15,7 +15,7 @@ void fragment() {
 	vec4 albedo = texture(albedo_sampler, UV);
 	vec3 orm = texture(orm_sampler, UV).rgb;
 	vec3 normal_map = texture(normal_sampler, UV).rgb;
-	
+
 	ALBEDO = albedo.rgb * orm.r;
 	ROUGHNESS = orm.g;
 	NORMAL_MAP = normal_map;
