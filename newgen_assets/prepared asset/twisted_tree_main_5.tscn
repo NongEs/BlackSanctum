@@ -8,7 +8,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1yvr"]
 resource_name = "Bark_TwistedTree"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_qm77k")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -81,9 +80,10 @@ resource_name = "Leaves_TwistedTree"
 render_priority = 0
 shader = SubResource("Shader_jtpj8")
 shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("4_s1iwf")
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = null
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 0.0
 shader_parameter/emission = Color(1, 1, 1, 1)
@@ -92,7 +92,6 @@ shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = ExtResource("4_s1iwf")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_aymk0"]
 _surfaces = [{

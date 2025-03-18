@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddjviui74l542"]
+
+[ext_resource type="PackedScene" uid="uid://radyivqj45tt" path="res://Numeral_map/asset/cave_assets2/meshes/groundsand.gltf" id="1_vhlvl"]
+[ext_resource type="Material" uid="uid://c441gbqtabpss" path="res://Numeral_map/asset/cave_assets2/materials/mat_sand.tres" id="2_nuqgn"]
+
+[node name="groundsand" instance=ExtResource("1_vhlvl")]
+
+[node name="GroundSand" parent="." index="0"]
+material_override = ExtResource("2_nuqgn")

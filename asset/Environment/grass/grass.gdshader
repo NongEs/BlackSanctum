@@ -18,4 +18,3 @@ void fragment() {
 	// ALPHA_SCISSOR_THRESHOLD = 0.5;
 	NORMAL = NORMAL * (float(FRONT_FACING) * 2.0 - 1.0);
 }
- 

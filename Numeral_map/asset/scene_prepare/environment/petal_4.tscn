@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=4 uid="uid://dr64iiv3pk7u"]
+
+[ext_resource type="PackedScene" uid="uid://ckvabpyfmi56b" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/FBX (Unity)/Petal_4.fbx" id="1_k4h58"]
+[ext_resource type="Shader" uid="uid://c5ugwvmxqhvtu" path="res://Numeral_map/asset/scene_prepare/environment/environment.gdshader" id="2_k0joo"]
+[ext_resource type="Texture2D" uid="uid://bm1mbtqhhxl01" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/Textures/Flowers.png" id="3_7squ0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bk3h4"]
+resource_name = "Flowers"
+render_priority = 0
+shader = ExtResource("2_k0joo")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_7squ0")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = Color(1, 1, 1, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i67xs"]
+_surfaces = [{
+"aabb": AABB(-0.143395, -1.37431e-07, -0.122296, 0.329093, 0.252056, 0.244452),
+"format": 34359742465,
+"index_count": 90,
+"index_data": PackedByteArray("EgATABQAEwASABUAAAASABQADQAVABIAEgAAAA0AEwAVABYAFgAVAA0ADQAAAA4ADgAPAA0AFAACAAAAAwAAAAIAAgAEAAMADQARABAAEAAMAA0ADQAMABYAFwAWAAwAEwAWABcADAAJABcACQAMAAoACgALAAkAEwAXABgAGAAXAAkAEwAYABQAAgAUABgACQABABgAGAABAAIAAQAJAAcABwAIAAEABQACAAEAAQAGAAUA"),
+"lods": [0.11363, PackedByteArray("AAABAAIAAwAAAAIAAgAEAAMABQACAAEAAQAGAAUABwAIAAEAAQAJAAcACgALAAkACQAMAAoAAQAMAAkAAQAAAAwADAAAAA0ADQAAAA4ADgAPAA0AEAAMAA0ADQARABAA")],
+"name": "Flowers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 25,
+"vertex_data": PackedByteArray("MdUEvdjlTD79DpS99MX4PaQdTT7NaQ28ko6lPV9FTj7Xt4298jkDvaYcgD5odvq9V5jUPYINgT6U3PO9+nYIPn/zgD4QHL+9+wM2PtRigD58Keq8iOHLPeCwez4ImOk9vic+Psvhfz6MQPA7cRxJPRakST5bcqc9g5WBveABej6RQt09kpBKPXrKej7WLPo92TFkvfLzSD6GUYw9MIG0vfY4Sj6y9yo81AyJvU0Wfz7VFb29XUQAvj9gfD7TkYC786PXvRjzeT5QtMw9F9YSvkB2ez7T0gA9PSXsvLiUKD1mjU294HKzM52QE7RiyEA0MS80PTrGKj3jAEK9xjqGvQzoIT3V9ro7pnsqvRpaHz19HTc9tVDzPG5cIT2wmVw91NGUPQH9Jz3s/9S7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fqftu"]
+resource_name = "Plane_027"
+_surfaces = [{
+"aabb": AABB(-0.143395, -1.37431e-07, -0.122296, 0.329093, 0.252056, 0.244452),
+"attribute_data": PackedByteArray("tmJEP1w+NT/OLW0/tJBKPzCpXj+kezI/4jg7P8+0Fz9iV2Y/5bIXP67Vdj93ZCA/TfeDPwvLQT/qv3Y/gAN3P44Cgj8I/FM/05JdP/+JYT9xbTo/k0Z8P9CaZj9Gc38/LhpFP/vaXz9TtTk//GBLPyzKLT+tax8/RMUaP2TmRT9fVC0/H7V3P1E+Gj8BUFE/LLJGP7KgOT83JVA/hGRLP9vRWj/CoDk/uag+P+coSz95DUg/rN9bP0gsWz8iNF0/LblkP95WSz8="),
+"format": 34359742487,
+"index_count": 90,
+"index_data": PackedByteArray("EgATABQAEwASABUAAAASABQADQAVABIAEgAAAA0AEwAVABYAFgAVAA0ADQAAAA4ADgAPAA0AFAACAAAAAwAAAAIAAgAEAAMADQARABAAEAAMAA0ADQAMABYAFwAWAAwAEwAWABcADAAJABcACQAMAAoACgALAAkAEwAXABgAGAAXAAkAEwAYABQAAgAUABgACQABABgAGAABAAIAAQAJAAcABwAIAAEABQACAAEAAQAGAAUA"),
+"lods": [0.11363, PackedByteArray("AAABAAIAAwAAAAIAAgAEAAMABQACAAEAAQAGAAUABwAIAAEAAQAJAAcACgALAAkACQAMAAoAAQAMAAkAAQAAAAwADAAAAA0ADQAAAA4ADgAPAA0AEAAMAA0ADQARABAA")],
+"material": SubResource("ShaderMaterial_bk3h4"),
+"name": "Flowers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 25,
+"vertex_data": PackedByteArray("MdUEvdjlTD79DpS99MX4PaQdTT7NaQ28ko6lPV9FTj7Xt4298jkDvaYcgD5odvq9V5jUPYINgT6U3PO9+nYIPn/zgD4QHL+9+wM2PtRigD58Keq8iOHLPeCwez4ImOk9vic+Psvhfz6MQPA7cRxJPRakST5bcqc9g5WBveABej6RQt09kpBKPXrKej7WLPo92TFkvfLzSD6GUYw9MIG0vfY4Sj6y9yo81AyJvU0Wfz7VFb29XUQAvj9gfD7TkYC786PXvRjzeT5QtMw9F9YSvkB2ez7T0gA9PSXsvLiUKD1mjU294HKzM52QE7RiyEA0MS80PTrGKj3jAEK9xjqGvQzoIT3V9ro7pnsqvRpaHz19HTc9tVDzPG5cIT2wmVw91NGUPQH9Jz3s/9S7BSTYHjjTk1vbxAhGo7xiHDPWrx1vzvEvL8FkAvz320AvwWQCS/slP5nGbikuyNwnmcZuKbXK2iMQpzVEcN0bIxCnNUTn1AYlU5hiVjXkryooeA9J1fGCQSh4D0mj8TNC0VzmWQLFD1jfLYVMALKCaLku6C8Q1kdiuS7oL/W8MmD+UzdDhsdxWP5TN0N0zFhf+yOTH9bPXFwKfNcBP/7aQibYSh6Wy2IrRi3BT5uxp2m+W81Z7sFkXhiafFdJ3uIodstqTBW1nRk=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i67xs")
+
+[node name="Petal_4" instance=ExtResource("1_k4h58")]
+
+[node name="Petal_4" parent="." index="0"]
+mesh = SubResource("ArrayMesh_fqftu")

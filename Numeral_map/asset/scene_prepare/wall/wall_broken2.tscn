@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvnay5e2w6e6p"]
+
+[ext_resource type="PackedScene" uid="uid://4juxwmuve0dh" path="res://Numeral_map/asset/base/templePillar/temple_pillar_top_mid.tscn" id="1_5anos"]
+[ext_resource type="PackedScene" uid="uid://dpqx7goxx3n3r" path="res://Numeral_map/asset/base/templePillar/temple_pillar_bottom.tscn" id="2_nnsfb"]
+[ext_resource type="PackedScene" uid="uid://f3uyeq0mli08" path="res://Numeral_map/asset/base/templePillar/temple_pillar_end_broken.tscn" id="3_eaas0"]
+
+[node name="WallBroken2" type="Node3D"]
+
+[node name="temple_pillar_top_mid" parent="." instance=ExtResource("1_5anos")]
+transform = Transform3D(1.67115e-10, 0.00348908, -0.506003, 0.730176, -2.91281e-08, 0, -3.19166e-08, -0.666364, -0.00264943, 7.07631, 4.04155, -0.220762)
+
+[node name="temple_pillar_top_mid3" parent="." instance=ExtResource("1_5anos")]
+transform = Transform3D(0.0273422, 0.00348663, -0.505648, 0.729664, -0.000130681, 0.0189478, -3.19166e-08, -0.666364, -0.00264943, 5.04045, 6.97847, -0.220762)
+
+[node name="temple_pillar_top_mid4" parent="." instance=ExtResource("1_5anos")]
+transform = Transform3D(0.0273422, 0.00349674, -0.254839, 0.729664, -0.00013106, 0.00954939, -3.19166e-08, -0.668295, -0.00133527, 8.08885, 6.91044, -0.220762)
+
+[node name="temple_pillar_top_mid5" parent="." instance=ExtResource("1_5anos")]
+transform = Transform3D(0.0273422, 0.00349721, -0.24825, 0.729664, -0.000131078, 0.00930248, -3.19166e-08, -0.668386, -0.00130075, 2.05156, 7.00591, -0.220762)
+
+[node name="temple_pillar_top_mid2" parent="." instance=ExtResource("1_5anos")]
+transform = Transform3D(1.67115e-10, 0.00348908, -0.506003, 0.730176, -2.91281e-08, 0, -3.19166e-08, -0.666364, -0.00264943, 3.04538, 4.04155, -0.220762)
+
+[node name="temple_pillar_bottom" parent="." instance=ExtResource("2_nnsfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.679515, 8.0407, 2.14971, -0.1374)
+
+[node name="temple_pillar_bottom2" parent="." instance=ExtResource("2_nnsfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.679515, 5.01635, 2.14971, -0.1374)
+
+[node name="temple_pillar_bottom3" parent="." instance=ExtResource("2_nnsfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.679515, 1.98827, 2.14971, -0.1374)
+
+[node name="temple_pillar_end_broken" parent="." instance=ExtResource("3_eaas0")]
+transform = Transform3D(1.76066, 0, 0, 0, 1.2931, 0, 0, 0, 0.57121, 6.99178, 9.79892, -0.206089)
+
+[node name="temple_pillar_end_broken2" parent="." instance=ExtResource("3_eaas0")]
+transform = Transform3D(2.19339, -0.0256489, 0, 0.0241186, 2.33256, 0, 0, 0, 0.57121, 3.60622, 11.0058, -0.206089)

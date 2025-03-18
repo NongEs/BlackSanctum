@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwce1d8a7qmob"]
+
+[ext_resource type="PackedScene" uid="uid://b7heqjghbbbox" path="res://Numeral_map/asset/cave_assets2/meshes/temple_pillar_stone.gltf" id="1_h2j6w"]
+[ext_resource type="Material" uid="uid://bvpbjg2a12uq3" path="res://Numeral_map/asset/cave_assets2/materials/mat_temple.tres" id="2_xfjtc"]
+
+[node name="temple_pillar_stone" instance=ExtResource("1_h2j6w")]
+
+[node name="Temple_Pillar_Stone" parent="." index="0"]
+material_override = ExtResource("2_xfjtc")

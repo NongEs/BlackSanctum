@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=4 uid="uid://bhgy5n5hdeoc2"]
+
+[ext_resource type="PackedScene" uid="uid://bqh8ot0d150mg" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/FBX (Unity)/Petal_5.fbx" id="1_38ape"]
+[ext_resource type="Shader" uid="uid://c5ugwvmxqhvtu" path="res://Numeral_map/asset/scene_prepare/environment/environment.gdshader" id="2_mmfbb"]
+[ext_resource type="Texture2D" uid="uid://bm1mbtqhhxl01" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/Textures/Flowers.png" id="3_b77au"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rn7gs"]
+resource_name = "Flowers"
+render_priority = 0
+shader = ExtResource("2_mmfbb")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_b77au")
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = Color(1, 1, 1, 1)
+shader_parameter/emission_energy = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ao2jm"]
+_surfaces = [{
+"aabb": AABB(-0.400947, 0.00104375, -0.419552, 0.833963, 0.288772, 0.795213),
+"format": 34359742465,
+"index_count": 45,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAACAAQAAAAFAAMAAAAEAAYAAAAHAAUAAAAGAAgAAAAJAAcAAAAIAAoAAAALAAkAAAAKAAwAAAANAAsAAAAMAA4AAAAPAA0AAAAOAA8A"),
+"name": "Flowers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("ZQVVO13OiDpOD8E6RrTdPrYJWT5YeFC+byLTPgi0WT7Mucu93pQjPrBhdD4GkHO+HayNPigVZT66K1A9QAQ3PenYgD7TXse+WTOuPj8HXD4UVIc+ev3avXKBiD6Az9a+N6KmPiiBXD4ufa0+LXAyvtxkij58SU++V7JDPauOeD6+NZE+ChPCvl4IlD5S0Qq+14D5vUkFhD65VsA+4EjNvrVilD6Q/s284h1mvuE3iT4c3LU+jX1ovvbpij4q1ek9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5fodw"]
+resource_name = "Plane_029"
+_surfaces = [{
+"aabb": AABB(-0.400947, 0.00104375, -0.419552, 0.833963, 0.288772, 0.795213),
+"attribute_data": PackedByteArray("K58FP8ZHCD87OAE/XMKmPs97Cz/8WLQ+HuriPmap3j7KnhU/bMnePl0zuD6CKuo+Y1kvP2LU4z5jUaQ++BkEP36yNj/Aju0+sPvMPizjFD9GfSQ/FkkSP5M6yT6B5S0/Mt8mP1KbKD82AN8+ORo1P/QfID+rzDI/tCUGP8h4KD8="),
+"format": 34359742487,
+"index_count": 45,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAAACAAQAAAAFAAMAAAAEAAYAAAAHAAUAAAAGAAgAAAAJAAcAAAAIAAoAAAALAAkAAAAKAAwAAAANAAsAAAAMAA4AAAAPAA0AAAAOAA8A"),
+"material": SubResource("ShaderMaterial_rn7gs"),
+"name": "Flowers",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("ZQVVO13OiDpOD8E6RrTdPrYJWT5YeFC+byLTPgi0WT7Mucu93pQjPrBhdD4GkHO+HayNPigVZT66K1A9QAQ3PenYgD7TXse+WTOuPj8HXD4UVIc+ev3avXKBiD6Az9a+N6KmPiiBXD4ufa0+LXAyvtxkij58SU++V7JDPauOeD6+NZE+ChPCvl4IlD5S0Qq+14D5vUkFhD65VsA+4EjNvrVilD6Q/s284h1mvuE3iT4c3LU+jX1ovvbpij4q1ek9wInk9S2kXr4vZZTNT6Feua1FjdeBnd7QHmuZvKCXo6vGQI7NpJtB0Z9wncXOmP2tME4SzzOgfsramDvDU5bpqs5N0O6TnfPQPqjptLKSA6ZzQ7X8nJqf19emq7/glv2rb7WX/Hecl9P5u7LOuqDLuku+O9zho0rGcspHzCel78A=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ao2jm")
+
+[node name="Petal_5" instance=ExtResource("1_38ape")]
+
+[node name="Petal_5" parent="." index="0"]
+mesh = SubResource("ArrayMesh_5fodw")

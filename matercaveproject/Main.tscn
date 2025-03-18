@@ -1,15 +1,13 @@
-[gd_scene load_steps=40 format=3 uid="uid://dtdv4se427gmh"]
+[gd_scene load_steps=38 format=3 uid="uid://dtdv4se427gmh"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_2gqxl"]
-[ext_resource type="Environment" uid="uid://cfk37fm4ah0d3" path="res://assets/resources/raffa_environment.tres" id="2_dhjut"]
-[ext_resource type="PackedScene" uid="uid://bjruigidscd15" path="res://scenes/DesertCaveScene.tscn" id="3_jw8rf"]
-[ext_resource type="PackedScene" uid="uid://bdupkh0grwy27" path="res://scenes/Player/Player.tscn" id="4_hhijd"]
-[ext_resource type="VoxelGIData" uid="uid://dtwlpshcjqm64" path="res://baked/voxel_gi_bake.res" id="5_uxp4w"]
-[ext_resource type="AudioStream" uid="uid://tw6e63fufm2q" path="res://assets/audio/Paolo_Dollorenzo-Desert_Light_drones.mp3" id="6_ai0gb"]
-[ext_resource type="AudioStream" uid="uid://djr485yl6haam" path="res://assets/audio/Paolo_Dollorenzo-Desert_Light_chimes.mp3" id="7_58uim"]
-[ext_resource type="AudioStream" uid="uid://btv1xaedtyl6u" path="res://assets/audio/WhatInTheSound_Wind.mp3" id="8_6v0mo"]
-[ext_resource type="Theme" uid="uid://bwkgdwgpi80ja" path="res://theme.tres" id="9_5jyt5"]
-[ext_resource type="Texture2D" uid="uid://wo8i8o3dwyol" path="res://assets/textures/icon_color_outline.svg" id="9_7vd1l"]
+[ext_resource type="Environment" uid="uid://cfk37fm4ah0d3" path="res://matercaveproject/cave_assets/resources/raffa_environment.tres" id="2_dhjut"]
+[ext_resource type="PackedScene" uid="uid://bjruigidscd15" path="res://matercaveproject/cave_scenes/DesertCaveScene.tscn" id="3_jw8rf"]
+[ext_resource type="VoxelGIData" uid="uid://dtwlpshcjqm64" path="res://matercaveproject/baked/voxel_gi_bake.res" id="5_uxp4w"]
+[ext_resource type="AudioStream" uid="uid://tw6e63fufm2q" path="res://matercaveproject/cave_assets/audio/Paolo_Dollorenzo-Desert_Light_drones.mp3" id="6_ai0gb"]
+[ext_resource type="AudioStream" uid="uid://djr485yl6haam" path="res://matercaveproject/cave_assets/audio/Paolo_Dollorenzo-Desert_Light_chimes.mp3" id="7_58uim"]
+[ext_resource type="AudioStream" uid="uid://btv1xaedtyl6u" path="res://matercaveproject/cave_assets/audio/WhatInTheSound_Wind.mp3" id="8_6v0mo"]
+[ext_resource type="Theme" uid="uid://bwkgdwgpi80ja" path="res://matercaveproject/theme.tres" id="9_5jyt5"]
+[ext_resource type="Texture2D" uid="uid://wo8i8o3dwyol" path="res://matercaveproject/cave_assets/textures/icon_color_outline.svg" id="9_7vd1l"]
 
 [sub_resource type="Gradient" id="Gradient_kyrfs"]
 offsets = PackedFloat32Array(0.243976, 0.478916, 1)
@@ -60,9 +58,9 @@ emission_shape = 3
 emission_box_extents = Vector3(25, 20, 40)
 direction = Vector3(0, 0, -1)
 spread = 10.0
-gravity = Vector3(0, 0, -4)
 initial_velocity_min = 0.1
 initial_velocity_max = 2.0
+gravity = Vector3(0, 0, -4)
 scale_min = 0.7
 scale_max = 1.5
 color_ramp = SubResource("GradientTexture1D_m80va")
@@ -132,12 +130,12 @@ fill_to = Vector2(0.5, 0)
 render_priority = 0
 shader = SubResource("Shader_ln5wl")
 shader_parameter/albedo = Color(0, 0, 0, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_6736x")
 shader_parameter/point_size = 1.0
 shader_parameter/uv1_scale = Vector3(1, 1, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = SubResource("GradientTexture2D_6736x")
 
 [sub_resource type="Gradient" id="Gradient_asiuf"]
 offsets = PackedFloat32Array(0, 0.214286, 0.5, 0.774436, 1)
@@ -152,9 +150,9 @@ emission_shape = 3
 emission_box_extents = Vector3(15, 20, 30)
 direction = Vector3(0, 1, 0)
 spread = 0.0
-gravity = Vector3(0, 10, -10)
 initial_velocity_min = 2.0
 initial_velocity_max = 6.0
+gravity = Vector3(0, 10, -10)
 radial_accel_min = -40.0
 radial_accel_max = -40.0
 damping_min = 12.0
@@ -377,8 +375,8 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_joy5y"]
 _data = {
-"RESET": SubResource("Animation_ltq2f"),
-"new_animation": SubResource("Animation_kjnhh")
+&"RESET": SubResource("Animation_ltq2f"),
+&"new_animation": SubResource("Animation_kjnhh")
 }
 
 [sub_resource type="Animation" id="Animation_hhui2"]
@@ -439,8 +437,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cw8y0"]
 _data = {
-"RESET": SubResource("Animation_hhui2"),
-"crane": SubResource("Animation_fdfb3")
+&"RESET": SubResource("Animation_hhui2"),
+&"crane": SubResource("Animation_fdfb3")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbf7m"]
@@ -477,7 +475,6 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="DesertCaveScene" type="Node3D"]
-script = ExtResource("1_2gqxl")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_dhjut")
@@ -537,9 +534,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.949
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.78536)
 depth = 20.0
 polygon = PackedVector2Array(-16.3829, 10.4146, -0.254908, 5.42844, 19.3756, 5.077, 34.8034, 9.80763, 48.8385, 19.1028, 51.4239, 27.8439, 47.4951, 35.4319, 51.3116, 41.7723, 56.9749, 33.1543, 56.0262, 14.4219, 37.3128, 0.75618, 1.36343, -2.26012, -29.9799, 2.98486, -38.9672, 24.4067, -35.4656, 42.9783, -32.3262, 34.4834, -32.634, 24.7574)
-
-[node name="Player" parent="Scenery" instance=ExtResource("4_hhijd")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 5, -1, 30)
 
 [node name="VoxelGI" type="VoxelGI" parent="Scenery"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.633, 24.9082, 15)
@@ -619,10 +613,10 @@ autoplay = true
 panning_strength = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "new_animation"
 libraries = {
-"": SubResource("AnimationLibrary_joy5y")
+&"": SubResource("AnimationLibrary_joy5y")
 }
+autoplay = "new_animation"
 
 [node name="CinematicCam" type="Camera3D" parent="."]
 unique_name_in_owner = true
@@ -632,11 +626,11 @@ fov = 70.0
 far = 400.0
 
 [node name="CamAnimationPlayer" type="AnimationPlayer" parent="CinematicCam"]
+libraries = {
+&"": SubResource("AnimationLibrary_cw8y0")
+}
 autoplay = "crane"
 speed_scale = 0.15
-libraries = {
-"": SubResource("AnimationLibrary_cw8y0")
-}
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -1062,11 +1056,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2ln03")
 text = "Borderless Window Fullscreen"
 
@@ -1075,11 +1069,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2ln03")
 text = "Exclusive Fullscreen"
 
@@ -1092,11 +1086,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a415x")
 text = "Show FPS"
 
@@ -1105,11 +1099,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a415x")
 button_pressed = true
 text = "Enable VSync"
@@ -1119,11 +1113,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a415x")
 button_pressed = true
 text = "Cinematic Black Bars"
@@ -1166,11 +1160,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 button_pressed = true
 text = "SSAO"
 
@@ -1179,11 +1173,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 button_pressed = true
 text = "Volumetric Fog"
 
@@ -1192,11 +1186,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 text = "Temporal Anti-Aliasing"
 
 [node name="RenderResolutionLabel" type="Label" parent="UI/MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
@@ -1217,12 +1211,12 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_disabled_color = Color(0.596078, 0.596078, 0.596078, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2ln03")
 button_pressed = true
 text = "FXAA"

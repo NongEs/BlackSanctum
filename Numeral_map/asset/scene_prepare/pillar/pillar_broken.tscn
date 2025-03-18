@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpfgfxr5iox6e"]
+
+[ext_resource type="PackedScene" uid="uid://dpqx7goxx3n3r" path="res://Numeral_map/asset/base/templePillar/temple_pillar_bottom.tscn" id="1_gxil7"]
+[ext_resource type="PackedScene" uid="uid://dwce1d8a7qmob" path="res://Numeral_map/asset/base/templePillar/temple_pillar_stone.tscn" id="2_pb4sw"]
+[ext_resource type="PackedScene" uid="uid://f3uyeq0mli08" path="res://Numeral_map/asset/base/templePillar/temple_pillar_end_broken.tscn" id="3_tp5gl"]
+
+[node name="PillarBroken" type="Node3D"]
+
+[node name="temple_pillar_bottom" parent="." instance=ExtResource("1_gxil7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0309448, 0, -0.242065)
+
+[node name="temple_pillar_stone" parent="." instance=ExtResource("2_pb4sw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131531, 1.87305, -0.22937)
+
+[node name="temple_pillar_stone2" parent="." instance=ExtResource("2_pb4sw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131531, 4.87854, -0.22937)
+
+[node name="temple_pillar_stone3" parent="." instance=ExtResource("2_pb4sw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131531, 7.86969, -0.22937)
+
+[node name="temple_pillar_end_broken" parent="." instance=ExtResource("3_tp5gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142799, 10.4246, -0.301117)

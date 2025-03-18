@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4o103fc5x24e"]
+
+[ext_resource type="PackedScene" uid="uid://cb5khl70n23ij" path="res://Numeral_map/asset/cave_assets2/meshes/torch_new2.glb" id="1_wlov2"]
+[ext_resource type="Material" uid="uid://7w6kbigofoj0" path="res://Numeral_map/asset/cave_assets2/materials/mat_metal.tres" id="2_gxooo"]
+
+[node name="torch_new2" instance=ExtResource("1_wlov2")]
+
+[node name="Plane_001" parent="." index="0"]
+material_override = ExtResource("2_gxooo")
