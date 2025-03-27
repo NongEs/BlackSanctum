@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5tvgrv70krpk"]
+[gd_scene load_steps=6 format=3 uid="uid://b5tvgrv70krpk"]
 
-[ext_resource type="PackedScene" uid="uid://dnwbkra1eatlv" path="res://scenes/base/temple_pillars/temple_pillar_bottom.tscn" id="1_4yxxm"]
-[ext_resource type="PackedScene" uid="uid://dgl0sx13yr3km" path="res://scenes/base/temple_pillars/temple_pillar_stone.tscn" id="2_5c5up"]
-[ext_resource type="Material" uid="uid://b1j826thlvcx7" path="res://assets/materials/mat_temple.tres" id="2_fkc6b"]
+[ext_resource type="PackedScene" uid="uid://dnwbkra1eatlv" path="res://matercaveproject/cave_scenes/base/temple_pillars/temple_pillar_bottom.tscn" id="1_4yxxm"]
+[ext_resource type="PackedScene" uid="uid://dgl0sx13yr3km" path="res://matercaveproject/cave_scenes/base/temple_pillars/temple_pillar_stone.tscn" id="2_5c5up"]
+[ext_resource type="Material" uid="uid://b1j826thlvcx7" path="res://matercaveproject/cave_assets/materials/mat_temple.tres" id="2_fkc6b"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5dahi"]
 size = Vector3(1.95, 0.5, 1.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_viptt"]
+size = Vector3(3.07476, 38.2838, 3.04126)
 
 [node name="TemplePillar" type="Node3D"]
 
@@ -127,3 +130,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49401, 0)
 material_override = ExtResource("2_fkc6b")
 mesh = SubResource("BoxMesh_5dahi")
 skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0196877, 18.6419, -0.000610352)
+shape = SubResource("BoxShape3D_viptt")

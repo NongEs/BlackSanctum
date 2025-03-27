@@ -5,6 +5,7 @@ extends Interactable
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 @export var label_3d: NodePath
 @export var door: Node3D
+@export var animation_player : AnimationPlayer
 var material_instance: Material  # Holds the duplicated material instance
 
 signal state_changed(new_state: int)  # Signal to notify state changes
@@ -21,6 +22,7 @@ func _ready() -> void:
 func _on_interacted(body: Variant) -> void:
 	toggle_switch()
 	door.toggle()
+	
 	
 func toggle_switch():
 	is_on = not is_on

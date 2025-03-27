@@ -1,0 +1,231 @@
+[gd_scene load_steps=10 format=3 uid="uid://drfawyekrxtup"]
+
+[ext_resource type="Texture2D" uid="uid://vaeegcs5bskn" path="res://addons/grid_texture/purple/texture_08.png" id="1_lae04"]
+[ext_resource type="Script" uid="uid://bjpidm7nypd8a" path="res://floorswitch/octal_counter.gd" id="1_pfb21"]
+[ext_resource type="AudioStream" uid="uid://yykhluin5pk4" path="res://newgen_assets/image/correct.wav" id="2_hbubf"]
+[ext_resource type="PackedScene" uid="uid://ck7hbbg7mgmo6" path="res://asset/circuitnode/gate/switch.tscn" id="2_pfb21"]
+[ext_resource type="AudioStream" uid="uid://ngljuy8dshga" path="res://newgen_assets/image/Wrong Attempt.wav" id="3_402wc"]
+[ext_resource type="PackedScene" uid="uid://bkej8vltxod2p" path="res://floorswitch/check_button.tscn" id="4_4lnun"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uujrv"]
+albedo_texture = ExtResource("1_lae04")
+
+[sub_resource type="BoxMesh" id="BoxMesh_5f266"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_biy4x"]
+
+[node name="OctalCounter" type="StaticBody3D" node_paths=PackedStringArray("label_3d", "label_octal_1", "label_octal_2", "label_octal_3")]
+script = ExtResource("1_pfb21")
+switches = Array[NodePath]([NodePath("switchtogether/Switch"), NodePath("switchtogether/Switch2"), NodePath("switchtogether/Switch3"), NodePath("switchtogether/Switch4"), NodePath("switchtogether/Switch5"), NodePath("switchtogether/Switch6"), NodePath("switchtogether/Switch7"), NodePath("switchtogether/Switch8"), NodePath("switchtogether/Switch9")])
+label_3d = NodePath("decimallabel")
+label_octal_1 = NodePath("OctalLabel/Least")
+label_octal_2 = NodePath("OctalLabel/Mid")
+label_octal_3 = NodePath("OctalLabel/Most")
+check_button = NodePath("CheckButton")
+audio_player = NodePath("AudioStreamPlayer3D")
+correct_sound = ExtResource("2_hbubf")
+wrong_sound = ExtResource("3_402wc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.79472, 0, 0, 0, 1.72376, 0, 0, 0, 1.76753, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_uujrv")
+mesh = SubResource("BoxMesh_5f266")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_biy4x")
+
+[node name="labeltogether" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90189, 0, 0)
+
+[node name="Label4" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.971429, -0.296696, -0.536721)
+text = "0"
+font_size = 80
+
+[node name="Label5" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.971429, -0.296696, 0.00352925)
+text = "0"
+font_size = 80
+
+[node name="Label6" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.971429, -0.296696, 0.552573)
+text = "0"
+font_size = 80
+
+[node name="Label1" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.47122, -0.296696, -0.88502)
+text = "0"
+font_size = 80
+
+[node name="Label2" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.89543, -0.296696, -0.88502)
+text = "0"
+font_size = 80
+
+[node name="Label3" type="Label3D" parent="labeltogether"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.37569, -0.296696, -0.88502)
+text = "0"
+font_size = 80
+
+[node name="Label7" type="Label3D" parent="labeltogether"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35882, -0.296696, 0.884733)
+text = "0"
+font_size = 80
+
+[node name="Label8" type="Label3D" parent="labeltogether"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89439, -0.296696, 0.884733)
+text = "0"
+font_size = 80
+
+[node name="Label9" type="Label3D" parent="labeltogether"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41668, -0.296696, 0.884733)
+text = "0"
+font_size = 80
+
+[node name="switchtogether" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0649, 0, -0.597678)
+
+[node name="Switch" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(-0.3, 0, 1.57361e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.18, 2.62855, 0.0893755, -0.257605)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label1")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="Switch2" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(-0.3, 0, 1.57361e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.18, 2.0625, 0.0893755, -0.257605)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label2")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="Switch3" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(-0.3, 0, 1.57361e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.18, 1.53656, 0.0893755, -0.257605)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label3")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="Switch4" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(-1.31134e-08, 0, -0.18, 0, 0.3, 0, 0.3, 0, -7.86805e-09, 1.19899, 0.0893755, 0.0619515)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label4")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="Switch5" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(-1.31134e-08, 0, -0.18, 0, 0.3, 0, 0.3, 0, -7.86805e-09, 1.19899, 0.0893755, 0.599466)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label5")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="Switch6" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(-1.31134e-08, 0, -0.18, 0, 0.3, 0, 0.3, 0, -7.86805e-09, 1.19899, 0.0893755, 1.15862)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label6")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="Switch7" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.18, 1.52721, 0.0893755, 1.48064)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label7")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="Switch8" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.18, 2.06244, 0.0893755, 1.48064)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label8")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="Switch9" parent="switchtogether" instance=ExtResource("2_pfb21")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.18, 2.58471, 0.0893755, 1.48064)
+is_on = false
+state = 0
+label_3d = NodePath("../../labeltogether/Label9")
+enabled = true
+prompt_message = "Interact"
+prompt_action = "Interact"
+
+[node name="decimallabel" type="Label3D" parent="."]
+transform = Transform3D(1.31066e-07, 0.032126, -0.999484, -4.21282e-09, 0.999484, 0.032126, 1, 0, 1.31134e-07, 0.0230049, 1.11475, -0.00631469)
+text = "0
+"
+font_size = 80
+
+[node name="DecimalTell" type="Label3D" parent="."]
+transform = Transform3D(1.31066e-07, 0.032126, -0.999484, -4.21282e-09, 0.999484, 0.032126, 1, 0, 1.31134e-07, 0.0230049, 0.955572, 0.572083)
+text = "Decimal
+"
+font_size = 30
+
+[node name="OctalLabel" type="Node3D" parent="."]
+
+[node name="Most" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.00177217, 0.537976, -0.947568)
+text = "0"
+font_size = 80
+
+[node name="MostTell" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(-0.612783, 0, 5.35712e-08, 0, 0.612783, 0, -5.35712e-08, 0, -0.612783, -0.435136, 0.361159, -0.947568)
+text = "Most Octal"
+font_size = 40
+
+[node name="Mid" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.934317, 0.537419, 0.00352925)
+text = "0"
+font_size = 80
+
+[node name="Least" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00518358, 0.544584, 0.884733)
+text = "0"
+font_size = 80
+
+[node name="LeastTell" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(0.612783, 0, 0, 0, 0.612783, 0, 0, 0, 0.612783, 0.451395, 0.361159, 0.903259)
+text = "Least Octal"
+font_size = 40
+
+[node name="MidTell" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(-2.67856e-08, 0, -0.612783, 0, 0.612783, 0, 0.612783, 0, -2.67856e-08, -0.911358, 0.361159, 0.418494)
+text = "Mid Octal"
+font_size = 40
+
+[node name="Binarytell" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(-2.67856e-08, 0, -0.612783, 0, 0.612783, 0, 0.612783, 0, -2.67856e-08, -0.911358, -0.572981, 0.418494)
+text = "Binary Base"
+font_size = 40
+
+[node name="Binarytell2" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(-0.612783, 0, -5.35712e-08, 0, 0.612783, 0, 5.35712e-08, 0, -0.612783, -0.467924, -0.572981, -0.886607)
+text = "Binary Base"
+font_size = 40
+
+[node name="Binarytell3" type="Label3D" parent="OctalLabel"]
+transform = Transform3D(0.612783, 0, 0, 0, 0.612783, 0, 0, 0, 0.612783, 0.467912, -0.572981, 0.905654)
+text = "Binary Base"
+font_size = 40
+
+[node name="CheckButton" parent="." instance=ExtResource("4_4lnun")]
+transform = Transform3D(-6.21781e-09, -0.142247, 0, 0.142247, -6.21781e-09, 0, 0, 0, 0.142247, -0.606441, 0.947607, -0.542166)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

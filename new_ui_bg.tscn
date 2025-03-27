@@ -1,0 +1,508 @@
+[gd_scene load_steps=38 format=3 uid="uid://3q2rl4i1w4as"]
+
+[ext_resource type="PackedScene" uid="uid://c20pdnmph2fox" path="res://Numeral_map/num_fl01/beta_numeral_map.tscn" id="1_kdw3b"]
+[ext_resource type="Script" uid="uid://f7ee6thxxc1g" path="res://newgen_assets/Lobby_all/mainchar_ui.gd" id="2_kc7o8"]
+[ext_resource type="PackedScene" uid="uid://phdixirbdflf" path="res://newgen_assets/map_scene/night_map_dec_bi.tscn" id="3_neeqn"]
+[ext_resource type="Texture2D" uid="uid://dlec7xl3akgt8" path="res://asset/picture import/Screenshot 2024-10-06 133027.png" id="4_ot2hl"]
+[ext_resource type="FontFile" uid="uid://c10f3xgog5jpk" path="res://asset/font/ReemKufiFun-VariableFont_wght.ttf" id="5_p7gja"]
+[ext_resource type="Texture2D" uid="uid://cf7xxsnlpknto" path="res://asset/Select mode page (Not finish)/Story Mode_default.png" id="6_j84xe"]
+[ext_resource type="Texture2D" uid="uid://cibdt4hxjtbfm" path="res://asset/Select mode page (Not finish)/Story Mode_press.png" id="7_v2ryw"]
+[ext_resource type="Texture2D" uid="uid://da0s8t4grxww7" path="res://asset/Select mode page (Not finish)/Story Mode_hover.png" id="8_paw2l"]
+[ext_resource type="Texture2D" uid="uid://r7d1u01ev32v" path="res://asset/Select mode page (Not finish)/Practice Mode_default.png" id="9_05fii"]
+[ext_resource type="Texture2D" uid="uid://cnb102pf6getu" path="res://asset/Select mode page (Not finish)/Practice Mode_press.png" id="10_jr20m"]
+[ext_resource type="Texture2D" uid="uid://b7krbe52xbd0f" path="res://asset/Select mode page (Not finish)/Practice Mode_hover.png" id="11_qkcmj"]
+[ext_resource type="Texture2D" uid="uid://dnmwi3wa2ftgb" path="res://asset/Universal UI/UI_button icon/next btn/next_defaultlight.png" id="12_xfelw"]
+[ext_resource type="Texture2D" uid="uid://ciyi4jh7og0cm" path="res://asset/Universal UI/UI_button icon/next btn/next_press.png" id="13_wfinv"]
+[ext_resource type="Texture2D" uid="uid://bs4afnf834h75" path="res://asset/Universal UI/UI_button icon/next btn/next_hover.png" id="14_3t6nr"]
+[ext_resource type="Texture2D" uid="uid://djqafyr0t3deq" path="res://asset/Numeral/DtB_Default.png" id="15_x123p"]
+[ext_resource type="Texture2D" uid="uid://dm5pls2d7djjx" path="res://asset/Numeral/DtB_Select.png" id="16_kvvan"]
+[ext_resource type="Texture2D" uid="uid://b5x42m12dhfle" path="res://asset/Numeral/DtB_Hover.png" id="17_3gmxy"]
+[ext_resource type="Texture2D" uid="uid://ca13wkletkvqx" path="res://asset/Numeral/DtH_Default.png" id="18_jgmkg"]
+[ext_resource type="Texture2D" uid="uid://sml0wt74tomi" path="res://asset/Numeral/DtH_Select.png" id="19_if5gp"]
+[ext_resource type="Texture2D" uid="uid://qvsaf1m38g1e" path="res://asset/Numeral/DtH_Hover.png" id="20_uidig"]
+[ext_resource type="Texture2D" uid="uid://cjy5rk04msrv5" path="res://asset/Numeral/DtO_Default.png" id="21_nh4xg"]
+[ext_resource type="Texture2D" uid="uid://cxnbxhjo8mi7w" path="res://asset/Numeral/DtO_Select.png" id="22_wla8g"]
+[ext_resource type="Texture2D" uid="uid://u03xgo5h1wqb" path="res://asset/Numeral/DtO_Hover.png" id="23_x4us6"]
+[ext_resource type="Texture2D" uid="uid://d2a7c0qtdwlq6" path="res://asset/Numeral/DtR_Default.png" id="24_hvkik"]
+[ext_resource type="Texture2D" uid="uid://cysnw5r607yro" path="res://asset/Numeral/DtR_Select.png" id="25_c3iax"]
+[ext_resource type="Texture2D" uid="uid://ccgbo3ssug0j8" path="res://asset/Numeral/DtR_Hover.png" id="26_l7p5i"]
+[ext_resource type="Texture2D" uid="uid://b3xqc25itmhtt" path="res://asset/Numeral/RtD_Default.png" id="27_8vy24"]
+[ext_resource type="Texture2D" uid="uid://ptvdykw2pil8" path="res://asset/Numeral/RtD_Select.png" id="28_gqf4o"]
+[ext_resource type="Texture2D" uid="uid://bvcpswtcpe7l4" path="res://asset/Numeral/RtD_Hover.png" id="29_1abgp"]
+[ext_resource type="Texture2D" uid="uid://dsxw6q3apj3e7" path="res://asset/Select mode page (Not finish)/Select topics_Select.png" id="30_yb0fw"]
+[ext_resource type="Texture2D" uid="uid://caqh1jj56316d" path="res://asset/Select mode page (Not finish)/Select topics_Hover.png" id="31_iteo4"]
+[ext_resource type="Texture2D" uid="uid://ebuw3i8njds3" path="res://asset/Numeral/Character_Icon.png" id="32_55b2f"]
+[ext_resource type="Texture2D" uid="uid://564ydndr72l8" path="res://asset/Numeral/Artifact_Icon.png" id="33_tljyg"]
+[ext_resource type="Texture2D" uid="uid://c6saup0yj1x3f" path="res://asset/Numeral/Start_Icon.png" id="34_wy2pp"]
+[ext_resource type="Texture2D" uid="uid://rm232ql0r5wh" path="res://asset/Numeral/Option_Icon.png" id="35_2si7f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trgsw"]
+texture = ExtResource("4_ot2hl")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3pk3"]
+
+[node name="New_UI_Bg" type="Node3D"]
+
+[node name="beta_numeral_map" parent="." instance=ExtResource("1_kdw3b")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kc7o8")
+dec_to_bi_scene = ExtResource("3_neeqn")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 60
+
+[node name="SelectModePanel" type="Panel" parent="UI/Control/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_trgsw")
+
+[node name="Label" type="Label" parent="UI/Control/MarginContainer/SelectModePanel"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 334.0
+offset_right = 690.0
+offset_bottom = 75.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_p7gja")
+theme_override_font_sizes/font_size = 50
+text = "SELECT MODE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/MarginContainer/SelectModePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -383.0
+offset_top = -241.0
+offset_right = 641.0
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.752721, 0.752721)
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/MarginContainer/SelectModePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="Label2" type="Label" parent="UI/Control/MarginContainer/SelectModePanel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_p7gja")
+theme_override_font_sizes/font_size = 30
+text = "Serious game combine with digital circuit contents"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/MarginContainer/SelectModePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="storymodebutton" type="TextureButton" parent="UI/Control/MarginContainer/SelectModePanel/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("6_j84xe")
+texture_pressed = ExtResource("7_v2ryw")
+texture_hover = ExtResource("8_paw2l")
+stretch_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/Control/MarginContainer/SelectModePanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 100
+
+[node name="practicemodebutton" type="TextureButton" parent="UI/Control/MarginContainer/SelectModePanel/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("9_05fii")
+texture_pressed = ExtResource("10_jr20m")
+texture_hover = ExtResource("11_qkcmj")
+stretch_mode = 0
+
+[node name="Back1Button" type="TextureButton" parent="UI/Control/MarginContainer/SelectModePanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0001
+offset_top = -24.0
+offset_right = 83.9999
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.441641, 0.441641)
+texture_normal = ExtResource("12_xfelw")
+texture_pressed = ExtResource("13_wfinv")
+texture_hover = ExtResource("14_3t6nr")
+stretch_mode = 0
+flip_h = true
+
+[node name="StartPanel3" type="Panel" parent="UI/Control/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Control/MarginContainer/StartPanel3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = -15.0
+offset_right = 88.0
+offset_bottom = 60.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_p7gja")
+theme_override_font_sizes/font_size = 50
+text = "SELECT TOPICS"
+
+[node name="Panel" type="Panel" parent="UI/Control/MarginContainer/StartPanel3"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 85.0
+offset_right = 969.0
+offset_bottom = 314.0
+scale = Vector2(1.8, 1.8)
+
+[node name="Panel" type="Panel" parent="UI/Control/MarginContainer/StartPanel3/Panel"]
+layout_mode = 2
+offset_left = 104.0
+offset_top = 14.0
+offset_right = 1128.0
+offset_bottom = 295.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w3pk3")
+
+[node name="DecToBiStage" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel/Panel"]
+texture_filter = 1
+layout_mode = 1
+offset_left = 62.0
+offset_top = -2.0
+offset_right = 202.0
+offset_bottom = 200.0
+texture_normal = ExtResource("15_x123p")
+texture_pressed = ExtResource("16_kvvan")
+texture_hover = ExtResource("17_3gmxy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DectoHex" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -804.0
+offset_top = -2.0
+offset_right = -664.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture_normal = ExtResource("18_jgmkg")
+texture_pressed = ExtResource("19_if5gp")
+texture_hover = ExtResource("20_uidig")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DecToOx" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -648.0
+offset_top = -2.0
+offset_right = -508.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture_normal = ExtResource("21_nh4xg")
+texture_pressed = ExtResource("22_wla8g")
+texture_hover = ExtResource("23_x4us6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DecToRan" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -492.0
+offset_top = -2.0
+offset_right = -352.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture_normal = ExtResource("24_hvkik")
+texture_pressed = ExtResource("25_c3iax")
+texture_hover = ExtResource("26_l7p5i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RanToDec" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -338.0
+offset_top = -2.0
+offset_right = -198.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture_normal = ExtResource("27_8vy24")
+texture_pressed = ExtResource("28_gqf4o")
+texture_hover = ExtResource("29_1abgp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Control/MarginContainer/StartPanel3/Panel/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -86.0
+offset_top = 53.0
+offset_right = 46.0
+offset_bottom = 162.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
+theme_override_fonts/font = ExtResource("5_p7gja")
+theme_override_font_sizes/font_size = 35
+text = "Numeral System"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel2" type="Panel" parent="UI/Control/MarginContainer/StartPanel3"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 526.0
+offset_right = 969.0
+offset_bottom = 755.0
+scale = Vector2(1.8, 1.8)
+
+[node name="Panel" type="Panel" parent="UI/Control/MarginContainer/StartPanel3/Panel2"]
+layout_mode = 2
+offset_left = 104.0
+offset_top = 14.0
+offset_right = 1128.0
+offset_bottom = 295.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w3pk3")
+
+[node name="DecToBiStage" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel2/Panel"]
+texture_filter = 1
+layout_mode = 1
+offset_left = 62.0
+offset_top = -2.0
+offset_right = 202.0
+offset_bottom = 200.0
+texture_normal = ExtResource("15_x123p")
+texture_pressed = ExtResource("30_yb0fw")
+texture_hover = ExtResource("31_iteo4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel2/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -804.0
+offset_top = -2.0
+offset_right = -664.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture_normal = ExtResource("18_jgmkg")
+texture_pressed = ExtResource("30_yb0fw")
+texture_hover = ExtResource("31_iteo4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel2/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -648.0
+offset_top = -2.0
+offset_right = -508.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture_normal = ExtResource("18_jgmkg")
+texture_pressed = ExtResource("30_yb0fw")
+texture_hover = ExtResource("31_iteo4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton5" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel2/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -492.0
+offset_top = -2.0
+offset_right = -352.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture_normal = ExtResource("18_jgmkg")
+texture_pressed = ExtResource("30_yb0fw")
+texture_hover = ExtResource("31_iteo4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton6" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3/Panel2/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -338.0
+offset_top = -2.0
+offset_right = -198.0
+offset_bottom = 200.0
+grow_horizontal = 0
+texture_normal = ExtResource("18_jgmkg")
+texture_pressed = ExtResource("30_yb0fw")
+texture_hover = ExtResource("31_iteo4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI/Control/MarginContainer/StartPanel3/Panel2/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -86.0
+offset_top = 53.0
+offset_right = 46.0
+offset_bottom = 162.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
+theme_override_fonts/font = ExtResource("5_p7gja")
+theme_override_font_sizes/font_size = 35
+text = "Logic Gate"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Back2Button" type="TextureButton" parent="UI/Control/MarginContainer/StartPanel3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -906.0
+offset_top = -975.0
+offset_right = -749.0
+offset_bottom = -814.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.441641, 0.441641)
+texture_normal = ExtResource("12_xfelw")
+texture_pressed = ExtResource("13_wfinv")
+texture_hover = ExtResource("14_3t6nr")
+stretch_mode = 0
+flip_h = true
+
+[node name="CharacterButton" type="TextureButton" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -159.0
+offset_right = 156.0
+offset_bottom = -31.0
+grow_vertical = 0
+texture_normal = ExtResource("32_55b2f")
+texture_pressed = ExtResource("32_55b2f")
+texture_hover = ExtResource("32_55b2f")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ArtifactButton" type="TextureButton" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 167.0
+offset_top = -117.0
+offset_right = 641.0
+offset_bottom = 357.0
+grow_vertical = 0
+scale = Vector2(0.17849, 0.17849)
+texture_normal = ExtResource("33_tljyg")
+texture_pressed = ExtResource("33_tljyg")
+texture_hover = ExtResource("33_tljyg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="NextButton" type="TextureButton" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -188.0
+offset_right = 24.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.76272, 0.76272)
+texture_normal = ExtResource("34_wy2pp")
+texture_pressed = ExtResource("34_wy2pp")
+texture_hover = ExtResource("34_wy2pp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SettingButton" type="TextureButton" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_top = 21.0
+offset_right = -14.0
+offset_bottom = 121.0
+grow_horizontal = 0
+scale = Vector2(0.76272, 0.76272)
+texture_normal = ExtResource("35_2si7f")
+texture_pressed = ExtResource("35_2si7f")
+texture_hover = ExtResource("35_2si7f")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.587008, 0, -0.809581, 0, 1, 0, 0.809581, 0, 0.587008, -4.61397, 6.65186, 15.4127)
+fov = 86.0
+
+[connection signal="pressed" from="UI/Control/MarginContainer/SelectModePanel/VBoxContainer/HBoxContainer/practicemodebutton" to="UI/Control" method="_on_practicemodebutton_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/SelectModePanel/Back1Button" to="UI/Control" method="_on_back_1_button_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/StartPanel3/Panel/Panel/DecToBiStage" to="UI/Control" method="_on_dec_to_bi_stage_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/StartPanel3/Panel2/Panel/DecToBiStage" to="UI/Control" method="_on_dec_to_bi_stage_pressed"]
+[connection signal="pressed" from="UI/Control/MarginContainer/StartPanel3/Back2Button" to="UI/Control" method="_on_back_2_button_pressed"]
+[connection signal="pressed" from="UI/Control/NextButton" to="UI/Control" method="_on_next_button_pressed"]

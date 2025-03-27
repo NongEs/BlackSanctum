@@ -5,6 +5,10 @@ extends Interactable
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 @export var label_3d: NodePath
 @export var door: Node3D
+
+@export var audio_player: NodePath  # Path ไปยัง AudioStreamPlayer
+@export var switch_sound: AudioStream
+
 var material_instance: Material  # Holds the duplicated material instance
 
 signal state_changed(new_state: int)  # Signal to notify state changes
@@ -47,3 +51,11 @@ func update_label() -> void:
 
 func get_state() -> int:
 	return state
+
+func play_sound() -> void:
+	if has_node(audio_player):
+		var audio_node = get_node(audio_player)
+		if switch_sound != null:
+			audio_node.stream = switch_sound
+			audio_node.stop()  # หยุดเสียงก่อนหน้า (ถ้ามี)
+			audio_node.play()  # เล่นเสียงใหม่

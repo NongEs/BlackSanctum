@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkej8vltxod2p"]
+
+[ext_resource type="Script" uid="uid://cg7b7wfqqg73p" path="res://floorswitch/check_button.gd" id="1_bmal7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wttmf"]
+albedo_color = Color(0.25098, 1, 0.25098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bmal7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmal7"]
+size = Vector3(2.1568, 1.79712, 3.7063)
+
+[node name="CheckButton" type="StaticBody3D"]
+script = ExtResource("1_bmal7")
+prompt_message = "Check"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95623, 0, 0, 0, 1.72376, 0, 0, 0, 3.62202, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_wttmf")
+mesh = SubResource("BoxMesh_bmal7")
+
+[node name="DecimalTell" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.913252, 0)
+text = "Check"
+font_size = 150
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262146, 0.000366211, 0.0203857)
+shape = SubResource("BoxShape3D_bmal7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

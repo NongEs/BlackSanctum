@@ -1,22 +1,22 @@
 {
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
-"_translation_id": "",
-"color": Color(1, 1, 1, 1),
-"custom_info": {
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
 "style": "bstumstyle",
 "suffix": ""
 },
-"default_portrait": "Narrathan",
-"description": "",
-"display_name": "narrator",
-"mirror": false,
-"nicknames": [""],
-"offset": Vector2(0, 0),
-"portraits": {
+&"default_portrait": "Narrathan",
+&"description": "",
+&"display_name": "narrator",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
 "Narrathan": {
 "export_overrides": {
 "image": "\"res://characters/nathan.png\""
@@ -38,5 +38,5 @@
 "scene": ""
 }
 },
-"scale": 1.0
+&"scale": 1.0
 }

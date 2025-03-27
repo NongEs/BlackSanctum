@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ck7hbbg7mgmo6"]
 
-[ext_resource type="Script" path="res://asset/circuitnode/gate/switch.gd" id="1_7jfgv"]
+[ext_resource type="Script" uid="uid://uvxlpeq2shwa" path="res://asset/circuitnode/gate/switch.gd" id="1_7jfgv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_asect"]
 

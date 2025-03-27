@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=4 uid="uid://bshte6v76d7nq"]
+[gd_scene load_steps=20 format=4 uid="uid://bshte6v76d7nq"]
 
 [ext_resource type="Script" uid="uid://dttnghqpnouhg" path="res://asset/doorandgate/door.gd" id="1_rnbip"]
 [ext_resource type="Texture2D" uid="uid://d4ereujpxghj1" path="res://asset/doorandgate/door-diff.png" id="1_wm1eq"]
+[ext_resource type="AudioStream" uid="uid://cd44kdqh75rnm" path="res://newgen_assets/image/MechanicalDoorSmo PE1027605.wav" id="2_6mqhd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni5x5"]
 albedo_texture = ExtResource("1_wm1eq")
@@ -110,8 +111,8 @@ tracks/2/keys = PackedFloat32Array(0, 1, 0, 3, 0, 0.0333333, 1, 0, 3.00378, 0, 0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_klqby"]
 _data = {
-"DoorClose": SubResource("Animation_1rci5"),
-"DoorOpen": SubResource("Animation_84cq8")
+&"DoorClose": SubResource("Animation_1rci5"),
+&"DoorOpen": SubResource("Animation_84cq8")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d1ak5"]
@@ -138,6 +139,8 @@ transitions = ["Start", "DoorClose", SubResource("AnimationNodeStateMachineTrans
 
 [node name="Door" type="Node3D"]
 script = ExtResource("1_rnbip")
+audio_player = NodePath("AudioStreamPlayer3D")
+door_sound = ExtResource("2_6mqhd")
 
 [node name="DoorArmature" type="Node3D" parent="."]
 
@@ -212,9 +215,11 @@ shape = SubResource("BoxShape3D_mbefr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_klqby")
+&"": SubResource("AnimationLibrary_klqby")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_eftut")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

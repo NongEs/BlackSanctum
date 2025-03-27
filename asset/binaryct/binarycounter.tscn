@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://brmd78i55k8b8"]
+[gd_scene load_steps=10 format=3 uid="uid://brmd78i55k8b8"]
 
 [ext_resource type="Script" uid="uid://bch78ovskq4fr" path="res://asset/binaryct/binarycounter.gd" id="1_f0hgd"]
 [ext_resource type="Texture2D" uid="uid://dmxhqxmnlla2i" path="res://addons/grid_texture/red/texture_13.png" id="2_3wd5u"]
+[ext_resource type="AudioStream" uid="uid://yykhluin5pk4" path="res://newgen_assets/image/correct.wav" id="2_souqr"]
 [ext_resource type="PackedScene" uid="uid://ck7hbbg7mgmo6" path="res://asset/circuitnode/gate/switch.tscn" id="3_f2f1m"]
+[ext_resource type="AudioStream" uid="uid://ngljuy8dshga" path="res://newgen_assets/image/Wrong Attempt.wav" id="3_kunrh"]
+[ext_resource type="PackedScene" uid="uid://bkej8vltxod2p" path="res://floorswitch/check_button.tscn" id="6_asymm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_870nu"]
 albedo_texture = ExtResource("2_3wd5u")
@@ -12,11 +15,16 @@ uv1_world_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_5f266"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_biy4x"]
+size = Vector3(1, 0.577698, 1)
 
 [node name="BinaryCounter" type="StaticBody3D" node_paths=PackedStringArray("label_3d")]
 script = ExtResource("1_f0hgd")
 switches = Array[NodePath]([NodePath("switchtogether/Switch"), NodePath("switchtogether/Switch2"), NodePath("switchtogether/Switch3"), NodePath("switchtogether/Switch4"), NodePath("switchtogether/Switch5"), NodePath("switchtogether/Switch6"), NodePath("switchtogether/Switch7"), NodePath("switchtogether/Switch8")])
 label_3d = NodePath("labeltogether/decimallabel")
+check_button = NodePath("CheckButton")
+audio_player = NodePath("AudioStreamPlayer3D")
+correct_sound = ExtResource("2_souqr")
+wrong_sound = ExtResource("3_kunrh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.76, 0, 0, 0, 0.4, 0, 0, 0, 5.25, 0, 0, 0)
@@ -24,6 +32,7 @@ material_override = SubResource("StandardMaterial3D_870nu")
 mesh = SubResource("BoxMesh_5f266")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118805, 0)
 shape = SubResource("BoxShape3D_biy4x")
 
 [node name="labeltogether" type="Node3D" parent="."]
@@ -74,6 +83,18 @@ text = "0
 "
 font_size = 80
 
+[node name="DecimalTell" type="Label3D" parent="labeltogether"]
+transform = Transform3D(1.31134e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1, -1.31134e-07, 1.91069e-15, 0.302463, 0.246867, 1.44151)
+text = "Decimal
+"
+font_size = 30
+
+[node name="DecimalTell2" type="Label3D" parent="labeltogether"]
+transform = Transform3D(1.31134e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1, -1.31134e-07, 1.91069e-15, -0.24169, 0.246867, 2.25323)
+text = "Binary
+"
+font_size = 30
+
 [node name="switchtogether" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.597678)
 
@@ -108,3 +129,8 @@ label_3d = NodePath("../../labeltogether/Label3D7")
 [node name="Switch8" parent="switchtogether" instance=ExtResource("3_f2f1m")]
 transform = Transform3D(1.63902e-15, 0.3, 7.86805e-09, 1.31134e-08, -1.31134e-08, 0.18, 0.3, 0, -7.86805e-09, -0.336342, 0.210086, -0.227874)
 label_3d = NodePath("../../labeltogether/Label3D8")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="CheckButton" parent="." instance=ExtResource("6_asymm")]
+transform = Transform3D(0.209548, 0, 0, 0, 0.209548, 0, 0, 0, 0.209548, -0.531652, 0.143725, 1.00522)

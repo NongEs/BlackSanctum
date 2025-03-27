@@ -13,8 +13,9 @@ uv1_world_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y1qur"]
 
-[node name="rigidbinary" type="RigidBody3D"]
+[node name="rigidbinary" type="RigidBody3D" node_paths=PackedStringArray("label_3d")]
 script = ExtResource("1_uk6oe")
+label_3d = NodePath("labeltogether/decimallabel")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.76, 0, 0, 0, 0.4, 0, 0, 0, 5.25, 0, 0, 0)

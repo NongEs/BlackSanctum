@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://be8pi1qje7ig"]
+
+[ext_resource type="Script" uid="uid://bot2md81tfpj3" path="res://floorswitch/octal_random_switch.gd" id="1_ynjsj"]
+[ext_resource type="AudioStream" uid="uid://bp3a3xo3ipeyx" path="res://newgen_assets/image/Random Item Box.wav" id="2_mcuyf"]
+[ext_resource type="Texture2D" uid="uid://cy0x7bkgsvvw1" path="res://addons/grid_texture/red/texture_02.png" id="2_mo64x"]
+[ext_resource type="Texture2D" uid="uid://dhyr4kky7mqfd" path="res://addons/grid_texture/orange/texture_01.png" id="3_mcuyf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh82j"]
+albedo_texture = ExtResource("2_mo64x")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_dod5g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyvpk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bb06r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wrjb"]
+albedo_texture = ExtResource("3_mcuyf")
+
+[sub_resource type="SphereMesh" id="SphereMesh_a47fx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twh5p"]
+albedo_texture = ExtResource("3_mcuyf")
+
+[node name="OctalRandomSwitch" type="StaticBody3D"]
+script = ExtResource("1_ynjsj")
+audio_player = NodePath("AudioStreamPlayer3D")
+random_sound = ExtResource("2_mcuyf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_vh82j")
+mesh = SubResource("BoxMesh_dod5g")
+surface_material_override/0 = SubResource("StandardMaterial3D_tyvpk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_bb06r")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.164064, 0, 0.5)
+material_override = SubResource("StandardMaterial3D_3wrjb")
+mesh = SubResource("SphereMesh_a47fx")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.19063, 0, 0.5)
+material_override = SubResource("StandardMaterial3D_twh5p")
+mesh = SubResource("SphereMesh_a47fx")
+
+[node name="Text" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00315797, 0.366615, 0.509072)
+text = "Random
+"
+font_size = 30
+
+[node name="Text2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00315797, -0.369644, 0.509072)
+text = "Switch
+"
+font_size = 30
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]
