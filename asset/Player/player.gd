@@ -134,15 +134,16 @@ func _input(event):
 		look_rot.x -= (event.relative.y * sensitivity)
 		look_rot.x = clamp(look_rot.x, min_angle, max_angle)
 
-func _unhandled_input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		game_paused = !game_paused
-		get_tree().paused = game_paused
-		
-		if game_paused:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # แสดงเมาส์
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # จับเมาส์
+#func _unhandled_input(event):
+#	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+#		game_paused = !game_paused
+#		get_tree().paused = game_paused
+#3		
+#		if game_paused:
+#			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # แสดงเมาส์
+#		else:
+#			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # จับเมาส์
+			
 func crouch(delta : float, reverse = false):
 	var target_height : float = crouch_height if not reverse else stand_height
 	

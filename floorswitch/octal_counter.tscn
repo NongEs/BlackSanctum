@@ -87,84 +87,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0649, 0, -0.597678)
 
 [node name="Switch" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(-0.3, 0, 1.57361e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.18, 2.62855, 0.0893755, -0.257605)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label1")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="Switch2" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(-0.3, 0, 1.57361e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.18, 2.0625, 0.0893755, -0.257605)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label2")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="Switch3" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(-0.3, 0, 1.57361e-08, 0, 0.3, 0, -2.62268e-08, 0, -0.18, 1.53656, 0.0893755, -0.257605)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label3")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="Switch4" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(-1.31134e-08, 0, -0.18, 0, 0.3, 0, 0.3, 0, -7.86805e-09, 1.19899, 0.0893755, 0.0619515)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label4")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="Switch5" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(-1.31134e-08, 0, -0.18, 0, 0.3, 0, 0.3, 0, -7.86805e-09, 1.19899, 0.0893755, 0.599466)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label5")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="Switch6" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(-1.31134e-08, 0, -0.18, 0, 0.3, 0, 0.3, 0, -7.86805e-09, 1.19899, 0.0893755, 1.15862)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label6")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="Switch7" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.18, 1.52721, 0.0893755, 1.48064)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label7")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="Switch8" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.18, 2.06244, 0.0893755, 1.48064)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label8")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="Switch9" parent="switchtogether" instance=ExtResource("2_pfb21")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.18, 2.58471, 0.0893755, 1.48064)
-is_on = false
-state = 0
 label_3d = NodePath("../../labeltogether/Label9")
-enabled = true
-prompt_message = "Interact"
-prompt_action = "Interact"
 
 [node name="decimallabel" type="Label3D" parent="."]
 transform = Transform3D(1.31066e-07, 0.032126, -0.999484, -4.21282e-09, 0.999484, 0.032126, 1, 0, 1.31134e-07, 0.0230049, 1.11475, -0.00631469)

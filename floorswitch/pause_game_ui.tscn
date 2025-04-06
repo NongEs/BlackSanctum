@@ -1,0 +1,700 @@
+[gd_scene load_steps=9 format=3 uid="uid://lauc7egswra6"]
+
+[ext_resource type="Script" uid="uid://cqxvyfdxqyob8" path="res://floorswitch/pause_game_ui.gd" id="1_tl18p"]
+[ext_resource type="Theme" uid="uid://bwkgdwgpi80ja" path="res://matercaveproject/theme.tres" id="2_hf73i"]
+[ext_resource type="Texture2D" uid="uid://wo8i8o3dwyol" path="res://matercaveproject/cave_assets/textures/icon_color_outline.svg" id="3_ku48e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhyhl"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 0.831373)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6clq1"]
+bg_color = Color(0.223529, 0.223529, 0.223529, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkemn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghfc6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imwop"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.227451)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="PauseGame_UI" type="CanvasLayer"]
+script = ExtResource("1_tl18p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlackBarTop" type="ColorRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(21, 9)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="BlackBarBottom" type="ColorRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(21, 9)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_hf73i")
+theme_override_constants/margin_right = 40
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenu"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_vhyhl")
+
+[node name="UI" type="VBoxContainer" parent="MainMenu/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Black Sanctum"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+
+[node name="ByRaffaLabel2" type="Label" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.329412, 0.329412, 0.329412, 1)
+theme_override_font_sizes/font_size = 11
+text = "beta v1.0.0"
+horizontal_alignment = 1
+
+[node name="ByRaffaLabel" type="Label" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Game Demo by Warut Wanasert
+Graphic by Warissara Patib"
+horizontal_alignment = 1
+
+[node name="ControlsHeader" type="Label" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MainMenu/PanelContainer/UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Movement" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Move & Interact"
+horizontal_alignment = 1
+
+[node name="DaySpeedLabel" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+columns = 3
+
+[node name="Control" type="Control" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6clq1")
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6clq1")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6clq1")
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6clq1")
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6clq1")
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement2" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "+ Mouse"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+columns = 2
+
+[node name="Label2" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6clq1")
+text = "Space"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement4" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Jump"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6clq1")
+text = "Ctrl"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement3" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Crounch"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6clq1")
+text = "Esc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement5" type="Label" parent="MainMenu/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MainMenu/PanelContainer/UI"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="MainMenu/PanelContainer/UI"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="Control5" type="Control" parent="MainMenu/PanelContainer/UI"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ModeSwitchButton" type="Button" parent="MainMenu/PanelContainer/UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Walk Mode"
+
+[node name="SettingsButton" type="Button" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+text = "Credits & License"
+
+[node name="Control4" type="Control" parent="MainMenu/PanelContainer/UI"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="WishlistButton" type="Button" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+text = "❤ Support me ❤
+Wishlist my Game on Steam!"
+
+[node name="Control3" type="Control" parent="MainMenu/PanelContainer/UI"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="MainMenu/PanelContainer/UI"]
+layout_mode = 2
+text = "Quit to Desktop"
+
+[node name="Credits" type="VBoxContainer" parent="MainMenu/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderLabel" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Credits & License"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_ku48e")
+stretch_mode = 2
+
+[node name="Godot" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Made in the Godot Engine (4.0.3)"
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "https://godotengine.org/license/"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MainMenu/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Project and 3D Assets"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "Raffaele Picca"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="MainMenu/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "Paolo Dollorenzo"
+horizontal_alignment = 1
+
+[node name="Control4" type="Control" parent="MainMenu/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Torch and Wind Sound Effects"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "@WhatInTheSound (Twitter)"
+horizontal_alignment = 1
+
+[node name="Control5" type="Control" parent="MainMenu/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Player Controller"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "Dimitar Dimitrov
+@Whimfoome (GitHub)"
+horizontal_alignment = 1
+
+[node name="Control6" type="Control" parent="MainMenu/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label9" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Stylized Fire Shader (modified)"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="MainMenu/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "GDQuest and contributors
+(https://www.gdquest.com/)."
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="MainMenu/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CloseCreditsButton" type="Button" parent="MainMenu/PanelContainer/Credits"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back to Main Menu"
+
+[node name="Settings" type="VBoxContainer" parent="MainMenu/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="MainMenu/PanelContainer/Settings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="GridContainer" parent="MainMenu/PanelContainer/Settings"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+columns = 3
+
+[node name="General" type="VBoxContainer" parent="MainMenu/PanelContainer/Settings/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/PanelContainer/Settings/HBoxContainer/General"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "General"
+horizontal_alignment = 1
+
+[node name="WFullScreenCheckBox" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fkemn")
+text = "Borderless Window Fullscreen"
+
+[node name="FullScreenCheckBox" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fkemn")
+text = "Exclusive Fullscreen"
+
+[node name="Control" type="Control" parent="MainMenu/PanelContainer/Settings/HBoxContainer/General"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="FPSCheckBox" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ghfc6")
+text = "Show FPS"
+
+[node name="VSyncEnableCheckBox" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ghfc6")
+button_pressed = true
+text = "Enable VSync"
+
+[node name="CinematicCheckBox" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ghfc6")
+button_pressed = true
+text = "Cinematic Black Bars"
+
+[node name="VSeparator" type="VSeparator" parent="MainMenu/PanelContainer/Settings/HBoxContainer"]
+layout_mode = 2
+
+[node name="Quality" type="VBoxContainer" parent="MainMenu/PanelContainer/Settings/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Quality"
+horizontal_alignment = 1
+
+[node name="GeneralQualityLabel" type="Label" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+text = "General Quality"
+
+[node name="GeneralQualityOptionButton" type="OptionButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MSAALabel" type="Label" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+text = "MSAA"
+
+[node name="MSAAOptionButton" type="OptionButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SSAOCheckbox" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+button_pressed = true
+text = "SSAO"
+
+[node name="VolumentricFogCheckbox" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+button_pressed = true
+text = "Volumetric Fog"
+
+[node name="TemporalButton" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+text = "Temporal Anti-Aliasing"
+
+[node name="RenderResolutionLabel" type="Label" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+text = "Rendering Scale: 100%"
+
+[node name="RenderResolutionSlider" type="HSlider" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+layout_mode = 2
+min_value = 0.25
+max_value = 2.0
+step = 0.05
+value = 0.95
+
+[node name="FXAAButton" type="CheckButton" parent="MainMenu/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_disabled_color = Color(0.596078, 0.596078, 0.596078, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fkemn")
+button_pressed = true
+text = "FXAA"
+
+[node name="Control" type="Control" parent="MainMenu/PanelContainer/Settings"]
+layout_mode = 2
+
+[node name="CloseSettingsButton" type="Button" parent="MainMenu/PanelContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close Settings"
+
+[node name="DayCycleLabel" type="Label" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.006
+anchor_top = 0.99
+anchor_right = 0.01
+anchor_bottom = 0.99
+offset_right = 101.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.498039, 0.498039, 0.498039, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_imwop")
+text = "Speed: 1.2x"
+
+[node name="FPSLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.006
+anchor_top = 0.01
+anchor_right = 0.01
+anchor_bottom = 0.05
+offset_left = 0.48
+offset_top = 0.2
+offset_right = 115.8
+offset_bottom = -12.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.498039, 0.498039, 0.498039, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_imwop")
+text = "FPS:"
+
+[connection signal="pressed" from="MainMenu/PanelContainer/UI/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/UI/ModeSwitchButton" to="." method="_on_mode_switch_button_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/UI/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/UI/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/UI/WishlistButton" to="." method="_on_wishlist_button_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/UI/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Credits/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/General/WFullScreenCheckBox" to="." method="_on_w_full_screen_check_box_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/General/FullScreenCheckBox" to="." method="_on_full_screen_check_box_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/General/FPSCheckBox" to="." method="_on_fps_check_box_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/General/VSyncEnableCheckBox" to="." method="_on_v_sync_enable_check_box_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/General/CinematicCheckBox" to="." method="_on_cinematic_check_box_pressed"]
+[connection signal="item_selected" from="MainMenu/PanelContainer/Settings/HBoxContainer/Quality/GeneralQualityOptionButton" to="." method="_on_general_quality_option_button_item_selected"]
+[connection signal="item_selected" from="MainMenu/PanelContainer/Settings/HBoxContainer/Quality/MSAAOptionButton" to="." method="_on_msaa_option_button_item_selected"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/Quality/SSAOCheckbox" to="." method="_on_ssao_checkbox_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/Quality/VolumentricFogCheckbox" to="." method="_on_volumentric_fog_checkbox_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/Quality/TemporalButton" to="." method="_on_temporal_button_pressed"]
+[connection signal="value_changed" from="MainMenu/PanelContainer/Settings/HBoxContainer/Quality/RenderResolutionSlider" to="." method="_on_render_resolution_slider_value_changed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/HBoxContainer/Quality/FXAAButton" to="." method="_on_fxaa_button_pressed"]
+[connection signal="pressed" from="MainMenu/PanelContainer/Settings/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]

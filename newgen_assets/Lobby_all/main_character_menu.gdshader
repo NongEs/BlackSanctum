@@ -21,6 +21,6 @@ void fragment() {
     // Darken the background based on rain drops
     vec4 tex_color = texture(TEXTURE, UV);
     tex_color.rgb -= rain_mask * 0.5; // Darken the texture slightly
-	
+
     COLOR = tex_color;
 }

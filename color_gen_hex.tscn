@@ -1,0 +1,191 @@
+[gd_scene load_steps=18 format=3 uid="uid://biqlhiiiair1s"]
+
+[ext_resource type="Texture2D" uid="uid://cboor26ln3y5c" path="res://addons/grid_texture/dark/texture_13.png" id="1_jkkfk"]
+[ext_resource type="Script" uid="uid://o67geqwa23jw" path="res://floorswitch/color_gen_hex.gd" id="1_ts74v"]
+[ext_resource type="Texture2D" uid="uid://dhyr4kky7mqfd" path="res://addons/grid_texture/orange/texture_01.png" id="2_ts74v"]
+[ext_resource type="Texture2D" uid="uid://c8nq55glypfp8" path="res://addons/grid_texture/light/texture_07.png" id="3_texvk"]
+[ext_resource type="PackedScene" uid="uid://ctpe3085tbrlr" path="res://free_switch.tscn" id="4_jkkfk"]
+[ext_resource type="PackedScene" uid="uid://bkej8vltxod2p" path="res://floorswitch/check_button.tscn" id="6_texvk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imu5r"]
+albedo_texture = ExtResource("1_jkkfk")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lo0ja"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej4eo"]
+albedo_texture = ExtResource("2_ts74v")
+
+[sub_resource type="SphereMesh" id="SphereMesh_unqwr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpiy4"]
+albedo_texture = ExtResource("2_ts74v")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nj1ia"]
+size = Vector3(2.77368, 2.30493, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_airt4"]
+albedo_texture = ExtResource("3_texvk")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_llr4r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts74v"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_texvk"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thu4s"]
+albedo_color = Color(0, 0, 1, 1)
+
+[node name="ColorGenHex" type="StaticBody3D" node_paths=PackedStringArray("switches", "label_r", "label_g", "label_b", "label_switch_1", "label_switch_2", "label_switch_3", "label_switch_4", "label_switch_5", "label_switch_6", "mesh")]
+script = ExtResource("1_ts74v")
+switches = [NodePath("Switchcontrol/FreeSwitch"), NodePath("Switchcontrol/FreeSwitch2"), NodePath("Switchcontrol/FreeSwitch3"), NodePath("Switchcontrol/FreeSwitch4"), NodePath("Switchcontrol/FreeSwitch5"), NodePath("Switchcontrol/FreeSwitch6")]
+label_r = NodePath("Label/ColorRed")
+label_g = NodePath("Label/ColorGreen")
+label_b = NodePath("Label/ColorBlue")
+label_switch_1 = NodePath("Label/FirstHex")
+label_switch_2 = NodePath("Label/SecHex")
+label_switch_3 = NodePath("Label/ThirdHex")
+label_switch_4 = NodePath("Label/ForthHex")
+label_switch_5 = NodePath("Label/FifthHex")
+label_switch_6 = NodePath("Label/SixtchHex")
+mesh = NodePath("Colorcapsule")
+check_button = NodePath("CheckButton")
+
+[node name="Station" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_imu5r")
+size = Vector3(2.76758, 2.30762, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Station"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46936, 0)
+operation = 2
+size = Vector3(2.12988, 1.11499, 1)
+
+[node name="Colorcapsule" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.91477e-08, -0.895596, 0, 0.895596, -3.91477e-08, 0, 0, 0, 0.895596, 0, 0.466863, 0)
+mesh = SubResource("CapsuleMesh_lo0ja")
+
+[node name="Connector1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.588193, 0, 0, 0, 0.588193, 0, 0, 0, 0.588193, 1, 0.472486, 0)
+material_override = SubResource("StandardMaterial3D_ej4eo")
+mesh = SubResource("SphereMesh_unqwr")
+
+[node name="Connector2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.588193, 0, 0, 0, 0.588193, 0, 0, 0, 0.588193, -1, 0.472486, 0)
+material_override = SubResource("StandardMaterial3D_rpiy4")
+mesh = SubResource("SphereMesh_unqwr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_nj1ia")
+
+[node name="Panel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.65214e-08, 0, 1.5126, 0.0322254, 0.376588, 5.63722e-09, -0.376588, 0.0322254, -6.58769e-08, 0, -0.080511, -0.527085)
+material_override = SubResource("StandardMaterial3D_airt4")
+mesh = SubResource("PrismMesh_llr4r")
+
+[node name="redprism" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.65214e-08, 0, 0.357427, 0.0322254, 0.376588, 1.33208e-09, -0.376588, 0.0322254, -1.55667e-08, 0.131453, -0.154674, -0.558206)
+material_override = SubResource("StandardMaterial3D_ts74v")
+mesh = SubResource("PrismMesh_llr4r")
+
+[node name="redprism2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.65214e-08, 0, 0.357427, 0.0322254, 0.376588, 1.33208e-09, -0.376588, 0.0322254, -1.55667e-08, -0.232703, -0.154674, -0.558206)
+material_override = SubResource("StandardMaterial3D_texvk")
+mesh = SubResource("PrismMesh_llr4r")
+
+[node name="redprism3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.65214e-08, 0, 0.335793, 0.0322254, 0.376588, 1.25145e-09, -0.376588, 0.0322254, -1.46245e-08, -0.586882, -0.154674, -0.558206)
+material_override = SubResource("StandardMaterial3D_thu4s")
+mesh = SubResource("PrismMesh_llr4r")
+
+[node name="Switchcontrol" type="Node3D" parent="."]
+
+[node name="FreeSwitch" parent="Switchcontrol" instance=ExtResource("4_jkkfk")]
+transform = Transform3D(-0.078, 0, 6.81898e-09, 3.85309e-09, 0.0643542, 0.0440742, -5.62603e-09, 0.0440742, -0.0643542, 0.217796, -0.201632, -0.669858)
+
+[node name="FreeSwitch2" parent="Switchcontrol" instance=ExtResource("4_jkkfk")]
+transform = Transform3D(-0.078, 0, 6.81898e-09, 3.85309e-09, 0.0643542, 0.0440742, -5.62603e-09, 0.0440742, -0.0643542, 0.0420082, -0.201632, -0.669858)
+
+[node name="FreeSwitch3" parent="Switchcontrol" instance=ExtResource("4_jkkfk")]
+transform = Transform3D(-0.078, 0, 6.81898e-09, 3.85309e-09, 0.0643542, 0.0440742, -5.62603e-09, 0.0440742, -0.0643542, -0.161109, -0.201632, -0.669858)
+
+[node name="FreeSwitch4" parent="Switchcontrol" instance=ExtResource("4_jkkfk")]
+transform = Transform3D(-0.078, 0, 6.81898e-09, 3.85309e-09, 0.0643542, 0.0440742, -5.62603e-09, 0.0440742, -0.0643542, -0.324327, -0.201632, -0.669858)
+
+[node name="FreeSwitch5" parent="Switchcontrol" instance=ExtResource("4_jkkfk")]
+transform = Transform3D(-0.078, 0, 6.81898e-09, 3.85309e-09, 0.0643542, 0.0440742, -5.62603e-09, 0.0440742, -0.0643542, -0.500458, -0.201632, -0.669858)
+
+[node name="FreeSwitch6" parent="Switchcontrol" instance=ExtResource("4_jkkfk")]
+transform = Transform3D(-0.078, 0, 6.81898e-09, 3.85309e-09, 0.0643542, 0.0440742, -5.62603e-09, 0.0440742, -0.0643542, -0.674726, -0.201632, -0.669858)
+
+[node name="Label" type="Node3D" parent="."]
+
+[node name="ColorRed" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, 0.11606, 0.0478677, -0.555964)
+text = "00
+"
+font_size = 100
+
+[node name="ColorGreen" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, -0.240249, 0.0478677, -0.555964)
+text = "00
+"
+font_size = 100
+
+[node name="ColorBlue" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, -0.577945, 0.0478677, -0.555964)
+text = "00
+"
+font_size = 100
+
+[node name="colorcodelabel2" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.05674e-08, 0.222448, 0.134762, 9.69365e-09, 0.134762, -0.222448, 0.541414, -0.0622891, -0.629773)
+text = "ColorCodeHex"
+
+[node name="colorcodelabel3" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.05674e-08, 0.222448, 0.134762, 9.69365e-09, 0.134762, -0.222448, 0.53232, 0.0529329, -0.549624)
+text = "Decimal :"
+font_size = 60
+
+[node name="FirstHex" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, 0.219237, -0.0776478, -0.629773)
+text = "0
+"
+font_size = 60
+
+[node name="SecHex" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, 0.0484703, -0.0776478, -0.629773)
+text = "0
+"
+font_size = 60
+
+[node name="ThirdHex" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, -0.15613, -0.0776478, -0.629773)
+text = "0
+"
+font_size = 60
+
+[node name="ForthHex" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, -0.321176, -0.0776478, -0.629773)
+text = "0
+"
+font_size = 60
+
+[node name="FifthHex" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, -0.501223, -0.0776478, -0.629773)
+text = "0
+"
+font_size = 60
+
+[node name="SixtchHex" type="Label3D" parent="Label"]
+transform = Transform3D(-0.260085, -1.25684e-08, -1.89478e-08, -2.04044e-08, 0.224645, 0.131067, 1.00323e-08, 0.131067, -0.224645, -0.679296, -0.0776478, -0.629773)
+text = "0
+"
+font_size = 60
+
+[node name="CheckButton" parent="." instance=ExtResource("6_texvk")]
+transform = Transform3D(2.21421e-16, 2.88249e-09, -0.0659438, 0.0559868, 0.0348433, 1.52305e-09, 0.0348433, -0.0559868, -2.44726e-09, 0.539849, -0.173207, -0.687769)

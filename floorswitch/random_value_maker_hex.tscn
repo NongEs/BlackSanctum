@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://4lyd8ptcrhup"]
+
+[ext_resource type="Script" uid="uid://b16lpgyo5eq4g" path="res://floorswitch/random_value_maker_hex.gd" id="1_gd5ll"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gd5ll"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_gd5ll"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2npas"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1yn6v"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c72td"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2npas"]
+size = Vector3(1, 1.10242, 1)
+
+[node name="RandomValueMakerHex" type="StaticBody3D" node_paths=PackedStringArray("label_r", "label_g", "label_b")]
+script = ExtResource("1_gd5ll")
+label_r = NodePath("RandomValueRed")
+label_g = NodePath("RandomValueGreen")
+label_b = NodePath("RandomValueBlue")
+prompt_message = "Random"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_gd5ll")
+mesh = SubResource("PrismMesh_gd5ll")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.466004, 0, 0, 0, 1, 0, 0, 0, 0.174903, 0, 0.985651, 0.298508)
+material_override = SubResource("StandardMaterial3D_2npas")
+mesh = SubResource("PrismMesh_gd5ll")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.329515, 0, 0.123675, 0, 1, 0, -0.329515, 0, -0.123675, 0.220165, 0.985651, -0.28585)
+material_override = SubResource("StandardMaterial3D_1yn6v")
+mesh = SubResource("PrismMesh_gd5ll")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.329515, 0, 0.123675, 0, 1, 0, -0.329515, 0, 0.123675, -0.19885, 0.985651, -0.212358)
+material_override = SubResource("StandardMaterial3D_c72td")
+mesh = SubResource("PrismMesh_gd5ll")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107547, 0)
+shape = SubResource("BoxShape3D_2npas")
+
+[node name="RandomValueRed" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692656, 0.418513)
+text = "000
+"
+font_size = 60
+
+[node name="RandomValueGreen" type="Label3D" parent="."]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0.328364, 0.692656, -0.366982)
+text = "000
+"
+font_size = 60
+
+[node name="RandomValueBlue" type="Label3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.296702, 0.692656, -0.286668)
+text = "000"
+font_size = 60
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]
