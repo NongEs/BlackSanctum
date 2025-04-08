@@ -4,4 +4,5 @@ extends Node3D
 
 func _ready() -> void:
 	#audio_stream_player_3d.play()
-	pass
+	Dialogic.start("numeral_system_dialog","fourkeyscollected")
+	

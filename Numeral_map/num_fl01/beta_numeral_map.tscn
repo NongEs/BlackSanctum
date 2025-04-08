@@ -976,9 +976,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 1509.0
+offset_left = 1541.0
 offset_top = -504.5
-offset_right = -296.0
+offset_right = -264.0
 offset_bottom = -416.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -2882,15 +2882,15 @@ transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767
 transform = Transform3D(-0.0079924, -0.993745, 0.111391, 0.0711193, -0.111677, -0.991196, 0.997436, 0, 0.071567, 0, 41.4061, 35.1579)
 
 [node name="PauseGame_UI" parent="." instance=ExtResource("86_0xr3g")]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("86_ohkuo")]
-transform = Transform3D(-0.993507, 0, 0.113775, 0, 1, 0, -0.113775, 0, -0.993507, 96.8904, 27.3266, 16.8028)
+transform = Transform3D(0.926825, 0, -0.375496, 0, 1, 0, 0.375496, 0, 0.926825, 0.789184, 2.47976, 32.5629)
 speed = 14.0
 jump = 18.0
 
 [node name="keeper" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.1137, 26.9162, 11.6797)
+visible = false
 
 [node name="JesusKey14" parent="keeper" instance=ExtResource("32_mpjuw")]
 transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 0.287636, 4.30313)

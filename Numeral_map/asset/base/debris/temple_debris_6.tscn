@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6paglbqlm4qa"]
-
-[ext_resource type="PackedScene" uid="uid://c2bkxax3y5wk3" path="res://Numeral_map/asset/cave_assets2/meshes/temple_debris_6.gltf" id="1_1wcic"]
-[ext_resource type="Material" uid="uid://bvpbjg2a12uq3" path="res://Numeral_map/asset/cave_assets2/materials/mat_temple.tres" id="2_vftww"]
-
-[node name="temple_debris_6" instance=ExtResource("1_1wcic")]
-
-[node name="Temple_Debris_6" parent="." index="0"]
-material_override = ExtResource("2_vftww")

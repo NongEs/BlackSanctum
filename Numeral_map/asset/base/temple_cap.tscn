@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0th43hg75t7h"]
-
-[ext_resource type="PackedScene" uid="uid://do1uy8xs1o2po" path="res://Numeral_map/asset/cave_assets2/meshes/temple_cap.gltf" id="1_n8on0"]
-[ext_resource type="Material" uid="uid://bvpbjg2a12uq3" path="res://Numeral_map/asset/cave_assets2/materials/mat_temple.tres" id="2_1m4v0"]
-
-[node name="temple_cap" instance=ExtResource("1_n8on0")]
-
-[node name="EndCap" parent="." index="0"]
-material_override = ExtResource("2_1m4v0")

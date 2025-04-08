@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhb77h1g86r4m"]
-
-[ext_resource type="PackedScene" uid="uid://4ai8fbyfdcoj" path="res://Numeral_map/asset/cave_assets2/meshes/rockbig_low.glb" id="1_5vhrx"]
-[ext_resource type="Material" uid="uid://c441gbqtabpss" path="res://Numeral_map/asset/cave_assets2/materials/mat_sand.tres" id="2_e0o7t"]
-
-[node name="rockbig_low" instance=ExtResource("1_5vhrx")]
-
-[node name="RockBig_low" parent="." index="0"]
-material_override = ExtResource("2_e0o7t")

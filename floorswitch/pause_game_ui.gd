@@ -30,36 +30,13 @@ func _ready():
 
 func _physics_process(delta):
 	%FPSLabel.text = "FPS: %s" % Engine.get_frames_per_second()
-	if Input.is_action_pressed("speed_up"):
-		$AnimationPlayer.speed_scale = clamp($AnimationPlayer.speed_scale+delta*3, -4, 4)
-		show_daycycle_speed("Speed: %sx" % str($AnimationPlayer.speed_scale).pad_decimals(1))
-	elif Input.is_action_pressed("speed_down"):
-		$AnimationPlayer.speed_scale = clamp($AnimationPlayer.speed_scale-delta*3, -4, 4)
-		show_daycycle_speed("Speed: %sx" % str($AnimationPlayer.speed_scale).pad_decimals(1))
-
-
-var time_scale_tween : Tween
-func show_daycycle_speed(s:String):
-	%DayCycleLabel.modulate.a = 1.0
-	if time_scale_tween:
-		time_scale_tween.kill()
-	time_scale_tween = get_tree().create_tween()
-	time_scale_tween.tween_property(%DayCycleLabel, "modulate:a", 0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT).set_delay(1.3)
-	%DayCycleLabel.text = s
+	
 
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		show_menu(!showing_menu)
 		
-	if event.is_action_pressed("speed_pause"):
-		if $AnimationPlayer.is_playing():
-			$AnimationPlayer.pause()
-			show_daycycle_speed("Day Cycle paused.")
-		else:
-			$AnimationPlayer.play("new_animation")
-			show_daycycle_speed("Playing Day Cycle.")
-
 
 var menu_tween : Tween
 func show_menu(_show:bool):

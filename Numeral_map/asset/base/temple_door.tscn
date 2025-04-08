@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dei88wwljhtns"]
-
-[ext_resource type="PackedScene" uid="uid://d285aew60in6h" path="res://Numeral_map/asset/cave_assets2/meshes/temple_door.gltf" id="1_dlsl3"]
-[ext_resource type="Material" uid="uid://dbrfaya00oarp" path="res://Numeral_map/asset/cave_assets2/materials/mat_wood.tres" id="2_myara"]
-
-[node name="temple_door" instance=ExtResource("1_dlsl3")]
-
-[node name="Temple_Door" parent="." index="0"]
-material_override = ExtResource("2_myara")

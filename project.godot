@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="BlackSanctum"
-run/main_scene="uid://c5dvewq8kq5x7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/image="res://asset/characters/cdwn.PNG"
@@ -24,6 +23,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 TransitionScreen="*res://newgen_assets/transition/transition_screen.tscn"
 GameState="*res://GameState.gd"
 GlobalSettings="*res://GlobalSettings.gd"
+LoaderManager="*res://autoload/LoaderManager.gd"
 
 [dialogic]
 
@@ -33,6 +33,7 @@ directories/dch_directory={
 "narrator": "res://TextboxWithPortrait/narrator.dch"
 }
 directories/dtl_directory={
+"numeral_system_dialog": "res://TextboxWithPortrait/numeral_system_dialog.dtl",
 "storyskibidii": "res://TextboxWithPortrait/storyskibidii.dtl",
 "timeline": "res://TextboxWithPortrait/timeline.dtl"
 }

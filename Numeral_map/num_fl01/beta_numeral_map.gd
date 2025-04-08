@@ -14,6 +14,7 @@ var local_timer := 0.0
 
 func _ready() -> void:
 	# เริ่มจับเวลาเมื่อเริ่มแมพ
+	Dialogic.start("numeral_system_dialog")
 	timer_running = true
 	local_timer = 0.0
 	GameState.numeral_system_timer = 0.0
@@ -62,19 +63,20 @@ func _on_key_update(key, value):
 		print("Key equal to 2")
 		animation_player.play("to_octal")
 		player.shake_camera(3.0, 0.2, 1.3)
+		Dialogic.start("numeral_system_dialog","twokeyscollected")
 	
 	if key == "key" and value == 4:
 		print("Key equal to 4")
-	
+		Dialogic.start("numeral_system_dialog","fourkeyscollected")
 	if key == "key" and value == 8:
 		print("Key equal to 8")
-		
+		Dialogic.start("numeral_system_dialog","eightkeyscollected")
 	if key == "key" and value == 13:
 		print("Key equal to 13")
 		player.shake_camera(4.0, 0.2, 2.3)
 		timer_running = false
 		evaluate_tier_from_timer()
-
+		Dialogic.start("numeral_system_dialog","thirteenkeyscollected")
 func evaluate_tier_from_timer():
 	var time = GameState.numeral_system_timer
 	

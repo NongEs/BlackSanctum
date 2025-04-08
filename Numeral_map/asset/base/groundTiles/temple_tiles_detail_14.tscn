@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsniprkhjtta5"]
-
-[ext_resource type="PackedScene" uid="uid://b0x4hhc20ebto" path="res://Numeral_map/asset/cave_assets2/meshes/temple_tiles_detail_14.gltf" id="1_nnisr"]
-[ext_resource type="Material" uid="uid://bvpbjg2a12uq3" path="res://Numeral_map/asset/cave_assets2/materials/mat_temple.tres" id="2_08q3p"]
-
-[node name="temple_tiles_detail_14" instance=ExtResource("1_nnisr")]
-
-[node name="Temple_Tiles_Detail_14" parent="." index="0"]
-material_override = ExtResource("2_08q3p")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://cslatpc7ya57d"]
+[gd_scene load_steps=34 format=3 uid="uid://cslatpc7ya57d"]
 
 [ext_resource type="PackedScene" uid="uid://drc61aql4uf6m" path="res://newgen_assets/map_scene/main_menu_bg.tscn" id="1_4r88r"]
 [ext_resource type="Script" uid="uid://brvvsnmwe7arr" path="res://floorswitch/Lobby_newest_uilobby.gd" id="1_ut51o"]
+[ext_resource type="PackedScene" uid="uid://c20pdnmph2fox" path="res://Numeral_map/num_fl01/beta_numeral_map.tscn" id="2_17jnm"]
 [ext_resource type="FontFile" uid="uid://c10f3xgog5jpk" path="res://asset/font/ReemKufiFun-VariableFont_wght.ttf" id="4_w70rh"]
 [ext_resource type="Texture2D" uid="uid://dnmwi3wa2ftgb" path="res://asset/Universal UI/UI_button icon/next btn/next_defaultlight.png" id="11_v3ikv"]
 [ext_resource type="Texture2D" uid="uid://ciyi4jh7og0cm" path="res://asset/Universal UI/UI_button icon/next btn/next_press.png" id="12_16iyi"]
@@ -63,6 +64,7 @@ corner_radius_bottom_left = 4
 
 [node name="MainCharacterMenu" type="CanvasLayer"]
 script = ExtResource("1_ut51o")
+dec_to_bi_scene = ExtResource("2_17jnm")
 
 [node name="Background" type="Node3D" parent="."]
 
@@ -78,7 +80,6 @@ far = 400.0
 
 [node name="TopicM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1140,6 +1141,7 @@ theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_ut51o")
 text = "FPS:"
 
+[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Panel/DecToBiStage" to="." method="_on_dec_to_bi_stage_pressed"]
 [connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
 [connection signal="pressed" from="ArtifactM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/UI/SettingsButton" to="." method="_on_settings_button_pressed"]

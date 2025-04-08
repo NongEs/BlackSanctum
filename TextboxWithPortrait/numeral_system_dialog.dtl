@@ -1,0 +1,46 @@
+label beginning (start)
+DrMantis: Hey there, brave one!
+DrMantis: I've already taught you a bit about Binary Puzzles, remember?
+DrMantis: Your mission now is to solve the Binary puzzle to collect the **first two keys**.
+DrMantis: There are **13 keys** in total hidden throughout this stage!
+DrMantis: You'll face Binary, Octal, Hexadecimal, and the mysteries of the Numeral System!
+DrMantis: It's a nerdy adventure, and I’m proud of you already!
+DrMantis: Now go crack that Binary code and get those keys!
+DrMantis: May the bits be ever in your favor!
+[end_timeline]
+
+label twokeyscollected (twokeyscollected)
+DrMantis: Whoa! You did it! Look at you go!
+DrMantis: Binary was a piece of cake for you, huh?
+DrMantis: Now let’s step it up! Time for the **Octal puzzle!**
+DrMantis: Solve it and grab **two more keys** to reach a total of 4!
+DrMantis: I have a feeling the Octal spirits are on your side!
+DrMantis: Oh—and keep an eye out for stairs... they love to magically appear.
+[end_timeline]
+
+label fourkeyscollected (fourkeyscollected)
+DrMantis: Yesss! You cracked the Octal puzzle like a pro!
+DrMantis: New stairs just showed up—how convenient!
+DrMantis: Let’s move forward. You’re officially **halfway to 8** now!
+DrMantis: The next challenge is… *drumroll please*... the **Hexadecimal Color Generator Machine!**
+DrMantis: Match the colors, solve the codes, and the next **four keys** will be yours!
+DrMantis: Let’s make those colors shine, hero!
+[end_timeline]
+
+label eightkeyscollected (eightkeyscollected)
+DrMantis: BAM! Eight keys collected like a legend!
+DrMantis: That Hexadecimal puzzle didn’t stand a chance!
+DrMantis: We’re getting close now… only **five more keys** to go!
+DrMantis: The final stretch lies ahead in the deepest part of the map.
+DrMantis: Use everything you've learned—this is the ultimate Numeral System test!
+DrMantis: I’ll see you soon… at the finish line!
+[end_timeline]
+
+label thirteenkeyscollected (thirteenkeyscollected)
+DrMantis: *Fanfare plays* 🥁✨
+DrMantis: You did it! All **13 keys** collected—what a brilliant mind you’ve got!
+DrMantis: You’ve mastered Binary, danced with Octal, painted with Hex, and conquered the Numeral Realm!
+DrMantis: I’m proud of you, my clever companion.
+DrMantis: Now go! The next stage awaits your greatness!
+DrMantis: And don’t forget—math is magic, and you're a wizard now.
+[end_timeline]

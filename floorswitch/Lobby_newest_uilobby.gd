@@ -1,5 +1,6 @@
 extends CanvasLayer
 @export var dec_to_bi_scene: PackedScene
+@export var logic_gate_scene: PackedScene
 var showing_menu := false
 var showing_menu_setting := false
 var showing_menu_artifact := false
@@ -258,3 +259,10 @@ func _on_v_sync_enable_check_box_pressed():
 func _on_ssao_checkbox_pressed():
 	$WorldEnvironment.environment.ssao_enabled = %SSAOCheckbox.button_pressed
 	GlobalSettings.ssao_enabled = %SSAOCheckbox.button_pressed
+
+
+func _on_dec_to_bi_stage_pressed() -> void:
+	if dec_to_bi_scene:
+		get_tree().change_scene_to_packed(dec_to_bi_scene)
+	else:
+		printerr("dec_to_bi_scene is not assigned!")
