@@ -7,14 +7,14 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "bstumstyle",
+"style": "normalstyle",
 "suffix": ""
 },
 &"default_portrait": "DefaultMantis",
 &"description": "",
-&"display_name": "DrMantis",
+&"display_name": "Dr.Mantis",
 &"mirror": false,
-&"nicknames": [""],
+&"nicknames": ["DrMantis"],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "DefaultMantis": {
@@ -23,9 +23,9 @@
 },
 "ignore_char_scale": true,
 "mirror": false,
-"offset": Vector2(70, 140),
+"offset": Vector2(0, 0),
 "scale": 1.0,
-"scene": ""
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
 },
 "MantisSmile": {
 "export_overrides": {

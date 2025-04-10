@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwyp4j7m53uxw"
-path="res://.godot/imported/cdwn.PNG-337637bb8994c73880c41ef54243c3cc.ctex"
+uid="uid://bxklum1w8j0c7"
+path="res://.godot/imported/covermagma (1).png-ece8ca04f32e65a400396f874bf31424.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/characters/cdwn.PNG"
-dest_files=["res://.godot/imported/cdwn.PNG-337637bb8994c73880c41ef54243c3cc.ctex"]
+source_file="res://newgen_assets/image/covermagma (1).png"
+dest_files=["res://.godot/imported/covermagma (1).png-ece8ca04f32e65a400396f874bf31424.ctex"]
 
 [params]
 

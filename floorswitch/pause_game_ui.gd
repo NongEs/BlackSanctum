@@ -1,5 +1,4 @@
 extends CanvasLayer
-
 var showing_menu := false
 var fly_mode := true
 var is_paused = false
@@ -111,11 +110,12 @@ func to_cinematic():
 
 
 func _on_quit_button_pressed():
-	var tween = get_tree().create_tween()
+	LoaderManager.change_level("res://newgen_assets/Lobby_all/main_character_menu.tscn")
+	#var tween = get_tree().create_tween()
 #	tween.tween_property($WorldEnvironment.environment, "adjustment_brightness", 0.01, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property(%MainMenu, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_method(func(v):AudioServer.set_bus_volume_db(0, v), 0, -24, 0.5)
-	tween.finished.connect(func():get_tree().quit())
+	#tween.parallel().tween_property(%MainMenu, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	#tween.parallel().tween_method(func(v):AudioServer.set_bus_volume_db(0, v), 0, -24, 0.5)
+	#tween.finished.connect(func():get_tree().quit())
 
 
 func _on_w_full_screen_check_box_pressed():
@@ -150,21 +150,21 @@ func _on_cinematic_check_box_pressed():
 
 func _on_fxaa_button_pressed():
 	get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA if %FXAAButton.button_pressed else Viewport.SCREEN_SPACE_AA_DISABLED
-
+	GlobalSettings.use_fxaa = %FXAAButton.button_pressed
 
 func _on_temporal_button_pressed():
 	get_viewport().use_taa = %TemporalButton.button_pressed
-
+	GlobalSettings.use_taa = %TemporalButton.button_pressed
 
 func _on_render_resolution_slider_value_changed(value):
 	%RenderResolutionLabel.text = "Render Scale: %s%%" % str(round(value*100))
 	get_viewport().scaling_3d_scale = value
 	%FXAAButton.disabled = value > 1.0
-
+	GlobalSettings.render_scale = value
 
 func _on_msaa_option_button_item_selected(index):
 	get_viewport().msaa_3d = index
-
+	GlobalSettings.msaa_index = index
 
 var settings := {
 	"positional_shadow_atlas_size": [1024, 2048, 4096, 8192],
@@ -232,12 +232,13 @@ func _on_volumentric_fog_checkbox_pressed():
 	$WorldEnvironment.environment.volumetric_fog_enabled = %VolumentricFogCheckbox.button_pressed
 	$WorldEnvironment.environment.adjustment_saturation = 1.02 if %VolumentricFogCheckbox.button_pressed else 0.95
 	$WorldEnvironment.environment.adjustment_contrast = 1.02 if %VolumentricFogCheckbox.button_pressed else 0.95
-
+	GlobalSettings.fog_enabled = %VolumentricFogCheckbox.button_pressed
 
 func _on_v_sync_enable_check_box_pressed():
 	var vsync_mode = DisplayServer.VSYNC_DISABLED if not %VSyncEnableCheckBox.button_pressed else DisplayServer.VSYNC_ENABLED
 	DisplayServer.window_set_vsync_mode(vsync_mode)
-
+	GlobalSettings.vsync_enabled = %VSyncEnableCheckBox.button_pressed
 
 func _on_ssao_checkbox_pressed():
 	$WorldEnvironment.environment.ssao_enabled = %SSAOCheckbox.button_pressed
+	GlobalSettings.ssao_enabled = %SSAOCheckbox.button_pressed

@@ -7,7 +7,7 @@
 "prefix": "",
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "bstumstyle",
+"style": "novelstyle",
 "suffix": ""
 },
 &"default_portrait": "Player",
@@ -25,6 +25,15 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1.0,
+"scene": ""
+},
+"PlayerSmile": {
+"export_overrides": {
+"image": "\"res://asset/characters/yothan.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
 "scene": ""
 }
 },

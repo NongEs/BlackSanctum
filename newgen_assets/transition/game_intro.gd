@@ -17,4 +17,5 @@ func black_out():
 	get_tree().create_timer(3).timeout.connect(start_menu_scene)
 
 func start_menu_scene():
-	get_tree().change_scene_to_file("res://Lobby_all/main_character_menu.tscn")
+	#get_tree().change_scene_to_file("res://Lobby_all/main_character_menu.tscn")
+	LoaderManager.change_level("res://newgen_assets/Lobby_all/main_character_menu.tscn")

@@ -12,9 +12,10 @@ func _enter_tree():
 	%SettingM.modulate.a = 0.0
 	%ArtifactM.modulate.a = 0.0
 func _ready() -> void:
-	
-	tier_label.text = "Tier: " + GameState.numeral_system_tier
-	time_best.text = "Best Time: %.2f s" % GameState.numeral_system_timer
+	#"Tier: " +
+	#"Best Time:
+	tier_label.text =  GameState.numeral_system_tier
+	time_best.text = " %.2f s" % GameState.numeral_system_timer
 	%MSAAOptionButton.add_item("Disabled", 0)
 	%MSAAOptionButton.add_item("2x", 1)
 	%MSAAOptionButton.add_item("4x", 2)
@@ -25,6 +26,7 @@ func _ready() -> void:
 	%GeneralQualityOptionButton.add_item("High", 2)
 	%GeneralQualityOptionButton.add_item("Ultra", 3)
 	%GeneralQualityOptionButton.select(2)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	_on_general_quality_option_button_item_selected(2)
 
 func _physics_process(delta):
@@ -43,7 +45,6 @@ func show_menu(_show: bool):
 			menu_tween.kill()
 		menu_tween = get_tree().create_tween()
 		menu_tween.tween_property(%TopicM, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		
 		# Use Callable to pass the function reference
 		menu_tween.tween_callback(Callable(self, "_on_menu_hidden")).set_delay(0.2)
 		%SettingButton.show()
@@ -53,6 +54,7 @@ func show_menu(_show: bool):
 		%CharacterButton.hide()
 		%ArtifactButton.hide()
 		%SettingButton.hide()
+		%ArtifactM.hide()
 		if menu_tween:
 			menu_tween.kill()
 		menu_tween = get_tree().create_tween()
@@ -106,6 +108,7 @@ func artifact_show_menu(_showartifact: bool):
 		artifact_menu_tween.tween_property(%ArtifactM, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		%ArtifactButton.show()
 		%NextButton.show()
+		
 		# Use Callable to pass the function reference
 		artifact_menu_tween.tween_callback(Callable(self, "_on_artifact_menu_hidden()")).set_delay(0.2)
 	else:
@@ -113,8 +116,9 @@ func artifact_show_menu(_showartifact: bool):
 		%ArtifactM.show()
 		%CharacterButton.hide()
 		%ArtifactButton.show()
-		%SettingButton.show()
+		%SettingButton.hide()
 		%NextButton.hide()
+		
 		if artifact_menu_tween:
 			artifact_menu_tween.kill()
 		artifact_menu_tween = get_tree().create_tween()
@@ -143,7 +147,7 @@ func _on_close_settings_button_pressed() -> void:
 func _on_quit_button_pressed():
 	var tween = get_tree().create_tween()
 #	tween.tween_property($WorldEnvironment.environment, "adjustment_brightness", 0.01, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property(%MainMenu, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(%SettingM, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_method(func(v):AudioServer.set_bus_volume_db(0, v), 0, -24, 0.5)
 	tween.finished.connect(func():get_tree().quit())
 
@@ -257,12 +261,9 @@ func _on_v_sync_enable_check_box_pressed():
 	GlobalSettings.vsync_enabled = %VSyncEnableCheckBox.button_pressed
 
 func _on_ssao_checkbox_pressed():
-	$WorldEnvironment.environment.ssao_enabled = %SSAOCheckbox.button_pressed
+	$WorldEnvironment.environment.ssao_enabled = %SSAOCheckbox.button_presseds
 	GlobalSettings.ssao_enabled = %SSAOCheckbox.button_pressed
 
 
 func _on_dec_to_bi_stage_pressed() -> void:
-	if dec_to_bi_scene:
-		get_tree().change_scene_to_packed(dec_to_bi_scene)
-	else:
-		printerr("dec_to_bi_scene is not assigned!")
+	LoaderManager.change_level("res://Numeral_map/num_fl01/beta_numeral_map.tscn")

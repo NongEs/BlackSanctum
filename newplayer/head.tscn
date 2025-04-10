@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0quwuiigyp0x"]
+
+[ext_resource type="Script" uid="uid://b8fn46hpyk0wn" path="res://newplayer/head.gd" id="1_4drbh"]
+[ext_resource type="PackedScene" uid="uid://b7itofqyvmq6l" path="res://asset/Player/InteractRay.tscn" id="1_kvjx8"]
+
+[node name="Head" type="Node3D"]
+script = ExtResource("1_4drbh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+
+[node name="InteractRay" parent="." instance=ExtResource("1_kvjx8")]

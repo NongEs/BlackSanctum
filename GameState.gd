@@ -7,7 +7,7 @@ var state := {
 
 # เพิ่มตัวแปร Global แบบเฉพาะสำหรับแมพนี้
 var numeral_system_timer := 0.0
-var numeral_system_tier := "UnRanked"
+var numeral_system_tier := "Unranked"
 
 signal state_changed(key, value)
 

@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		var minutes = int(local_timer / 60)
 		var seconds = int(local_timer) % 60
 		timer_label.text = "Time: %02d:%02d" % [minutes, seconds]
-	
+		tier_label.text =  "Tier : " + GameState.numeral_system_tier
 	
 func _on_dialogic_signal(argument: String):
 	if argument == "gg":
@@ -96,5 +96,6 @@ func evaluate_tier_from_timer():
 		tier = "C"
 
 	GameState.numeral_system_tier = tier
-	tier_label.text = "Tier: %s" % tier
+	#tier_label.text = "Tier: %s" % tier
+	tier_label.text =  "Tier : " + GameState.numeral_system_tier
 	print("✅ Tier for this map: ", tier)

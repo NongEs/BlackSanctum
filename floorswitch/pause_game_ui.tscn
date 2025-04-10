@@ -92,7 +92,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vhyhl")
 
 [node name="UI" type="VBoxContainer" parent="MainMenu/PanelContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="HeaderLabel" type="Label" parent="MainMenu/PanelContainer/UI"]
@@ -300,6 +299,7 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="WishlistButton" type="Button" parent="MainMenu/PanelContainer/UI"]
+visible = false
 layout_mode = 2
 text = "❤ Support me ❤
 Wishlist my Game on Steam!"
@@ -310,7 +310,7 @@ layout_mode = 2
 
 [node name="QuitButton" type="Button" parent="MainMenu/PanelContainer/UI"]
 layout_mode = 2
-text = "Quit to Desktop"
+text = "Back To Lobby"
 
 [node name="Credits" type="VBoxContainer" parent="MainMenu/PanelContainer"]
 unique_name_in_owner = true
@@ -443,6 +443,7 @@ text = "Back to Main Menu"
 
 [node name="Settings" type="VBoxContainer" parent="MainMenu/PanelContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="HeaderLabel" type="Label" parent="MainMenu/PanelContainer/Settings"]

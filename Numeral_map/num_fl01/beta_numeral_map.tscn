@@ -1,4 +1,4 @@
-[gd_scene load_steps=183 format=3 uid="uid://c20pdnmph2fox"]
+[gd_scene load_steps=184 format=3 uid="uid://c20pdnmph2fox"]
 
 [ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="1_h102c"]
 [ext_resource type="Script" uid="uid://duatmv80k5n4m" path="res://Numeral_map/num_fl01/beta_numeral_map.gd" id="1_yaed8"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://b36i55qdyig80" path="res://newgen_assets/prepared asset/jesus_key.tscn" id="32_mpjuw"]
 [ext_resource type="Script" uid="uid://cqxxiqcet2j2n" path="res://floorswitch/first_floor_switch_2.gd" id="35_gbe4i"]
 [ext_resource type="PackedScene" uid="uid://yxwlw25ugb7w" path="res://asset/doorandgate/random_switch.tscn" id="38_ohkuo"]
+[ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Regular.ttf" id="40_arpcp"]
 [ext_resource type="Texture2D" uid="uid://b3jr5m6d3pv1y" path="res://keycard-diff.png" id="40_yaed8"]
 [ext_resource type="Script" uid="uid://wkv8heqeah7g" path="res://newgen_assets/map_scene/testcontrol.gd" id="42_0xr3g"]
 [ext_resource type="Texture2D" uid="uid://dhyr4kky7mqfd" path="res://addons/grid_texture/orange/texture_01.png" id="42_1nha0"]
@@ -86,9 +87,9 @@
 [ext_resource type="PackedScene" uid="uid://4lyd8ptcrhup" path="res://floorswitch/random_value_maker_hex.tscn" id="84_ohkuo"]
 [ext_resource type="PackedScene" uid="uid://lauc7egswra6" path="res://floorswitch/pause_game_ui.tscn" id="86_0xr3g"]
 [ext_resource type="Texture2D" uid="uid://s7jcemkbg6h4" path="res://floorswitch/Screenshot 2025-04-05 021703.png" id="86_m5e3b"]
-[ext_resource type="PackedScene" uid="uid://sbqhbha156g5" path="res://asset/Player/Player.tscn" id="86_ohkuo"]
 [ext_resource type="Script" uid="uid://c46bl0y0hc172" path="res://floorswitch/Last_floor_switch_a.gd" id="87_m5e3b"]
 [ext_resource type="Script" uid="uid://sgjxxfmbc4u4" path="res://floorswitch/last_floor_switch_b.gd" id="88_8lg0m"]
+[ext_resource type="PackedScene" uid="uid://bs0dhkkjae4ap" path="res://newplayer/player_2_0.tscn" id="90_arpcp"]
 
 [sub_resource type="Animation" id="Animation_p42kb"]
 length = 0.001
@@ -271,7 +272,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-7.30858, 9.69564, -10.7433)]
+"values": [Vector3(-7.02537, 8.0572, -9.48471)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -357,6 +358,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector3(2.22, 15, 0.046)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("HintLabel2:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.164463, -1.76955, -0.0752936)]
+}
 
 [sub_resource type="Animation" id="Animation_1hayl"]
 resource_name = "move_puzzle_a"
@@ -411,7 +424,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-7.30858, 9.69564, -10.7433), Vector3(-7.58699, 9.69564, -10.7433)]
+"values": [Vector3(-7.02537, 8.0572, -9.48471), Vector3(-7.70934, 8.0572, -9.48471)]
 }
 
 [sub_resource type="Animation" id="Animation_gbe4i"]
@@ -956,7 +969,7 @@ _data = {
 
 [node name="beta_numeral_map" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_yaed8")
-player = NodePath("Player")
+player = NodePath("Player_2_0")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -997,7 +1010,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 1625.0
 offset_top = -504.5
-offset_right = -180.0
+offset_right = -179.0
 offset_bottom = -416.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -1037,7 +1050,6 @@ grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 50
-text = "Unranked"
 horizontal_alignment = 1
 
 [node name="TierRankLabel" type="Label" parent="UI/Control"]
@@ -1054,7 +1066,6 @@ grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 50
-text = "Tier :"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI/Control"]
@@ -1076,6 +1087,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_kjkdr")
 }
 autoplay = "float_disk"
+
+[node name="Player_2_0" parent="." instance=ExtResource("90_arpcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16246, 36.0963)
 
 [node name="PrototypeMap_1" type="Node3D" parent="."]
 
@@ -1607,6 +1621,30 @@ transform = Transform3D(0.755476, 0, -0.655176, 0, 1, 0, 0.655176, 0, 0.755476, 
 [node name="rock_small3" parent="PrototypeMap_1/StaticBody3D" instance=ExtResource("8_i8fpu")]
 transform = Transform3D(0.966636, 0, -0.256154, 0, 1, 0, 0.256154, 0, 0.966636, -29.4466, 4.25093, -17.5146)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.36155, 8.24856, -7.62571)
+omni_range = 5.87853
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8951, 8.24856, 6.0018)
+omni_range = 7.86984
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.45688, 7.24477, -20.6329)
+omni_range = 8.58879
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00104, 7.0994, -17.1665)
+omni_range = 8.58879
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.72, 7.48378, -19.7001)
+omni_range = 8.58879
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63887, 9.12518, 4.33484)
+omni_range = 8.58879
+
 [node name="ButtonFloorOne" type="Node3D" parent="PrototypeMap_1"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PrototypeMap_1/ButtonFloorOne"]
@@ -1656,11 +1694,11 @@ text = "Take Key!"
 font_size = 150
 
 [node name="HintLabel4" type="Label3D" parent="PrototypeMap_1/ButtonFloorOne"]
-transform = Transform3D(0.0218531, 0.0257354, 1.10925, 0.0120176, 1.1094, -0.0259755, -1.10949, 0.0125243, 0.0215671, -24.0154, 7.0495, 5.89082)
+transform = Transform3D(0.0218531, 0.0257354, 1.10925, 0.0120176, 1.1094, -0.0259755, -1.10949, 0.0125243, 0.0215671, -24.0154, 7.0495, 5.98477)
 text = "Match the decimal value to
 Open the DOOR!
 "
-font_size = 80
+font_size = 65
 
 [node name="HintLabel5" type="Label3D" parent="PrototypeMap_1/ButtonFloorOne"]
 transform = Transform3D(-0.010195, -0.0258655, -1.10942, 0.0120176, 1.1094, -0.0259755, 1.10966, -0.0122532, -0.00991147, -5.75693, 7.29625, -21.2776)
@@ -1687,23 +1725,23 @@ transform = Transform3D(-0.010195, -0.0258655, -1.10942, 0.0120176, 1.1094, -0.0
 text = "Find Activate Button to use 
 This Puzzle.
 "
-font_size = 80
+font_size = 64
 
 [node name="Hintlabox" type="Label3D" parent="PrototypeMap_1/ButtonFloorOne"]
-transform = Transform3D(0.480382, -0.0056137, -0.012383, 0.00534609, 0.480432, -0.0103921, 0.0125007, 0.0102502, 0.480302, 7.59252, 7.67674, 1.33262)
+transform = Transform3D(0.480382, -0.0056137, -0.012383, 0.00534609, 0.480432, -0.0103921, 0.0125007, 0.0102502, 0.480302, 8.01947, 7.67674, 1.33262)
 text = "This is Random Switch
 "
 font_size = 150
 
 [node name="Hintlabox2" type="Label3D" parent="PrototypeMap_1/ButtonFloorOne"]
-transform = Transform3D(0.480382, -0.0056137, -0.012383, 0.00534609, 0.480432, -0.0103921, 0.0125007, 0.0102502, 0.480302, 7.59252, 5.80382, 1.33262)
+transform = Transform3D(0.480382, -0.0056137, -0.012383, 0.00534609, 0.480432, -0.0103921, 0.0125007, 0.0102502, 0.480302, 8.36216, 5.80382, 1.33262)
 text = "Press to random before 
 Solve this puzzle.
 "
 font_size = 120
 
 [node name="BinaryDescription" type="Label3D" parent="PrototypeMap_1/ButtonFloorOne"]
-transform = Transform3D(0.478566, -0.0243513, 0.0365146, 0.0219105, 0.478988, 0.0322668, -0.0380292, -0.0304671, 0.478097, -3.16825, 6.36072, 2.7528)
+transform = Transform3D(0.478566, -0.0243513, 0.0365146, 0.0219105, 0.478988, 0.0322668, -0.0380292, -0.0304671, 0.478097, -3.16825, 7.99248, 2.7528)
 text = "Task - Binary Land
 1.Collect 2 Key and 
 go to next Area.
@@ -1711,6 +1749,7 @@ go to next Area.
 puzzle to get all keys.
 3.Find activate button to 
 activate the Puzzle."
+font = ExtResource("40_arpcp")
 font_size = 150
 
 [node name="Door2" parent="PrototypeMap_1/ButtonFloorOne" instance=ExtResource("30_ytd1h")]
@@ -1720,7 +1759,7 @@ transform = Transform3D(1.32424, 0, 0, 0, 1.32424, 0, 0, 0, 1.32424, -9.86286, 3
 transform = Transform3D(0.380925, 0, -0.924606, 0, 1, 0, 0.924606, 0, 0.380925, -9.97374, 4.57343, -2.29289)
 
 [node name="HintLabel2" type="Label3D" parent="PrototypeMap_1/ButtonFloorOne"]
-transform = Transform3D(-0.0888191, -0.0840511, -0.464756, 0.136592, 0.448122, -0.107147, 0.452113, -0.151898, -0.0589319, -7.30858, 9.69564, -10.7433)
+transform = Transform3D(-0.0888175, -0.084051, -0.464756, -0.0356623, 0.472746, -0.0786808, 0.470948, 0.019947, -0.0936078, -7.02537, 8.0572, -9.48471)
 text = "66
 "
 font_size = 150
@@ -2882,11 +2921,6 @@ transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767
 transform = Transform3D(-0.0079924, -0.993745, 0.111391, 0.0711193, -0.111677, -0.991196, 0.997436, 0, 0.071567, 0, 41.4061, 35.1579)
 
 [node name="PauseGame_UI" parent="." instance=ExtResource("86_0xr3g")]
-
-[node name="Player" parent="." instance=ExtResource("86_ohkuo")]
-transform = Transform3D(0.926825, 0, -0.375496, 0, 1, 0, 0.375496, 0, 0.926825, 0.789184, 2.47976, 32.5629)
-speed = 14.0
-jump = 18.0
 
 [node name="keeper" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.1137, 26.9162, 11.6797)
