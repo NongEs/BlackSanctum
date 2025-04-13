@@ -1089,7 +1089,8 @@ libraries = {
 autoplay = "float_disk"
 
 [node name="Player_2_0" parent="." instance=ExtResource("90_arpcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16246, 36.0963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.518, 34.2195, -32.4951)
+jump_height = 14.0
 
 [node name="PrototypeMap_1" type="Node3D" parent="."]
 
@@ -1759,7 +1760,7 @@ transform = Transform3D(1.32424, 0, 0, 0, 1.32424, 0, 0, 0, 1.32424, -9.86286, 3
 transform = Transform3D(0.380925, 0, -0.924606, 0, 1, 0, 0.924606, 0, 0.380925, -9.97374, 4.57343, -2.29289)
 
 [node name="HintLabel2" type="Label3D" parent="PrototypeMap_1/ButtonFloorOne"]
-transform = Transform3D(-0.0888175, -0.084051, -0.464756, -0.0356623, 0.472746, -0.0786808, 0.470948, 0.019947, -0.0936078, -7.02537, 8.0572, -9.48471)
+transform = Transform3D(-0.0888175, -0.084051, -0.464756, -0.0356622, 0.472746, -0.0786808, 0.470948, 0.019947, -0.0936078, -7.02537, 8.0572, -9.48471)
 text = "66
 "
 font_size = 150
@@ -2365,13 +2366,13 @@ use_collision = true
 size = Vector3(1.42043, 7.2847, 1.37749)
 
 [node name="CSGBox3D40" type="CSGBox3D" parent="PrototypeMap_3/BoxProto"]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -16.2935, 5.36475, -40.3946)
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -16.2935, 4.67867, -40.3946)
 material_override = SubResource("StandardMaterial3D_3afwq")
 use_collision = true
 size = Vector3(1.42043, 7.2847, 1.37749)
 
 [node name="CSGBox3D41" type="CSGBox3D" parent="PrototypeMap_3/BoxProto"]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -3.36845, 7.78036, -40.1897)
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -3.36845, 6.44551, -40.1897)
 material_override = SubResource("StandardMaterial3D_kgc37")
 use_collision = true
 size = Vector3(1.71803, 7.2847, 1.37749)
@@ -2394,11 +2395,23 @@ material_override = SubResource("StandardMaterial3D_x5qeb")
 use_collision = true
 size = Vector3(1.64734, 7.2847, 1.25234)
 
+[node name="CSGBox3D67" type="CSGBox3D" parent="PrototypeMap_3/BoxProto"]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 2.86229, 8.20749, -39.0407)
+material_override = SubResource("StandardMaterial3D_x5qeb")
+use_collision = true
+size = Vector3(1.64734, 7.2847, 1.25234)
+
 [node name="CSGBox3D45" type="CSGBox3D" parent="PrototypeMap_3/BoxProto"]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 24.5408, 15.0355, -38.5401)
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 24.5408, 14.0561, -38.5401)
 material_override = SubResource("StandardMaterial3D_ssqgw")
 use_collision = true
-size = Vector3(1.68922, 7.2847, 1.37749)
+size = Vector3(1.68922, 5.32582, 1.37749)
+
+[node name="CSGBox3D68" type="CSGBox3D" parent="PrototypeMap_3/BoxProto"]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 24.5408, 15.6923, -30.716)
+material_override = SubResource("StandardMaterial3D_ssqgw")
+use_collision = true
+size = Vector3(1.68922, 5.32582, 1.37749)
 
 [node name="CSGBox3D46" type="CSGBox3D" parent="PrototypeMap_3/BoxProto"]
 transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 24.6546, 17.6318, -25.2974)
@@ -2574,7 +2587,7 @@ transform = Transform3D(0.938215, 0, -0.346052, 0, 1, 0, 0.346052, 0, 0.938215, 
 transform = Transform3D(0.938215, 0, -0.346052, 0, 1, 0, 0.346052, 0, 0.938215, -16.8716, 2.7385, -12.8966)
 
 [node name="RandomValueMakerHex3" parent="PrototypeMap_3/ButtonProto" instance=ExtResource("84_ohkuo")]
-transform = Transform3D(0.938215, 0, -0.346052, 0, 1, 0, 0.346052, 0, 0.938215, -16.8716, 7.97427, -41.0481)
+transform = Transform3D(0.938215, 0, -0.346052, 0, 1, 0, 0.346052, 0, 0.938215, -16.8716, 4.15227, -41.0481)
 
 [node name="RandomValueMakerHex4" parent="PrototypeMap_3/ButtonProto" instance=ExtResource("84_ohkuo")]
 transform = Transform3D(0.938215, 0, -0.346052, 0, 1, 0, 0.346052, 0, 0.938215, 16.7959, 2.7385, 2.36711)

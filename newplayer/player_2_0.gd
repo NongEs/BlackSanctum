@@ -63,14 +63,14 @@ func _physics_process(delta: float) -> void:
 	
 	direction_input()
 	
-#	if is_on_floor():
-#		if Input.is_action_just_pressed(&"jump"):
-#			velocity.y = jump_height
+	if is_on_floor():
+		if Input.is_action_just_pressed(&"jump"):
+			velocity.y = jump_height
 			
 	if not is_on_floor_only():
 		velocity.y -= gravity * delta
 	elif moving:
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed(&"jump"):
 			velocity.y = jump_height
 		elif Input.is_action_pressed("crouch") or top_cast.is_colliding():
 			move_speed = crouch_speed
