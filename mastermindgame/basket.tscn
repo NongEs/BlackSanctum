@@ -1,0 +1,284 @@
+[gd_scene load_steps=17 format=3 uid="uid://335wn80ljykg"]
+
+[ext_resource type="Script" uid="uid://eyvo4xspgs6s" path="res://mastermindgame/basket.gd" id="1_1aski"]
+[ext_resource type="Texture2D" uid="uid://c435jumq6lkn1" path="res://addons/grid_texture/orange/texture_10.png" id="1_gny44"]
+[ext_resource type="Texture2D" uid="uid://cpfdkqahm36qh" path="res://addons/grid_texture/red/texture_10.png" id="2_ifsy0"]
+[ext_resource type="Texture2D" uid="uid://be1tgmn0ejums" path="res://addons/grid_texture/green/texture_10.png" id="3_1aski"]
+[ext_resource type="Texture2D" uid="uid://b5j6vcpns6fu4" path="res://addons/grid_texture/purple/texture_10.png" id="4_t874o"]
+[ext_resource type="Texture2D" uid="uid://cfm1bun428jxq" path="res://addons/grid_texture/dark/texture_09.png" id="5_q3a7g"]
+[ext_resource type="PackedScene" uid="uid://ctyuhr464kaak" path="res://mastermindgame/clear_button.tscn" id="7_t874o"]
+[ext_resource type="PackedScene" uid="uid://b8tqb72i02b74" path="res://mastermindgame/start_button.tscn" id="8_t874o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qf454"]
+size = Vector3(1, 1, 0.253174)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydmyt"]
+albedo_texture = ExtResource("1_gny44")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl421"]
+albedo_texture = ExtResource("1_gny44")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t21av"]
+size = Vector3(1.7959, 1.90881, 1.63867)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax0ja"]
+albedo_texture = ExtResource("2_ifsy0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xo2wl"]
+albedo_texture = ExtResource("3_1aski")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5hhv"]
+albedo_texture = ExtResource("4_t874o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cc7o3"]
+albedo_texture = ExtResource("5_q3a7g")
+
+[node name="Basket" type="StaticBody3D" node_paths=PackedStringArray("answer_areas", "answer_labels", "timer", "running_timer_label", "countdown_timer_label", "question_label", "question_label_2", "question_label_3", "question_label_4", "correct_answer_labels", "break_status_label", "result_labels", "score_label")]
+script = ExtResource("1_1aski")
+delete_button = NodePath("ClearButton")
+answer_areas = [NodePath("basketbox/BasketReceiver/Area3D1"), NodePath("basketbox2/BasketReceiver/Area3D2"), NodePath("basketbox3/BasketReceiver/Area3D3"), NodePath("basketbox4/BasketReceiver/Area3D4")]
+answer_labels = [NodePath("basketbox/DisplayLabel1"), NodePath("basketbox2/DisplayLabel2"), NodePath("basketbox3/DisplayLabel3"), NodePath("basketbox4/DisplayLabel4")]
+timer = NodePath("Timer")
+running_timer_label = NodePath("Question/RunningLabel")
+countdown_timer_label = NodePath("Question/CountdownLabel")
+start_button = NodePath("StartButton")
+question_label = NodePath("Question/QuestionLabel")
+question_label_2 = NodePath("Question/QuestionLabel2")
+question_label_3 = NodePath("Question/QuestionLabel3")
+question_label_4 = NodePath("Question/QuestionLabel4")
+correct_answer_labels = [NodePath("Question/Correct1"), NodePath("Question/Correct2"), NodePath("Question/Correct3"), NodePath("Question/Correct4")]
+break_status_label = NodePath("Question/StatusLabel")
+result_labels = [NodePath("Question/truewrong"), NodePath("Question/truewrong2"), NodePath("Question/truewrong3"), NodePath("Question/truewrong4")]
+score_label = NodePath("Question/ScoreLabel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00387883, 0.834302)
+shape = SubResource("BoxShape3D_qf454")
+
+[node name="basketbox" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.536194, 0, 0)
+
+[node name="BasketReceiver" type="CSGBox3D" parent="basketbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.212891, 0)
+material_override = SubResource("StandardMaterial3D_ydmyt")
+use_collision = true
+size = Vector3(2.07715, 1.89844, 2.02173)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="basketbox/BasketReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2877, -0.214718)
+material_override = SubResource("StandardMaterial3D_nl421")
+operation = 2
+use_collision = true
+size = Vector3(1.78418, 2.18506, 1.81348)
+
+[node name="Area3D1" type="Area3D" parent="basketbox/BasketReceiver"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="basketbox/BasketReceiver/Area3D1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0363159, -0.126953)
+shape = SubResource("BoxShape3D_t21av")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="basketbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011322, 1.14545, 0.552648)
+material_override = SubResource("StandardMaterial3D_ax0ja")
+size = Vector3(1.81927, 1.51953, 0.444458)
+
+[node name="DisplayLabel1" type="Label3D" parent="basketbox"]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 1.19247, 0.319352)
+text = "null"
+font_size = 100
+
+[node name="basketbox2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83959, 0, 0)
+
+[node name="BasketReceiver" type="CSGBox3D" parent="basketbox2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.212891, 0)
+material_override = SubResource("StandardMaterial3D_xo2wl")
+use_collision = true
+size = Vector3(2.07715, 1.89844, 2.02173)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="basketbox2/BasketReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2877, -0.214718)
+material_override = SubResource("StandardMaterial3D_nl421")
+operation = 2
+use_collision = true
+size = Vector3(1.78418, 2.18506, 1.81348)
+
+[node name="Area3D2" type="Area3D" parent="basketbox2/BasketReceiver"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="basketbox2/BasketReceiver/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0363159, -0.126953)
+shape = SubResource("BoxShape3D_t21av")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="basketbox2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011322, 1.14545, 0.552648)
+material_override = SubResource("StandardMaterial3D_ax0ja")
+size = Vector3(1.81927, 1.51953, 0.444458)
+
+[node name="DisplayLabel2" type="Label3D" parent="basketbox2"]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 1.19247, 0.319352)
+text = "null"
+font_size = 100
+
+[node name="basketbox3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.20179, 0, 0)
+
+[node name="BasketReceiver" type="CSGBox3D" parent="basketbox3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.212891, 0)
+material_override = SubResource("StandardMaterial3D_w5hhv")
+use_collision = true
+size = Vector3(2.07715, 1.89844, 2.02173)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="basketbox3/BasketReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2877, -0.214718)
+material_override = SubResource("StandardMaterial3D_nl421")
+operation = 2
+use_collision = true
+size = Vector3(1.78418, 2.18506, 1.81348)
+
+[node name="Area3D3" type="Area3D" parent="basketbox3/BasketReceiver"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="basketbox3/BasketReceiver/Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0363159, -0.126953)
+shape = SubResource("BoxShape3D_t21av")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="basketbox3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011322, 1.14545, 0.552648)
+material_override = SubResource("StandardMaterial3D_ax0ja")
+size = Vector3(1.81927, 1.51953, 0.444458)
+
+[node name="DisplayLabel3" type="Label3D" parent="basketbox3"]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 1.19247, 0.319352)
+text = "null"
+font_size = 100
+
+[node name="basketbox4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5794, 0, 0)
+
+[node name="BasketReceiver" type="CSGBox3D" parent="basketbox4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.212891, 0)
+material_override = SubResource("StandardMaterial3D_cc7o3")
+use_collision = true
+size = Vector3(2.07715, 1.89844, 2.02173)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="basketbox4/BasketReceiver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2877, -0.214718)
+material_override = SubResource("StandardMaterial3D_nl421")
+operation = 2
+use_collision = true
+size = Vector3(1.78418, 2.18506, 1.81348)
+
+[node name="Area3D4" type="Area3D" parent="basketbox4/BasketReceiver"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="basketbox4/BasketReceiver/Area3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0363159, -0.126953)
+shape = SubResource("BoxShape3D_t21av")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="basketbox4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011322, 1.14545, 0.552648)
+material_override = SubResource("StandardMaterial3D_ax0ja")
+size = Vector3(1.81927, 1.51953, 0.444458)
+
+[node name="DisplayLabel4" type="Label3D" parent="basketbox4"]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 1.19247, 0.319352)
+text = "null"
+font_size = 100
+
+[node name="Question" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Question"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10815, 3.17653, 1.04563)
+size = Vector3(9.94043, 3.81738, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Question"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02612, 4.90656, 1.13726)
+size = Vector3(4.13281, 3.81738, 1)
+
+[node name="QuestionLabel" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.593024, 3.47815, 0.473299)
+text = "question"
+font_size = 80
+
+[node name="Correct1" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.631848, 2.48542, 0.473299)
+text = "answer"
+font_size = 80
+
+[node name="truewrong" type="Label3D" parent="Question"]
+transform = Transform3D(-0.683924, 0, -5.97905e-08, 0, 0.683924, 0, 5.97905e-08, 0, -0.683924, 0.631848, 2.96068, 0.473299)
+text = "?"
+font_size = 80
+
+[node name="truewrong2" type="Label3D" parent="Question"]
+transform = Transform3D(-0.683924, 0, -5.97905e-08, 0, 0.683924, 0, 5.97905e-08, 0, -0.683924, -1.80555, 2.96068, 0.473299)
+text = "?"
+font_size = 80
+
+[node name="truewrong3" type="Label3D" parent="Question"]
+transform = Transform3D(-0.683924, 0, -5.97905e-08, 0, 0.683924, 0, 5.97905e-08, 0, -0.683924, -4.23812, 2.96068, 0.473299)
+text = "?"
+font_size = 80
+
+[node name="truewrong4" type="Label3D" parent="Question"]
+transform = Transform3D(-0.683924, 0, -5.97905e-08, 0, 0.683924, 0, 5.97905e-08, 0, -0.683924, -6.59808, 2.96068, 0.473299)
+text = "?"
+font_size = 80
+
+[node name="QuestionLabel2" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.88455, 3.50208, 0.473299)
+text = "question"
+font_size = 80
+
+[node name="Correct2" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.76506, 2.48542, 0.473299)
+text = "answer"
+font_size = 80
+
+[node name="QuestionLabel3" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.25219, 3.45755, 0.473299)
+text = "question"
+font_size = 80
+
+[node name="Correct3" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.25213, 2.48542, 0.473299)
+text = "answer"
+font_size = 80
+
+[node name="QuestionLabel4" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.65975, 3.44591, 0.473299)
+text = "question"
+font_size = 80
+
+[node name="Correct4" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.67572, 2.48542, 0.473299)
+text = "answer"
+font_size = 80
+
+[node name="CountdownLabel" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.51244, 4.5965, 0.473299)
+text = "00"
+font_size = 80
+
+[node name="RunningLabel" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.846166, 4.5991, 0.473299)
+text = "00:00"
+font_size = 80
+
+[node name="StatusLabel" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.97614, 4.5991, 0.473299)
+text = "Status"
+font_size = 80
+
+[node name="ScoreLabel" type="Label3D" parent="Question"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.97614, 5.95096, 0.473299)
+text = "score"
+font_size = 80
+
+[node name="ClearButton" parent="." instance=ExtResource("7_t874o")]
+transform = Transform3D(5.73206e-16, 1.31134e-08, -0.3, 0.272122, 0.126292, 5.52039e-09, 0.126292, -0.272122, -1.18948e-08, -3.65622, -1.08726, -0.962482)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="StartButton" parent="." instance=ExtResource("8_t874o")]
+transform = Transform3D(-3.39687e-09, 1.26773e-08, -0.300253, 0.271827, 0.127524, 2.30904e-09, 0.127524, -0.271827, -1.29198e-08, -2.39609, -1.12081, -0.889109)

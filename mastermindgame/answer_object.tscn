@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3blaug1epmed"]
+
+[ext_resource type="Script" uid="uid://d3ewbtg2ycfpq" path="res://mastermindgame/answer_object.gd" id="1_207k4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycw3h"]
+albedo_color = Color(0, 0.4, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_207k4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ylafo"]
+
+[node name="AnswerObject" type="RigidBody3D"]
+script = ExtResource("1_207k4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ycw3h")
+mesh = SubResource("SphereMesh_207k4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.17953, 0, 0, 0, 1.17953, 0, 0, 0, 1.17953, 0, 0, 0)
+shape = SubResource("SphereShape3D_ylafo")

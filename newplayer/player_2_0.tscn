@@ -29,11 +29,15 @@ bg_color = Color(0.921569, 0.337255, 0.294118, 1)
 corner_radius_bottom_left = 10
 corner_detail = 1
 
-[node name="Player_2_0" type="CharacterBody3D" node_paths=PackedStringArray("headbob_camera", "camera")]
+[node name="Player_2_0" type="CharacterBody3D" node_paths=PackedStringArray("headbob_camera", "camera", "interaction", "hand", "joint", "staticbody")]
 script = ExtResource("1_b8tln")
 headbob_camera = NodePath("Head/Camera3D")
 headbob_amplitude = 0.07
 camera = NodePath("Head/Camera3D")
+interaction = NodePath("Head/InteractRay")
+hand = NodePath("Head/hand")
+joint = NodePath("Head/Generic6DOFJoint3D")
+staticbody = NodePath("Head/StaticBody3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -42,6 +46,18 @@ shape = SubResource("CapsuleShape3D_o6npf")
 [node name="Head" parent="." instance=ExtResource("2_ejhwp")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="hand" type="Marker3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.14511)
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Head"]
+node_a = NodePath("../StaticBody3D")
+linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.145)
 
 [node name="TopCast" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

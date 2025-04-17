@@ -77,6 +77,10 @@ func _on_key_update(key, value):
 		timer_running = false
 		evaluate_tier_from_timer()
 		Dialogic.start("numeral_system_dialog","thirteenkeyscollected")
+		await Dialogic.timeline_ended
+		await get_tree().create_timer(5.0).timeout
+		LoaderManager.change_level("res://newgen_assets/Lobby_all/main_character_menu.tscn")
+			
 func evaluate_tier_from_timer():
 	var time = GameState.numeral_system_timer
 	

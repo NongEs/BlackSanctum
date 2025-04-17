@@ -1,0 +1,151 @@
+[gd_scene load_steps=25 format=3 uid="uid://dl1u5745720u6"]
+
+[ext_resource type="Shader" uid="uid://do3pgsk0tw5x1" path="res://newgen_assets/shadergs/stylized_sky.gdshader" id="1_1t833"]
+[ext_resource type="Script" uid="uid://bc4kbci77koxt" path="res://mastermindgame/master_mind_map.gd" id="1_xjp6k"]
+[ext_resource type="Texture2D" uid="uid://dwix53shrh100" path="res://asset/particleEffect/shooting_star_sampler.png" id="2_2d16p"]
+[ext_resource type="Texture2D" uid="uid://cboor26ln3y5c" path="res://addons/grid_texture/dark/texture_13.png" id="3_2d16p"]
+[ext_resource type="PackedScene" uid="uid://bs0dhkkjae4ap" path="res://newplayer/player_2_0.tscn" id="4_bsi1v"]
+[ext_resource type="Texture2D" uid="uid://be1tgmn0ejums" path="res://addons/grid_texture/green/texture_10.png" id="5_w5gbg"]
+[ext_resource type="PackedScene" uid="uid://dc1htwboysfco" path="res://mastermindgame/summon_switch.tscn" id="6_fwsiy"]
+[ext_resource type="PackedScene" uid="uid://b3blaug1epmed" path="res://mastermindgame/answer_object.tscn" id="7_fwsiy"]
+[ext_resource type="Texture2D" uid="uid://cpfdkqahm36qh" path="res://addons/grid_texture/red/texture_10.png" id="7_xfvxx"]
+[ext_resource type="PackedScene" uid="uid://335wn80ljykg" path="res://mastermindgame/basket.tscn" id="10_xfvxx"]
+
+[sub_resource type="Curve" id="Curve_bsi1v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qsvoe"]
+curve = SubResource("Curve_bsi1v")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xjp6k"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u5u8n"]
+seamless = true
+noise = SubResource("FastNoiseLite_xjp6k")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gmkx1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c7alj"]
+seamless = true
+noise = SubResource("FastNoiseLite_gmkx1")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6mner"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mn5kc"]
+seamless = true
+noise = SubResource("FastNoiseLite_6mner")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5gbg"]
+shader = ExtResource("1_1t833")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_c7alj")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_u5u8n")
+shader_parameter/cloud_curves = SubResource("CurveTexture_qsvoe")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.4
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.05
+shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
+shader_parameter/clouds_shadow_intensity = 8.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_mn5kc")
+shader_parameter/high_clouds_density = 0.1
+shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
+shader_parameter/sun_scatter = Color(0.12549, 0.0862745, 0.372549, 1)
+shader_parameter/astro_tint = Color(1, 1, 1, 1)
+shader_parameter/astro_scale = 10.0
+shader_parameter/astro_intensity = 1.2
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 10.0
+shader_parameter/shooting_star_sampler = ExtResource("2_2d16p")
+shader_parameter/shooting_star_tint = Color(1, 1, 0.666667, 1)
+
+[sub_resource type="Sky" id="Sky_pcx0u"]
+sky_material = SubResource("ShaderMaterial_w5gbg")
+
+[sub_resource type="Environment" id="Environment_fwsiy"]
+background_mode = 2
+sky = SubResource("Sky_pcx0u")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsi1v"]
+albedo_texture = ExtResource("3_2d16p")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbhtw"]
+albedo_texture = ExtResource("5_w5gbg")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ueyb1"]
+albedo_texture = ExtResource("7_xfvxx")
+uv1_triplanar = true
+
+[node name="MasterMindMap" type="Node3D"]
+script = ExtResource("1_xjp6k")
+
+[node name="environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+environment = SubResource("Environment_fwsiy")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="environment"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, -4.59869)
+light_color = Color(1, 0.952941, 0.929412, 1)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59031, 0, 1.38499)
+material_override = SubResource("StandardMaterial3D_bsi1v")
+use_collision = true
+size = Vector3(36.1731, 1, 34.8911)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="BoxW" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.57213, 2.97304, 2.90993)
+material_override = SubResource("StandardMaterial3D_qbhtw")
+use_collision = true
+size = Vector3(0.792755, 5.44421, 1.86563)
+
+[node name="Label1" type="Label3D" parent="Node3D/BoxW"]
+transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, 0.423301, 1.87253, 1.86348e-08)
+text = "1"
+font_size = 100
+
+[node name="SummonSwitch1" parent="Node3D/BoxW" node_paths=PackedStringArray("spawn_position") instance=ExtResource("6_fwsiy")]
+transform = Transform3D(-1.96956e-08, 0, 0.450583, 0, 0.450583, 0, -0.450583, 0, -1.96956e-08, 0, 0.841425, 0)
+object_scene = ExtResource("7_fwsiy")
+spawn_position = NodePath("../Marker3D1")
+spawn_value = 1
+
+[node name="Marker3D1" type="Marker3D" parent="Node3D/BoxW"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="BoxO" type="CSGBox3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70596, 2.97304, -3.61471)
+material_override = SubResource("StandardMaterial3D_ueyb1")
+use_collision = true
+size = Vector3(0.792755, 5.44421, 1.86563)
+
+[node name="Label0" type="Label3D" parent="Node3D/BoxO"]
+transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, 0.423301, 1.87253, -0.0758431)
+text = "0"
+font_size = 100
+
+[node name="SummonSwitch0" parent="Node3D/BoxO" node_paths=PackedStringArray("spawn_position") instance=ExtResource("6_fwsiy")]
+transform = Transform3D(-1.96956e-08, 0, 0.450583, 0, 0.450583, 0, -0.450583, 0, -1.96956e-08, -2.83688e-07, 0.841425, 0.0346022)
+object_scene = ExtResource("7_fwsiy")
+spawn_position = NodePath("../Marker3D2")
+
+[node name="Marker3D2" type="Marker3D" parent="Node3D/BoxO"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.0686593)
+
+[node name="Player_2_0" parent="." instance=ExtResource("4_bsi1v")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 0, 2.64926, 0)
+
+[node name="Basket" parent="." instance=ExtResource("10_xfvxx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.55431, 3.84362, -4.10457)

@@ -14,6 +14,7 @@ func _enter_tree():
 func _ready() -> void:
 	#"Tier: " +
 	#"Best Time:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	tier_label.text =  GameState.numeral_system_tier
 	time_best.text = " %.2f s" % GameState.numeral_system_timer
 	%MSAAOptionButton.add_item("Disabled", 0)

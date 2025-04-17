@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc1htwboysfco"]
+
+[ext_resource type="Script" uid="uid://cyrkqf77i6f22" path="res://mastermindgame/summon_switch.gd" id="1_hgg55"]
+[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="1_mkbc0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgg55"]
+albedo_color = Color(0, 0.1, 0.0716667, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8fnyx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6sqj2"]
+size = Vector3(2.1568, 1.79712, 2.21585)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7i84"]
+albedo_color = Color(0.783333, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0ju4s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0emx"]
+albedo_texture = ExtResource("1_mkbc0")
+
+[sub_resource type="PrismMesh" id="PrismMesh_jgf6l"]
+
+[node name="SummonSwitch" type="StaticBody3D"]
+script = ExtResource("1_hgg55")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95623, 0, 0, 0, 1.72376, 0, 0, 0, 1.7662, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hgg55")
+mesh = SubResource("BoxMesh_8fnyx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262146, 0.000366211, 0.0767361)
+shape = SubResource("BoxShape3D_6sqj2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.13142)
+material_override = SubResource("StandardMaterial3D_g7i84")
+mesh = SubResource("CylinderMesh_0ju4s")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115372, 0, 0.600462)
+material_override = SubResource("StandardMaterial3D_r0emx")
+mesh = SubResource("PrismMesh_jgf6l")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

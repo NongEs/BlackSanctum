@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctyuhr464kaak"]
+
+[ext_resource type="Script" uid="uid://cueh0bgy4cf52" path="res://mastermindgame/clear_button.gd" id="1_jxcav"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iovel"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bmal7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmal7"]
+size = Vector3(2.1568, 1.79712, 3.7063)
+
+[node name="ClearButton" type="StaticBody3D"]
+script = ExtResource("1_jxcav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.95623, 0, 0, 0, 1.72376, 0, 0, 0, 3.62202, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_iovel")
+mesh = SubResource("BoxMesh_bmal7")
+
+[node name="DecimalTell" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.913252, 0)
+text = "Delete"
+font_size = 150
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262146, 0.000366211, 0.0203857)
+shape = SubResource("BoxShape3D_bmal7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

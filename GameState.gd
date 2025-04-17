@@ -9,6 +9,9 @@ var state := {
 var numeral_system_timer := 0.0
 var numeral_system_tier := "Unranked"
 
+# Global score สำหรับ logic gate game
+var logic_gate_score := 0
+
 signal state_changed(key, value)
 
 func has_value(key):

@@ -36,32 +36,32 @@ uv1_world_triplanar = true
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_qsvoe"]
+[sub_resource type="CurveTexture" id="CurveTexture_4sg52"]
 curve = SubResource("Curve_qjnju")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mt2s1"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u5u8n"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_573xw"]
 seamless = true
 noise = SubResource("FastNoiseLite_mt2s1")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g1ra7"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c7alj"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wsagg"]
 seamless = true
 noise = SubResource("FastNoiseLite_g1ra7")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_04vdl"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mn5kc"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8nrsm"]
 seamless = true
 noise = SubResource("FastNoiseLite_04vdl")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ucua4"]
 shader = ExtResource("2_unf6m")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_c7alj")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_u5u8n")
-shader_parameter/cloud_curves = SubResource("CurveTexture_qsvoe")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_wsagg")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_573xw")
+shader_parameter/cloud_curves = SubResource("CurveTexture_4sg52")
 shader_parameter/clouds_samples = 32
 shader_parameter/shadow_sample = 4
 shader_parameter/clouds_density = 0.4
@@ -69,7 +69,7 @@ shader_parameter/clouds_scale = 1.0
 shader_parameter/clouds_smoothness = 0.05
 shader_parameter/clouds_light_color = Color(0.227451, 0.447059, 1, 1)
 shader_parameter/clouds_shadow_intensity = 8.0
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_mn5kc")
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_8nrsm")
 shader_parameter/high_clouds_density = 0.1
 shader_parameter/top_color = Color(0.027451, 0.101961, 0.25098, 1)
 shader_parameter/bottom_color = Color(0.027451, 0.101961, 0.25098, 1)
@@ -82,12 +82,12 @@ shader_parameter/shooting_stars_intensity = 10.0
 shader_parameter/shooting_star_sampler = ExtResource("3_d5dpn")
 shader_parameter/shooting_star_tint = Color(1, 1, 0.666667, 1)
 
-[sub_resource type="Sky" id="Sky_pcx0u"]
+[sub_resource type="Sky" id="Sky_myftb"]
 sky_material = SubResource("ShaderMaterial_ucua4")
 
 [sub_resource type="Environment" id="Environment_o5e8m"]
 background_mode = 2
-sky = SubResource("Sky_pcx0u")
+sky = SubResource("Sky_myftb")
 tonemap_mode = 2
 glow_enabled = true
 

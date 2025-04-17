@@ -5,8 +5,15 @@ extends Node3D
 func _ready() -> void:
 	#audio_stream_player_3d.play()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	Dialogic.start("numeral_system_dialog","beginning")
-	
+	#Dialogic.start("numeral_system_dialog","beginning")
+	Dialogic.start("numeral_system_dialog","thirteenkeyscollected")
+	await Dialogic.timeline_ended
+
+	# รอเพิ่มอีก 5 วินาที
+	await get_tree().create_timer(5.0).timeout
+
+	# เปลี่ยนฉาก
+	LoaderManager.change_level("res://newgen_assets/Lobby_all/main_character_menu.tscn")
 	
 func _on_key_update(key, value):
 	if key == "key" and value == 2:

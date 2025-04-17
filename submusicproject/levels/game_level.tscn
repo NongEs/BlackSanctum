@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8f1ign6hpicr"]
+
+[ext_resource type="Texture2D" uid="uid://1e56iruoegy2" path="res://submusicproject/art/fnf-daddy-dearest-stage-background.jpg" id="1_22obh"]
+[ext_resource type="PackedScene" uid="uid://dfdglmltorqae" path="res://submusicproject/objects/key_listener.tscn" id="1_h3xak"]
+[ext_resource type="PackedScene" uid="uid://dpc13ucm0i8fg" path="res://submusicproject/levels/game_ui.tscn" id="2_l1p8s"]
+[ext_resource type="PackedScene" uid="uid://coqj034dvvbeu" path="res://submusicproject/objects/level_editor.tscn" id="4_1wrej"]
+
+[sub_resource type="Environment" id="Environment_i5mjo"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[node name="GameLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.04762, 1.04762)
+texture = ExtResource("1_22obh")
+
+[node name="KeyListener" parent="." instance=ExtResource("1_h3xak")]
+position = Vector2(-252, 430)
+scale = Vector2(2, 2)
+
+[node name="KeyListener2" parent="." instance=ExtResource("1_h3xak")]
+position = Vector2(-97, 420)
+scale = Vector2(2, 2)
+frame = 1
+
+[node name="KeyListener3" parent="." instance=ExtResource("1_h3xak")]
+position = Vector2(134, 422)
+scale = Vector2(2, 2)
+frame = 2
+
+[node name="KeyListener4" parent="." instance=ExtResource("1_h3xak")]
+position = Vector2(300, 436)
+scale = Vector2(2, 2)
+frame = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i5mjo")
+
+[node name="LevelEditor" parent="." instance=ExtResource("4_1wrej")]
+
+[node name="GameUI" parent="." instance=ExtResource("2_l1p8s")]
