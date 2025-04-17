@@ -1,8 +1,8 @@
 [gd_scene load_steps=34 format=3 uid="uid://cslatpc7ya57d"]
 
-[ext_resource type="PackedScene" uid="uid://drc61aql4uf6m" path="res://newgen_assets/map_scene/main_menu_bg.tscn" id="1_4r88r"]
 [ext_resource type="Script" uid="uid://brvvsnmwe7arr" path="res://floorswitch/Lobby_newest_uilobby.gd" id="1_ut51o"]
 [ext_resource type="PackedScene" uid="uid://c20pdnmph2fox" path="res://Numeral_map/num_fl01/beta_numeral_map.tscn" id="2_17jnm"]
+[ext_resource type="PackedScene" uid="uid://j3bce6x4itnp" path="res://mastermindgame/mockupbeta.tscn" id="3_17jnm"]
 [ext_resource type="FontFile" uid="uid://diqanchdadrul" path="res://newgen_assets/Misoka Soft Sans Font/Misoka.otf" id="4_17jnm"]
 [ext_resource type="Texture2D" uid="uid://dnmwi3wa2ftgb" path="res://asset/Universal UI/UI_button icon/next btn/next_defaultlight.png" id="11_v3ikv"]
 [ext_resource type="Texture2D" uid="uid://ciyi4jh7og0cm" path="res://asset/Universal UI/UI_button icon/next btn/next_press.png" id="12_16iyi"]
@@ -68,19 +68,18 @@ dec_to_bi_scene = ExtResource("2_17jnm")
 
 [node name="Background" type="Node3D" parent="."]
 
-[node name="MainMenuBg" parent="Background" instance=ExtResource("1_4r88r")]
-transform = Transform3D(0.996787, 0, 0.0800945, 0, 1, 0, -0.0800945, 0, 0.996787, 17.7176, 0, -28.1476)
+[node name="mockupbeta" parent="Background" instance=ExtResource("3_17jnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2632, -14.1546, -22.3113)
 
-[node name="Camera3D3" type="Camera3D" parent="Background/MainMenuBg"]
+[node name="Camera3D3" type="Camera3D" parent="Background/mockupbeta"]
 unique_name_in_owner = true
-transform = Transform3D(0.777766, 0.546574, -0.310383, -0.031413, 0.526987, 0.849293, 0.627769, -0.650801, 0.427042, -9.16593, 32.5126, 15.2899)
+transform = Transform3D(0.825548, 0.492692, -0.275181, -0.031413, 0.526987, 0.849293, 0.563457, -0.692487, 0.45053, -8.45741, 40.3299, 10.1387)
 current = true
 fov = 86.0
 far = 400.0
 
 [node name="TopicM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -135,25 +134,7 @@ texture_hover = ExtResource("18_6sbyg")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="DectoHex" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -620.0
-offset_top = 12.0
-offset_right = -480.0
-offset_bottom = 214.0
-grow_horizontal = 0
-texture_normal = ExtResource("19_266qf")
-texture_pressed = ExtResource("20_pspww")
-texture_hover = ExtResource("21_ms5qo")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="DecToOx" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
+[node name="LogicStage" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 1
@@ -167,42 +148,6 @@ grow_horizontal = 0
 texture_normal = ExtResource("22_uq6ju")
 texture_pressed = ExtResource("23_y16pf")
 texture_hover = ExtResource("24_7vnff")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="DecToRan" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -308.0
-offset_top = 12.0
-offset_right = -168.0
-offset_bottom = 214.0
-grow_horizontal = 0
-texture_normal = ExtResource("25_diw62")
-texture_pressed = ExtResource("26_ufgfy")
-texture_hover = ExtResource("27_8cgee")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="RanToDec" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -154.0
-offset_top = 12.0
-offset_right = -14.0
-offset_bottom = 214.0
-grow_horizontal = 0
-texture_normal = ExtResource("28_u4x1i")
-texture_pressed = ExtResource("29_h270l")
-texture_hover = ExtResource("30_crva3")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -1153,6 +1098,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ut51o")
 text = "FPS:"
 
 [connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Panel/DecToBiStage" to="." method="_on_dec_to_bi_stage_pressed"]
+[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Panel/LogicStage" to="." method="_on_logic_stage_pressed"]
 [connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
 [connection signal="pressed" from="ArtifactM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/UI/SettingsButton" to="." method="_on_settings_button_pressed"]

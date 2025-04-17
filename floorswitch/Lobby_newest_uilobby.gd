@@ -268,3 +268,7 @@ func _on_ssao_checkbox_pressed():
 
 func _on_dec_to_bi_stage_pressed() -> void:
 	LoaderManager.change_level("res://Numeral_map/num_fl01/beta_numeral_map.tscn")
+
+
+func _on_logic_stage_pressed() -> void:
+	LoaderManager.change_level("res://mastermindgame/master_mind_map.tscn")

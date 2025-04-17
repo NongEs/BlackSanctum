@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://j3bce6x4itnp"]
+
+[ext_resource type="Environment" uid="uid://ddvjlkh2h00qm" path="res://asset/Environment/World_Environment/es_nightmap_environment.tres" id="1_tk5v2"]
+[ext_resource type="PackedScene" uid="uid://c7jg4g3sqp1x0" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/FBX/Rock_Medium_3.fbx" id="2_mym2x"]
+[ext_resource type="PackedScene" uid="uid://1bag3eeiqg1r" path="res://newgen_assets/prepared asset/twisted_tree_main.tscn" id="3_s42t0"]
+[ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://newgen_assets/prepared asset/fireflyparticle.tscn" id="4_mym2x"]
+
+[node name="mockupbeta" type="Node3D"]
+
+[node name="MainLight" type="Node3D" parent="."]
+transform = Transform3D(0.791807, 0.209943, 0.573554, -0.262179, 0.96498, 0.00872654, -0.551636, -0.157284, 0.819121, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainLight"]
+transform = Transform3D(0.163791, 0.986495, -4.6915e-08, 0.493248, -0.0818955, 0.866025, 0.85433, -0.141847, -0.5, 0, 6, 3)
+light_color = Color(1, 0.9025, 0.85, 1)
+light_energy = 3.0
+light_indirect_energy = 0.5
+shadow_enabled = true
+shadow_bias = 0.008
+shadow_blur = 4.0
+directional_shadow_max_distance = 400.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_tk5v2")
+
+[node name="Rock_Medium_3" parent="." instance=ExtResource("2_mym2x")]
+transform = Transform3D(-2.0975, 0.579982, 7.69832, 0.367843, 7.97584, -0.500667, -7.71137, 0.222704, -2.11783, -3.93936, 3.05977, -0.228988)
+
+[node name="TwistedTreeMain" parent="." instance=ExtResource("3_s42t0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68983, 16.3438, -3.55911)
+
+[node name="fireflyparticle" parent="." instance=ExtResource("4_mym2x")]
+transform = Transform3D(2.87063, 0, 0, 0, 2.87063, 0, 0, 0, 2.87063, -12.7401, -0.0276961, 3.10283)
