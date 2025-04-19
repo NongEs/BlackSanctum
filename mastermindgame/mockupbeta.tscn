@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://j3bce6x4itnp"]
+[gd_scene load_steps=12 format=3 uid="uid://j3bce6x4itnp"]
 
+[ext_resource type="PackedScene" uid="uid://cseoi4fi54rav" path="res://matercaveproject/cave_scenes/prepared/tiles_combined_low_section.tscn" id="1_12rcn"]
 [ext_resource type="Environment" uid="uid://ddvjlkh2h00qm" path="res://asset/Environment/World_Environment/es_nightmap_environment.tres" id="1_tk5v2"]
 [ext_resource type="PackedScene" uid="uid://c7jg4g3sqp1x0" path="res://asset/map_decoration/Stylized Nature MegaKit[Standard]/FBX/Rock_Medium_3.fbx" id="2_mym2x"]
 [ext_resource type="PackedScene" uid="uid://1bag3eeiqg1r" path="res://newgen_assets/prepared asset/twisted_tree_main.tscn" id="3_s42t0"]
 [ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://newgen_assets/prepared asset/fireflyparticle.tscn" id="4_mym2x"]
+[ext_resource type="PackedScene" uid="uid://cbxln4ljola71" path="res://asset/Environment/flowers/flower_patch.tscn" id="5_vux0h"]
+[ext_resource type="PackedScene" uid="uid://cfu10364mn16b" path="res://matercaveproject/cave_scenes/prepared/temple_pillar_broken.tscn" id="6_6goqr"]
+[ext_resource type="PackedScene" uid="uid://bhwlkuak6rwtv" path="res://matercaveproject/cave_scenes/prepared/temple_torch.tscn" id="7_12rcn"]
+[ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="9_80006"]
+[ext_resource type="PackedScene" uid="uid://dgei6i1r2qbts" path="res://matercaveproject/cave_scenes/prepared/temple_pillar_broken_2.tscn" id="10_80006"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evabj"]
+albedo_texture = ExtResource("9_80006")
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [node name="mockupbeta" type="Node3D"]
 
@@ -11,14 +22,20 @@
 transform = Transform3D(0.791807, 0.209943, 0.573554, -0.262179, 0.96498, 0.00872654, -0.551636, -0.157284, 0.819121, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainLight"]
-transform = Transform3D(0.163791, 0.986495, -4.6915e-08, 0.493248, -0.0818955, 0.866025, 0.85433, -0.141847, -0.5, 0, 6, 3)
-light_color = Color(1, 0.9025, 0.85, 1)
+transform = Transform3D(0.60036, 0.419172, -0.681076, -0.507605, 0.85782, 0.0805043, 0.617986, 0.297386, 0.727774, -9.17046, 19.9643, 10.5486)
+light_color = Color(0.982461, 0.763261, 0.551502, 1)
 light_energy = 3.0
 light_indirect_energy = 0.5
 shadow_enabled = true
 shadow_bias = 0.008
 shadow_blur = 4.0
 directional_shadow_max_distance = 400.0
+
+[node name="TilesCombinedLowSection" parent="MainLight" instance=ExtResource("1_12rcn")]
+transform = Transform3D(0.644872, -0.347082, 0.680938, 0.344155, 0.927372, 0.146766, -0.682422, 0.139704, 0.717485, -5.98803, 17.471, -4.06558)
+
+[node name="TilesCombinedLowSection2" parent="MainLight" instance=ExtResource("1_12rcn")]
+transform = Transform3D(0.644872, -0.347082, 0.680938, 0.344155, 0.927373, 0.146766, -0.682422, 0.139704, 0.717484, -4.92806, 16.2743, 3.97512)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_tk5v2")
@@ -27,7 +44,43 @@ environment = ExtResource("1_tk5v2")
 transform = Transform3D(-2.0975, 0.579982, 7.69832, 0.367843, 7.97584, -0.500667, -7.71137, 0.222704, -2.11783, -3.93936, 3.05977, -0.228988)
 
 [node name="TwistedTreeMain" parent="." instance=ExtResource("3_s42t0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68983, 16.3438, -3.55911)
+transform = Transform3D(-0.601839, -0.0597419, 0.79638, -0.0360193, 0.998214, 0.0476624, -0.797805, 0, -0.602916, 2.99977, 16.3438, -3.55911)
 
 [node name="fireflyparticle" parent="." instance=ExtResource("4_mym2x")]
 transform = Transform3D(2.87063, 0, 0, 0, 2.87063, 0, 0, 0, 2.87063, -12.7401, -0.0276961, 3.10283)
+
+[node name="FlowerPatch" parent="." instance=ExtResource("5_vux0h")]
+transform = Transform3D(-2.19969, 0, 0.0366679, 0, 2.2, 0, -0.0366679, 0, -2.19969, 1.04935, 18.2901, -0.25531)
+
+[node name="TemplePillarBroken" parent="." instance=ExtResource("6_6goqr")]
+transform = Transform3D(0.273512, -0.0716803, 0.412375, 0.110052, 0.487596, 0.0117627, -0.403832, 0.0843307, 0.282504, -4.85635, 19.2713, -5.11611)
+
+[node name="Torch" parent="." instance=ExtResource("7_12rcn")]
+transform = Transform3D(0.916209, 0, -0.400701, -0.0346238, 0.99626, -0.0791679, 0.399202, 0.0864081, 0.912782, -1.96079, 12.2871, 10.168)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(7.90933, -0.149577, -0.103116, 1.1739, 0.980901, -1.02144, 0.25393, 0.124341, 7.93386, 8.62517, 16.6202, -1.36488)
+material_override = SubResource("StandardMaterial3D_evabj")
+use_collision = true
+size = Vector3(0.796961, 3.10975, 0.784335)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(7.90933, -0.149577, -0.103116, 0.744145, 0.677683, -5.83558, 0.94275, 0.719981, 5.47133, 5.20652, 15.0277, 3.65311)
+material_override = SubResource("StandardMaterial3D_evabj")
+use_collision = true
+size = Vector3(0.679953, 3.10975, 0.836504)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(7.90933, -0.149577, -0.103116, 1.20104, 0.984622, 0.714691, -0.00537175, -0.090259, 7.96735, -3.5872, 14.4896, 3.65311)
+material_override = SubResource("StandardMaterial3D_evabj")
+use_collision = true
+size = Vector3(0.679953, 3.10975, 0.836504)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(7.90933, -0.149577, -0.103116, 1.12267, 0.951236, -2.19755, 0.426791, 0.269772, 7.69157, -2.64042, 16.8505, -10.4698)
+material_override = SubResource("StandardMaterial3D_evabj")
+use_collision = true
+size = Vector3(0.679953, 3.10975, 0.836504)
+
+[node name="TemplePillarBroken2" parent="." instance=ExtResource("10_80006")]
+transform = Transform3D(-0.00616708, -0.148254, -0.477475, -0.00191469, 0.477515, -0.148242, 0.499958, -5.2464e-11, -0.00645747, 0.413115, 18.2818, -6.63434)

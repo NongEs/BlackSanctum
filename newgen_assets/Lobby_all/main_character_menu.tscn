@@ -1,44 +1,40 @@
-[gd_scene load_steps=34 format=3 uid="uid://cslatpc7ya57d"]
+[gd_scene load_steps=41 format=3 uid="uid://cslatpc7ya57d"]
 
 [ext_resource type="Script" uid="uid://brvvsnmwe7arr" path="res://floorswitch/Lobby_newest_uilobby.gd" id="1_ut51o"]
 [ext_resource type="PackedScene" uid="uid://c20pdnmph2fox" path="res://Numeral_map/num_fl01/beta_numeral_map.tscn" id="2_17jnm"]
 [ext_resource type="PackedScene" uid="uid://j3bce6x4itnp" path="res://mastermindgame/mockupbeta.tscn" id="3_17jnm"]
 [ext_resource type="FontFile" uid="uid://diqanchdadrul" path="res://newgen_assets/Misoka Soft Sans Font/Misoka.otf" id="4_17jnm"]
+[ext_resource type="Texture2D" uid="uid://cob5v3x4egovf" path="res://asset/NewUIAsset/Select_topics.png" id="4_23siw"]
+[ext_resource type="Texture2D" uid="uid://ylrus3s82mfs" path="res://asset/NewUIAsset/Numeral/Default.png" id="8_u4wim"]
+[ext_resource type="Texture2D" uid="uid://dwx2rthw12wso" path="res://asset/NewUIAsset/Numeral/Hover.png" id="9_1hyic"]
+[ext_resource type="Texture2D" uid="uid://ci3cp003lt26u" path="res://asset/NewUIAsset/Logic_Gate/Default.png" id="10_d87f8"]
+[ext_resource type="Texture2D" uid="uid://boy5ecaew4k4r" path="res://asset/NewUIAsset/Logic_Gate/Hover.png" id="11_1r10b"]
 [ext_resource type="Texture2D" uid="uid://dnmwi3wa2ftgb" path="res://asset/Universal UI/UI_button icon/next btn/next_defaultlight.png" id="11_v3ikv"]
 [ext_resource type="Texture2D" uid="uid://ciyi4jh7og0cm" path="res://asset/Universal UI/UI_button icon/next btn/next_press.png" id="12_16iyi"]
 [ext_resource type="Texture2D" uid="uid://bs4afnf834h75" path="res://asset/Universal UI/UI_button icon/next btn/next_hover.png" id="13_36fbp"]
-[ext_resource type="Texture2D" uid="uid://djqafyr0t3deq" path="res://asset/Numeral/DtB_Default.png" id="16_xawgb"]
-[ext_resource type="Texture2D" uid="uid://dm5pls2d7djjx" path="res://asset/Numeral/DtB_Select.png" id="17_2eou6"]
+[ext_resource type="Texture2D" uid="uid://dyk2011xdr5cj" path="res://asset/NewUIAsset/Dashboard.png" id="14_u4wim"]
 [ext_resource type="Texture2D" uid="uid://ebuw3i8njds3" path="res://asset/Numeral/Character_Icon.png" id="18_3mmkf"]
-[ext_resource type="Texture2D" uid="uid://b5x42m12dhfle" path="res://asset/Numeral/DtB_Hover.png" id="18_6sbyg"]
 [ext_resource type="Texture2D" uid="uid://ca13wkletkvqx" path="res://asset/Numeral/DtH_Default.png" id="19_266qf"]
-[ext_resource type="Texture2D" uid="uid://564ydndr72l8" path="res://asset/Numeral/Artifact_Icon.png" id="19_v05s3"]
 [ext_resource type="Texture2D" uid="uid://sml0wt74tomi" path="res://asset/Numeral/DtH_Select.png" id="20_pspww"]
 [ext_resource type="Texture2D" uid="uid://qvsaf1m38g1e" path="res://asset/Numeral/DtH_Hover.png" id="21_ms5qo"]
-[ext_resource type="Texture2D" uid="uid://cjy5rk04msrv5" path="res://asset/Numeral/DtO_Default.png" id="22_uq6ju"]
-[ext_resource type="Texture2D" uid="uid://cxnbxhjo8mi7w" path="res://asset/Numeral/DtO_Select.png" id="23_y16pf"]
-[ext_resource type="Texture2D" uid="uid://u03xgo5h1wqb" path="res://asset/Numeral/DtO_Hover.png" id="24_7vnff"]
+[ext_resource type="FontFile" uid="uid://c0ubcxrvcrqfc" path="res://asset/font/Gorck Helozat.ttf" id="24_1hyic"]
+[ext_resource type="Texture2D" uid="uid://d2sckn52dl0dq" path="res://asset/NewUIAsset/Game Titile.png" id="25_58qk0"]
 [ext_resource type="Texture2D" uid="uid://d2a7c0qtdwlq6" path="res://asset/Numeral/DtR_Default.png" id="25_diw62"]
 [ext_resource type="Texture2D" uid="uid://cysnw5r607yro" path="res://asset/Numeral/DtR_Select.png" id="26_ufgfy"]
 [ext_resource type="Theme" uid="uid://bwkgdwgpi80ja" path="res://matercaveproject/theme.tres" id="26_ut51o"]
+[ext_resource type="Texture2D" uid="uid://bqhx0i7f07heq" path="res://asset/NewUIAsset/Dashboard/Default.png" id="27_7tkw7"]
 [ext_resource type="Texture2D" uid="uid://ccgbo3ssug0j8" path="res://asset/Numeral/DtR_Hover.png" id="27_8cgee"]
 [ext_resource type="Texture2D" uid="uid://wo8i8o3dwyol" path="res://matercaveproject/cave_assets/textures/icon_color_outline.svg" id="27_17jnm"]
+[ext_resource type="Texture2D" uid="uid://diy4qeakicwrm" path="res://asset/NewUIAsset/Dashboard/Hover.png" id="28_j7gi4"]
 [ext_resource type="Texture2D" uid="uid://b3xqc25itmhtt" path="res://asset/Numeral/RtD_Default.png" id="28_u4x1i"]
+[ext_resource type="Texture2D" uid="uid://kgn8pogaa2cy" path="res://asset/NewUIAsset/Start_Game/Default.png" id="29_3xn0g"]
 [ext_resource type="Texture2D" uid="uid://ptvdykw2pil8" path="res://asset/Numeral/RtD_Select.png" id="29_h270l"]
+[ext_resource type="Texture2D" uid="uid://lyy6xr4ye1rd" path="res://asset/NewUIAsset/Start_Game/Hover.png" id="30_23siw"]
 [ext_resource type="Texture2D" uid="uid://bvcpswtcpe7l4" path="res://asset/Numeral/RtD_Hover.png" id="30_crva3"]
-[ext_resource type="Texture2D" uid="uid://c6saup0yj1x3f" path="res://asset/Numeral/Start_Icon.png" id="34_k40ge"]
-[ext_resource type="Texture2D" uid="uid://rm232ql0r5wh" path="res://asset/Numeral/Option_Icon.png" id="35_qxxax"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58qk0"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(1, 1, 1, 0.831373)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[ext_resource type="Texture2D" uid="uid://bdgddhmu38n0v" path="res://asset/NewUIAsset/Option/Default.png" id="31_u4wim"]
+[ext_resource type="Texture2D" uid="uid://de7pvg42wg7ep" path="res://asset/NewUIAsset/Option/Hover.png" id="32_1hyic"]
+[ext_resource type="Texture2D" uid="uid://v7dh0b0ffsqm" path="res://asset/NewUIAsset/Quit_Game/Default.png" id="33_d87f8"]
+[ext_resource type="Texture2D" uid="uid://benfpi8kirv4u" path="res://asset/NewUIAsset/Quit_Game/Hover.png" id="34_1r10b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tkw7"]
 bg_color = Color(0.223529, 0.223529, 0.223529, 1)
@@ -50,6 +46,17 @@ corner_radius_bottom_left = 8
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7gi4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fn7oy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58qk0"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 0.831373)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ut51o"]
 content_margin_left = 4.0
@@ -73,13 +80,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2632, -14.1546, -22.3113)
 
 [node name="Camera3D3" type="Camera3D" parent="Background/mockupbeta"]
 unique_name_in_owner = true
-transform = Transform3D(0.825548, 0.492692, -0.275181, -0.031413, 0.526987, 0.849293, 0.563457, -0.692487, 0.45053, -8.45741, 40.3299, 10.1387)
+transform = Transform3D(0.265049, 0.041995, -0.96332, 0.177408, 0.979872, 0.0915287, 0.947774, -0.19516, 0.252264, -13.2456, 23.026, 14.6493)
 current = true
 fov = 86.0
 far = 400.0
 
 [node name="TopicM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -97,105 +105,21 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TopicM/PanelContainer/SelectTopicPanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -288.0
-offset_top = 23.0
-offset_right = 88.0
-offset_bottom = 98.0
-grow_horizontal = 2
-scale = Vector2(1.5, 1.5)
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("4_17jnm")
-theme_override_font_sizes/font_size = 50
-text = "SELECT TOPIC"
+[node name="TextureRect2" type="TextureRect" parent="TopicM/PanelContainer/SelectTopicPanel"]
+layout_mode = 2
+offset_right = 1792.0
+offset_bottom = 960.0
+texture = ExtResource("4_23siw")
+expand_mode = 1
 
 [node name="Panel" type="Panel" parent="TopicM/PanelContainer/SelectTopicPanel"]
-layout_mode = 0
+visible = false
+layout_mode = 1
 offset_left = 49.0
 offset_top = 277.0
 offset_right = 993.0
 offset_bottom = 506.0
 scale = Vector2(1.8, 1.8)
-
-[node name="DecToBiStage" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
-texture_filter = 1
-layout_mode = 1
-offset_left = 229.889
-offset_top = 12.0
-offset_right = 369.889
-offset_bottom = 214.0
-texture_normal = ExtResource("16_xawgb")
-texture_pressed = ExtResource("17_2eou6")
-texture_hover = ExtResource("18_6sbyg")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="LogicStage" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -159.555
-offset_top = 12.0
-offset_right = -19.5554
-offset_bottom = 214.0
-grow_horizontal = 0
-texture_normal = ExtResource("22_uq6ju")
-texture_pressed = ExtResource("23_y16pf")
-texture_hover = ExtResource("24_7vnff")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="NumeralBar" type="Label" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -479.222
-offset_top = -61.1667
-offset_right = 47.7778
-offset_bottom = 211.833
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.44267, 0.44267)
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
-theme_override_fonts/font = ExtResource("4_17jnm")
-theme_override_font_sizes/font_size = 100
-text = "Numeral
-system"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="LogicBar" type="Label" parent="TopicM/PanelContainer/SelectTopicPanel/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 82.9999
-offset_top = -61.1667
-offset_right = 610.0
-offset_bottom = 211.833
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.44267, 0.44267)
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
-theme_override_fonts/font = ExtResource("4_17jnm")
-theme_override_font_sizes/font_size = 100
-text = "Logic
-Gate"
-horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="Back2Button" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel"]
 visible = false
@@ -219,6 +143,41 @@ texture_hover = ExtResource("13_36fbp")
 stretch_mode = 0
 flip_h = true
 
+[node name="HBoxContainer" type="HBoxContainer" parent="TopicM/PanelContainer/SelectTopicPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.35
+anchor_right = 2.0
+anchor_bottom = 0.4
+offset_right = 3584.0
+offset_bottom = 1628.0
+scale = Vector2(0.25, 0.25)
+theme_override_constants/separation = 700
+
+[node name="Control" type="Control" parent="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DecToBiStage" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("8_u4wim")
+texture_pressed = ExtResource("9_1hyic")
+texture_hover = ExtResource("9_1hyic")
+stretch_mode = 0
+
+[node name="LogicStage" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("10_d87f8")
+texture_pressed = ExtResource("11_1r10b")
+texture_hover = ExtResource("11_1r10b")
+stretch_mode = 0
+
+[node name="Control2" type="Control" parent="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="ArtifactM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -235,7 +194,204 @@ theme_override_constants/margin_bottom = 60
 [node name="PanelContainer" type="PanelContainer" parent="ArtifactM"]
 layout_mode = 2
 
+[node name="Dashboard" type="Panel" parent="ArtifactM/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ArtifactM/PanelContainer/Dashboard"]
+layout_mode = 2
+offset_right = 1792.0
+offset_bottom = 960.0
+texture = ExtResource("14_u4wim")
+expand_mode = 2
+
+[node name="DectoHex" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -620.0
+offset_top = 12.0
+offset_right = -480.0
+offset_bottom = 214.0
+grow_horizontal = 0
+texture_normal = ExtResource("19_266qf")
+texture_pressed = ExtResource("20_pspww")
+texture_hover = ExtResource("21_ms5qo")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="DecToRan" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -308.0
+offset_top = 12.0
+offset_right = -168.0
+offset_bottom = 214.0
+grow_horizontal = 0
+texture_normal = ExtResource("25_diw62")
+texture_pressed = ExtResource("26_ufgfy")
+texture_hover = ExtResource("27_8cgee")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RanToDec" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -154.0
+offset_top = 12.0
+offset_right = -14.0
+offset_bottom = 214.0
+grow_horizontal = 0
+texture_normal = ExtResource("28_u4x1i")
+texture_pressed = ExtResource("29_h270l")
+texture_hover = ExtResource("30_crva3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TierLabel" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.0
+offset_top = -31.0
+offset_right = -38.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
+theme_override_fonts/font = ExtResource("24_1hyic")
+theme_override_font_sizes/font_size = 60
+text = "UnRanked"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TimeBest" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = -24.0
+offset_right = 672.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
+theme_override_fonts/font = ExtResource("24_1hyic")
+theme_override_font_sizes/font_size = 60
+text = "00:00"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TierLabel2" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.0
+offset_top = 251.0
+offset_right = -38.0
+offset_bottom = 327.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
+theme_override_fonts/font = ExtResource("24_1hyic")
+theme_override_font_sizes/font_size = 60
+text = "UnRanked"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TimeBest2" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = 258.0
+offset_right = 672.0
+offset_bottom = 334.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
+theme_override_fonts/font = ExtResource("24_1hyic")
+theme_override_font_sizes/font_size = 60
+text = "00:00"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NumeralBar2" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -479.222
+offset_top = -61.1667
+offset_right = 47.7778
+offset_bottom = 211.833
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44267, 0.44267)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
+theme_override_fonts/font = ExtResource("4_17jnm")
+theme_override_font_sizes/font_size = 100
+text = "Numeral
+system"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="LogicBar" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 82.9999
+offset_top = -61.1667
+offset_right = 610.0
+offset_bottom = 211.833
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.44267, 0.44267)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
+theme_override_fonts/font = ExtResource("4_17jnm")
+theme_override_font_sizes/font_size = 100
+text = "Logic
+Gate"
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="SelectTopicPanel" type="Panel" parent="ArtifactM/PanelContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ArtifactM/PanelContainer/SelectTopicPanel"]
@@ -428,6 +584,589 @@ texture_hover = ExtResource("13_36fbp")
 stretch_mode = 0
 flip_h = true
 
+[node name="SettingMNew" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 60
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingMNew"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SettingMNew/PanelContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("14_u4wim")
+expand_mode = 2
+
+[node name="UI" type="VBoxContainer" parent="SettingMNew/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_17jnm")
+theme_override_font_sizes/font_size = 30
+text = "Black Sanctum"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+
+[node name="ByRaffaLabel2" type="Label" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.329412, 0.329412, 0.329412, 1)
+theme_override_fonts/font = ExtResource("4_17jnm")
+theme_override_font_sizes/font_size = 11
+text = "beta v1.0.0"
+horizontal_alignment = 1
+
+[node name="ByRaffaLabel" type="Label" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+theme_override_fonts/font = ExtResource("4_17jnm")
+text = "Game Demo by Warut Wanasert
+Graphic by Warissara Patib"
+horizontal_alignment = 1
+
+[node name="ControlsHeader" type="Label" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="SettingMNew/PanelContainer/UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Movement" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Move & Interact"
+horizontal_alignment = 1
+
+[node name="DaySpeedLabel" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+columns = 3
+
+[node name="Control" type="Control" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkw7")
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkw7")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkw7")
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkw7")
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkw7")
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement2" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "+ Mouse"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+columns = 2
+
+[node name="Label2" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkw7")
+text = "Space"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement4" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Jump"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkw7")
+text = "Ctrl"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement3" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Crounch"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tkw7")
+text = "Esc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movement5" type="Label" parent="SettingMNew/PanelContainer/UI/HBoxContainer/GridContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="SettingMNew/PanelContainer/UI"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="SettingMNew/PanelContainer/UI"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="Control5" type="Control" parent="SettingMNew/PanelContainer/UI"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ModeSwitchButton" type="Button" parent="SettingMNew/PanelContainer/UI"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Walk Mode"
+
+[node name="SettingsButton" type="Button" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+text = "Credits & License"
+
+[node name="Control4" type="Control" parent="SettingMNew/PanelContainer/UI"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="WishlistButton" type="Button" parent="SettingMNew/PanelContainer/UI"]
+visible = false
+layout_mode = 2
+text = "❤ Support me ❤
+Wishlist my Game on Steam!"
+
+[node name="Control3" type="Control" parent="SettingMNew/PanelContainer/UI"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="SettingMNew/PanelContainer/UI"]
+layout_mode = 2
+text = "Quit to Desktop"
+
+[node name="Credits" type="VBoxContainer" parent="SettingMNew/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HeaderLabel" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Credits & License"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("27_17jnm")
+stretch_mode = 2
+
+[node name="Godot" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Made in the Godot Engine (4.0.3)"
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "https://godotengine.org/license/"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="SettingMNew/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Project and 3D Assets"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "Raffaele Picca"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="SettingMNew/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "Paolo Dollorenzo"
+horizontal_alignment = 1
+
+[node name="Control4" type="Control" parent="SettingMNew/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Torch and Wind Sound Effects"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "@WhatInTheSound (Twitter)"
+horizontal_alignment = 1
+
+[node name="Control5" type="Control" parent="SettingMNew/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Player Controller"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "Dimitar Dimitrov
+@Whimfoome (GitHub)"
+horizontal_alignment = 1
+
+[node name="Control6" type="Control" parent="SettingMNew/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label9" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Stylized Fire Shader (modified)"
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="SettingMNew/PanelContainer/Credits"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
+text = "GDQuest and contributors
+(https://www.gdquest.com/)."
+horizontal_alignment = 1
+
+[node name="Control3" type="Control" parent="SettingMNew/PanelContainer/Credits"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CloseCreditsButton" type="Button" parent="SettingMNew/PanelContainer/Credits"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back to Main Menu"
+
+[node name="Settings" type="VBoxContainer" parent="SettingMNew/PanelContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="SettingMNew/PanelContainer/Settings"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="GridContainer" parent="SettingMNew/PanelContainer/Settings"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+columns = 3
+
+[node name="General" type="VBoxContainer" parent="SettingMNew/PanelContainer/Settings/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/General"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "General"
+horizontal_alignment = 1
+
+[node name="WFullScreenCheckBox" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j7gi4")
+text = "Borderless Window Fullscreen"
+
+[node name="FullScreenCheckBox" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j7gi4")
+button_pressed = true
+text = "Exclusive Fullscreen"
+
+[node name="Control" type="Control" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/General"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="FPSCheckBox" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fn7oy")
+text = "Show FPS"
+
+[node name="VSyncEnableCheckBox" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fn7oy")
+button_pressed = true
+text = "Enable VSync"
+
+[node name="CinematicCheckBox" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fn7oy")
+button_pressed = true
+text = "Cinematic Black Bars"
+
+[node name="VSeparator" type="VSeparator" parent="SettingMNew/PanelContainer/Settings/HBoxContainer"]
+layout_mode = 2
+
+[node name="Quality" type="VBoxContainer" parent="SettingMNew/PanelContainer/Settings/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Quality"
+horizontal_alignment = 1
+
+[node name="GeneralQualityLabel" type="Label" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+text = "General Quality"
+
+[node name="GeneralQualityOptionButton" type="OptionButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MSAALabel" type="Label" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+text = "MSAA"
+
+[node name="MSAAOptionButton" type="OptionButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SSAOCheckbox" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+button_pressed = true
+text = "SSAO"
+
+[node name="VolumentricFogCheckbox" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+button_pressed = true
+text = "Volumetric Fog"
+
+[node name="TemporalButton" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+text = "Temporal Anti-Aliasing"
+
+[node name="RenderResolutionLabel" type="Label" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+text = "Rendering Scale: 100%"
+
+[node name="RenderResolutionSlider" type="HSlider" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+layout_mode = 2
+min_value = 0.25
+max_value = 2.0
+step = 0.05
+value = 0.95
+
+[node name="FXAAButton" type="CheckButton" parent="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_disabled_color = Color(0.596078, 0.596078, 0.596078, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j7gi4")
+button_pressed = true
+text = "FXAA"
+
+[node name="Control" type="Control" parent="SettingMNew/PanelContainer/Settings"]
+layout_mode = 2
+
+[node name="CloseSettingsButton" type="Button" parent="SettingMNew/PanelContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close Settings"
+
 [node name="SettingM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -440,7 +1179,6 @@ theme = ExtResource("26_ut51o")
 theme_override_constants/margin_right = 40
 
 [node name="PanelContainer" type="PanelContainer" parent="SettingM"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -448,7 +1186,6 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_58qk0")
 
 [node name="UI" type="VBoxContainer" parent="SettingM/PanelContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HeaderLabel" type="Label" parent="SettingM/PanelContainer/UI"]
@@ -632,8 +1369,6 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="ResumeButton" type="Button" parent="SettingM/PanelContainer/UI"]
-unique_name_in_owner = true
-visible = false
 layout_mode = 2
 text = "Resume"
 
@@ -642,8 +1377,6 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="ModeSwitchButton" type="Button" parent="SettingM/PanelContainer/UI"]
-unique_name_in_owner = true
-visible = false
 layout_mode = 2
 text = "Walk Mode"
 
@@ -674,7 +1407,6 @@ layout_mode = 2
 text = "Quit to Desktop"
 
 [node name="Credits" type="VBoxContainer" parent="SettingM/PanelContainer"]
-unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -797,13 +1529,11 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="CloseCreditsButton" type="Button" parent="SettingM/PanelContainer/Credits"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back to Main Menu"
 
 [node name="Settings" type="VBoxContainer" parent="SettingM/PanelContainer"]
-unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
@@ -830,7 +1560,6 @@ text = "General"
 horizontal_alignment = 1
 
 [node name="WFullScreenCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/General"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -843,7 +1572,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_j7gi4")
 text = "Borderless Window Fullscreen"
 
 [node name="FullScreenCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/General"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -861,7 +1589,6 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="FPSCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/General"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -874,7 +1601,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fn7oy")
 text = "Show FPS"
 
 [node name="VSyncEnableCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/General"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -888,7 +1614,6 @@ button_pressed = true
 text = "Enable VSync"
 
 [node name="CinematicCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/General"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -915,27 +1640,22 @@ text = "Quality"
 horizontal_alignment = 1
 
 [node name="GeneralQualityLabel" type="Label" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 text = "General Quality"
 
 [node name="GeneralQualityOptionButton" type="OptionButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="MSAALabel" type="Label" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 text = "MSAA"
 
 [node name="MSAAOptionButton" type="OptionButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="SSAOCheckbox" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -948,7 +1668,6 @@ button_pressed = true
 text = "SSAO"
 
 [node name="VolumentricFogCheckbox" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -962,7 +1681,6 @@ button_pressed = true
 text = "Volumetric Fog"
 
 [node name="TemporalButton" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -974,7 +1692,6 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 text = "Temporal Anti-Aliasing"
 
 [node name="RenderResolutionLabel" type="Label" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 text = "Rendering Scale: 100%"
@@ -987,7 +1704,6 @@ step = 0.05
 value = 0.95
 
 [node name="FXAAButton" type="CheckButton" parent="SettingM/PanelContainer/Settings/HBoxContainer/Quality"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1011,6 +1727,7 @@ text = "Close Settings"
 
 [node name="CharacterButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -1025,59 +1742,60 @@ texture_hover = ExtResource("18_3mmkf")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="ArtifactButton" type="TextureButton" parent="."]
-unique_name_in_owner = true
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 167.0
-offset_top = -117.0
-offset_right = 641.0
-offset_bottom = 357.0
-grow_vertical = 0
-scale = Vector2(0.17849, 0.17849)
-texture_normal = ExtResource("19_v05s3")
-texture_pressed = ExtResource("19_v05s3")
-texture_hover = ExtResource("19_v05s3")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="NextButton" type="TextureButton" parent="."]
-unique_name_in_owner = true
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -193.0
-offset_top = -188.0
-offset_right = 24.0
-offset_bottom = 10.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.76272, 0.76272)
-texture_normal = ExtResource("34_k40ge")
-texture_pressed = ExtResource("34_k40ge")
-texture_hover = ExtResource("34_k40ge")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="SettingButton" type="TextureButton" parent="."]
-unique_name_in_owner = true
+[node name="Mainmenu" type="VBoxContainer" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -114.0
-offset_top = 21.0
-offset_right = -14.0
-offset_bottom = 121.0
+offset_left = -2852.0
+offset_bottom = 2544.0
 grow_horizontal = 0
-scale = Vector2(0.76272, 0.76272)
-texture_normal = ExtResource("35_qxxax")
-texture_pressed = ExtResource("35_qxxax")
-texture_hover = ExtResource("35_qxxax")
-ignore_texture_size = true
-stretch_mode = 0
+scale = Vector2(0.35, 0.35)
+pivot_offset = Vector2(2700, 150)
+theme_override_constants/separation = 100
+
+[node name="Logo" type="TextureRect" parent="Mainmenu"]
+layout_mode = 2
+texture = ExtResource("25_58qk0")
+stretch_mode = 5
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Mainmenu"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="NextButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+texture_normal = ExtResource("29_3xn0g")
+texture_pressed = ExtResource("30_23siw")
+texture_hover = ExtResource("30_23siw")
+stretch_mode = 5
+
+[node name="ArtifactButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("27_7tkw7")
+texture_pressed = ExtResource("28_j7gi4")
+texture_hover = ExtResource("28_j7gi4")
+stretch_mode = 5
+
+[node name="SettingButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("31_u4wim")
+texture_pressed = ExtResource("32_1hyic")
+texture_hover = ExtResource("32_1hyic")
+stretch_mode = 5
+
+[node name="QuitButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("33_d87f8")
+texture_pressed = ExtResource("34_1r10b")
+texture_hover = ExtResource("34_1r10b")
+stretch_mode = 5
 
 [node name="FPSLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -1097,10 +1815,27 @@ theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_ut51o")
 text = "FPS:"
 
-[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Panel/DecToBiStage" to="." method="_on_dec_to_bi_stage_pressed"]
-[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Panel/LogicStage" to="." method="_on_logic_stage_pressed"]
 [connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
+[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer/DecToBiStage" to="." method="_on_dec_to_bi_stage_pressed"]
+[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer/LogicStage" to="." method="_on_logic_stage_pressed"]
 [connection signal="pressed" from="ArtifactM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/UI/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/UI/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/UI/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Credits/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/General/WFullScreenCheckBox" to="." method="_on_w_full_screen_check_box_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/General/FullScreenCheckBox" to="." method="_on_full_screen_check_box_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/General/FPSCheckBox" to="." method="_on_fps_check_box_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/General/VSyncEnableCheckBox" to="." method="_on_v_sync_enable_check_box_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/General/CinematicCheckBox" to="." method="_on_cinematic_check_box_pressed"]
+[connection signal="item_selected" from="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality/GeneralQualityOptionButton" to="." method="_on_general_quality_option_button_item_selected"]
+[connection signal="item_selected" from="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality/MSAAOptionButton" to="." method="_on_msaa_option_button_item_selected"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality/SSAOCheckbox" to="." method="_on_ssao_checkbox_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality/VolumentricFogCheckbox" to="." method="_on_volumentric_fog_checkbox_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality/TemporalButton" to="." method="_on_temporal_button_pressed"]
+[connection signal="value_changed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality/RenderResolutionSlider" to="." method="_on_render_resolution_slider_value_changed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/HBoxContainer/Quality/FXAAButton" to="." method="_on_fxaa_button_pressed"]
+[connection signal="pressed" from="SettingMNew/PanelContainer/Settings/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/UI/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/UI/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/UI/QuitButton" to="." method="_on_quit_button_pressed"]
@@ -1118,6 +1853,7 @@ text = "FPS:"
 [connection signal="value_changed" from="SettingM/PanelContainer/Settings/HBoxContainer/Quality/RenderResolutionSlider" to="." method="_on_render_resolution_slider_value_changed"]
 [connection signal="pressed" from="SettingM/PanelContainer/Settings/HBoxContainer/Quality/FXAAButton" to="." method="_on_fxaa_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/Settings/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
-[connection signal="pressed" from="ArtifactButton" to="." method="_on_artifact_button_pressed"]
-[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Mainmenu/ButtonContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Mainmenu/ButtonContainer/ArtifactButton" to="." method="_on_artifact_button_pressed"]
+[connection signal="pressed" from="Mainmenu/ButtonContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Mainmenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

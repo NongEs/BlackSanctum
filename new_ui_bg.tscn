@@ -1,8 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://3q2rl4i1w4as"]
+[gd_scene load_steps=36 format=3 uid="uid://3q2rl4i1w4as"]
 
 [ext_resource type="PackedScene" uid="uid://c20pdnmph2fox" path="res://Numeral_map/num_fl01/beta_numeral_map.tscn" id="1_kdw3b"]
-[ext_resource type="Script" uid="uid://f7ee6thxxc1g" path="res://newgen_assets/Lobby_all/mainchar_ui.gd" id="2_kc7o8"]
-[ext_resource type="PackedScene" uid="uid://phdixirbdflf" path="res://newgen_assets/map_scene/night_map_dec_bi.tscn" id="3_neeqn"]
 [ext_resource type="Texture2D" uid="uid://dlec7xl3akgt8" path="res://asset/picture import/Screenshot 2024-10-06 133027.png" id="4_ot2hl"]
 [ext_resource type="FontFile" uid="uid://c10f3xgog5jpk" path="res://asset/font/ReemKufiFun-VariableFont_wght.ttf" id="5_p7gja"]
 [ext_resource type="Texture2D" uid="uid://cf7xxsnlpknto" path="res://asset/Select mode page (Not finish)/Story Mode_default.png" id="6_j84xe"]
@@ -54,8 +52,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_kc7o8")
-dec_to_bi_scene = ExtResource("3_neeqn")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Control"]
 layout_mode = 1
