@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://djdb8ci30gl8x"]
 
-[ext_resource type="Texture2D" uid="uid://dwyp4j7m53uxw" path="res://TextboxWithPortrait/cdwn.PNG" id="1_8dlg0"]
 [ext_resource type="Script" uid="uid://4ycol5hljp7e" path="res://autoload/loading_screen.gd" id="1_uss6p"]
 [ext_resource type="Texture2D" uid="uid://bcsu8o7yyl35p" path="res://newgen_assets/image/IMG_3545.jpg" id="2_i6k13"]
-[ext_resource type="FontFile" uid="uid://diqanchdadrul" path="res://newgen_assets/Misoka Soft Sans Font/Misoka.otf" id="4_2a5g5"]
+[ext_resource type="Texture2D" uid="uid://dfgt4mom5ss7i" path="res://asset/picture import/KMUTT_CI_Semi_Logo_normal-full.png" id="3_2a5g5"]
+[ext_resource type="FontFile" uid="uid://c0ubcxrvcrqfc" path="res://asset/font/Gorck Helozat.ttf" id="4_2a5g5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6k13"]
 bg_color = Color(1, 1, 1, 1)
@@ -31,15 +31,23 @@ grow_vertical = 2
 texture = ExtResource("2_i6k13")
 
 [node name="Cat" type="Sprite2D" parent="."]
-position = Vector2(97, 98)
-scale = Vector2(0.0869141, 0.0869141)
-texture = ExtResource("1_8dlg0")
+position = Vector2(63, 72)
+scale = Vector2(0.0145764, 0.0145764)
+texture = ExtResource("3_2a5g5")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_top = 995.0
-offset_right = 1920.0
-offset_bottom = 1028.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -836.0
+offset_top = 491.0
+offset_right = 836.0
+offset_bottom = 507.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 theme_override_styles/background = SubResource("StyleBoxFlat_i6k13")
 max_value = 1.0
@@ -48,10 +56,10 @@ show_percentage = false
 
 [node name="Loading" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1381.0
-offset_top = 925.0
+offset_left = 1454.0
+offset_top = 964.0
 offset_right = 1665.0
-offset_bottom = 994.0
+offset_bottom = 1033.0
 theme_override_fonts/font = ExtResource("4_2a5g5")
 theme_override_font_sizes/font_size = 50
 text = "Loading ..."
@@ -59,9 +67,9 @@ text = "Loading ..."
 [node name="Percentage_label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1682.0
-offset_top = 905.0
+offset_top = 944.0
 offset_right = 1839.0
-offset_bottom = 1001.0
+offset_bottom = 1040.0
 theme_override_fonts/font = ExtResource("4_2a5g5")
 theme_override_font_sizes/font_size = 70
 text = "00%"
