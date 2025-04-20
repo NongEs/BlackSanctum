@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyk2011xdr5cj"
-path="res://.godot/imported/Dashboard.png-cd6ab0795b30999af448461f24705a5d.ctex"
+uid="uid://b5b6dv32xshb4"
+path="res://.godot/imported/BG Selecttopics.png-3b17988e00bc9cc3534a4c1a6fdac73f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/NewUIAsset/Dashboard.png"
-dest_files=["res://.godot/imported/Dashboard.png-cd6ab0795b30999af448461f24705a5d.ctex"]
+source_file="res://asset/NewUIAsset/NewBG/BG Selecttopics.png"
+dest_files=["res://.godot/imported/BG Selecttopics.png-3b17988e00bc9cc3534a4c1a6fdac73f.ctex"]
 
 [params]
 
