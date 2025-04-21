@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yhnwutdmy1wa"
-path="res://.godot/imported/BG Dashboard.png-95bd30ea5a9db769c850003592d5a4c2.ctex"
+uid="uid://dnsp2olv7f7le"
+path="res://.godot/imported/Hover.png-a5c702a98c44710cbf5a05f33d175b30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/NewUIAsset/NewBG/BG Dashboard.png"
-dest_files=["res://.godot/imported/BG Dashboard.png-95bd30ea5a9db769c850003592d5a4c2.ctex"]
+source_file="res://asset/NewUIAsset/Back/Hover.png"
+dest_files=["res://.godot/imported/Hover.png-a5c702a98c44710cbf5a05f33d175b30.ctex"]
 
 [params]
 

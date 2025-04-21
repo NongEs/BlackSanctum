@@ -272,3 +272,7 @@ func _on_dec_to_bi_stage_pressed() -> void:
 
 func _on_logic_stage_pressed() -> void:
 	LoaderManager.change_level("res://mastermindgame/master_mind_map.tscn")
+
+
+func _on_back_button_pressed():
+	pass # Replace with function body.
