@@ -119,6 +119,7 @@ layout_mode = 2
 
 [node name="SelectTopicPanel" type="Panel" parent="TopicM/PanelContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="TopicM/PanelContainer/SelectTopicPanel"]
@@ -196,7 +197,6 @@ size_flags_horizontal = 3
 
 [node name="ArtifactM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1592,6 +1592,8 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Mainmenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
