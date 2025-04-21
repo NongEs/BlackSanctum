@@ -103,6 +103,62 @@ current = true
 fov = 86.0
 far = 400.0
 
+[node name="Mainmenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -2852.0
+offset_bottom = 2640.0
+grow_horizontal = 0
+scale = Vector2(0.35, 0.35)
+pivot_offset = Vector2(2700, 150)
+theme_override_constants/separation = 100
+
+[node name="Logo" type="TextureRect" parent="Mainmenu"]
+layout_mode = 2
+texture = ExtResource("25_58qk0")
+stretch_mode = 5
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Mainmenu"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="NextButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+texture_normal = ExtResource("29_3xn0g")
+texture_pressed = ExtResource("30_23siw")
+texture_hover = ExtResource("30_23siw")
+stretch_mode = 5
+
+[node name="ArtifactButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("27_7tkw7")
+texture_pressed = ExtResource("28_j7gi4")
+texture_hover = ExtResource("28_j7gi4")
+stretch_mode = 5
+
+[node name="SettingButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("31_u4wim")
+texture_pressed = ExtResource("32_1hyic")
+texture_hover = ExtResource("32_1hyic")
+stretch_mode = 5
+
+[node name="QuitButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("33_d87f8")
+texture_pressed = ExtResource("34_1r10b")
+texture_hover = ExtResource("34_1r10b")
+stretch_mode = 5
+
 [node name="TopicM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -121,7 +177,6 @@ layout_mode = 2
 
 [node name="SelectTopicPanel" type="Panel" parent="TopicM/PanelContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="TopicM/PanelContainer/SelectTopicPanel"]
@@ -167,7 +222,8 @@ stretch_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BackButton" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel"]
+[node name="BackButtonTopicM" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -186,6 +242,7 @@ stretch_mode = 5
 
 [node name="ArtifactM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -293,7 +350,8 @@ text = "00:00"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="BackButton" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
+[node name="BackButtonArtifact" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -522,6 +580,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Option" type="Panel" parent="SettingM/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SettingM/PanelContainer/Option"]
@@ -541,6 +600,7 @@ anchor_bottom = 0.335
 scale = Vector2(0.3, 0.3)
 
 [node name="ResumeButton" type="TextureButton" parent="SettingM/PanelContainer/Option/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("25_dg3i3")
 texture_pressed = ExtResource("26_cco4f")
@@ -565,23 +625,43 @@ texture_pressed = ExtResource("32_wl2pm")
 texture_hover = ExtResource("32_wl2pm")
 
 [node name="QuitButton" type="TextureButton" parent="SettingM/PanelContainer/Option/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("33_8omap")
 texture_pressed = ExtResource("34_d13u6")
 texture_hover = ExtResource("34_d13u6")
 
-[node name="Settings" type="Panel" parent="SettingM/PanelContainer"]
+[node name="BackButtonOptionM" type="TextureButton" parent="SettingM/PanelContainer/Option"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_7kr5m")
+texture_pressed = ExtResource("10_dg3i3")
+texture_hover = ExtResource("10_dg3i3")
+stretch_mode = 5
+
+[node name="SettingsPanelControl" type="Panel" parent="SettingM/PanelContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="SettingM/PanelContainer/Settings"]
+[node name="TextureRect" type="TextureRect" parent="SettingM/PanelContainer/SettingsPanelControl"]
 layout_mode = 2
 offset_right = 1792.0
 offset_bottom = 960.0
 texture = ExtResource("35_4tl54")
 expand_mode = 2
 
-[node name="Settings" type="VBoxContainer" parent="SettingM/PanelContainer/Settings"]
+[node name="Settings" type="VBoxContainer" parent="SettingM/PanelContainer/SettingsPanelControl"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -591,19 +671,19 @@ offset_right = 787.0
 offset_bottom = -102.0
 scale = Vector2(2, 2)
 
-[node name="HBoxContainer" type="GridContainer" parent="SettingM/PanelContainer/Settings/Settings"]
+[node name="HBoxContainer" type="GridContainer" parent="SettingM/PanelContainer/SettingsPanelControl/Settings"]
 layout_mode = 2
 theme_override_constants/h_separation = 45
 columns = 3
 
-[node name="Control" type="Control" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer"]
+[node name="Control" type="Control" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer"]
 layout_mode = 2
 
-[node name="General" type="VBoxContainer" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer"]
+[node name="General" type="VBoxContainer" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="WFullScreenCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General"]
+[node name="WFullScreenCheckBox" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -616,7 +696,7 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j7gi4")
 
-[node name="FullScreenCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General"]
+[node name="FullScreenCheckBox" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -629,7 +709,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j7gi4")
 button_pressed = true
 
-[node name="FPSCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General"]
+[node name="FPSCheckBox" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -641,20 +721,7 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fn7oy")
 
-[node name="VSyncEnableCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fn7oy")
-button_pressed = true
-
-[node name="CinematicCheckBox" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General"]
+[node name="VSyncEnableCheckBox" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -667,47 +734,60 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fn7oy")
 button_pressed = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer"]
+[node name="CinematicCheckBox" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fn7oy")
+button_pressed = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer"]
 layout_mode = 2
 
-[node name="Control2" type="Control" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
-[node name="Quality" type="VBoxContainer" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer"]
+[node name="Quality" type="VBoxContainer" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Control3" type="Control" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
-custom_minimum_size = Vector2(0, 12)
+[node name="Control3" type="Control" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
+custom_minimum_size = Vector2(0, 9)
 layout_mode = 2
 
-[node name="GeneralQualityLabel" type="Label" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="GeneralQualityLabel" type="Label" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 
-[node name="GeneralQualityOptionButton" type="OptionButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="GeneralQualityOptionButton" type="OptionButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_hkemv")
 
-[node name="Control5" type="Control" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
-custom_minimum_size = Vector2(0, 3)
+[node name="Control5" type="Control" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="MSAALabel" type="Label" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="MSAALabel" type="Label" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 
-[node name="MSAAOptionButton" type="OptionButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="MSAAOptionButton" type="OptionButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SSAOCheckbox" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="SSAOCheckbox" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -719,7 +799,7 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 button_pressed = true
 
-[node name="VolumentricFogCheckbox" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="VolumentricFogCheckbox" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(300, 0)
@@ -733,7 +813,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 button_pressed = true
 text = "Volumetric Fog"
 
-[node name="TemporalButton" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="TemporalButton" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -744,25 +824,25 @@ theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 
-[node name="RenderResolutionLabel" type="Label" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="RenderResolutionLabel" type="Label" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.180392, 0.180392, 0.180392, 1)
 text = "Rendering Scale: 100%"
 
-[node name="Control6" type="Control" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
-custom_minimum_size = Vector2(0, 10)
+[node name="Control6" type="Control" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="RenderResolutionSlider" type="HSlider" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="RenderResolutionSlider" type="HSlider" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 layout_mode = 2
 min_value = 0.25
 max_value = 2.0
 step = 0.05
 value = 0.95
 
-[node name="FXAAButton" type="CheckButton" parent="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality"]
+[node name="FXAAButton" type="CheckButton" parent="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -776,7 +856,8 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j7gi4")
 button_pressed = true
 
-[node name="CloseSettingsButton" type="TextureButton" parent="SettingM/PanelContainer/Settings"]
+[node name="CloseSettingsButton" type="TextureButton" parent="SettingM/PanelContainer/SettingsPanelControl"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -793,6 +874,26 @@ scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("37_r4dco")
 texture_pressed = ExtResource("38_pkpli")
 texture_hover = ExtResource("38_pkpli")
+
+[node name="BackButtonSettingtomainsetM" type="TextureButton" parent="SettingM/PanelContainer/SettingsPanelControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1594.5
+offset_top = -186.0
+offset_right = 665.5
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_7kr5m")
+texture_pressed = ExtResource("10_dg3i3")
+texture_hover = ExtResource("10_dg3i3")
+stretch_mode = 5
 
 [node name="UI" type="VBoxContainer" parent="SettingM/PanelContainer"]
 unique_name_in_owner = true
@@ -839,130 +940,130 @@ layout_mode = 2
 layout_mode = 2
 text = "Quit to Desktop"
 
-[node name="Credits" type="VBoxContainer" parent="SettingM/PanelContainer"]
+[node name="CreditsOld" type="VBoxContainer" parent="SettingM/PanelContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HeaderLabel" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="HeaderLabel" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Credits & License"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="SettingM/PanelContainer/Credits"]
+[node name="TextureRect" type="TextureRect" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("27_17jnm")
 stretch_mode = 2
 
-[node name="Godot" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Godot" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Made in the Godot Engine (4.0.3)"
 horizontal_alignment = 1
 
-[node name="Label11" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label11" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
 text = "https://godotengine.org/license/"
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="SettingM/PanelContainer/Credits"]
+[node name="Control" type="Control" parent="SettingM/PanelContainer/CreditsOld"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Project and 3D Assets"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label3" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
 text = "Raffaele Picca"
 horizontal_alignment = 1
 
-[node name="Control2" type="Control" parent="SettingM/PanelContainer/Credits"]
+[node name="Control2" type="Control" parent="SettingM/PanelContainer/CreditsOld"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label2" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Music"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label4" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
 text = "Paolo Dollorenzo"
 horizontal_alignment = 1
 
-[node name="Control4" type="Control" parent="SettingM/PanelContainer/Credits"]
+[node name="Control4" type="Control" parent="SettingM/PanelContainer/CreditsOld"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label5" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Torch and Wind Sound Effects"
 horizontal_alignment = 1
 
-[node name="Label6" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label6" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
 text = "@WhatInTheSound (Twitter)"
 horizontal_alignment = 1
 
-[node name="Control5" type="Control" parent="SettingM/PanelContainer/Credits"]
+[node name="Control5" type="Control" parent="SettingM/PanelContainer/CreditsOld"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Label7" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label7" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Player Controller"
 horizontal_alignment = 1
 
-[node name="Label8" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label8" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
 text = "Dimitar Dimitrov
 @Whimfoome (GitHub)"
 horizontal_alignment = 1
 
-[node name="Control6" type="Control" parent="SettingM/PanelContainer/Credits"]
+[node name="Control6" type="Control" parent="SettingM/PanelContainer/CreditsOld"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Label9" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label9" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Stylized Fire Shader (modified)"
 horizontal_alignment = 1
 
-[node name="Label10" type="Label" parent="SettingM/PanelContainer/Credits"]
+[node name="Label10" type="Label" parent="SettingM/PanelContainer/CreditsOld"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.184314, 0.184314, 0.184314, 1)
 text = "GDQuest and contributors
 (https://www.gdquest.com/)."
 horizontal_alignment = 1
 
-[node name="Control3" type="Control" parent="SettingM/PanelContainer/Credits"]
+[node name="Control3" type="Control" parent="SettingM/PanelContainer/CreditsOld"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="CloseCreditsButton" type="Button" parent="SettingM/PanelContainer/Credits"]
+[node name="CloseCreditsButton" type="Button" parent="SettingM/PanelContainer/CreditsOld"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1543,63 +1644,6 @@ texture_hover = ExtResource("18_3mmkf")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Mainmenu" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -2852.0
-offset_bottom = 2544.0
-grow_horizontal = 0
-scale = Vector2(0.35, 0.35)
-pivot_offset = Vector2(2700, 150)
-theme_override_constants/separation = 100
-
-[node name="Logo" type="TextureRect" parent="Mainmenu"]
-layout_mode = 2
-texture = ExtResource("25_58qk0")
-stretch_mode = 5
-
-[node name="ButtonContainer" type="VBoxContainer" parent="Mainmenu"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="NextButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 150)
-layout_mode = 2
-texture_normal = ExtResource("29_3xn0g")
-texture_pressed = ExtResource("30_23siw")
-texture_hover = ExtResource("30_23siw")
-stretch_mode = 5
-
-[node name="ArtifactButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture_normal = ExtResource("27_7tkw7")
-texture_pressed = ExtResource("28_j7gi4")
-texture_hover = ExtResource("28_j7gi4")
-stretch_mode = 5
-
-[node name="SettingButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture_normal = ExtResource("31_u4wim")
-texture_pressed = ExtResource("32_1hyic")
-texture_hover = ExtResource("32_1hyic")
-stretch_mode = 5
-
-[node name="QuitButton" type="TextureButton" parent="Mainmenu/ButtonContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture_normal = ExtResource("33_d87f8")
-texture_pressed = ExtResource("34_1r10b")
-texture_hover = ExtResource("34_1r10b")
-stretch_mode = 5
-
 [node name="FPSLabel" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -1618,31 +1662,39 @@ theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_ut51o")
 text = "FPS:"
 
+[connection signal="pressed" from="Mainmenu/ButtonContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Mainmenu/ButtonContainer/ArtifactButton" to="." method="_on_artifact_button_pressed"]
+[connection signal="pressed" from="Mainmenu/ButtonContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Mainmenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer/DecToBiStage" to="." method="_on_dec_to_bi_stage_pressed"]
 [connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer/LogicStage" to="." method="_on_logic_stage_pressed"]
-[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="ArtifactM/PanelContainer/Dashboard/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/BackButtonTopicM" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/BackButtonTopicM" to="." method="_on_back_button_topic_m_pressed"]
+[connection signal="pressed" from="ArtifactM/PanelContainer/Dashboard/BackButtonArtifact" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ArtifactM/PanelContainer/Dashboard/BackButtonArtifact" to="." method="_on_back_button_artifact_pressed"]
 [connection signal="pressed" from="ArtifactM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/Option/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/Option/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/Option/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General/WFullScreenCheckBox" to="." method="_on_w_full_screen_check_box_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General/FullScreenCheckBox" to="." method="_on_full_screen_check_box_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General/FPSCheckBox" to="." method="_on_fps_check_box_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General/VSyncEnableCheckBox" to="." method="_on_v_sync_enable_check_box_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/General/CinematicCheckBox" to="." method="_on_cinematic_check_box_pressed"]
-[connection signal="item_selected" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality/GeneralQualityOptionButton" to="." method="_on_general_quality_option_button_item_selected"]
-[connection signal="item_selected" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality/MSAAOptionButton" to="." method="_on_msaa_option_button_item_selected"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality/SSAOCheckbox" to="." method="_on_ssao_checkbox_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality/VolumentricFogCheckbox" to="." method="_on_volumentric_fog_checkbox_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality/TemporalButton" to="." method="_on_temporal_button_pressed"]
-[connection signal="value_changed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality/RenderResolutionSlider" to="." method="_on_render_resolution_slider_value_changed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/Settings/HBoxContainer/HBoxContainer/Quality/FXAAButton" to="." method="_on_fxaa_button_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Settings/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/Option/BackButtonOptionM" to="." method="_on_back_button_option_m_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General/WFullScreenCheckBox" to="." method="_on_w_full_screen_check_box_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General/FullScreenCheckBox" to="." method="_on_full_screen_check_box_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General/FPSCheckBox" to="." method="_on_fps_check_box_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General/VSyncEnableCheckBox" to="." method="_on_v_sync_enable_check_box_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/General/CinematicCheckBox" to="." method="_on_cinematic_check_box_pressed"]
+[connection signal="item_selected" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality/GeneralQualityOptionButton" to="." method="_on_general_quality_option_button_item_selected"]
+[connection signal="item_selected" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality/MSAAOptionButton" to="." method="_on_msaa_option_button_item_selected"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality/SSAOCheckbox" to="." method="_on_ssao_checkbox_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality/VolumentricFogCheckbox" to="." method="_on_volumentric_fog_checkbox_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality/TemporalButton" to="." method="_on_temporal_button_pressed"]
+[connection signal="value_changed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality/RenderResolutionSlider" to="." method="_on_render_resolution_slider_value_changed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/Settings/HBoxContainer/HBoxContainer/Quality/FXAAButton" to="." method="_on_fxaa_button_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/SettingsPanelControl/BackButtonSettingtomainsetM" to="." method="_on_back_button_settingtomainset_m_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/UI/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/UI/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/UI/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="SettingM/PanelContainer/Credits/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
+[connection signal="pressed" from="SettingM/PanelContainer/CreditsOld/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
 [connection signal="pressed" from="SettingMOld/PanelContainer/UI/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="SettingMOld/PanelContainer/UI/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="SettingMOld/PanelContainer/UI/QuitButton" to="." method="_on_quit_button_pressed"]
@@ -1660,7 +1712,3 @@ text = "FPS:"
 [connection signal="value_changed" from="SettingMOld/PanelContainer/Settings/HBoxContainer/Quality/RenderResolutionSlider" to="." method="_on_render_resolution_slider_value_changed"]
 [connection signal="pressed" from="SettingMOld/PanelContainer/Settings/HBoxContainer/Quality/FXAAButton" to="." method="_on_fxaa_button_pressed"]
 [connection signal="pressed" from="SettingMOld/PanelContainer/Settings/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
-[connection signal="pressed" from="Mainmenu/ButtonContainer/NextButton" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="Mainmenu/ButtonContainer/ArtifactButton" to="." method="_on_artifact_button_pressed"]
-[connection signal="pressed" from="Mainmenu/ButtonContainer/SettingButton" to="." method="_on_setting_button_pressed"]
-[connection signal="pressed" from="Mainmenu/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

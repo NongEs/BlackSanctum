@@ -50,12 +50,18 @@ func show_menu(_show: bool):
 		menu_tween.tween_callback(Callable(self, "_on_menu_hidden")).set_delay(0.2)
 		%SettingButton.show()
 		%ArtifactButton.show()
+		%NextButton.show()
+		%TopicM.hide()
 	else:
 		%TopicM.show()
-		%CharacterButton.hide()
-		%ArtifactButton.hide()
-		%SettingButton.hide()
+		%SettingM.hide()
 		%ArtifactM.hide()
+		
+		
+		%ArtifactButton.show()
+		%SettingButton.show()
+		%NextButton.show()
+		%QuitButton.show()
 		if menu_tween:
 			menu_tween.kill()
 		menu_tween = get_tree().create_tween()
@@ -77,24 +83,36 @@ func setting_show_menu(_showsetting: bool):
 			setting_menu_tween.kill()
 		setting_menu_tween = get_tree().create_tween()
 		setting_menu_tween.tween_property(%SettingM, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		%NextButton.show()
-		%ArtifactButton.show()
+		#%NextButton.show()
+		#%ArtifactButton.show()
+		#%SettingButton.show()
 		# Use Callable to pass the function reference
+		
 		setting_menu_tween.tween_callback(Callable(self, "_on_setting_menu_hidden")).set_delay(0.2)
+	
 	else:
 		%SettingM.show()
-		%CharacterButton.hide()
-		%ArtifactButton.hide()
+		%TopicM.hide()
+		%ArtifactM.hide()
+		
+		
+		%ArtifactButton.show()
 		%SettingButton.show()
-		%NextButton.hide()
+		%NextButton.show()
+		%QuitButton.show()
+		
+		
+		
 		if setting_menu_tween:
 			setting_menu_tween.kill()
 		setting_menu_tween = get_tree().create_tween()
 		setting_menu_tween.tween_property(%SettingM, "modulate:a", 1, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 # Callback function for when the setting menu is hidden
+
 func _on_setting_menu_hidden():
 	%SettingM.hide()
-	
+
+
 var artifact_menu_tween : Tween
 func _on_artifact_button_pressed() -> void:
 	artifact_show_menu(!showing_menu_artifact)
@@ -107,19 +125,22 @@ func artifact_show_menu(_showartifact: bool):
 			artifact_menu_tween.kill()
 		artifact_menu_tween = get_tree().create_tween()
 		artifact_menu_tween.tween_property(%ArtifactM, "modulate:a", 0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-		%ArtifactButton.show()
-		%NextButton.show()
+		#%ArtifactButton.show()
+		#%NextButton.show()
+		#%ArtifactM.hide()
 		
 		# Use Callable to pass the function reference
 		artifact_menu_tween.tween_callback(Callable(self, "_on_artifact_menu_hidden()")).set_delay(0.2)
 	else:
-		%SettingM.hide()
 		%ArtifactM.show()
-		%CharacterButton.hide()
-		%ArtifactButton.show()
-		%SettingButton.hide()
-		%NextButton.hide()
+		%TopicM.hide()
+		%SettingM.hide()
 		
+		%ArtifactButton.show()
+		%SettingButton.show()
+		%NextButton.show()
+		%QuitButton.show()
+
 		if artifact_menu_tween:
 			artifact_menu_tween.kill()
 		artifact_menu_tween = get_tree().create_tween()
@@ -135,7 +156,8 @@ func _on_artifact_menu_hidden():
 
 
 func _on_settings_button_pressed() -> void:
-	%UI.hide()
+	%Option.hide()
+	%SettingsPanelControl.show()
 	%Settings.show()
 	%WFullScreenCheckBox.grab_focus()
 
@@ -179,8 +201,9 @@ func _on_fps_check_box_pressed():
 
 
 func _on_cinematic_check_box_pressed():
-	%BlackBarTop.visible = %CinematicCheckBox.button_pressed
-	%BlackBarBottom.visible = %CinematicCheckBox.button_pressed
+	#%BlackBarTop.visible = %CinematicCheckBox.button_pressed
+	#%BlackBarBottom.visible = %CinematicCheckBox.button_pressed
+	pass
 
 
 func _on_fxaa_button_pressed():
@@ -242,7 +265,7 @@ func _on_close_credits_button_pressed():
 
 func _on_credits_button_pressed():
 	%UI.hide()
-	%Credits.show()
+	#%Credits.show()
 	%CloseCreditsButton.grab_focus()
 
 
@@ -274,5 +297,23 @@ func _on_logic_stage_pressed() -> void:
 	LoaderManager.change_level("res://mastermindgame/master_mind_map.tscn")
 
 
-func _on_back_button_pressed():
-	pass # Replace with function body.
+
+
+func _on_back_button_artifact_pressed() -> void:
+	%ArtifactM.hide()
+	showing_menu_artifact = false
+
+func _on_back_button_topic_m_pressed() -> void:
+	%TopicM.hide()
+	showing_menu = false
+
+
+func _on_back_button_option_m_pressed() -> void:
+	%SettingM.hide()
+	showing_menu_setting = false
+	
+
+
+func _on_back_button_settingtomainset_m_pressed() -> void:
+	%SettingsPanelControl.hide()
+	%Option.show()
