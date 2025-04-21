@@ -1,17 +1,19 @@
-[gd_scene load_steps=56 format=3 uid="uid://cslatpc7ya57d"]
+[gd_scene load_steps=58 format=3 uid="uid://cslatpc7ya57d"]
 
 [ext_resource type="Script" uid="uid://brvvsnmwe7arr" path="res://floorswitch/Lobby_newest_uilobby.gd" id="1_ut51o"]
 [ext_resource type="PackedScene" uid="uid://c20pdnmph2fox" path="res://Numeral_map/num_fl01/beta_numeral_map.tscn" id="2_17jnm"]
 [ext_resource type="PackedScene" uid="uid://j3bce6x4itnp" path="res://mastermindgame/mockupbeta.tscn" id="3_17jnm"]
 [ext_resource type="FontFile" uid="uid://diqanchdadrul" path="res://newgen_assets/Misoka Soft Sans Font/Misoka.otf" id="4_17jnm"]
-[ext_resource type="Texture2D" uid="uid://b5b6dv32xshb4" path="res://asset/NewUIAsset/NewBG/BG Selecttopics.png" id="4_d355j"]
+[ext_resource type="Texture2D" uid="uid://b20p3ji5rxltc" path="res://asset/NewUIAsset/NewBG/BG Selecttopics.png" id="4_d355j"]
 [ext_resource type="Texture2D" uid="uid://ylrus3s82mfs" path="res://asset/NewUIAsset/Numeral/Default.png" id="8_u4wim"]
 [ext_resource type="Texture2D" uid="uid://dwx2rthw12wso" path="res://asset/NewUIAsset/Numeral/Hover.png" id="9_1hyic"]
+[ext_resource type="Texture2D" uid="uid://ux2ucoy11s1" path="res://asset/NewUIAsset/Back/Default.png" id="9_7kr5m"]
 [ext_resource type="Texture2D" uid="uid://ci3cp003lt26u" path="res://asset/NewUIAsset/Logic_Gate/Default.png" id="10_d87f8"]
+[ext_resource type="Texture2D" uid="uid://dnsp2olv7f7le" path="res://asset/NewUIAsset/Back/Hover.png" id="10_dg3i3"]
 [ext_resource type="Texture2D" uid="uid://boy5ecaew4k4r" path="res://asset/NewUIAsset/Logic_Gate/Hover.png" id="11_1r10b"]
 [ext_resource type="Texture2D" uid="uid://dnmwi3wa2ftgb" path="res://asset/Universal UI/UI_button icon/next btn/next_defaultlight.png" id="11_v3ikv"]
 [ext_resource type="Texture2D" uid="uid://ciyi4jh7og0cm" path="res://asset/Universal UI/UI_button icon/next btn/next_press.png" id="12_16iyi"]
-[ext_resource type="Texture2D" uid="uid://yg43jxi3q6ut" path="res://asset/NewUIAsset/NewBG/BG Dashboard.png" id="12_plpil"]
+[ext_resource type="Texture2D" uid="uid://yhnwutdmy1wa" path="res://asset/NewUIAsset/NewBG/BG Dashboard.png" id="12_plpil"]
 [ext_resource type="Texture2D" uid="uid://bs4afnf834h75" path="res://asset/Universal UI/UI_button icon/next btn/next_hover.png" id="13_36fbp"]
 [ext_resource type="Texture2D" uid="uid://ebuw3i8njds3" path="res://asset/Numeral/Character_Icon.png" id="18_3mmkf"]
 [ext_resource type="Texture2D" uid="uid://ca13wkletkvqx" path="res://asset/Numeral/DtH_Default.png" id="19_266qf"]
@@ -129,45 +131,15 @@ offset_bottom = 960.0
 texture = ExtResource("4_d355j")
 expand_mode = 1
 
-[node name="Panel" type="Panel" parent="TopicM/PanelContainer/SelectTopicPanel"]
-visible = false
-layout_mode = 1
-offset_left = 49.0
-offset_top = 277.0
-offset_right = 993.0
-offset_bottom = 506.0
-scale = Vector2(1.8, 1.8)
-
-[node name="Back2Button" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -906.0
-offset_top = -975.0
-offset_right = -749.0
-offset_bottom = -814.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.441641, 0.441641)
-texture_normal = ExtResource("11_v3ikv")
-texture_pressed = ExtResource("12_16iyi")
-texture_hover = ExtResource("13_36fbp")
-stretch_mode = 0
-flip_h = true
-
 [node name="HBoxContainer" type="HBoxContainer" parent="TopicM/PanelContainer/SelectTopicPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.35
 anchor_right = 2.0
 anchor_bottom = 0.4
+offset_top = -39.0
 offset_right = 3584.0
-offset_bottom = 1628.0
+offset_bottom = 1435.0
 scale = Vector2(0.25, 0.25)
 theme_override_constants/separation = 700
 
@@ -195,6 +167,23 @@ stretch_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="BackButton" type="TextureButton" parent="TopicM/PanelContainer/SelectTopicPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_7kr5m")
+texture_pressed = ExtResource("10_dg3i3")
+texture_hover = ExtResource("10_dg3i3")
+stretch_mode = 5
+
 [node name="ArtifactM" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 anchors_preset = 15
@@ -220,60 +209,6 @@ offset_bottom = 960.0
 texture = ExtResource("12_plpil")
 expand_mode = 2
 
-[node name="DectoHex" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -620.0
-offset_top = 12.0
-offset_right = -480.0
-offset_bottom = 214.0
-grow_horizontal = 0
-texture_normal = ExtResource("19_266qf")
-texture_pressed = ExtResource("20_pspww")
-texture_hover = ExtResource("21_ms5qo")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="DecToRan" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -308.0
-offset_top = 12.0
-offset_right = -168.0
-offset_bottom = 214.0
-grow_horizontal = 0
-texture_normal = ExtResource("25_diw62")
-texture_pressed = ExtResource("26_ufgfy")
-texture_hover = ExtResource("27_8cgee")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="RanToDec" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -154.0
-offset_top = 12.0
-offset_right = -14.0
-offset_bottom = 214.0
-grow_horizontal = 0
-texture_normal = ExtResource("28_u4x1i")
-texture_pressed = ExtResource("29_h270l")
-texture_hover = ExtResource("30_crva3")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="TierLabel" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
 layout_mode = 1
 anchors_preset = 8
@@ -282,9 +217,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -469.0
-offset_top = -74.0
+offset_top = -92.0
 offset_right = -38.0
-offset_bottom = 2.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -303,9 +238,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 153.0
-offset_top = -67.0
+offset_top = -85.0
 offset_right = 672.0
-offset_bottom = 9.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -324,9 +259,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -469.0
-offset_top = 251.0
+offset_top = 193.0
 offset_right = -38.0
-offset_bottom = 327.0
+offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -345,9 +280,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 153.0
-offset_top = 258.0
+offset_top = 200.0
 offset_right = 672.0
-offset_bottom = 334.0
+offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -357,6 +292,23 @@ theme_override_font_sizes/font_size = 60
 text = "00:00"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="BackButton" type="TextureButton" parent="ArtifactM/PanelContainer/Dashboard"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_7kr5m")
+texture_pressed = ExtResource("10_dg3i3")
+texture_hover = ExtResource("10_dg3i3")
+stretch_mode = 5
 
 [node name="SelectTopicPanel" type="Panel" parent="ArtifactM/PanelContainer"]
 visible = false
@@ -1666,9 +1618,10 @@ theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_ut51o")
 text = "FPS:"
 
-[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
 [connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer/DecToBiStage" to="." method="_on_dec_to_bi_stage_pressed"]
 [connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/HBoxContainer/LogicStage" to="." method="_on_logic_stage_pressed"]
+[connection signal="pressed" from="TopicM/PanelContainer/SelectTopicPanel/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ArtifactM/PanelContainer/Dashboard/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="ArtifactM/PanelContainer/SelectTopicPanel/Back2Button" to="." method="_on_back_2_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/Option/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="SettingM/PanelContainer/Option/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
