@@ -14,7 +14,7 @@ var local_timer := 0.0
 
 func _ready() -> void:
 	# เริ่มจับเวลาเมื่อเริ่มแมพ
-	Dialogic.start("numeral_system_dialog")
+	Dialogic.start("new_numeral_system_diallog","beginbinarylevel")
 	timer_running = true
 	local_timer = 0.0
 	GameState.numeral_system_timer = 0.0
@@ -59,24 +59,69 @@ func _on_dialogic_signal(argument: String):
 		
 		
 func _on_key_update(key, value):
+	#1
+	if key == "key" and value == 1:
+		print("Key equal to 1")
+		Dialogic.start("new_numeral_system_diallog","firstkeyscollected")
+	#2
 	if key == "key" and value == 2:
 		print("Key equal to 2")
 		animation_player.play("to_octal")
 		player.shake_camera(3.0, 0.2, 1.3)
-		Dialogic.start("numeral_system_dialog","twokeyscollected")
-	
+		Dialogic.start("new_numeral_system_diallog","secondkeyscollected")
+	#3
+	if key == "key" and value == 3:
+		print("Key equal to 3")
+		Dialogic.start("new_numeral_system_diallog","thirdkeyscollected")
+	#4
 	if key == "key" and value == 4:
 		print("Key equal to 4")
-		Dialogic.start("numeral_system_dialog","fourkeyscollected")
+		Dialogic.start("new_numeral_system_diallog","fourthkeyscollected")
+	#5
+	if key == "key" and value == 5:
+		print("Key equal to 5")
+		Dialogic.start("new_numeral_system_diallog","fifthkeyscollected")
+	#6
+	if key == "key" and value == 6:
+		print("Key equal to 6")
+		Dialogic.start("new_numeral_system_diallog","sixthkeyscollected")
+	#7
+	if key == "key" and value == 7:
+		print("Key equal to 7")
+		Dialogic.start("new_numeral_system_diallog","seventhkeyscollected")
+	#8
 	if key == "key" and value == 8:
 		print("Key equal to 8")
-		Dialogic.start("numeral_system_dialog","eightkeyscollected")
+		Dialogic.start("new_numeral_system_diallog","eightthkeyscollected")
+	#9
+	if key == "key" and value == 9:
+		print("Key equal to 9")
+		Dialogic.start("new_numeral_system_diallog","ninethkeyscollected")
+	#10
+	if key == "key" and value == 10:
+		print("Key equal to 10")
+		Dialogic.start("new_numeral_system_diallog","tenthkeyscollected")
+	#11
+	if key == "key" and value == 11:
+		print("Key equal to 11")
+		Dialogic.start("new_numeral_system_diallog","eleventhkeyscollected")
+	#12
+	if key == "key" and value == 12:
+		print("Key equal to 12")
+		Dialogic.start("new_numeral_system_diallog","twelfthkeyscollected")
+	#13
 	if key == "key" and value == 13:
 		print("Key equal to 13")
 		player.shake_camera(4.0, 0.2, 2.3)
 		timer_running = false
 		evaluate_tier_from_timer()
-		Dialogic.start("numeral_system_dialog","thirteenkeyscollected")
+		Dialogic.start("new_numeral_system_diallog","thirteenkeyscollected")
+		await Dialogic.timeline_ended
+		await get_tree().create_timer(2.0).timeout
+		Dialogic.start("new_numeral_system_diallog","aftercollectallkeys")
+		await Dialogic.timeline_ended
+		await get_tree().create_timer(2.0).timeout
+		Dialogic.start("new_numeral_system_diallog","finaldialogue")
 		await Dialogic.timeline_ended
 		await get_tree().create_timer(5.0).timeout
 		LoaderManager.change_level("res://newgen_assets/Lobby_all/main_character_menu.tscn")

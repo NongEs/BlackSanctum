@@ -1,0 +1,307 @@
+label beginbinarylevel (startbinarylevel)
+"Mystery Guide": This is trail of binary system
+"Mystery Guide": As the name suggests, the binary system means there are only two possible values
+0 and 1.
+"Mystery Guide": Let’s go check what you have to do in this trail”
+jump describemechanic
+[end_timeline]
+
+
+label describemechanic (describemechanic)
+"Mystery Guide": There is a random switch or *‘the Ancient Pulse’*
+"Mystery Guide": It pulses with the will of a bygone age. Press — and let fate decide.
+"Mystery Guide": You have to interact with it to determine the amount of power the trail requires each time.
+"Mystery Guide": There are also have *‘The Sigil Array’*  that contain many *dual sigils*”
+"Mystery Guide": Do not forget to *confirm* the values you’ve given.”
+"Mystery Guide": Without it, the trail shall not know if your path was true.”
+"Mystery Guide": Yet at times, it must first be activated by *‘The Awakener Sigil’* before it may receive your touch.”
+jump understandmechanic
+[end_timeline]
+
+
+label understandmechanic (understandmechanic)
+So… I have to press a random switch to see what the result will be
+After that, I need to input the value on the panel based on the random number.
+However, sometimes I have to activate the activation button first before doing that.
+Am I right?
+"Mystery Guide": Indeed, as I had imagined, you are sharp of mind.
+"Mystery Guide": No matter how elegantly I weave my words, you grasp their meaning with ease.
+"Mystery Guide": How truly impressive.
+…
+Thanks?
+
+
+So, um… how does this thing—the Sigil Array—actually work?
+jump describebinarypanel
+[end_timeline]
+
+
+label describebinarypanel (describebinarypanel)
+"Mystery Guide": As I mentioned, each dual sigil have two values\: either 0 or 1
+"Mystery Guide": When set in place—one after another—their order creates a new amount of power.
+"Mystery Guide": Here, the flow of the power runs left to right… then top to bottom.
+"Mystery Guide": Touch them, and you'll feel it—the sigil in the bottom-right is the lowest power.
+"Mystery Guide": While the top-left contains the greatest power.
+jump calculatebinary
+[end_timeline]
+
+
+label calculatebinary (calculatebinary)
+"Mystery Guide": Begin with the base—two, for such is the rule of the Binary trail.
+"Mystery Guide": Raise it high, to match the sigil’s position, then bind it with your chosen value—0 or 1.
+"Mystery Guide": To understand the sigil’s position…”
+"Mystery Guide": We start with the lowest power at the bottom-right, counting from 0, and rise to the greatest power at the top-left.
+jump examplebinary
+[end_timeline]
+
+
+label examplebinary (examplebinary)
+"Mystery Guide": For example… take the top-left sigil.
+"Mystery Guide": Suppose you place a 1 within it—then it becomes 1 × 2⁷… which gives you 128.
+"Mystery Guide": And if you place 1 to several sigils at once, their pulses will not stand alone.
+"Mystery Guide": They will gather, add together, and form a single new power
+jump concludemachanic
+[end_timeline]
+
+
+label concludemachanic (concludemachanic)
+"Mystery Guide": Do you have any questions?
+* How the overall system work
+"Mystery Guide": ‘the Ancient Pulse’ use to random amount of power that you have to create”
+"Mystery Guide": the Dual Sigil’ is use to input value either 0 or 1
+"Mystery Guide": ‘the Sigil Array’ is the panel that contain many dual sigils
+"Mystery Guide": ‘the Awakener Sigil’ use to activate some sigil array that have been deactivate
+- How does the Sigil Array work?
+	jump describebinarypanel
+- How to calculate by using the Sigil Array?
+	jump calculatebinary
+- No
+"You may not yet see the full shape yet… and that is to be expected."
+"But with time, and steady hands, I trust you will master its pulse."
+
+
+label firstkeycollected (firstkeycollected)
+A determined heart, without control, may still lead to chaos
+Once, he tried… but tragically fail
+[end_timeline]
+
+
+label secondkeyscollected (secondkeyscollected)
+He was called bad luck, the one who brought storms.
+Wherever he walked, trail soon followed.
+He reached, and reached again…
+but the wall of scorn would not yield to kindness.
+jump bintooctbridgeappear (bintooctbridgeapppear)
+[end_timeline]
+
+label bintooctbridgeappear (bintooctbridgeapppear)
+Some need only a hand extended…and for that one, the hand was always waiting.
+[wait time="1.0"]
+Always… watching
+jump passbintooctbridge (passbintooctbridge)
+[end_timeline]
+
+
+label passbintooctbridge (passbintooctbridge)
+That person they kept talking about… who were they?
+And what did all those sentences mean?"
+Fragments of memories… confusion…
+What is its purpose …
+Yeah… that clears nothing up at all.
+But maybe, just maybe, if I keep walking through these halls…
+I’ll find a way. I’ll start to understand. What this thing wants from me.
+jump beginoctallevel (startoctallevel)
+[end_timeline]
+
+
+
+# separator1
+
+
+label beginoctallevel (startoctallevel)
+"Mystery Guide": This is trail of octal system
+White (ThinkWhite): Why doesn’t this place feel like a trail at all?
+"Mystery Guide": This place is not merely an ancient trail. It has… threads from other realms woven into it.
+"Mystery Guide": Artifacts and fragments from elsewhere sometimes slip through and find their way here.
+"Mystery Guide": Go on—approach that cube.
+jump describeoctalcube (describeoctalcube)
+[end_timeline]
+
+
+label describeoctalcube (describeoctalcube)
+"Mystery Guide": This is a different kind of Sigil Array…* the Sigil Cube*.
+"Mystery Guide": It is used to uncover values in the octal system.
+"Mystery Guide": You see, three binary digits—three dual sigils—can be woven together to form values up to 8.
+"Mystery Guide": So in truth, each octal digit is a blend… a harmony of three simple sigils.
+"Mystery Guide": Touch it—and learn with your own hands.
+[end_timeline]
+
+
+label thirdkeyscollected (thirdkeyscollected)
+From struggle came stillness… not peace, but weariness.
+And then, from the shadows… a glimmer.
+A thread of gold, offered like a final breath of hope.
+[end_timeline]
+
+
+label fourthkeyscollected (fourthkeyscollected)
+But golden threads are often barbed.
+Every gift bears a weight.
+Would you dare to take it, knowing what it asks in return?
+[wait time="3.0"]
+jump gohexalevel (gohexalevel)
+[end_timeline]
+
+
+label gohexalevel (gohexalevel)
+To offer salvation only when despair has taken root—
+Is that mercy? Or cruelty in velvet robes?
+He had no room to choose. Whether 'yes' or 'no'… the end was carved the same.
+jump beginhexallevel (starthexalevel)
+[end_timeline]
+
+
+# separator2
+label beginhexallevel (starthexalevel)
+"Mystery Guide": This is trail of octal system
+"Mystery Guide": Do you remember the rule I once shared?
+White (HuhWhite): …
+Mysterious Guide...Alright. Time has a way of blurring things.
+jump ruleoftheworld
+[end_timeline]
+
+
+label ruleoftheworld (ruleoftheworld)
+with pulse… with power …
+Remember well… All creation begins at *ZERO(0)*
+But when you reach *NINE(9)*, the final number fades to silence…
+Then the *alphabet (A-Z)* awakens… taking the place where numbers end
+jump explainrule
+[end_timeline]
+
+
+label explainrule (explainrule)
+"Mystery Guide": Now, the last line of that rule… it’s your guide.
+"Mystery Guide": In one digit of base-16, you can count 16 values\: from 0 to 9, and then A to F.
+"Mystery Guide": Touch it—and learn with your own hands.
+[end_timeline]
+
+
+label fifthkeyscollected (fifthkeyscollected)
+His fire rekindled, burning bright.
+This time, he will not falter.
+This time, he will rise.
+[end_timeline]
+
+
+label sixthkeyscollected (sixthkeyscollected)
+Yet the bargain had already bound him.
+Chains unseen, forged of whispers and want.
+And ambition—sweet and blinding—made those chains feel light
+[end_timeline]
+
+
+label seventhkeyscollected (seventhkeyscollected)
+He was crowned in cheers, draped in glory…
+The people smiled, forgetting the names they once cursed him with.
+Was it love they gave… or fear of what he had become?
+[end_timeline]
+
+
+label eightthkeyscollected (eightthkeyscollected)
+Still, he carried on—this role, this fate—waiting for change to come.
+But he never knew… the one to change it all was him.
+[end_timeline]
+
+
+label gonumerallevel (gonumerallevel)
+What bound his life to the prophecy's chain?
+Was it biased? Was pride too great? Or someone pulling all the strings?
+
+jump beginhexallevel
+[end_timeline]
+
+
+# separator3
+label beginhexallevel (starthexalevel)
+"Mystery Guide": This is … the last trial
+"Mystery Guide": From what you've learned, I trust you understand—at least a little.
+"Mystery Guide": Now try using your skill to break through this trial.
+"Mystery Guide": You may still not know who you truly are…
+"Mystery Guide": But fate has already set the path.
+"Mystery Guide": Soon, the truth you seek will come to you.
+"Mystery Guide": May all go well.
+[wait time="2.0"]
+White (SeriousWhite): \: Wait—where are you going?
+"Mystery Guide": …
+"Mystery Guide": I'm not leaving. Just stepping back… to let you try on your own.
+White (HuhWhite): …
+White (GotitWhite): Alright then. Let’s do this.
+[end_timeline]
+
+
+label ninethkeyscollected (ninethkeyscollected)
+Time—the great revealer—struck like dawn.
+The chains he wore began to tighten.
+Sanity unraveled, thread by thread.
+Until only a storm remained.
+[end_timeline]
+
+
+label tenthkeyscollected (tenthkeyscollected)
+His mind was breaking, but he kept going.
+They called him a monster—he stopped caring.
+In the end, he became what they believed.
+Not by choice… but by the weight of their eyes.
+[end_timeline]
+
+
+label eleventhkeyscollected (eleventhkeyscollected)
+No friend, no foe, only ruin remains.
+Chaos, as foretold, now reigns.
+Had they welcomed him with open eyes—
+Would this tale still end the same?...
+[end_timeline]
+
+
+label twelfthkeyscollected (twelfthkeyscollected)
+He had walked too far to turn around..
+And even if he could… Where would the fixing start?
+The past was gone, the damage done.
+All he could do—was keep walking toward the end..
+[end_timeline]
+
+
+label thirteenkeyscollected (thirteenkeyscollected)
+And so, the blade fell.
+They ended what they feared.
+The very thing he fought to escape… became the hand that silenced him.
+[end_timeline]
+
+
+label aftercollectallkeys (aftercollectallkeys)
+White (ThinkWhite): I kind of saw it coming from the start…
+White (ThinkWhite): But I still feel sorry for him.
+"Mystery Guide": That was the road he chose to tread.
+"Mystery Guide": And choice, once made, cannot be shed.
+White (SeriousWhite): We can’t see the future, not really.
+White (SeriousWhite): All we can do… is try our best right now.
+"Mystery Guide": ...
+"Mystery Guide": A brief exchange, but a worthy one.
+"Mystery Guide": Yet time, as always, slips away.
+White (HuhWhite): Wait! You said you’d tell me why I’m here—
+"Mystery Guide": We will meet again, have no fear.
+"Mystery Guide": The truth will come, little by little…
+"Mystery Guide": Just give it time.
+[end_timeline]
+
+
+label finaldialogue (finaldialogue)
+The one who offered him the thread of fate…
+But for his ambition, a price was paid…
+And in the end, it was seized, stolen away.
+[end_timeline]
+
+
+
+# separator4

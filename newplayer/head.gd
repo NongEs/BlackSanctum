@@ -28,6 +28,8 @@ func _input(event: InputEvent) -> void:
 
 # Called every physics tick. 'delta' is constant
 func _physics_process(delta: float) -> void:
+	if not is_active:
+		return
 	var joystick_axis := Input.get_vector(&"look_left", &"look_right",
 			&"look_down", &"look_up")
 	
@@ -35,7 +37,8 @@ func _physics_process(delta: float) -> void:
 		mouse_axis = joystick_axis * 1000.0 * delta
 		camera_rotation()
 
-
+func set_camera_active(active: bool) -> void:
+	is_active = active
 func camera_rotation() -> void:
 	# Horizontal mouse look.
 	rot.y -= mouse_axis.x * mouse_sensitivity

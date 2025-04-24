@@ -31,10 +31,13 @@ Signals="*res://logiclooloo/signals.gd"
 
 directories/dch_directory={
 "DrMantis": "res://TextboxWithPortrait/DrMantis.dch",
+"Mystery Guide": "res://TextboxWithPortrait/Mystery Guide.dch",
 "Player": "res://TextboxWithPortrait/Player.dch",
+"White": "res://TextboxWithPortrait/White.dch",
 "narrator": "res://TextboxWithPortrait/narrator.dch"
 }
 directories/dtl_directory={
+"new_numeral_system_diallog": "res://TextboxWithPortrait/new_numeral_system_diallog.dtl",
 "numeral_system_dialog": "res://TextboxWithPortrait/numeral_system_dialog.dtl",
 "storyskibidii": "res://TextboxWithPortrait/storyskibidii.dtl",
 "timeline": "res://TextboxWithPortrait/timeline.dtl"

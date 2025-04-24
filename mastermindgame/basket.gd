@@ -46,7 +46,7 @@ var cleared_in_this_break := false
 @export var result_labels: Array[Label3D] = []
 
 @export var score_label: Label3D  # เอาไว้แสดงคะแนน
-
+var has_started := false
 func _ready():
 	GameState.logic_gate_score = 0
 	update_score_label()
@@ -62,7 +62,8 @@ func _ready():
 	if start_button and has_node(start_button):
 		var sb = get_node(start_button)
 		sb.connect("interacted", _on_start_pressed)
-
+		
+		
 	if timer:
 		timer.timeout.connect(_on_countdown_timeout)
 
@@ -137,6 +138,10 @@ func _on_body_entered(body: Node3D, index: int):
 	answer_labels[index].modulate = Color.WHITE
 
 func _on_start_pressed(_unused = null):
+	if has_started:
+		return  
+
+	has_started = true
 	game_started = true
 	running_time = 0.0
 	countdown_time = 30.0

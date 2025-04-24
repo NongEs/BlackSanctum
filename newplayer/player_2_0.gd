@@ -55,7 +55,7 @@ var pull_power := 6
 @export var staticbody : StaticBody3D
 var rotation_power := 0.05
 var locked = false
-
+var can_move := true
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 @onready var gravity: float = (ProjectSettings.get_setting("physics/3d/default_gravity") 
 		* gravity_multiplier)
@@ -69,42 +69,42 @@ func _ready():
 	
 # Called every physics tick. 'delta' is constants
 func _physics_process(delta: float) -> void:
-	@warning_ignore("unused_variable")
-	var move_speed = speed
-	input_axis = Input.get_vector(&"backward", &"forward",
+	if can_move:
+		@warning_ignore("unused_variable")
+		var move_speed = speed
+		input_axis = Input.get_vector(&"backward", &"forward",
 			&"left", &"right")
-	
-	direction_input()
-	
-	if is_on_floor():
-		if Input.is_action_just_pressed(&"jump"):
-			velocity.y = jump_height
-			
-	if not is_on_floor_only():
-		velocity.y -= gravity * delta
-	elif moving:
-		if Input.is_action_just_pressed(&"jump"):
-			velocity.y = jump_height
-		elif Input.is_action_pressed("crouch") or top_cast.is_colliding():
-			move_speed = crouch_speed
-			crouch(delta)
-		else:
-			crouch(delta, true)
-	accelerate(delta)
-	
-	move_and_slide()
-	
-	
-	headbob_time += delta * velocity.length()* float(is_on_floor())
-	headbob_camera.transform.origin = headbob(headbob_time)
-	
-	if picked_object != null:
-		var a = picked_object.global_transform.origin
-		var b = hand.global_transform.origin
-		picked_object.set_linear_velocity((b-a)*pull_power)
 		
+		direction_input()
+		
+		if is_on_floor():
+			if Input.is_action_just_pressed(&"jump"):
+				velocity.y = jump_height
+				
+		if not is_on_floor_only():
+			velocity.y -= gravity * delta
+		elif moving:
+			if Input.is_action_just_pressed(&"jump"):
+				velocity.y = jump_height
+			elif Input.is_action_pressed("crouch") or top_cast.is_colliding():
+				move_speed = crouch_speed
+				crouch(delta)
+			else:
+				crouch(delta, true)
+		
+		accelerate(delta)
+		move_and_slide()
+		
+		headbob_time += delta * velocity.length() * float(is_on_floor())
+		headbob_camera.transform.origin = headbob(headbob_time)
+
+		if picked_object != null:
+			var a = picked_object.global_transform.origin
+			var b = hand.global_transform.origin
+			picked_object.set_linear_velocity((b - a) * pull_power)
+
 	
-@warning_ignore("unused_parameter")
+#@warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_click"):
 		if picked_object == null:
@@ -119,7 +119,9 @@ func _input(event: InputEvent) -> void:
 			picked_object.apply_central_impulse(knockback * 3)
 			remove_object()
 	
-	
+func set_control_enabled(enabled: bool) -> void:
+	can_move = enabled  # สมมติว่าคุณมีตัวแปรนี้ควบคุมการเดิน
+	%Head.set_camera_active(enabled)  # ส่งต่อให้กล้องใน Head
 	
 func direction_input() -> void:
 	direction = Vector3()
