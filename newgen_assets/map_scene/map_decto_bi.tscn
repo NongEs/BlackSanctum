@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://md1p2lxkatn1"]
+[gd_scene load_steps=45 format=3 uid="uid://md1p2lxkatn1"]
 
 [ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="1_r7kfq"]
 [ext_resource type="Script" uid="uid://cmkq7ngtpdd4p" path="res://newgen_assets/map_scene/map_decto_bi.gd" id="1_xuoho"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://brmd78i55k8b8" path="res://asset/binaryct/binarycounter.tscn" id="9_5o6w5"]
 [ext_resource type="PackedScene" uid="uid://bbq5t15mllaxx" path="res://newgen_assets/prepared asset/active node/sample_switch.tscn" id="10_aglge"]
 [ext_resource type="PackedScene" uid="uid://bshte6v76d7nq" path="res://asset/doorandgate/Door.tscn" id="10_dad4m"]
-[ext_resource type="PackedScene" uid="uid://bimuhvegk187q" path="res://newgen_assets/pausemenu.tscn" id="12_b7pta"]
 [ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://asset/Environment/trees/tree.tscn" id="13_ixmmp"]
 [ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://newgen_assets/prepared asset/fireflyparticle.tscn" id="18_i674y"]
 
@@ -1296,8 +1295,18 @@ transform = Transform3D(0.526229, 0, -0.850343, 0, 1, 0, 0.850343, 0, 0.526229, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636474, 0.257327, 2.38769)
 shape = SubResource("BoxShape3D_ljhaa")
 
-[node name="pausemenu" parent="." instance=ExtResource("12_b7pta")]
+[node name="pausemenu" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 visible = false
+script = null
 
 [node name="Door2" parent="." instance=ExtResource("10_dad4m")]
 transform = Transform3D(0.933305, 0, 0.359085, 0, 1, 0, -0.359085, 0, 0.933305, -8.78771, 0.282543, -5.9846)

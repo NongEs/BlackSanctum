@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dl1u5745720u6"]
+[gd_scene load_steps=58 format=3 uid="uid://dl1u5745720u6"]
 
 [ext_resource type="Shader" uid="uid://do3pgsk0tw5x1" path="res://newgen_assets/shadergs/stylized_sky.gdshader" id="1_1t833"]
 [ext_resource type="Script" uid="uid://bc4kbci77koxt" path="res://mastermindgame/master_mind_map.gd" id="1_xjp6k"]
@@ -6,11 +6,35 @@
 [ext_resource type="Texture2D" uid="uid://cboor26ln3y5c" path="res://addons/grid_texture/dark/texture_13.png" id="3_2d16p"]
 [ext_resource type="PackedScene" uid="uid://bs0dhkkjae4ap" path="res://newplayer/player_2_0.tscn" id="4_bsi1v"]
 [ext_resource type="Texture2D" uid="uid://be1tgmn0ejums" path="res://addons/grid_texture/green/texture_10.png" id="5_w5gbg"]
+[ext_resource type="PackedScene" uid="uid://dabale7tnn5cp" path="res://matercaveproject/cave_scenes/prepared/tiles_combined_mid_section.tscn" id="5_wbh3g"]
 [ext_resource type="PackedScene" uid="uid://dc1htwboysfco" path="res://mastermindgame/summon_switch.tscn" id="6_fwsiy"]
 [ext_resource type="PackedScene" uid="uid://b3blaug1epmed" path="res://mastermindgame/answer_object.tscn" id="7_fwsiy"]
 [ext_resource type="Texture2D" uid="uid://cpfdkqahm36qh" path="res://addons/grid_texture/red/texture_10.png" id="7_xfvxx"]
+[ext_resource type="PackedScene" uid="uid://1qd2gu5g2bws" path="res://matercaveproject/cave_scenes/prepared/stairs_combined.tscn" id="10_pms0r"]
 [ext_resource type="PackedScene" uid="uid://335wn80ljykg" path="res://mastermindgame/basket.tscn" id="10_xfvxx"]
 [ext_resource type="PackedScene" uid="uid://lauc7egswra6" path="res://floorswitch/pause_game_ui.tscn" id="11_qbhtw"]
+[ext_resource type="PackedScene" uid="uid://c8ngey6uofnr7" path="res://matercaveproject/cave_scenes/prepared/temple_arc.tscn" id="11_w5usm"]
+[ext_resource type="PackedScene" uid="uid://b5tvgrv70krpk" path="res://matercaveproject/cave_scenes/prepared/temple_pillar_full.tscn" id="12_vglel"]
+[ext_resource type="PackedScene" uid="uid://cmo4f48n3mu3u" path="res://matercaveproject/cave_scenes/base/ground_sand.tscn" id="16_25fak"]
+[ext_resource type="PackedScene" uid="uid://bmkr6g26ix3ow" path="res://matercaveproject/cave_scenes/base/rocks/rock_big.tscn" id="17_pms0r"]
+[ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://asset/Environment/trees/tree.tscn" id="17_x51fk"]
+[ext_resource type="PackedScene" uid="uid://bc1l4deuw25a0" path="res://matercaveproject/cave_scenes/base/rocks/rock_small.tscn" id="18_p6teo"]
+[ext_resource type="PackedScene" uid="uid://bx8jat5qe4u57" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_2.tscn" id="19_25jik"]
+[ext_resource type="PackedScene" uid="uid://1pj8m8rr0i88" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_3.tscn" id="20_yq2jp"]
+[ext_resource type="PackedScene" uid="uid://ccf34k3qgnnqr" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_5.tscn" id="21_m0t2o"]
+[ext_resource type="PackedScene" uid="uid://d00h2ucy2bs7g" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_6.tscn" id="22_j5dl5"]
+[ext_resource type="PackedScene" uid="uid://cmmpjwf7bjr5j" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_7.tscn" id="23_ulskd"]
+[ext_resource type="PackedScene" uid="uid://dlqgqkvrdxx05" path="res://matercaveproject/cave_scenes/base/ground_tiles/temple_tiles_detail_1.tscn" id="24_f4stk"]
+[ext_resource type="PackedScene" uid="uid://dk86yxikoeimc" path="res://matercaveproject/cave_scenes/base/stairs/temple_stairs_rail_end.tscn" id="25_x51fk"]
+[ext_resource type="PackedScene" uid="uid://df44qbjskigqv" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_1.tscn" id="26_4upu3"]
+[ext_resource type="PackedScene" uid="uid://c4ff6x711ch7t" path="res://matercaveproject/cave_scenes/base/stairs/temple_stairs_2.tscn" id="27_jb7iq"]
+[ext_resource type="PackedScene" uid="uid://chhpe1aert3ed" path="res://matercaveproject/cave_scenes/base/stairs/temple_stairs_rail_1.tscn" id="28_yoa60"]
+[ext_resource type="PackedScene" uid="uid://bgnxaliul0eyn" path="res://matercaveproject/cave_scenes/base/temple_pillars/temple_pillar_end_broken.tscn" id="29_m0t2o"]
+[ext_resource type="PackedScene" uid="uid://bjswyshnntybp" path="res://newgen_assets/prepared asset/fireflyparticle.tscn" id="30_4upu3"]
+[ext_resource type="PackedScene" uid="uid://dgei6i1r2qbts" path="res://matercaveproject/cave_scenes/prepared/temple_pillar_broken_2.tscn" id="30_j5dl5"]
+[ext_resource type="PackedScene" uid="uid://cfu10364mn16b" path="res://matercaveproject/cave_scenes/prepared/temple_pillar_broken.tscn" id="31_ulskd"]
+[ext_resource type="PackedScene" uid="uid://cvxbmq3qrso4d" path="res://matercaveproject/cave_scenes/base/stairs/temple_stairs_rail_2.tscn" id="32_j5dl5"]
+[ext_resource type="PackedScene" uid="uid://b4jvb1dchib63" path="res://asset/map_decoration/Ultimate Nature Pack by Quaternius/FBX/PineTree_Autumn_1.fbx" id="33_ulskd"]
 
 [sub_resource type="Curve" id="Curve_bsi1v"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.121212, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.704545), 0.0, 0.0, 0, 0]
@@ -84,6 +108,30 @@ uv1_triplanar = true
 albedo_texture = ExtResource("7_xfvxx")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_p6teo"]
+size = Vector3(2.29541, 12.558, 12.4064)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdv62"]
+size = Vector3(28.9311, 10.7036, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjv0x"]
+size = Vector3(68.8327, 25.9835, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q65uw"]
+size = Vector3(11.384, 16.6342, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4k0t"]
+size = Vector3(29.1341, 19.3993, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_58s67"]
+size = Vector3(25.3687, 13.4822, 7.25833)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iughb"]
+size = Vector3(28.761, 13.4822, 2.40089)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jb5dj"]
+size = Vector3(28.761, 22.0291, 2.40089)
+
 [node name="MasterMindMap" type="Node3D"]
 script = ExtResource("1_xjp6k")
 
@@ -98,61 +146,273 @@ light_color = Color(1, 0.952941, 0.929412, 1)
 light_energy = 1.5
 shadow_enabled = true
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Zone" type="Node3D" parent="."]
 
-[node name="Platform" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.26815, 0, 1.38499)
+[node name="Platform" type="CSGBox3D" parent="Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52373, 0, -0.217549)
 material_override = SubResource("StandardMaterial3D_bsi1v")
 use_collision = true
-size = Vector3(24.4562, 1, 34.8911)
+size = Vector3(28.0233, 1, 28.2246)
 
-[node name="BoxW" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.57213, 2.97304, 2.90993)
+[node name="Platform2" type="CSGBox3D" parent="Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5736, 0.391158, 1.38499)
+material_override = SubResource("StandardMaterial3D_bsi1v")
+use_collision = true
+size = Vector3(32.3154, 5.3999, 31.6643)
+
+[node name="TilesCombinedMidSection" parent="Zone/Platform2" instance=ExtResource("5_wbh3g")]
+transform = Transform3D(-5.71389e-08, 0, -1.30719, 0, 1.30719, 0, 1.30719, 0, -5.71389e-08, 0, 0.529755, 0)
+
+[node name="TilesCombinedMidSection2" parent="Zone/Platform2" instance=ExtResource("5_wbh3g")]
+transform = Transform3D(-5.71389e-08, 0, -1.30719, 0, 1.30719, 0, 1.30719, 0, -5.71389e-08, 35.1986, -2.15825, -2.35193)
+
+[node name="BoxW" type="CSGBox3D" parent="Zone"]
+transform = Transform3D(0.946509, 0, 0.322679, 0, 1, 0, -0.322679, 0, 0.946509, -2.57213, 2.97304, 7.34066)
 material_override = SubResource("StandardMaterial3D_qbhtw")
 use_collision = true
 size = Vector3(0.792755, 5.44421, 1.86563)
 
-[node name="Label1" type="Label3D" parent="Node3D/BoxW"]
+[node name="Label1" type="Label3D" parent="Zone/BoxW"]
 transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, 0.423301, 1.87253, 1.86348e-08)
 text = "1"
 font_size = 100
 
-[node name="SummonSwitch1" parent="Node3D/BoxW" node_paths=PackedStringArray("spawn_position") instance=ExtResource("6_fwsiy")]
+[node name="SummonSwitch1" parent="Zone/BoxW" node_paths=PackedStringArray("spawn_position") instance=ExtResource("6_fwsiy")]
 transform = Transform3D(-1.96956e-08, 0, 0.450583, 0, 0.450583, 0, -0.450583, 0, -1.96956e-08, 0, 0.841425, 0)
 object_scene = ExtResource("7_fwsiy")
 spawn_position = NodePath("../Marker3D1")
 spawn_value = 1
 
-[node name="Marker3D1" type="Marker3D" parent="Node3D/BoxW"]
+[node name="Marker3D1" type="Marker3D" parent="Zone/BoxW"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
-[node name="BoxO" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70596, 2.97304, -3.61471)
+[node name="BoxO" type="CSGBox3D" parent="Zone"]
+transform = Transform3D(0.899931, 0, -0.436032, 0, 1, 0, 0.436032, 0, 0.899931, -2.70596, 2.97304, -8.44286)
 material_override = SubResource("StandardMaterial3D_ueyb1")
 use_collision = true
 size = Vector3(0.792755, 5.44421, 1.86563)
 
-[node name="Label0" type="Label3D" parent="Node3D/BoxO"]
+[node name="Label0" type="Label3D" parent="Zone/BoxO"]
 transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, 0.423301, 1.87253, -0.0758431)
 text = "0"
 font_size = 100
 
-[node name="SummonSwitch0" parent="Node3D/BoxO" node_paths=PackedStringArray("spawn_position") instance=ExtResource("6_fwsiy")]
+[node name="SummonSwitch0" parent="Zone/BoxO" node_paths=PackedStringArray("spawn_position") instance=ExtResource("6_fwsiy")]
 transform = Transform3D(-1.96956e-08, 0, 0.450583, 0, 0.450583, 0, -0.450583, 0, -1.96956e-08, -2.83688e-07, 0.841425, 0.0346022)
 object_scene = ExtResource("7_fwsiy")
 spawn_position = NodePath("../Marker3D2")
 
-[node name="Marker3D2" type="Marker3D" parent="Node3D/BoxO"]
+[node name="Marker3D2" type="Marker3D" parent="Zone/BoxO"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.0686593)
 
+[node name="StairsCombined" parent="Zone" instance=ExtResource("10_pms0r")]
+transform = Transform3D(6.55671e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.55671e-08, -10.6733, 3.58782, -1.08944)
+
+[node name="TempleArc" parent="Zone" instance=ExtResource("11_w5usm")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -18.3031, 2.66203, -0.222007)
+
+[node name="TemplePillar" parent="Zone" instance=ExtResource("12_vglel")]
+transform = Transform3D(0.897705, 0, 0.440597, 0, 1, 0, -0.440597, 0, 0.897705, 8.37536, -1.65821, 13.2457)
+
+[node name="Area3D" type="Area3D" parent="Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9044, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.647705, 5.77902, -0.0336304)
+shape = SubResource("BoxShape3D_p6teo")
+
 [node name="Player_2_0" parent="." instance=ExtResource("4_bsi1v")]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 0, 2.64926, 0)
+transform = Transform3D(0.155711, 0, -0.987803, 0, 1, 0, 0.987803, 0, 0.155711, -31.1598, 5.39676, 4.8359)
 
 [node name="Basket" parent="." instance=ExtResource("10_xfvxx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.55431, 3.84362, -4.10457)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.1131, 2.25902, -4.10457)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99504, 6.80891, -1.15239)
 omni_range = 23.7387
 
 [node name="PauseGame_UI" parent="." instance=ExtResource("11_qbhtw")]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="groundsand" parent="Node3D" instance=ExtResource("16_25fak")]
+transform = Transform3D(-0.175539, 0, -0.984473, 0, 1, 0, 0.984473, 0, -0.175539, -3.3362, 6.42063, 20.9491)
+
+[node name="Tree1Geo2" parent="Node3D/groundsand" instance=ExtResource("17_x51fk")]
+transform = Transform3D(2.69889, 0, 1.43841, 0, 3.05827, 0, -1.43841, 0, 2.69889, 3.26978, -6.0242, 5.56782)
+skeleton = NodePath("../..")
+
+[node name="Tree1Geo5" parent="Node3D/groundsand" instance=ExtResource("17_x51fk")]
+transform = Transform3D(4.22636, 0, 2.2525, 0, 4.78914, 0, -2.2525, 0, 4.22636, -18.6273, 2.50436, 66.5591)
+skeleton = NodePath("../..")
+
+[node name="Tree1Geo3" parent="Node3D/groundsand" instance=ExtResource("17_x51fk")]
+transform = Transform3D(2.69889, 0, 1.43841, 0, 3.05827, 0, -1.43841, 0, 2.69889, 2.80022, -2.11928, -6.95376)
+skeleton = NodePath("../..")
+
+[node name="Tree1Geo4" parent="Node3D/groundsand" instance=ExtResource("17_x51fk")]
+transform = Transform3D(1.66904, 0, 0.88954, 0, 1.89129, 0, -0.88954, 0, 1.66904, -4.12444, -2.66283, -3.26317)
+skeleton = NodePath("../..")
+
+[node name="groundsand2" parent="Node3D" instance=ExtResource("16_25fak")]
+transform = Transform3D(0.0833996, 0, 0.996516, 0, 1, 0, -0.996516, 0, 0.0833996, 3.97837, 5.04305, -22.9274)
+
+[node name="Tree1Geo2" parent="Node3D/groundsand2" instance=ExtResource("17_x51fk")]
+transform = Transform3D(2.69889, 0, 1.43841, 0, 3.05827, 0, -1.43841, 0, 2.69889, 3.26978, -6.0242, 5.56782)
+skeleton = NodePath("../..")
+
+[node name="Tree1Geo5" parent="Node3D/groundsand2" instance=ExtResource("17_x51fk")]
+transform = Transform3D(4.22636, 0, 2.2525, 0, 4.78914, 0, -2.2525, 0, 4.22636, -18.6273, 2.50436, 66.5591)
+skeleton = NodePath("../..")
+
+[node name="Tree1Geo3" parent="Node3D/groundsand2" instance=ExtResource("17_x51fk")]
+transform = Transform3D(2.69889, 0, 1.43841, 0, 3.05827, 0, -1.43841, 0, 2.69889, 2.80022, -2.11928, -6.95376)
+skeleton = NodePath("../..")
+
+[node name="Tree1Geo4" parent="Node3D/groundsand2" instance=ExtResource("17_x51fk")]
+transform = Transform3D(1.66904, 0, 0.88954, 0, 1.89129, 0, -0.88954, 0, 1.66904, -4.12444, -2.66283, -3.26317)
+skeleton = NodePath("../..")
+
+[node name="StairsCombined" parent="Node3D" instance=ExtResource("10_pms0r")]
+transform = Transform3D(0.5, 0, -8.74228e-08, 0, 0.5, 0, 8.74228e-08, 0, 0.5, -29.8502, 3.05036, 23.0245)
+
+[node name="rock_big" parent="Node3D" instance=ExtResource("17_pms0r")]
+transform = Transform3D(2.36295, 0, 2.12343, 0, 3.17687, 0, -2.12343, 0, 2.36295, -66.0721, 19.1639, 34.0051)
+
+[node name="rock_big2" parent="Node3D" instance=ExtResource("17_pms0r")]
+transform = Transform3D(3.15936, 0.151339, -0.296711, 0.31009, -0.303292, 3.14712, 0.121595, -3.15873, -0.316393, -89.3567, 19.2943, 2.67541)
+
+[node name="rock_big3" parent="Node3D" instance=ExtResource("17_pms0r")]
+transform = Transform3D(0.585843, -0.636084, 3.0569, -0.338227, -3.10487, -0.581246, 3.10401, -0.218268, -0.640288, -62.8283, 8.57007, -38.8036)
+
+[node name="rock_small" parent="Node3D" instance=ExtResource("18_p6teo")]
+transform = Transform3D(1.90965, 0, -0.484599, 0, 1.97018, 0, 0.484599, 0, 1.90965, -44.0451, 11.0627, -19.0908)
+
+[node name="temple_debris_2" parent="Node3D" instance=ExtResource("19_25jik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.9964, 15.1678, 22.7312)
+
+[node name="temple_debris_3" parent="Node3D" instance=ExtResource("20_yq2jp")]
+transform = Transform3D(-0.813069, -0.232611, -0.533676, -0.0699847, 0.949113, -0.307062, 0.577945, -0.212314, -0.787974, 45.8165, 13.1022, 38.9477)
+
+[node name="temple_debris_5" parent="Node3D" instance=ExtResource("21_m0t2o")]
+transform = Transform3D(0.937968, -0.346723, 0, 0.346723, 0.937968, 0, 0, 0, 1, 49.193, 13.6591, 39.6722)
+
+[node name="temple_debris_6" parent="Node3D" instance=ExtResource("22_j5dl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.7007, 14.577, 35.0356)
+
+[node name="temple_debris_7" parent="Node3D" instance=ExtResource("23_ulskd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.6956, 14.2032, 29.1249)
+
+[node name="temple_tiles_detail_1" parent="Node3D" instance=ExtResource("24_f4stk")]
+transform = Transform3D(0.989766, -0.142209, -0.0117992, 0.142665, 0.984384, 0.103127, -0.00305069, -0.103755, 0.994598, 24.2207, 7.35606, 43.162)
+
+[node name="temple_stairs_rail_end" parent="Node3D" instance=ExtResource("25_x51fk")]
+transform = Transform3D(0.0652464, 0, 0.997869, 0, 1, 0, -0.997869, 0, 0.0652464, -1.47955, 7.11521, 39.4687)
+
+[node name="temple_debris_1" parent="Node3D" instance=ExtResource("26_4upu3")]
+transform = Transform3D(-0.252957, -0.187791, 0.949077, 0.218451, 0.944561, 0.245121, -0.942492, 0.269332, -0.19791, 31.0427, 9.06022, 21.4639)
+
+[node name="temple_stairs_2" parent="Node3D" instance=ExtResource("27_jb7iq")]
+transform = Transform3D(0.2887, -0.953038, -0.0914978, 0.541828, 0.241426, -0.805069, 0.789351, 0.182847, 0.586082, 10.1735, 9.73865, 19.5837)
+
+[node name="temple_stairs_rail_1" parent="Node3D" instance=ExtResource("28_yoa60")]
+transform = Transform3D(0.979789, 0, 0.200035, 0, 1, 0, -0.200035, 0, 0.979789, 8.96529, 9.23796, 37.9753)
+
+[node name="fireflyparticle" parent="Node3D" instance=ExtResource("30_4upu3")]
+transform = Transform3D(2.70721, 0, 0, 0, 2.70721, 0, 0, 0, 2.70721, -62.6814, 9.41784, -6.12931)
+
+[node name="fireflyparticle4" parent="Node3D" instance=ExtResource("30_4upu3")]
+transform = Transform3D(2.70721, 0, 0, 0, 2.70721, 0, 0, 0, 2.70721, 31.2668, 9.41784, 23.2154)
+
+[node name="fireflyparticle3" parent="Node3D" instance=ExtResource("30_4upu3")]
+transform = Transform3D(2.70721, 0, 0, 0, 2.70721, 0, 0, 0, 2.70721, -26.4995, 9.41784, 21.2069)
+
+[node name="fireflyparticle2" parent="Node3D" instance=ExtResource("30_4upu3")]
+transform = Transform3D(2.70721, 0, 0, 0, 2.70721, 0, 0, 0, 2.70721, -0.0275993, 9.41784, 3.34172)
+
+[node name="temple_pillar_end_broken" parent="Node3D" instance=ExtResource("29_m0t2o")]
+transform = Transform3D(0.911137, 0, 0.412103, 0, 1, 0, -0.412103, 0, 0.911137, -39.2886, 3.54006, 15.5652)
+
+[node name="TemplePillarBroken2" parent="Node3D" instance=ExtResource("30_j5dl5")]
+transform = Transform3D(-0.00645747, 0, -0.499958, 0, 0.5, 0, 0.499958, 0, -0.00645747, -43.9142, 3.33469, 16.0361)
+
+[node name="TemplePillarBroken5" parent="Node3D" instance=ExtResource("30_j5dl5")]
+transform = Transform3D(-0.00645747, 0, -0.499958, 0, 0.5, 0, 0.499958, 0, -0.00645747, -22.086, 3.10219, 16.318)
+
+[node name="TemplePillarBroken6" parent="Node3D" instance=ExtResource("30_j5dl5")]
+transform = Transform3D(-0.00645747, 0, -0.499958, 0, 0.5, 0, 0.499958, 0, -0.00645747, -24.2424, 3.33469, -11.7405)
+
+[node name="TemplePillarBroken7" parent="Node3D" instance=ExtResource("30_j5dl5")]
+transform = Transform3D(-0.499894, 0, -0.0102968, 0, 0.5, 0, 0.0102968, 0, -0.499894, -34.8509, 3.33469, -11.8775)
+
+[node name="TemplePillarBroken" parent="Node3D" instance=ExtResource("31_ulskd")]
+transform = Transform3D(-0.421259, 0, 0.269334, 0, 0.5, 0, -0.269334, 0, -0.421259, -16.7804, 3.21797, 9.4645)
+
+[node name="TemplePillarBroken3" parent="Node3D" instance=ExtResource("31_ulskd")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -16.8275, 3.10436, 15.7477)
+
+[node name="TemplePillarBroken4" parent="Node3D" instance=ExtResource("31_ulskd")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -45.0588, 3.09394, 8.77938)
+
+[node name="TemplePillarBroken8" parent="Node3D" instance=ExtResource("31_ulskd")]
+transform = Transform3D(-0.146344, 0, 0.478104, 0, 0.5, 0, -0.478104, 0, -0.146344, -45.0588, 3.90972, -0.998941)
+
+[node name="temple_stairs_rail_2" parent="Node3D" instance=ExtResource("28_yoa60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.4753, 6.47537, -6.43185)
+
+[node name="temple_stairs_rail_3" parent="Node3D" instance=ExtResource("32_j5dl5")]
+transform = Transform3D(0.150864, 0, 0.988555, 0, 1, 0, -0.988555, 0, 0.150864, -31.0301, 1.90232, -12.4107)
+
+[node name="temple_stairs_rail_end2" parent="Node3D" instance=ExtResource("25_x51fk")]
+transform = Transform3D(0.994373, 0, 0.105934, 0, 1, 0, -0.105934, 0, 0.994373, -17.4837, 5.01608, -9.77864)
+
+[node name="temple_stairs_3" parent="Node3D" instance=ExtResource("27_jb7iq")]
+transform = Transform3D(0.818551, 0, 0.574434, 0, 1, 0, -0.574434, 0, 0.818551, -55.9466, 3.6985, 10.0729)
+
+[node name="temple_stairs_rail_4" parent="Node3D" instance=ExtResource("28_yoa60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.827, 2.80013, 33.031)
+
+[node name="rock_big4" parent="Node3D" instance=ExtResource("17_pms0r")]
+transform = Transform3D(-0.00541045, 0, 0.999985, 0, 1, 0, -0.999985, 0, -0.00541045, -25.408, -1.74653, 39.9662)
+
+[node name="PineTree_Autumn_1" parent="Node3D" instance=ExtResource("33_ulskd")]
+transform = Transform3D(0.98233, -0.187158, 0, 0.187158, 0.98233, 0, 0, 0, 1, 3.34817, 5.22962, 16.6039)
+
+[node name="PineTree_Autumn_2" parent="Node3D" instance=ExtResource("33_ulskd")]
+transform = Transform3D(0.995, -0.0998755, 0, 0.0998755, 0.995, 0, 0, 0, 1, -4.23925, 5.15751, 8.96873)
+
+[node name="PineTree_Autumn_3" parent="Node3D" instance=ExtResource("33_ulskd")]
+transform = Transform3D(2.84033, 0, 0, 0, 2.84033, 0, 0, 0, 2.84033, -2.3576, 5.17583, 33.0087)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11539, 4.85181, -14.4495)
+shape = SubResource("BoxShape3D_qdv62")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.996436, 0, 0.0843561, 0, 1, 0, -0.0843561, 0, 0.996436, -16.7053, 8.75449, 39.5659)
+shape = SubResource("BoxShape3D_gjv0x")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.981246, 0, 0.192762, 0, 1, 0, -0.192762, 0, 0.981246, 13.9246, 7.81708, 11.8415)
+shape = SubResource("BoxShape3D_q65uw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7073, 9.19965, -14.4495)
+shape = SubResource("BoxShape3D_l4k0t")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.7905, 6.24109, -16.8529)
+shape = SubResource("BoxShape3D_58s67")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.8474, 6.24109, -1.04981)
+shape = SubResource("BoxShape3D_iughb")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.9994, 10.5145, 25.7068)
+shape = SubResource("BoxShape3D_jb5dj")
+
+[connection signal="area_entered" from="Zone/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Zone/Area3D" to="." method="_on_area_3d_body_entered"]
