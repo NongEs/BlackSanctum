@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dbdabuhh1uvu8"]
+[gd_scene load_steps=44 format=3 uid="uid://dbdabuhh1uvu8"]
 
 [ext_resource type="Script" uid="uid://l1yt23i8m2q6" path="res://newgen_assets/map_scene/plainmap.gd" id="1_dy31d"]
 [ext_resource type="Texture2D" uid="uid://cboor26ln3y5c" path="res://addons/grid_texture/dark/texture_13.png" id="1_o5e8m"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bs0dhkkjae4ap" path="res://newplayer/player_2_0.tscn" id="25_4sg52"]
 [ext_resource type="PackedScene" uid="uid://lauc7egswra6" path="res://floorswitch/pause_game_ui.tscn" id="25_itmex"]
 [ext_resource type="PackedScene" uid="uid://ctpe3085tbrlr" path="res://free_switch.tscn" id="26_573xw"]
+[ext_resource type="PackedScene" uid="uid://cfn7fosnx4a2e" path="res://tutokey.tscn" id="27_573xw"]
 [ext_resource type="PackedScene" uid="uid://biqlhiiiair1s" path="res://color_gen_hex.tscn" id="60_710ut"]
 [ext_resource type="PackedScene" uid="uid://4lyd8ptcrhup" path="res://floorswitch/random_value_maker_hex.tscn" id="61_xpcwd"]
 
@@ -295,6 +296,44 @@ theme_override_font_sizes/font_size = 64
 text = "/ 12"
 horizontal_alignment = 1
 
+[node name="TutoKeyCurrent" type="Label" parent="UI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 79.0
+offset_top = -504.0
+offset_right = -1726.0
+offset_bottom = -416.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="TutoKeyFull" type="Label" parent="UI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 177.0
+offset_top = -504.0
+offset_right = -1627.0
+offset_bottom = -416.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 64
+text = "/ 5"
+horizontal_alignment = 1
+
 [node name="TextureRect" type="TextureRect" parent="UI/Control"]
 layout_mode = 1
 anchors_preset = 1
@@ -379,10 +418,20 @@ door = NodePath("../Door2")
 [node name="Node3D2" type="Node3D" parent="."]
 
 [node name="PauseGame_UI" parent="." instance=ExtResource("25_itmex")]
+visible = false
 
 [node name="FreeSwitch" parent="." instance=ExtResource("26_573xw")]
 transform = Transform3D(0.0536432, 0, 0.99856, 0, 1, 0, -0.99856, 0, 0.0536432, -7.3683, 3.27349, 0.413685)
 
 [node name="Player_2_0" parent="." instance=ExtResource("25_4sg52")]
+
+[node name="Tutokey" parent="." instance=ExtResource("27_573xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.231, 1.94468, -1.40443)
+
+[node name="Tutokey2" parent="." instance=ExtResource("27_573xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.231, 1.94468, 0.388848)
+
+[node name="Tutokey3" parent="." instance=ExtResource("27_573xw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.231, 1.94468, 2.22494)
 
 [connection signal="interacted" from="FreeSwitch" to="." method="_on_free_switch_interacted"]

@@ -6,7 +6,7 @@ func _ready() -> void:
 	#audio_stream_player_3d.play()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	#Dialogic.start("numeral_system_dialog","beginning")
-	Dialogic.start("new_numeral_system_diallog","beginoctallevel")
+	Dialogic.start("new_numeral_system_diallog","beginbinarylevel")
 	#await Dialogic.timeline_ended
 	#player.can_move = true
 	player.set_control_enabled(true)

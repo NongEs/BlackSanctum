@@ -1,7 +1,7 @@
 label beginbinarylevel (startbinarylevel)
 "Mystery Guide": This is trail of binary system
 "Mystery Guide": As the name suggests, the binary system means there are only two possible values
-0 and 1.
+"Mystery Guide": 0 and 1.
 "Mystery Guide": Let’s go check what you have to do in this trail”
 jump describemechanic
 [end_timeline]
@@ -20,20 +20,19 @@ jump understandmechanic
 
 
 label understandmechanic (understandmechanic)
-So… I have to press a random switch to see what the result will be
-After that, I need to input the value on the panel based on the random number.
-However, sometimes I have to activate the activation button first before doing that.
-Am I right?
+White (ThinkWhite): So… I have to press a random switch to see what the result will be
+White (ThinkWhite): After that, I need to input the value on the panel based on the random number.
+White (GotitWhite): However, sometimes I have to activate the activation button first before doing that.
+White (GotitWhite): Am I right?
 "Mystery Guide": Indeed, as I had imagined, you are sharp of mind.
 "Mystery Guide": No matter how elegantly I weave my words, you grasp their meaning with ease.
 "Mystery Guide": How truly impressive.
-…
-Thanks?
+White (DefaultWhite): …
+White (HuhWhite): Thanks?
 
 
-So, um… how does this thing—the Sigil Array—actually work?
-jump describebinarypanel
-[end_timeline]
+White (ThinkWhite): So, um… how does this thing—the Sigil Array—actually work?
+jump new_numeral_system_diallog/describebinarypanel
 
 
 label describebinarypanel (describebinarypanel)
@@ -42,8 +41,7 @@ label describebinarypanel (describebinarypanel)
 "Mystery Guide": Here, the flow of the power runs left to right… then top to bottom.
 "Mystery Guide": Touch them, and you'll feel it—the sigil in the bottom-right is the lowest power.
 "Mystery Guide": While the top-left contains the greatest power.
-jump calculatebinary
-[end_timeline]
+jump new_numeral_system_diallog/calculatebinary
 
 
 label calculatebinary (calculatebinary)
@@ -51,8 +49,7 @@ label calculatebinary (calculatebinary)
 "Mystery Guide": Raise it high, to match the sigil’s position, then bind it with your chosen value—0 or 1.
 "Mystery Guide": To understand the sigil’s position…”
 "Mystery Guide": We start with the lowest power at the bottom-right, counting from 0, and rise to the greatest power at the top-left.
-jump examplebinary
-[end_timeline]
+jump new_numeral_system_diallog/examplebinary
 
 
 label examplebinary (examplebinary)
@@ -60,8 +57,7 @@ label examplebinary (examplebinary)
 "Mystery Guide": Suppose you place a 1 within it—then it becomes 1 × 2⁷… which gives you 128.
 "Mystery Guide": And if you place 1 to several sigils at once, their pulses will not stand alone.
 "Mystery Guide": They will gather, add together, and form a single new power
-jump concludemachanic
-[end_timeline]
+jump new_numeral_system_diallog/concludemachanic
 
 
 label concludemachanic (concludemachanic)
@@ -72,12 +68,13 @@ label concludemachanic (concludemachanic)
 "Mystery Guide": ‘the Sigil Array’ is the panel that contain many dual sigils
 "Mystery Guide": ‘the Awakener Sigil’ use to activate some sigil array that have been deactivate
 - How does the Sigil Array work?
-	jump describebinarypanel
+	jump new_numeral_system_diallog/describebinarypanel
 - How to calculate by using the Sigil Array?
-	jump calculatebinary
+	jump new_numeral_system_diallog/calculatebinary
 - No
-"You may not yet see the full shape yet… and that is to be expected."
-"But with time, and steady hands, I trust you will master its pulse."
+"Mystery Guide": "You may not yet see the full shape yet… and that is to be expected."
+"Mystery Guide": "But with time, and steady hands, I trust you will master its pulse."
+[end_timeline]
 
 
 label firstkeycollected (firstkeycollected)
@@ -91,15 +88,13 @@ He was called bad luck, the one who brought storms.
 Wherever he walked, trail soon followed.
 He reached, and reached again…
 but the wall of scorn would not yield to kindness.
-jump bintooctbridgeappear (bintooctbridgeapppear)
-[end_timeline]
+jump new_numeral_system_diallog/bintooctbridgeappear
 
 label bintooctbridgeappear (bintooctbridgeapppear)
 Some need only a hand extended…and for that one, the hand was always waiting.
 [wait time="1.0"]
 Always… watching
-jump passbintooctbridge (passbintooctbridge)
-[end_timeline]
+jump new_numeral_system_diallog/passbintooctbridge
 
 
 label passbintooctbridge (passbintooctbridge)
@@ -110,8 +105,7 @@ What is its purpose …
 Yeah… that clears nothing up at all.
 But maybe, just maybe, if I keep walking through these halls…
 I’ll find a way. I’ll start to understand. What this thing wants from me.
-jump beginoctallevel (startoctallevel)
-[end_timeline]
+jump new_numeral_system_diallog/beginoctallevel
 
 
 
@@ -124,8 +118,7 @@ White (ThinkWhite): Why doesn’t this place feel like a trail at all?
 "Mystery Guide": This place is not merely an ancient trail. It has… threads from other realms woven into it.
 "Mystery Guide": Artifacts and fragments from elsewhere sometimes slip through and find their way here.
 "Mystery Guide": Go on—approach that cube.
-jump describeoctalcube (describeoctalcube)
-[end_timeline]
+jump new_numeral_system_diallog/describeoctalcube
 
 
 label describeoctalcube (describeoctalcube)
@@ -149,26 +142,23 @@ But golden threads are often barbed.
 Every gift bears a weight.
 Would you dare to take it, knowing what it asks in return?
 [wait time="3.0"]
-jump gohexalevel (gohexalevel)
-[end_timeline]
+jump new_numeral_system_diallog/gohexalevel
 
 
 label gohexalevel (gohexalevel)
 To offer salvation only when despair has taken root—
 Is that mercy? Or cruelty in velvet robes?
 He had no room to choose. Whether 'yes' or 'no'… the end was carved the same.
-jump beginhexallevel (starthexalevel)
-[end_timeline]
+jump new_numeral_system_diallog/beginhexallevelxx
 
 
 # separator2
-label beginhexallevel (starthexalevel)
+label beginhexallevelxx (starthexalevel)
 "Mystery Guide": This is trail of octal system
 "Mystery Guide": Do you remember the rule I once shared?
 White (HuhWhite): …
 Mysterious Guide...Alright. Time has a way of blurring things.
-jump ruleoftheworld
-[end_timeline]
+jump new_numeral_system_diallog/ruleoftheworld
 
 
 label ruleoftheworld (ruleoftheworld)
@@ -176,8 +166,7 @@ with pulse… with power …
 Remember well… All creation begins at *ZERO(0)*
 But when you reach *NINE(9)*, the final number fades to silence…
 Then the *alphabet (A-Z)* awakens… taking the place where numbers end
-jump explainrule
-[end_timeline]
+jump new_numeral_system_diallog/explainrule
 
 
 label explainrule (explainrule)
@@ -211,19 +200,20 @@ Was it love they gave… or fear of what he had become?
 label eightthkeyscollected (eightthkeyscollected)
 Still, he carried on—this role, this fate—waiting for change to come.
 But he never knew… the one to change it all was him.
-[end_timeline]
+[wait time="5.0"]
+jump new_numeral_system_diallog/gonumerallevel
 
 
 label gonumerallevel (gonumerallevel)
 What bound his life to the prophecy's chain?
 Was it biased? Was pride too great? Or someone pulling all the strings?
 
-jump beginhexallevel
+jump new_numeral_system_diallog/beginnummerallevel
 [end_timeline]
 
 
 # separator3
-label beginhexallevel (starthexalevel)
+label beginnummerallevel (starthexalevel)
 "Mystery Guide": This is … the last trial
 "Mystery Guide": From what you've learned, I trust you understand—at least a little.
 "Mystery Guide": Now try using your skill to break through this trial.

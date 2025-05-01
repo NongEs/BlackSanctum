@@ -11,24 +11,33 @@ var redpanel: bool = false
 @onready var bridge_sec_drop = $block3/CSGBox3D3/AnimationPlayer
 
 func _ready() -> void:
-	$pausemenu.hide()
+	
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start("timeline")
-	#Dialogic.timeline_started.connect(disable_movement)
-	#Dialogic.timeline_ended.connect(enable_movement)
+	GameState.tukey_state_changed.connect(_on_tukey_update)
 	
+	
+func _on_tukey_update(tukey, tuvalue):
+	#1
+	if tukey == "tutokey" and tuvalue == 1:
+		print("TuKey equal to 1")
+		#Dialogic.start("new_numeral_system_diallog","firstkeyscollected")
+	
+	if tukey == "tutokey" and tuvalue == 4:
+		print("TuKey equal to 4")
+		LoaderManager.change_level("res://Numeral_map/num_fl01/beta_numeral_map.tscn")
 func _input(event):
 	if not movement_enabled:
 		return  # Ignore all input if movement is disabled
 	if event.is_action_pressed("ui_cancel"):
 		Engine.time_scale = 0
-		$pausemenu.show()
+		#$pausemenu.show()
 			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Show cursor when paused
 
 	else:
 		Engine.time_scale = 1
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Hide cursor for gameplay
-		$pausemenu.hide()
+		#$pausemenu.hide()
 		
 func _on_dialogic_signal(argument: String):
 	if argument == "move left noi":

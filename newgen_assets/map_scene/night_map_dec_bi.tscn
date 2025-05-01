@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://phdixirbdflf"]
+[gd_scene load_steps=64 format=3 uid="uid://phdixirbdflf"]
 
 [ext_resource type="Script" uid="uid://cmkq7ngtpdd4p" path="res://newgen_assets/map_scene/map_decto_bi.gd" id="1_8mr3w"]
 [ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="2_4jjcf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bshte6v76d7nq" path="res://asset/doorandgate/Door.tscn" id="5_hqwsa"]
 [ext_resource type="Texture2D" uid="uid://b5nm5mmjxfht4" path="res://addons/grid_texture/green/texture_05.png" id="6_fqntx"]
 [ext_resource type="Texture2D" uid="uid://ntiu66svity3" path="res://addons/grid_texture/red/texture_01.png" id="7_7dcbj"]
+[ext_resource type="PackedScene" uid="uid://cfn7fosnx4a2e" path="res://tutokey.tscn" id="7_8mr3w"]
 [ext_resource type="Texture2D" uid="uid://dhyr4kky7mqfd" path="res://addons/grid_texture/orange/texture_01.png" id="8_sluo6"]
 [ext_resource type="PackedScene" uid="uid://bp7cuk0oavepu" path="res://asset/Environment/bushes/bush.tscn" id="9_4sq5k"]
 [ext_resource type="PackedScene" uid="uid://cbxln4ljola71" path="res://asset/Environment/flowers/flower_patch.tscn" id="10_0l4b1"]
@@ -18,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://bhvan7kwsyvxw" path="res://addons/grid_texture/dark/texture_12.png" id="16_yys3d"]
 [ext_resource type="PackedScene" uid="uid://sbqhbha156g5" path="res://asset/Player/Player.tscn" id="17_vov0b"]
 [ext_resource type="Environment" uid="uid://b7j6cdke78883" path="res://newgen_assets/time_example_scene/nightbright_time.tres" id="19_8mr3w"]
+[ext_resource type="Script" uid="uid://wkv8heqeah7g" path="res://newgen_assets/map_scene/testcontrol.gd" id="20_peknj"]
+[ext_resource type="Texture2D" uid="uid://b2cqs8ir070re" path="res://newgen_assets/image/pumpkin.png" id="21_sm0vi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw5kr"]
 albedo_texture = ExtResource("2_4jjcf")
@@ -614,6 +617,92 @@ _data = {
 &"bridge_fall": SubResource("Animation_s2q6j")
 }
 
+[sub_resource type="Animation" id="Animation_p42kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1781, 22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyFull:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1625, 35.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyCurrent:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1541, 35.5)]
+}
+
+[sub_resource type="Animation" id="Animation_2wvl1"]
+resource_name = "float_disk"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1781, 22), Vector2(1783, 60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyFull:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1625, 35.5), Vector2(1625, 70)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyCurrent:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1541, 35.5), Vector2(1541, 70)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjkdr"]
+_data = {
+&"RESET": SubResource("Animation_p42kb"),
+&"float_disk": SubResource("Animation_2wvl1")
+}
+
 [node name="NightMapDecBi" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_8mr3w")
 player = NodePath("Player")
@@ -717,6 +806,9 @@ transform = Transform3D(0.885233, 0, -7.45058e-09, 0, 0.885233, 0, 7.45058e-09, 
 material_override = SubResource("StandardMaterial3D_ts1fh")
 operation = 2
 size = Vector3(3.70233, 3.92616, 3.4874)
+
+[node name="Tutokey" parent="block/CSGBox3D14" instance=ExtResource("7_8mr3w")]
+transform = Transform3D(1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 1, 0, -0.565992, 0)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="block"]
 transform = Transform3D(0.796659, 0, -1.40952, 0, 1.61908, 0, 1.40952, 0, 0.796659, 17.1527, 1.20777, -26.1969)
@@ -1582,6 +1674,15 @@ skeleton = NodePath("../..")
 transform = Transform3D(2.69889, 0, 1.43841, 0, 3.05827, 0, -1.43841, 0, 2.69889, 0.40122, -1.44556, -26.3375)
 skeleton = NodePath("../..")
 
+[node name="Tutokey" parent="block" instance=ExtResource("7_8mr3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -21)
+
+[node name="Tutokey2" parent="block" instance=ExtResource("7_8mr3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73, -9, -8)
+
+[node name="Tutokey3" parent="block" instance=ExtResource("7_8mr3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -1, -13)
+
 [node name="block2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0789, 9.24415, 18.7151)
 
@@ -1896,25 +1997,141 @@ transform = Transform3D(0.555978, 0, 0.575229, 0, 0.8, 0, -0.575229, 0, 0.555978
 speed = 10.0
 jump = 20.0
 
-[node name="pausemenu" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = false
-script = null
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("19_8mr3w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_peknj")
+
+[node name="KeyCurrent" type="Label" parent="UI/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1541.0
+offset_top = -504.5
+offset_right = -264.0
+offset_bottom = -416.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="KeyFull" type="Label" parent="UI/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1625.0
+offset_top = -504.5
+offset_right = -179.0
+offset_bottom = -416.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 64
+text = "/ 12"
+horizontal_alignment = 1
+
+[node name="TutoKeyCurrent" type="Label" parent="UI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1554.0
+offset_top = -481.0
+offset_right = -251.0
+offset_bottom = -393.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="TutoKeyFull" type="Label" parent="UI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1635.0
+offset_top = -481.0
+offset_right = -169.0
+offset_bottom = -393.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 64
+text = "/ 4"
+horizontal_alignment = 1
+
+[node name="Task" type="Label" parent="UI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1156.0
+offset_top = -480.0
+offset_right = -305.0
+offset_bottom = -399.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Find all the key to complete tutorial."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -139.0
+offset_top = 22.0
+offset_right = -31.0
+offset_bottom = 130.0
+grow_horizontal = 0
+rotation = 0.261799
+texture = ExtResource("21_sm0vi")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_kjkdr")
+}
+autoplay = "float_disk"
 
 [connection signal="body_entered" from="block/BinaryArea" to="." method="_on_binary_area_body_entered"]
 [connection signal="body_entered" from="block/RedArea" to="." method="_on_red_area_body_entered"]
