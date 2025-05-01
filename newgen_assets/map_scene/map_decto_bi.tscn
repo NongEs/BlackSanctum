@@ -1295,19 +1295,6 @@ transform = Transform3D(0.526229, 0, -0.850343, 0, 1, 0, 0.850343, 0, 0.526229, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636474, 0.257327, 2.38769)
 shape = SubResource("BoxShape3D_ljhaa")
 
-[node name="pausemenu" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = false
-script = null
-
 [node name="Door2" parent="." instance=ExtResource("10_dad4m")]
 transform = Transform3D(0.933305, 0, 0.359085, 0, 1, 0, -0.359085, 0, 0.933305, -8.78771, 0.282543, -5.9846)
 

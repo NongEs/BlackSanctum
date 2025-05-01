@@ -6,6 +6,10 @@ var showing_menu_setting := false
 var showing_menu_artifact := false
 @onready var tier_label: Label = %TierLabel
 @onready var time_best: Label = %TimeBest
+@onready var score_label: Label = %ScoreLabel
+
+
+
 
 func _enter_tree():
 	%TopicM.modulate.a = 0.0
@@ -17,6 +21,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	tier_label.text =  GameState.numeral_system_tier
 	time_best.text = " %.2f s" % GameState.numeral_system_timer
+	score_label.text = str(GameState.logic_gate_score)
 	%MSAAOptionButton.add_item("Disabled", 0)
 	%MSAAOptionButton.add_item("2x", 1)
 	%MSAAOptionButton.add_item("4x", 2)

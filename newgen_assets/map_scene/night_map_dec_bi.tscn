@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://phdixirbdflf"]
+[gd_scene load_steps=58 format=3 uid="uid://phdixirbdflf"]
 
 [ext_resource type="Script" uid="uid://cmkq7ngtpdd4p" path="res://newgen_assets/map_scene/map_decto_bi.gd" id="1_8mr3w"]
 [ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="2_4jjcf"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://asset/Environment/trees/tree.tscn" id="15_gwk0h"]
 [ext_resource type="Texture2D" uid="uid://bhvan7kwsyvxw" path="res://addons/grid_texture/dark/texture_12.png" id="16_yys3d"]
 [ext_resource type="PackedScene" uid="uid://sbqhbha156g5" path="res://asset/Player/Player.tscn" id="17_vov0b"]
-[ext_resource type="PackedScene" uid="uid://bimuhvegk187q" path="res://newgen_assets/pausemenu.tscn" id="18_wjq6l"]
 [ext_resource type="Environment" uid="uid://b7j6cdke78883" path="res://newgen_assets/time_example_scene/nightbright_time.tres" id="19_8mr3w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw5kr"]
@@ -1897,8 +1896,18 @@ transform = Transform3D(0.555978, 0, 0.575229, 0, 0.8, 0, -0.575229, 0, 0.555978
 speed = 10.0
 jump = 20.0
 
-[node name="pausemenu" parent="." instance=ExtResource("18_wjq6l")]
+[node name="pausemenu" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 visible = false
+script = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("19_8mr3w")
