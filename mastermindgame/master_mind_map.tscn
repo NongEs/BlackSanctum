@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dl1u5745720u6"]
+[gd_scene load_steps=73 format=3 uid="uid://dl1u5745720u6"]
 
 [ext_resource type="Shader" uid="uid://do3pgsk0tw5x1" path="res://newgen_assets/shadergs/stylized_sky.gdshader" id="1_1t833"]
 [ext_resource type="Script" uid="uid://bc4kbci77koxt" path="res://mastermindgame/master_mind_map.gd" id="1_xjp6k"]
@@ -15,11 +15,18 @@
 [ext_resource type="PackedScene" uid="uid://lauc7egswra6" path="res://floorswitch/pause_game_ui.tscn" id="11_qbhtw"]
 [ext_resource type="PackedScene" uid="uid://c8ngey6uofnr7" path="res://matercaveproject/cave_scenes/prepared/temple_arc.tscn" id="11_w5usm"]
 [ext_resource type="PackedScene" uid="uid://b5tvgrv70krpk" path="res://matercaveproject/cave_scenes/prepared/temple_pillar_full.tscn" id="12_vglel"]
+[ext_resource type="Texture2D" uid="uid://c1v1n3hq81qcd" path="res://newgen_assets/image/OR.png" id="13_l4k0t"]
+[ext_resource type="Texture2D" uid="uid://0qrvl6ac65o2" path="res://newgen_assets/image/AND.png" id="14_58s67"]
+[ext_resource type="Texture2D" uid="uid://odnkgyqb43hy" path="res://newgen_assets/image/NOT.png" id="15_iughb"]
 [ext_resource type="PackedScene" uid="uid://cmo4f48n3mu3u" path="res://matercaveproject/cave_scenes/base/ground_sand.tscn" id="16_25fak"]
+[ext_resource type="Texture2D" uid="uid://dk3jgr805c25e" path="res://newgen_assets/image/NOR.png" id="16_jb5dj"]
+[ext_resource type="Texture2D" uid="uid://dfpynbpbbloau" path="res://newgen_assets/image/XNOR.png" id="17_ia367"]
 [ext_resource type="PackedScene" uid="uid://bmkr6g26ix3ow" path="res://matercaveproject/cave_scenes/base/rocks/rock_big.tscn" id="17_pms0r"]
 [ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://asset/Environment/trees/tree.tscn" id="17_x51fk"]
+[ext_resource type="Texture2D" uid="uid://3i51t80wfss4" path="res://newgen_assets/image/XOR.png" id="18_oncyn"]
 [ext_resource type="PackedScene" uid="uid://bc1l4deuw25a0" path="res://matercaveproject/cave_scenes/base/rocks/rock_small.tscn" id="18_p6teo"]
 [ext_resource type="PackedScene" uid="uid://bx8jat5qe4u57" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_2.tscn" id="19_25jik"]
+[ext_resource type="Texture2D" uid="uid://c7aoely0mg1vk" path="res://newgen_assets/image/NAND.png" id="19_womqw"]
 [ext_resource type="PackedScene" uid="uid://1pj8m8rr0i88" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_3.tscn" id="20_yq2jp"]
 [ext_resource type="PackedScene" uid="uid://ccf34k3qgnnqr" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_5.tscn" id="21_m0t2o"]
 [ext_resource type="PackedScene" uid="uid://d00h2ucy2bs7g" path="res://matercaveproject/cave_scenes/base/debris/temple_debris_6.tscn" id="22_j5dl5"]
@@ -110,6 +117,29 @@ uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p6teo"]
 size = Vector3(2.29541, 12.558, 12.4064)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s268h"]
+albedo_texture = ExtResource("13_l4k0t")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ptqun"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkl21"]
+albedo_texture = ExtResource("14_58s67")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ps3ma"]
+albedo_texture = ExtResource("15_iughb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bux40"]
+albedo_texture = ExtResource("16_jb5dj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8c6y7"]
+albedo_texture = ExtResource("17_ia367")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gb3sf"]
+albedo_texture = ExtResource("18_oncyn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb10x"]
+albedo_texture = ExtResource("19_womqw")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qdv62"]
 size = Vector3(28.9311, 10.7036, 1)
@@ -221,8 +251,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9044, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.647705, 5.77902, -0.0336304)
 shape = SubResource("BoxShape3D_p6teo")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Zone"]
+transform = Transform3D(-0.00789447, -0.999725, 0.0220999, -0.0307596, -0.0218473, -0.999288, 0.999496, -0.00856864, -0.0305787, -19.1495, 6.15627, 4.16621)
+material_override = SubResource("StandardMaterial3D_s268h")
+mesh = SubResource("PlaneMesh_ptqun")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Zone"]
+transform = Transform3D(-0.00895212, -0.999725, 0.021693, 0.0175163, -0.0218473, -0.999608, 0.999807, -0.00856864, 0.0177071, -19.0611, 6.65959, -3.96292)
+material_override = SubResource("StandardMaterial3D_wkl21")
+mesh = SubResource("PlaneMesh_ptqun")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Zone"]
+transform = Transform3D(-0.999494, 0.0232585, 0.021693, -0.0220958, -0.0172019, -0.999608, -0.0228762, -0.999582, 0.0177071, -21.8528, 5.99566, 15.714)
+material_override = SubResource("StandardMaterial3D_ps3ma")
+mesh = SubResource("PlaneMesh_ptqun")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Zone"]
+transform = Transform3D(0.0362506, -0.999107, 0.021693, 0.0184861, -0.0210331, -0.999608, 0.999172, 0.0366374, 0.0177071, -17.818, 6.06389, 9.72697)
+material_override = SubResource("StandardMaterial3D_bux40")
+mesh = SubResource("PlaneMesh_ptqun")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Zone"]
+transform = Transform3D(-0.0679635, 0.997452, 0.021693, -0.0191447, 0.0204354, -0.999608, -0.997504, -0.0683522, 0.0177071, -44.4436, 5.36341, 8.80915)
+material_override = SubResource("StandardMaterial3D_8c6y7")
+mesh = SubResource("PlaneMesh_ptqun")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Zone"]
+transform = Transform3D(-0.818969, 0.573428, 0.021693, -0.0279258, -0.00206802, -0.999608, -0.573158, -0.819253, 0.0177071, -43.3273, 5.91483, 15.3786)
+material_override = SubResource("StandardMaterial3D_gb3sf")
+mesh = SubResource("PlaneMesh_ptqun")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Zone"]
+transform = Transform3D(0.368201, 0.929493, 0.021693, -0.00847836, 0.0266879, -0.999608, -0.929708, 0.367873, 0.0177071, -44.3525, 6.78118, -0.666798)
+material_override = SubResource("StandardMaterial3D_yb10x")
+mesh = SubResource("PlaneMesh_ptqun")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0022, 8.71741, -4.00116)
+light_energy = 2.0
+omni_range = 10.0867
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0022, 8.71741, 3.03511)
+light_energy = 2.0
+omni_range = 10.0867
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9448, 8.71741, 6.50577)
+light_energy = 2.0
+omni_range = 10.0867
+
 [node name="Player_2_0" parent="." instance=ExtResource("4_bsi1v")]
-transform = Transform3D(0.155711, 0, -0.987803, 0, 1, 0, 0.987803, 0, 0.155711, -31.1598, 5.39676, 4.8359)
+transform = Transform3D(0.155711, 0, -0.987803, 0, 1, 0, 0.987803, 0, 0.155711, -31.1598, 3.50129, 4.8359)
 
 [node name="Basket" parent="." instance=ExtResource("10_xfvxx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.1131, 2.25902, -4.10457)
