@@ -62,7 +62,7 @@ func _on_key_update(key, value):
 	#1
 	if key == "key" and value == 1:
 		print("Key equal to 1")
-		Dialogic.start("new_numeral_system_diallog","firstkeyscollected")
+		Dialogic.start("new_numeral_system_diallog","firstkeycollected")
 	#2
 	if key == "key" and value == 2:
 		print("Key equal to 2")

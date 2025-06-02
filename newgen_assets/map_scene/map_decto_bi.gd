@@ -15,16 +15,19 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start("timeline")
 	GameState.tukey_state_changed.connect(_on_tukey_update)
-	
+	GameState.set_tovalue("tutokey", 0)
 	
 func _on_tukey_update(tukey, tuvalue):
-	#1
+	#1s
 	if tukey == "tutokey" and tuvalue == 1:
 		print("TuKey equal to 1")
 		#Dialogic.start("new_numeral_system_diallog","firstkeyscollected")
 	
 	if tukey == "tutokey" and tuvalue == 4:
 		print("TuKey equal to 4")
+		await get_tree().create_timer(1.0).timeout
+		Dialogic.start("storyskibidii","goodjob")
+		await get_tree().create_timer(3.0).timeout
 		LoaderManager.change_level("res://Numeral_map/num_fl01/beta_numeral_map.tscn")
 func _input(event):
 	if not movement_enabled:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=194 format=3 uid="uid://c20pdnmph2fox"]
+[gd_scene load_steps=195 format=3 uid="uid://c20pdnmph2fox"]
 
 [ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="1_h102c"]
 [ext_resource type="Script" uid="uid://duatmv80k5n4m" path="res://Numeral_map/num_fl01/beta_numeral_map.gd" id="1_yaed8"]
@@ -88,6 +88,7 @@
 [ext_resource type="PackedScene" uid="uid://lauc7egswra6" path="res://floorswitch/pause_game_ui.tscn" id="86_0xr3g"]
 [ext_resource type="Texture2D" uid="uid://s7jcemkbg6h4" path="res://floorswitch/Screenshot 2025-04-05 021703.png" id="86_m5e3b"]
 [ext_resource type="Script" uid="uid://c46bl0y0hc172" path="res://floorswitch/Last_floor_switch_a.gd" id="87_m5e3b"]
+[ext_resource type="PackedScene" uid="uid://cl5aua4vdpc4d" path="res://asset/Environment/trees/tree.tscn" id="87_p42kb"]
 [ext_resource type="Script" uid="uid://sgjxxfmbc4u4" path="res://floorswitch/last_floor_switch_b.gd" id="88_8lg0m"]
 [ext_resource type="PackedScene" uid="uid://bs0dhkkjae4ap" path="res://newplayer/player_2_0.tscn" id="90_arpcp"]
 
@@ -1119,7 +1120,7 @@ libraries = {
 autoplay = "float_disk"
 
 [node name="Player_2_0" parent="." instance=ExtResource("90_arpcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.518, 34.2195, -32.4951)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.109, 33.5695, 181.806)
 jump_height = 14.0
 
 [node name="PrototypeMap_1" type="Node3D" parent="."]
@@ -1672,6 +1673,47 @@ omni_range = 8.58879
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.72, 7.48378, -19.7001)
 omni_range = 8.58879
 
+[node name="OmniLight3D7" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.2184, 23.15, -28.7921)
+omni_range = 8.58879
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.888, 21.2298, -5.32161)
+omni_range = 8.58879
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.6449, 21.2298, -1.66735)
+omni_range = 8.58879
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.69197, 9.3631, 6.7268)
+omni_range = 8.58879
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.69197, 9.3631, -4.14894)
+light_energy = 7.222
+omni_range = 13.1463
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0083, 10.2547, -14.6179)
+light_energy = 7.222
+omni_range = 19.0135
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0083, 12.6989, 10.0673)
+light_energy = 7.222
+omni_range = 19.0135
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7377, 12.6989, 10.0673)
+light_energy = 7.222
+omni_range = 19.0135
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68216, 12.6989, 27.0625)
+light_energy = 7.222
+omni_range = 19.0135
+
 [node name="OmniLight3D6" type="OmniLight3D" parent="PrototypeMap_1/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63887, 9.12518, 4.33484)
 omni_range = 8.58879
@@ -1982,7 +2024,7 @@ transform = Transform3D(0.568217, 0, -0.822879, 0, 1, 0, 0.822879, 0, 0.568217, 
 transform = Transform3D(0.568217, 0, -0.822879, 0, 1, 0, 0.822879, 0, 0.568217, 16.8489, 7.92841, 24.6166)
 
 [node name="SecFirstFloorSwitch" parent="PrototypeMap_2/ButtonProto" instance=ExtResource("30_mpjuw")]
-transform = Transform3D(-0.0143286, 0, -0.999898, 0, 1, 0, 0.999898, 0, -0.0143286, 19.1264, 9.49287, -23.2175)
+transform = Transform3D(-0.0143286, 0, -0.999898, 0, 1, 0, 0.999898, 0, -0.0143286, 18.5885, 9.49287, -23.2175)
 script = ExtResource("44_b38tq")
 
 [node name="GonextSwitch2" parent="PrototypeMap_2/ButtonProto" instance=ExtResource("30_mpjuw")]
@@ -2268,10 +2310,10 @@ use_collision = true
 size = Vector3(1.92604, 7.2847, 1.37749)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="PrototypeMap_3/BoxProto"]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 16.2645, 2.42337, -28.458)
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 13.5116, 6.24306, -28.458)
 material_override = SubResource("StandardMaterial3D_a8ins")
 use_collision = true
-size = Vector3(1.42043, 7.2847, 1.37749)
+size = Vector3(2.10865, 14.9241, 1.37749)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="PrototypeMap_3/BoxProto"]
 transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 33.1461, 2.42337, -28.458)
@@ -2832,16 +2874,52 @@ use_collision = true
 size = Vector3(0.36905, 16.8751, 2.6827)
 
 [node name="CSGBox3D43" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -1.52237, 16.0965, 10.0825)
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -1.52237, 12.6255, 10.0825)
 material_override = SubResource("StandardMaterial3D_4wveo")
 use_collision = true
-size = Vector3(1.75367, 23.2781, 3.54847)
+size = Vector3(1.75367, 30.2201, 3.54847)
 
 [node name="CSGBox3D57" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
 transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -34.6687, 11.9533, -32.0212)
 material_override = SubResource("StandardMaterial3D_4wveo")
 use_collision = true
 size = Vector3(1.15467, 17.3635, 1.12836)
+
+[node name="CSGBox3D61" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -27.1875, 4.48547, -32.0212)
+material_override = SubResource("StandardMaterial3D_4wveo")
+use_collision = true
+size = Vector3(1.15467, 2.42784, 1.12836)
+
+[node name="CSGBox3D62" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -71.349, 4.48547, 14.5225)
+material_override = SubResource("StandardMaterial3D_4wveo")
+use_collision = true
+size = Vector3(1.15467, 2.42784, 1.12836)
+
+[node name="CSGBox3D67" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 13.6297, 4.20279, 61.256)
+material_override = SubResource("StandardMaterial3D_4wveo")
+use_collision = true
+size = Vector3(2.04109, 1.86248, 1.56627)
+
+[node name="CSGBox3D65" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -71.349, 4.48547, 14.5225)
+material_override = SubResource("StandardMaterial3D_4wveo")
+use_collision = true
+size = Vector3(1.15467, 2.42784, 1.12836)
+
+[node name="CSGBox3D63" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 59.9615, 3.84433, -36.3397)
+material_override = SubResource("StandardMaterial3D_4wveo")
+use_collision = true
+size = Vector3(2.91962, 1.14556, 1.12836)
+
+[node name="CSGBox3D64" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 59.9615, 2.86457, 51.8605)
+material_override = SubResource("StandardMaterial3D_4wveo")
+use_collision = true
+size = Vector3(2.91962, 2.42784, 1.66332)
 
 [node name="CSGBox3D60" type="CSGBox3D" parent="PrototypeMap_4/boxproto"]
 transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -79.7116, 10.2422, 15.0598)
@@ -2857,10 +2935,204 @@ size = Vector3(1.64734, 7.2847, 1.25234)
 
 [node name="blueprint" type="MeshInstance3D" parent="PrototypeMap_4/boxproto"]
 transform = Transform3D(7.58702e-06, 0, 79.6432, 0, 51.4847, 0, -57.857, 0, 1.04439e-05, 0, 4.10409, 15.8605)
+visible = false
 material_override = SubResource("StandardMaterial3D_8lg0m")
 mesh = SubResource("PlaneMesh_0xr3g")
 
 [node name="decorproto" type="Node3D" parent="PrototypeMap_4"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.3727, 7.95906, -25.5686)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.3727, 7.95906, 11.8181)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.352, 7.95906, 47.0798)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4557, 7.95906, 52.8692)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.66139, 7.95906, 52.8692)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.66139, 7.95906, 52.8692)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.3231, 13.0898, 52.8692)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.3231, 13.0898, 17.461)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.1164, 13.0898, -9.49919)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0121, 13.0898, -20.1506)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5076, 13.0898, -20.1506)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5076, 13.0898, 10.9605)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3141, 13.0898, 10.9605)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13286, 29.6776, 10.9605)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264725, 14.0609, -80.2411)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6822, 14.0609, -131.618)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9729, 14.0609, -122.274)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.2678, 14.0609, -122.274)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D19" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9114, 15.3143, -136.606)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D20" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6272, 15.3143, -136.606)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D21" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6187, 15.3143, -151.384)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D22" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6187, 15.3143, -164.542)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D23" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8981, 15.3143, -182.167)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D24" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8981, 20.9586, -203.836)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D25" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5822, 20.9586, -203.836)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D26" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7763, 27.3186, -201.422)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D27" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7763, 21.6134, -206.876)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D28" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7763, 13.5307, -180.719)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D29" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7763, 13.5307, -169.157)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D30" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.525, -0.486843, -152.279)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D31" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.644, -0.486843, -152.279)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D32" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116.644, -0.486843, -152.279)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D33" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.21, -5.04837, -152.279)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D34" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.21, -7.22316, -175.995)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D35" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.562, -3.07155, -175.995)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D36" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.138, -5.05672, -186.62)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="OmniLight3D37" type="OmniLight3D" parent="PrototypeMap_4/decorproto"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.746, -5.05672, -196.902)
+light_energy = 5.222
+omni_range = 39.8621
+
+[node name="Tree1Geo2" parent="PrototypeMap_4/decorproto" instance=ExtResource("87_p42kb")]
+transform = Transform3D(7.41813, 0, 3.95359, 0, 8.40592, 0, -3.95359, 0, 7.41813, -59.2635, -1.44556, -27.2986)
+skeleton = NodePath("../..")
+
+[node name="Tree1Geo3" parent="PrototypeMap_4/decorproto" instance=ExtResource("87_p42kb")]
+transform = Transform3D(7.41813, 0, 3.95359, 0, 8.40592, 0, -3.95359, 0, 7.41813, -65.661, -1.44556, 58.976)
+skeleton = NodePath("../..")
 
 [node name="colliproto" type="StaticBody3D" parent="PrototypeMap_4"]
 
@@ -2935,7 +3207,7 @@ transform = Transform3D(0, 0, 6.6317, 0, 6.6317, 0, -6.6317, 0, 0, -0.694214, -1
 label_3d = NodePath("../OctalLabelOne")
 
 [node name="OctalCounter" parent="PrototypeMap_4/ButtonProto/OctalpuzzleC" node_paths=PackedStringArray("door") instance=ExtResource("48_cvbgr")]
-transform = Transform3D(3.44833, 0, -0.0299727, 0, 3.44846, 0, 0.0299727, 0, 3.44833, 24.1282, -11.1359, 8.20117)
+transform = Transform3D(2.63534, 0, -0.0229063, 0, 2.63544, 0, 0.0229063, 0, 2.63534, 24.1282, -11.1359, 8.20117)
 randomed_number_button = NodePath("../OctalRandomSwitch")
 door = NodePath("../Door")
 
@@ -2952,7 +3224,7 @@ font_size = 400
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5298, 13.1537, 37.5407)
 
 [node name="OctalRandomSwitch" parent="PrototypeMap_4/ButtonProto/OctalpuzzleD" node_paths=PackedStringArray("label_3d") instance=ExtResource("47_sv5gg")]
-transform = Transform3D(0, 0, 6.6317, 0, 6.6317, 0, -6.6317, 0, 0, -43.7439, -10.714, 3.60655)
+transform = Transform3D(0, 0, 4.53963, 0, 4.53963, 0, -4.53963, 0, 0, -43.7439, -10.714, 3.60655)
 label_3d = NodePath("../OctalLabelOne")
 
 [node name="OctalCounter" parent="PrototypeMap_4/ButtonProto/OctalpuzzleD" node_paths=PackedStringArray("door") instance=ExtResource("48_cvbgr")]
@@ -2988,19 +3260,19 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.124, -20.2692, 0)
 
 [node name="JesusKey9" parent="PrototypeMap_4/keykeeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(-2.54094, 0, -1.78044, 0, 3.10264, 0, 1.78044, 0, -2.54094, 179.412, 21.1544, -11.9509)
+transform = Transform3D(-2.54094, 0, -1.78044, 0, 3.10264, 0, 1.78044, 0, -2.54094, 179.412, 23.5012, -11.9509)
 
 [node name="JesusKey10" parent="PrototypeMap_4/keykeeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.27215, 0, -2.11275, 0, 3.10264, 0, 2.11275, 0, 2.27215, 179.412, 21.1544, 39.8326)
+transform = Transform3D(2.27215, 0, -2.11275, 0, 3.10264, 0, 2.11275, 0, 2.27215, 179.412, 23.3283, 39.8326)
 
 [node name="JesusKey11" parent="PrototypeMap_4/keykeeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(-3.02137, 0, -0.705484, 0, 3.10264, 0, 0.705484, 0, -3.02137, 115.357, 21.1544, 39.8326)
+transform = Transform3D(-3.02137, 0, -0.705484, 0, 3.10264, 0, 0.705484, 0, -3.02137, 115.357, 23.5807, 39.8326)
 
 [node name="JesusKey12" parent="PrototypeMap_4/keykeeper" instance=ExtResource("32_mpjuw")]
 transform = Transform3D(2.58814, 0, -1.71111, 0, 3.10264, 0, 1.71111, 0, 2.58814, 115.357, 21.1544, 13.3273)
 
 [node name="JesusKey13" parent="PrototypeMap_4/keykeeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 146.28, 21.1544, 13.3273)
+transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 146.28, 24.6734, 13.3273)
 
 [node name="worldenvironment" parent="." instance=ExtResource("3_7eek8")]
 transform = Transform3D(-0.0079924, -0.993745, 0.111391, 0.0711193, -0.111677, -0.991196, 0.997436, 0, 0.071567, 0, 41.4061, 35.1579)
@@ -3010,54 +3282,6 @@ transform = Transform3D(-0.0079924, -0.993745, 0.111391, 0.0711193, -0.111677, -
 [node name="keeper" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.1137, 26.9162, 11.6797)
 visible = false
-
-[node name="JesusKey14" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 0.287636, 4.30313)
-
-[node name="JesusKey15" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 1.26089, 4.30313)
-
-[node name="JesusKey16" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 3.57423, 4.30313)
-
-[node name="JesusKey17" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 5.82769, 4.30313)
-
-[node name="JesusKey18" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 9.83867, 4.30313)
-
-[node name="JesusKey19" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 11.3817, 4.30313)
-
-[node name="JesusKey20" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 12.8735, 4.30313)
-
-[node name="JesusKey21" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 17.657, 14.7029, 4.30313)
-
-[node name="JesusKey22" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 24.4869, 14.7029, 4.30313)
-
-[node name="JesusKey23" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 26.9195, 14.7029, 4.30313)
-
-[node name="JesusKey24" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 32.2348, 14.7029, 4.30313)
-
-[node name="JesusKey25" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 36.3329, 14.7029, 4.30313)
-
-[node name="JesusKey26" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 9.96044, 14.7029, 4.30313)
-
-[node name="JesusKey27" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 20.0401, 17.5887, 4.30313)
-
-[node name="JesusKey28" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 20.0401, 19.546, 4.30313)
-
-[node name="JesusKey29" parent="keeper" instance=ExtResource("32_mpjuw")]
-transform = Transform3D(2.14767, 0, -2.23918, 0, 3.10264, 0, 2.23918, 0, 2.14767, 20.0401, 19.546, 4.30313)
 
 [connection signal="interacted" from="PrototypeMap_1/ButtonFloorOne/FirstFloorSwitch" to="PrototypeMap_1/ButtonFloorOne/FirstFloorSwitch" method="_on_interacted"]
 [connection signal="interacted" from="PrototypeMap_1/ButtonFloorOne/FirstsecFloorSwitch2" to="PrototypeMap_1/ButtonFloorOne/FirstsecFloorSwitch2" method="_on_interacted"]

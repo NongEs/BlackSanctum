@@ -260,6 +260,7 @@ script = ExtResource("13_ur78m")
 
 [node name="KeyCurrent" type="Label" parent="UI/Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -279,6 +280,7 @@ horizontal_alignment = 1
 
 [node name="KeyFull" type="Label" parent="UI/Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -298,6 +300,7 @@ horizontal_alignment = 1
 
 [node name="TutoKeyCurrent" type="Label" parent="UI/Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -317,6 +320,7 @@ horizontal_alignment = 1
 
 [node name="TutoKeyFull" type="Label" parent="UI/Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -335,6 +339,7 @@ text = "/ 5"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -361,13 +366,13 @@ text = "0
 font_size = 150
 
 [node name="OctalLabel2" type="Label3D" parent="."]
-transform = Transform3D(0.190025, 0.0194584, 0.44098, 0.00332065, 0.48003, -0.0226125, -0.441397, 0.0119883, 0.189676, -3.63692, 2.73587, -4.26133)
+transform = Transform3D(0.0211317, 0.0224452, 0.479585, 0.00332065, 0.48003, -0.0226125, -0.480098, 0.00430813, 0.0209533, -3.80866, 2.73587, -4.53179)
 text = "0
 "
 font_size = 150
 
 [node name="OctalCounter" parent="." node_paths=PackedStringArray("door") instance=ExtResource("18_yvrvb")]
-transform = Transform3D(-0.999124, 0, 0.0418409, 0, 1, 0, -0.0418409, 0, -0.999124, -9.74301, 2.4254, -1.61725)
+transform = Transform3D(-0.999124, 0, 0.0418409, 0, 1, 0, -0.0418409, 0, -0.999124, -25.5011, 2.4254, 1.61659)
 randomed_number_button = NodePath("../OctalRandomSwitch")
 door = NodePath("../Door")
 
@@ -388,7 +393,7 @@ text = "0
 font_size = 150
 
 [node name="BinaryCounter" parent="test" node_paths=PackedStringArray("door") instance=ExtResource("19_2omov")]
-transform = Transform3D(-0.123635, 0.992316, -0.00479969, 0.992328, 0.123636, 0, 0.000593418, -0.00476287, -0.999988, 4.7631, 2.0318, -9.97321)
+transform = Transform3D(-0.254567, 0.967043, -0.00475702, 0.967055, 0.254567, -0.000638609, 0.000593418, -0.00476287, -0.999988, -24.9568, 2.0318, -9.97321)
 randomed_number_button = NodePath("../RandomSwitch")
 door = NodePath("../../Door2")
 
@@ -406,7 +411,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.59869)
 stream = ExtResource("22_dy31d")
 
 [node name="RandomValueMakerHex" parent="." instance=ExtResource("61_xpcwd")]
-transform = Transform3D(0.659306, 0, -0.751874, 0, 1, 0, 0.751874, 0, 0.659306, -0.467388, 2.06791, -7.23404)
+transform = Transform3D(0.659306, 0, -0.751874, 0, 1, 0, 0.751874, 0, 0.659306, 5.47778, 2.06791, -13.8112)
 fixed_r = 255
 fixed_b = 255
 

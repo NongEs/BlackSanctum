@@ -181,7 +181,7 @@ func _show_correct_answers():
 		match gate_type:
 			0: correct = q[0] & q[1]      # AND
 			1: correct = q[0] | q[1]      # OR
-			2: correct = q[0] ^ q[1]      # XOR
+			2: correct = q[0] ^ q[1]      # XORs
 			3: correct = int(not (q[0] & q[1]))  # NAND
 			4: correct = int(not (q[0] | q[1]))  # NOR
 			5: correct = int(not (q[0] ^ q[1]))  # XNOR

@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://phdixirbdflf"]
+[gd_scene load_steps=71 format=3 uid="uid://phdixirbdflf"]
 
 [ext_resource type="Script" uid="uid://cmkq7ngtpdd4p" path="res://newgen_assets/map_scene/map_decto_bi.gd" id="1_8mr3w"]
 [ext_resource type="Texture2D" uid="uid://bd2y8cfou53lx" path="res://addons/grid_texture/dark/texture_08.png" id="2_4jjcf"]
@@ -492,6 +492,21 @@ _data = {
 &"bridge_move": SubResource("Animation_r4kdl")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_peknj"]
+size = Vector3(40.1517, 13.877, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sm0vi"]
+size = Vector3(37.8515, 13.877, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hqwsa"]
+size = Vector3(8.76145, 13.877, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fqntx"]
+size = Vector3(8.76145, 13.877, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dcbj"]
+size = Vector3(8.3734, 13.877, 1)
+
 [sub_resource type="Animation" id="Animation_qma81"]
 length = 0.001
 tracks/0/type = "value"
@@ -555,6 +570,12 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rqgxo"]
 size = Vector3(5.37525, 2.61426, 6.32715)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sluo6"]
+size = Vector3(18.7408, 51.1628, 2.22998)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4sq5k"]
+size = Vector3(23.1517, 43.3278, 11.7832)
 
 [sub_resource type="Animation" id="Animation_ffa75"]
 length = 0.001
@@ -1631,8 +1652,9 @@ libraries = {
 autoplay = "cube_float"
 
 [node name="BinaryCounter" parent="block" node_paths=PackedStringArray("door") instance=ExtResource("12_pccew")]
-transform = Transform3D(0.0144099, -0.0233232, 0.999624, 0.923387, 0.383847, -0.00435493, -0.383601, 0.923102, 0.0270676, 8.30383, 1.95632, -32.8161)
+transform = Transform3D(0.0144099, -0.0233232, 0.999624, 0.923387, 0.383847, -0.00435493, -0.383601, 0.923102, 0.0270676, 8.30383, 0.95632, -32.8161)
 door = NodePath("../CSGBox3D14/Door")
+randomed_number = 197
 
 [node name="SampleSwitch" parent="block" node_paths=PackedStringArray("door") instance=ExtResource("13_pp8bl")]
 transform = Transform3D(-0.0748047, 0, 0.997198, 0, 1, 0, -0.997198, 0, -0.0748047, -2.92246, 0.492676, -30.7545)
@@ -1830,6 +1852,33 @@ libraries = {
 &"": SubResource("AnimationLibrary_8b3c4")
 }
 
+[node name="StaticBody3D" type="StaticBody3D" parent="block2/brigde"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block2/brigde/StaticBody3D"]
+transform = Transform3D(0.665803, 0, -0.746127, 0, 1, 0, 0.746127, 0, 0.665803, -5.3681, -0.913153, -1.1059)
+shape = SubResource("BoxShape3D_peknj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="block2/brigde/StaticBody3D"]
+transform = Transform3D(0.665803, 0, -0.746127, 0, 1, 0, 0.746127, 0, 0.665803, -1.13254, -0.913153, -4.18811)
+shape = SubResource("BoxShape3D_sm0vi")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="block2/brigde/StaticBody3D"]
+transform = Transform3D(0.999921, 0, -0.0125311, 0, 1, 0, 0.0125311, 0, 0.999921, 15.374, -0.913153, 9.34716)
+shape = SubResource("BoxShape3D_hqwsa")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="block2/brigde/StaticBody3D"]
+transform = Transform3D(0.999921, 0, -0.0125311, 0, 1, 0, 0.0125311, 0, 0.999921, -22.5983, -0.913153, -15.7944)
+shape = SubResource("BoxShape3D_fqntx")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="block2/brigde/StaticBody3D"]
+transform = Transform3D(0.0163879, 0, -0.999866, 0, 1, 0, 0.999866, 0, 0.0163879, 7.72152, -0.913153, 17.8821)
+shape = SubResource("BoxShape3D_hqwsa")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="block2/brigde/StaticBody3D"]
+transform = Transform3D(0.0163879, 0, -0.999866, 0, 1, 0, 0.999866, 0, 0.0163879, -13.6827, -0.913153, -22.2439)
+shape = SubResource("BoxShape3D_7dcbj")
+
 [node name="block3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.9661, 14.8955, -42.9066)
 
@@ -1979,6 +2028,17 @@ font_size = 100
 transform = Transform3D(0.024153, 0, 0.999708, 0, 1, 0, -0.999708, 0, 0.024153, 6.98671, -4.99725, 0.322826)
 label_3d = NodePath("../woohoolabel")
 door = NodePath("../CSGBox3D14/seconddoor")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block3"]
+transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 3.72529e-09, 0, 1, 27.0192, 1.06931, 0.96582)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block3/StaticBody3D"]
+transform = Transform3D(0.030102, 0.999547, 3.61571e-09, -0.999547, 0.030102, 3.72536e-09, 3.61483e-09, -3.72623e-09, 1, 25.5904, 5.77768, 6.93325)
+shape = SubResource("BoxShape3D_sluo6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="block3/StaticBody3D"]
+transform = Transform3D(0.037062, 0.999313, 3.58976e-09, -0.999313, 0.037062, 3.7245e-09, 3.5889e-09, -3.72537e-09, 1, 22.2743, 2.61773, -12.0577)
+shape = SubResource("BoxShape3D_4sq5k")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="block3"]
 transform = Transform3D(1, 0, -3.72529e-09, 0, 1, 0, 3.72529e-09, 0, 1, 27.0192, 1.06931, 0.96582)

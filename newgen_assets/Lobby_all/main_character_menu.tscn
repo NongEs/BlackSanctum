@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://boy5ecaew4k4r" path="res://asset/NewUIAsset/Logic_Gate/Hover.png" id="11_1r10b"]
 [ext_resource type="Texture2D" uid="uid://dnmwi3wa2ftgb" path="res://asset/Universal UI/UI_button icon/next btn/next_defaultlight.png" id="11_v3ikv"]
 [ext_resource type="Texture2D" uid="uid://ciyi4jh7og0cm" path="res://asset/Universal UI/UI_button icon/next btn/next_press.png" id="12_16iyi"]
-[ext_resource type="Texture2D" uid="uid://yhnwutdmy1wa" path="res://asset/NewUIAsset/NewBG/BG Dashboard.png" id="12_plpil"]
 [ext_resource type="Texture2D" uid="uid://bs4afnf834h75" path="res://asset/Universal UI/UI_button icon/next btn/next_hover.png" id="13_36fbp"]
 [ext_resource type="Texture2D" uid="uid://ebuw3i8njds3" path="res://asset/Numeral/Character_Icon.png" id="18_3mmkf"]
 [ext_resource type="Texture2D" uid="uid://ca13wkletkvqx" path="res://asset/Numeral/DtH_Default.png" id="19_266qf"]
+[ext_resource type="Texture2D" uid="uid://c7a76fducdn6q" path="res://BG_Dashboard.png" id="20_7kr5m"]
 [ext_resource type="Texture2D" uid="uid://sml0wt74tomi" path="res://asset/Numeral/DtH_Select.png" id="20_pspww"]
 [ext_resource type="Texture2D" uid="uid://qvsaf1m38g1e" path="res://asset/Numeral/DtH_Hover.png" id="21_ms5qo"]
 [ext_resource type="FontFile" uid="uid://c0ubcxrvcrqfc" path="res://asset/font/Gorck Helozat.ttf" id="24_1hyic"]
@@ -263,7 +263,7 @@ layout_mode = 2
 layout_mode = 2
 offset_right = 1792.0
 offset_bottom = 960.0
-texture = ExtResource("12_plpil")
+texture = ExtResource("20_7kr5m")
 expand_mode = 2
 
 [node name="TierLabel" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
@@ -329,27 +329,6 @@ theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
 theme_override_fonts/font = ExtResource("24_1hyic")
 theme_override_font_sizes/font_size = 60
 text = "UnRanked"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="TimeBest2" type="Label" parent="ArtifactM/PanelContainer/Dashboard"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 153.0
-offset_top = 200.0
-offset_right = 672.0
-offset_bottom = 276.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.886275, 0.709804, 0.364706, 1)
-theme_override_fonts/font = ExtResource("24_1hyic")
-theme_override_font_sizes/font_size = 60
-text = "#####"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -608,6 +587,7 @@ texture_pressed = ExtResource("26_cco4f")
 texture_hover = ExtResource("26_cco4f")
 
 [node name="ModeSwitchButton" type="TextureButton" parent="SettingM/PanelContainer/Option/VBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("27_1sj1s")
 texture_pressed = ExtResource("28_yuxu1")

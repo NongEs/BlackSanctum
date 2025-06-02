@@ -30,3 +30,6 @@ label gonext (gonext)
 DrMantis (DefaultMantis): Alright, The code is 197 let's open the door and move on to the next stage.
 DrMantis (MantisSmile): Don't worry! I'll be your guide until you fully understand the system!
 [end_timeline]
+label goodjob (goodjob)
+DrMantis (MantisSmile): Good job! Let's go to next stage. 
+[end_timeline]
